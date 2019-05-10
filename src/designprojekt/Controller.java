@@ -17,7 +17,7 @@ public class Controller implements Initializable {
 
     @Override
     public void initialize(URL url, ResourceBundle rb) {
-
+        //git är lite dumt ibland
         /*for (ShoppingItem item : imatBackendController.getProducts()) {
             RecipeListItem recipeListItem = new RecipeListItem(recipe, this);
             recipeListItemMap.put(recipe.getName(), recipeListItem);
