@@ -15,8 +15,32 @@
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="680.0" prefWidth="1080.0" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1">
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="680.0" prefWidth="1080.0" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="designprojekt.Controller">
    <children>
+      <AnchorPane prefHeight="200.0" prefWidth="200.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+         <children>
+            <ImageView fitHeight="680.0" fitWidth="1080.0" pickOnBounds="true" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+               <image>
+                  <Image url="@resources/startPage/28.png" />
+               </image>
+            </ImageView>
+            <Button fx:id="startPage_recentBuy_btn" layoutX="656.0" layoutY="164.0" mnemonicParsing="false" prefHeight="350.0" prefWidth="350.0" text="TIDIGARE KÖP" AnchorPane.bottomAnchor="100.0" AnchorPane.leftAnchor="580.0" AnchorPane.rightAnchor="150.0" AnchorPane.topAnchor="230.0">
+               <font>
+                  <Font size="40.0" />
+               </font>
+            </Button>
+            <Button fx:id="startPage_home_btn" layoutX="240.0" layoutY="137.0" mnemonicParsing="false" prefHeight="350.0" prefWidth="350.0" text="BÖRJA HANDLA" AnchorPane.bottomAnchor="100.0" AnchorPane.leftAnchor="150.0" AnchorPane.rightAnchor="580.0" AnchorPane.topAnchor="230.0">
+               <font>
+                  <Font size="40.0" />
+               </font>
+            </Button>
+            <ImageView fx:id="startPage_logo_imgView" fitHeight="150.0" fitWidth="200.0" layoutX="440.0" layoutY="39.0" pickOnBounds="true" preserveRatio="true" AnchorPane.bottomAnchor="490.0" AnchorPane.leftAnchor="440.0" AnchorPane.rightAnchor="440.0" AnchorPane.topAnchor="40.0">
+               <image>
+                  <Image url="@resources/startPage/plagiatLogo.png" />
+               </image>
+            </ImageView>
+         </children>
+      </AnchorPane>
       <BorderPane AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
          <top>
             <AnchorPane maxHeight="72.0" minHeight="50.0" prefHeight="72.0" prefWidth="1070.0" style="-fx-background-color: green;" BorderPane.alignment="CENTER">
@@ -39,17 +63,9 @@
                         <AnchorPane prefHeight="74.0" prefWidth="681.0" style="-fx-background-color: red;" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
                            <children>
                               <ImageView fitHeight="134.0" fitWidth="487.0" pickOnBounds="true" preserveRatio="true" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0" />
-                              <FlowPane alignment="CENTER" columnHalignment="CENTER" layoutY="19.0" prefHeight="114.0" prefWidth="681.0" AnchorPane.bottomAnchor="1.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0">
-                                 <children>
-                                    <Label prefHeight="79.0" prefWidth="114.0" text="Fri frakt på köp över 100kr!" wrapText="true" />
-                                    <Label prefHeight="79.0" prefWidth="114.0" text="Fri frakt på köp över 100kr!" wrapText="true" />
-                                    <Label prefHeight="79.0" prefWidth="114.0" text="Fri frakt på köp över 100kr!" wrapText="true" />
-                                 </children>
-                              </FlowPane>
-                              <Label alignment="CENTER" layoutX="208.0" layoutY="19.0" text="Welcome to Imat" AnchorPane.leftAnchor="208.0" AnchorPane.rightAnchor="208.0" AnchorPane.topAnchor="19.0" />
                            </children>
                         </AnchorPane>
-                        <FlowPane layoutY="134.0" prefHeight="503.0" prefWidth="553.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="134.0" />
+                        <FlowPane fx:id="mainGrid" alignment="TOP_CENTER" layoutY="134.0" prefHeight="503.0" prefWidth="553.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="134.0" />
                      </children>
                   </AnchorPane>
                </content>
@@ -126,29 +142,5 @@
             </AnchorPane>
          </left>
       </BorderPane>
-      <AnchorPane prefHeight="200.0" prefWidth="200.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
-         <children>
-            <ImageView fitHeight="680.0" fitWidth="1080.0" pickOnBounds="true" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
-               <image>
-                  <Image url="@resources/startPage/28.png" />
-               </image>
-            </ImageView>
-            <Button fx:id="startPage_recentBuy_btn" layoutX="656.0" layoutY="164.0" mnemonicParsing="false" prefHeight="350.0" prefWidth="350.0" text="TIDIGARE KÖP" AnchorPane.bottomAnchor="100.0" AnchorPane.leftAnchor="580.0" AnchorPane.rightAnchor="150.0" AnchorPane.topAnchor="230.0">
-               <font>
-                  <Font size="40.0" />
-               </font>
-            </Button>
-            <Button fx:id="startPage_home_btn" layoutX="240.0" layoutY="137.0" mnemonicParsing="false" prefHeight="350.0" prefWidth="350.0" text="BÖRJA HANDLA" AnchorPane.bottomAnchor="100.0" AnchorPane.leftAnchor="150.0" AnchorPane.rightAnchor="580.0" AnchorPane.topAnchor="230.0">
-               <font>
-                  <Font size="40.0" />
-               </font>
-            </Button>
-            <ImageView fx:id="startPage_logo_imgView" fitHeight="150.0" fitWidth="200.0" layoutX="440.0" layoutY="39.0" pickOnBounds="true" preserveRatio="true" AnchorPane.bottomAnchor="490.0" AnchorPane.leftAnchor="440.0" AnchorPane.rightAnchor="440.0" AnchorPane.topAnchor="40.0">
-               <image>
-                  <Image url="@resources/startPage/plagiatLogo.png" />
-               </image>
-            </ImageView>
-         </children>
-      </AnchorPane>
    </children>
 </AnchorPane>
