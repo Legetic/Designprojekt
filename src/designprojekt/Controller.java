@@ -2,6 +2,7 @@ package designprojekt;
 
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
+import javafx.scene.control.Button;
 import javafx.scene.layout.FlowPane;
 import se.chalmers.cse.dat216.project.ShoppingItem;
 
@@ -14,6 +15,10 @@ public class Controller implements Initializable {
 
     @FXML
     private FlowPane mainGrid;
+    @FXML
+    private Button startPage_recentBuy_btn;
+    @FXML
+    private Button startPage_home_btn;
 
     @Override
     public void initialize(URL url, ResourceBundle rb) {
