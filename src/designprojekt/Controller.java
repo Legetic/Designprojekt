@@ -2,44 +2,57 @@ package designprojekt;
 
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
-import javafx.scene.control.Button;
+import javafx.scene.image.Image;
 import javafx.scene.layout.FlowPane;
+import se.chalmers.cse.dat216.project.IMatDataHandler;
+import se.chalmers.cse.dat216.project.Product;
 import se.chalmers.cse.dat216.project.ShoppingItem;
 
 import java.net.URL;
-import java.util.ResourceBundle;
+import java.util.*;
 
 public class Controller implements Initializable {
 
     ImatBackendController imatBackendController = new ImatBackendController();
+    private IMatDataHandler dataHandler = IMatDataHandler.getInstance();
 
-    @FXML
-    private FlowPane mainGrid;
-    @FXML
-    private Button startPage_recentBuy_btn;
-    @FXML
-    private Button startPage_home_btn;
+    @FXML private FlowPane mainGrid;
+
+
+    List<Product> productList = new ArrayList<>();
+    private Map<String, Card> cardMap = new HashMap<String, Card>();
 
     @Override
     public void initialize(URL url, ResourceBundle rb) {
-        //git är lite dumt ibland
-        /*for (ShoppingItem item : imatBackendController.getProducts()) {
-            RecipeListItem recipeListItem = new RecipeListItem(recipe, this);
-            recipeListItemMap.put(recipe.getName(), recipeListItem);
-        }*/
 
+        for (Product item : imatBackendController.getProducts()) {
+            Card productCard = new Card(item, this);
+            cardMap.put(item.getName(), productCard);
+        }
+
+
+        updateMainGrid();
+    }
+
+    private void updateMainGrid(){
+
+        mainGrid.getChildren().clear();
+        productList = imatBackendController.getProducts();
+        for (Product r : productList){
+            Card productCard = cardMap.get(r.getName());
+            mainGrid.getChildren().add(productCard);
+
+        }
 
     }
 
 
-    /*private void populateMainGrid(){
+    public Image getProductImage(Product product) {
+       return dataHandler.getFXImage(product);
+    }
 
-        mainGrid.getChildren().clear();
-        recipeList = rbc.getRecipes();
-        for (Recipe r : recipeList){
-            RecipeListItem recipeListItem = recipeListItemMap.get(r.getName());
-            flowPane.getChildren().add(recipeListItem);
+    public Image getProductImage(Product product, double width, double height, boolean keepRatio) {
+       return dataHandler.getFXImage(product,width,height,keepRatio);
+    }
 
-        }
-    }*/
 }
