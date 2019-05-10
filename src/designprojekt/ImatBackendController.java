@@ -1,5 +1,6 @@
 package designprojekt;
 
+import javafx.scene.image.Image;
 import se.chalmers.cse.dat216.project.IMatDataHandler;
 import se.chalmers.cse.dat216.project.Product;
 
@@ -12,4 +13,7 @@ public class ImatBackendController {
     public List<Product> getProducts(){
         return dataHandler.getProducts();
     }
+
+
+
 }
