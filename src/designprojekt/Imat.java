@@ -6,6 +6,7 @@ import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.stage.Stage;
 
+import java.awt.*;
 import java.util.ResourceBundle;
 
 import static javafx.application.Application.launch;
@@ -18,8 +19,8 @@ public class Imat extends Application {
         ResourceBundle bundle = java.util.ResourceBundle.getBundle("designprojekt/resources/Imat");
 
         Parent root = FXMLLoader.load(getClass().getResource("main.fxml"), bundle);
-
-        Scene scene = new Scene(root, 800, 500);
+        Dimension screenSize = Toolkit.getDefaultToolkit().getScreenSize();
+        Scene scene = new Scene(root, screenSize.getWidth(), screenSize.getHeight());
 
         stage.setTitle(bundle.getString("application.name"));
         //stage.initStyle(StageStyle.UNDECORATED);
