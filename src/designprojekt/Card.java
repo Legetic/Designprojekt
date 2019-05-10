@@ -5,9 +5,9 @@ import javafx.fxml.FXMLLoader;
 import java.io.IOException;
 
 public class Card {
-    private MainController parentController;
+    private Controller parentController;
 
-    public Card(MainController parentController){
+    public Card(Controller parentController){
         FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("card.fxml"));
         fxmlLoader.setRoot(this);
         fxmlLoader.setController(this);

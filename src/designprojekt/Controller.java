@@ -8,7 +8,7 @@ import se.chalmers.cse.dat216.project.ShoppingItem;
 import java.net.URL;
 import java.util.ResourceBundle;
 
-public class MainController implements Initializable {
+public class Controller implements Initializable {
 
     ImatBackendController imatBackendController = new ImatBackendController();
 
@@ -18,16 +18,16 @@ public class MainController implements Initializable {
     @Override
     public void initialize(URL url, ResourceBundle rb) {
 
-        for (ShoppingItem item : imatBackendController.getProducts()) {
+        /*for (ShoppingItem item : imatBackendController.getProducts()) {
             RecipeListItem recipeListItem = new RecipeListItem(recipe, this);
             recipeListItemMap.put(recipe.getName(), recipeListItem);
-        }
+        }*/
 
 
     }
 
 
-    private void populateMainGrid(){
+    /*private void populateMainGrid(){
 
         mainGrid.getChildren().clear();
         recipeList = rbc.getRecipes();
@@ -36,5 +36,5 @@ public class MainController implements Initializable {
             flowPane.getChildren().add(recipeListItem);
 
         }
-    }
+    }*/
 }
