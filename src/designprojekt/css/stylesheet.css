@@ -3,7 +3,7 @@
 
 }
 
-.body{
+.label{
     -fx-font-family: 'Montserrat', sans-serif;
-    -fx-text-fill: red;
+    /*-fx-text-fill: red;*/
 }
