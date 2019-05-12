@@ -2,6 +2,7 @@ package designprojekt;
 
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
+import javafx.scene.control.Button;
 import javafx.scene.image.Image;
 import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.FlowPane;
@@ -19,6 +20,9 @@ public class Controller implements Initializable {
 
     @FXML private FlowPane mainGrid;
     @FXML private AnchorPane startMenu;
+    @FXML private Button startPage_exit_btn;
+    @FXML private Button startPage_home_btn;
+    @FXML private Button startPage_recentBuy_btn;
 
 
     List<Product> productList = new ArrayList<>();
