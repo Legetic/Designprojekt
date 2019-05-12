@@ -20,12 +20,13 @@ public class Imat extends Application {
 
         Parent root = FXMLLoader.load(getClass().getResource("main.fxml"), bundle);
         Dimension screenSize = Toolkit.getDefaultToolkit().getScreenSize();
-        Scene scene = new Scene(root, screenSize.getWidth(), screenSize.getHeight());
+        Scene scene = new Scene(root, screenSize.getWidth() * 0.75, screenSize.getHeight() * 0.75);
 
         stage.setTitle(bundle.getString("application.name"));
         scene.getStylesheets().add("https://fonts.googleapis.com/css?family=Montserrat");
         //stage.initStyle(StageStyle.UNDECORATED);
         stage.setScene(scene);
+        stage.setMaximized(true);
         stage.show();
 
     }
