@@ -3,7 +3,6 @@
 <?import javafx.geometry.Insets?>
 <?import javafx.scene.control.Button?>
 <?import javafx.scene.control.Label?>
-<?import javafx.scene.control.ListView?>
 <?import javafx.scene.control.ScrollPane?>
 <?import javafx.scene.control.Separator?>
 <?import javafx.scene.control.TextField?>
@@ -12,42 +11,52 @@
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.layout.BorderPane?>
 <?import javafx.scene.layout.FlowPane?>
+<?import javafx.scene.layout.HBox?>
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="680.0" prefWidth="1080.0" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="designprojekt.Controller">
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="644.0" prefWidth="1166.0" styleClass="body" stylesheets="@css/stylesheet.css" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="designprojekt.Controller">
    <children>
-      <AnchorPane prefHeight="200.0" prefWidth="200.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+      <AnchorPane fx:id="startMenu" prefHeight="200.0" prefWidth="200.0" style="-fx-background-image: url(&quot;/resources/startPage/28.png&quot;);; -fx-background-color: white; -fx-background-size: contain; -fx-background-repeat: no-repeat; -fx-background-position: center;" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
          <children>
-            <ImageView fitHeight="680.0" fitWidth="1080.0" pickOnBounds="true" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
-               <image>
-                  <Image url="@resources/startPage/28.png" />
-               </image>
-            </ImageView>
-            <Button fx:id="startPage_recentBuy_btn" layoutX="656.0" layoutY="164.0" mnemonicParsing="false" prefHeight="350.0" prefWidth="350.0" text="TIDIGARE KÖP" AnchorPane.bottomAnchor="100.0" AnchorPane.leftAnchor="580.0" AnchorPane.rightAnchor="150.0" AnchorPane.topAnchor="230.0">
-               <font>
-                  <Font size="40.0" />
-               </font>
-            </Button>
-            <Button fx:id="startPage_home_btn" layoutX="240.0" layoutY="137.0" mnemonicParsing="false" prefHeight="350.0" prefWidth="350.0" text="BÖRJA HANDLA" AnchorPane.bottomAnchor="100.0" AnchorPane.leftAnchor="150.0" AnchorPane.rightAnchor="580.0" AnchorPane.topAnchor="230.0">
-               <font>
-                  <Font size="40.0" />
-               </font>
-            </Button>
-            <ImageView fx:id="startPage_logo_imgView" fitHeight="150.0" fitWidth="200.0" layoutX="440.0" layoutY="39.0" pickOnBounds="true" preserveRatio="true" AnchorPane.bottomAnchor="490.0" AnchorPane.leftAnchor="440.0" AnchorPane.rightAnchor="440.0" AnchorPane.topAnchor="40.0">
-               <image>
-                  <Image url="@resources/startPage/plagiatLogo.png" />
-               </image>
-            </ImageView>
+            <VBox alignment="CENTER" prefHeight="680.0" prefWidth="1080.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+               <children>
+                  <ImageView fx:id="startPage_logo_imgView" fitHeight="150.0" fitWidth="200.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@resources/startPage/plagiatLogo.png" />
+                     </image>
+                     <VBox.margin>
+                        <Insets bottom="50.0" />
+                     </VBox.margin>
+                  </ImageView>
+                  <HBox alignment="CENTER" prefHeight="408.0" prefWidth="1080.0">
+                     <children>
+                        <Button fx:id="startPage_home_btn" mnemonicParsing="false" onAction="#closeStartMenu" prefHeight="350.0" prefWidth="350.0" text="BÖRJA HANDLA" wrapText="true">
+                           <font>
+                              <Font size="40.0" />
+                           </font>
+                           <HBox.margin>
+                              <Insets right="50.0" />
+                           </HBox.margin>
+                        </Button>
+                        <Button fx:id="startPage_recentBuy_btn" mnemonicParsing="false" prefHeight="350.0" prefWidth="350.0" text="TIDIGARE KÖP" wrapText="true">
+                           <font>
+                              <Font size="40.0" />
+                           </font>
+                        </Button>
+                     </children>
+                  </HBox>
+               </children>
+            </VBox>
          </children>
       </AnchorPane>
       <BorderPane AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
          <top>
-            <AnchorPane maxHeight="72.0" minHeight="50.0" prefHeight="72.0" prefWidth="1070.0" style="-fx-background-color: green;" BorderPane.alignment="CENTER">
+            <AnchorPane maxHeight="72.0" minHeight="50.0" prefHeight="65.0" prefWidth="1166.0" style="-fx-background-color: #6CD1FD;" BorderPane.alignment="CENTER">
                <children>
-                  <Label layoutX="14.0" layoutY="9.0" text="IMat">
+                  <Label layoutX="43.0" layoutY="9.0" text="iMat" textFill="#f3f9fe">
                      <font>
-                        <Font size="38.0" />
+                        <Font name="System Bold" size="38.0" />
                      </font>
                   </Label>
                   <TextField layoutX="205.0" layoutY="21.0" prefHeight="31.0" prefWidth="585.0" promptText="Sök bland tusentals varor..." AnchorPane.leftAnchor="205.0" AnchorPane.rightAnchor="280.0" AnchorPane.topAnchor="21.0" />
@@ -55,24 +64,8 @@
                </children>
             </AnchorPane>
          </top>
-         <center>
-            <ScrollPane fitToHeight="true" fitToWidth="true" hbarPolicy="NEVER" prefHeight="640.0" prefWidth="313.0" style="-fx-background-color: #FFFFFF;" BorderPane.alignment="CENTER">
-               <content>
-                  <AnchorPane prefHeight="639.0" prefWidth="554.0" style="-fx-background-color: gray;">
-                     <children>
-                        <AnchorPane prefHeight="74.0" prefWidth="681.0" style="-fx-background-color: red;" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
-                           <children>
-                              <ImageView fitHeight="134.0" fitWidth="487.0" pickOnBounds="true" preserveRatio="true" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0" />
-                           </children>
-                        </AnchorPane>
-                        <FlowPane fx:id="mainGrid" alignment="TOP_CENTER" layoutY="134.0" prefHeight="503.0" prefWidth="553.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="134.0" />
-                     </children>
-                  </AnchorPane>
-               </content>
-            </ScrollPane>
-         </center>
          <right>
-            <AnchorPane prefHeight="650.0" prefWidth="283.0" BorderPane.alignment="TOP_RIGHT">
+            <AnchorPane prefHeight="650.0" prefWidth="283.0" style="-fx-background-color: white;" BorderPane.alignment="TOP_RIGHT">
                <children>
                   <VBox alignment="TOP_CENTER" layoutX="-5.0" layoutY="2.0" prefHeight="625.0" prefWidth="288.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
                      <children>
@@ -84,16 +77,16 @@
                               <Insets top="50.0" />
                            </VBox.margin>
                         </ImageView>
-                        <Label text="Varukorg">
+                        <Label prefHeight="0.0" prefWidth="131.0" text="Varukorg">
                            <font>
                               <Font size="32.0" />
                            </font>
                         </Label>
-                        <ScrollPane fitToHeight="true" fitToWidth="true" prefHeight="516.0" prefWidth="283.0">
+                        <ScrollPane fitToHeight="true" fitToWidth="true" prefHeight="604.0" prefWidth="283.0" style="-fx-background-color: white;">
                            <content>
-                              <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="200.0" prefWidth="200.0">
+                              <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="509.0" prefWidth="281.0" style="-fx-background-color: white;">
                                  <children>
-                                    <ListView prefHeight="217.0" prefWidth="283.0" />
+                                    <FlowPane prefHeight="200.0" prefWidth="200.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0" />
                                  </children>
                               </AnchorPane>
                            </content>
@@ -110,16 +103,16 @@
          <left>
             <AnchorPane prefHeight="200.0" prefWidth="200.0" BorderPane.alignment="CENTER">
                <children>
-                  <ScrollPane fitToHeight="true" fitToWidth="true" hbarPolicy="NEVER" prefHeight="646.0" prefWidth="223.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="-3.0" AnchorPane.topAnchor="0.0">
+                  <ScrollPane fitToHeight="true" fitToWidth="true" hbarPolicy="NEVER" prefHeight="646.0" prefWidth="223.0" style="-fx-background-color: #D0F1FF;" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="-3.0" AnchorPane.topAnchor="0.0">
                      <content>
-                        <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="644.0" prefWidth="244.0">
+                        <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="644.0" prefWidth="244.0" style="-fx-background-color: #D0F1FF;">
                            <children>
                               <VBox prefHeight="551.0" prefWidth="227.0" AnchorPane.leftAnchor="-3.0" AnchorPane.rightAnchor="-3.0">
                                  <children>
-                                    <Button mnemonicParsing="false" prefHeight="31.0" prefWidth="312.0" text="Button" />
-                                    <Button mnemonicParsing="false" prefHeight="31.0" prefWidth="312.0" text="Button" />
-                                    <Button mnemonicParsing="false" prefHeight="31.0" prefWidth="312.0" text="Button" />
-                                    <Separator prefHeight="41.0" prefWidth="207.0" valignment="BOTTOM" />
+                                    <Button mnemonicParsing="false" prefHeight="31.0" prefWidth="312.0" text="Nyheter" />
+                                    <Button mnemonicParsing="false" prefHeight="31.0" prefWidth="312.0" text="Något Kul" />
+                                    <Button mnemonicParsing="false" prefHeight="31.0" prefWidth="312.0" text="Trevligt" />
+                                    <Separator prefHeight="43.0" prefWidth="209.0" valignment="BOTTOM" />
                                     <Label alignment="BOTTOM_LEFT" prefHeight="76.0" prefWidth="238.0" text="Sortiment" VBox.vgrow="NEVER">
                                        <font>
                                           <Font size="23.0" />
@@ -128,8 +121,8 @@
                                           <Insets left="10.0" />
                                        </padding>
                                     </Label>
-                                    <Button mnemonicParsing="false" prefHeight="31.0" prefWidth="312.0" text="Button" />
-                                    <Button mnemonicParsing="false" prefHeight="31.0" prefWidth="312.0" text="Button" />
+                                    <Button mnemonicParsing="false" prefHeight="31.0" prefWidth="312.0" text="Kött" />
+                                    <Button mnemonicParsing="false" prefHeight="31.0" prefWidth="312.0" text="Frukt &amp; Grönt" />
                                     <Button mnemonicParsing="false" prefHeight="31.0" prefWidth="312.0" text="Button" />
                                     <Button mnemonicParsing="false" prefHeight="31.0" prefWidth="221.0" text="Button" />
                                  </children>
@@ -137,10 +130,63 @@
                            </children>
                         </AnchorPane>
                      </content>
+                     <padding>
+                        <Insets top="20.0" />
+                     </padding>
                   </ScrollPane>
                </children>
             </AnchorPane>
          </left>
+         <center>
+            <AnchorPane prefHeight="200.0" prefWidth="200.0" BorderPane.alignment="CENTER">
+               <children>
+                  <ScrollPane fx:id="previousPurchasesPage" fitToHeight="true" fitToWidth="true" hbarPolicy="NEVER" prefHeight="200.0" prefWidth="200.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+                    <content>
+                      <AnchorPane prefHeight="665.0" prefWidth="594.0">
+                           <children>
+                              <Label layoutX="201.0" layoutY="45.0" text="Tidigare Köp">
+                                 <font>
+                                    <Font size="40.0" />
+                                 </font>
+                              </Label>
+                              <ImageView fitHeight="60.0" fitWidth="90.0" layoutX="128.0" layoutY="44.0" pickOnBounds="true" preserveRatio="true">
+                                 <image>
+                                    <Image url="@resources/placeholder.png" />
+                                 </image>
+                              </ImageView>
+                              <FlowPane layoutX="25.0" layoutY="116.0" prefHeight="500.0" prefWidth="536.0" AnchorPane.leftAnchor="25.0" AnchorPane.rightAnchor="24.0" AnchorPane.topAnchor="116.0" />
+                           </children>
+                        </AnchorPane>
+                    </content>
+                  </ScrollPane>
+                  <ScrollPane fitToHeight="true" fitToWidth="true" hbarPolicy="NEVER" prefHeight="640.0" prefWidth="596.0" style="-fx-background-color: #FFFFFF;" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+                     <content>
+                        <AnchorPane prefHeight="484.0" prefWidth="595.0" style="-fx-background-color: #FFFFFF;">
+                           <children>
+                              <VBox alignment="TOP_CENTER" prefHeight="649.0" prefWidth="579.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+                                 <children>
+                                    <AnchorPane minHeight="200.0" prefHeight="280.0" prefWidth="568.0" style="-fx-background-image: url(&quot;https://images.unsplash.com/photo-1466637574441-749b8f19452f?ixlib=rb-1.2.1&amp;ixid=eyJhcHBfaWQiOjEyMDd9&amp;auto=format&amp;fit=crop&amp;w=800&amp;q=80&quot;); -fx-background-size: cover; -fx-background-position: center;" VBox.vgrow="NEVER">
+                                       <children>
+                                          <Label alignment="CENTER" contentDisplay="CENTER" layoutX="168.0" layoutY="41.0" minHeight="60.0" prefHeight="71.0" prefWidth="311.0" text="Välkommen!" textFill="WHITE" AnchorPane.leftAnchor="158.0" AnchorPane.rightAnchor="157.0" AnchorPane.topAnchor="31.0">
+                                             <font>
+                                                <Font name="System Bold" size="41.0" />
+                                             </font>
+                                          </Label>
+                                       </children>
+                                    </AnchorPane>
+                                    <FlowPane fx:id="mainGrid" alignment="TOP_CENTER" prefHeight="503.0" prefWidth="553.0" style="-fx-background-color: transparent;" VBox.vgrow="NEVER" />
+                                 </children>
+                              </VBox>
+                           </children>
+                        </AnchorPane>
+                     </content>
+                     <padding>
+                        <Insets left="20.0" right="20.0" top="20.0" />
+                     </padding>
+                  </ScrollPane>
+               </children>
+            </AnchorPane>
+         </center>
       </BorderPane>
    </children>
 </AnchorPane>

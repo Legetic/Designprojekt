@@ -22,6 +22,7 @@ public class Imat extends Application {
         Scene scene = new Scene(root, 800, 500);
 
         stage.setTitle(bundle.getString("application.name"));
+        scene.getStylesheets().add("https://fonts.googleapis.com/css?family=Montserrat");
         //stage.initStyle(StageStyle.UNDECORATED);
         stage.setScene(scene);
         stage.show();

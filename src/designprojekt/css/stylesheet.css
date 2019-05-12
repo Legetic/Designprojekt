@@ -1,0 +1,9 @@
+@font-face {
+    src: url("../resources/fonts/Montserrat-Regular.ttf") ;
+
+}
+
+.body{
+    -fx-font-family: 'Montserrat', sans-serif;
+    -fx-text-fill: red;
+}

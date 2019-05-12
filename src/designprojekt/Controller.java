@@ -3,6 +3,7 @@ package designprojekt;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.image.Image;
+import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.FlowPane;
 import se.chalmers.cse.dat216.project.IMatDataHandler;
 import se.chalmers.cse.dat216.project.Product;
@@ -17,6 +18,7 @@ public class Controller implements Initializable {
     private IMatDataHandler dataHandler = IMatDataHandler.getInstance();
 
     @FXML private FlowPane mainGrid;
+    @FXML private AnchorPane startMenu;
 
 
     List<Product> productList = new ArrayList<>();
@@ -54,5 +56,16 @@ public class Controller implements Initializable {
     public Image getProductImage(Product product, double width, double height, boolean keepRatio) {
        return dataHandler.getFXImage(product,width,height,keepRatio);
     }
+
+
+    @FXML
+    public void closeStartMenu(){
+        startMenu.toBack();
+    }
+
+    /*public void openStartMenu(){
+
+        startMenu.toFront();
+    }*/
 
 }
