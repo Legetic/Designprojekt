@@ -15,7 +15,7 @@
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="644.0" prefWidth="1166.0" styleClass="body" stylesheets="@css/stylesheet.css" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="designprojekt.Controller">
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="644.0" prefWidth="1166.0" styleClass="body" stylesheets="@css/stylesheet.css" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="designprojekt.Controller">
    <children>
       <AnchorPane fx:id="startMenu" prefHeight="200.0" prefWidth="200.0" style="-fx-background-image: url(&quot;resources/startPage/28.png&quot;);; -fx-background-color: white; -fx-background-size: contain; -fx-background-repeat: no-repeat; -fx-background-position: center;" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
          <children>
@@ -55,9 +55,9 @@
             <AnchorPane maxHeight="95.0" minHeight="50.0" prefHeight="95.0" prefWidth="1166.0" BorderPane.alignment="CENTER">
                <children>
                   <Button layoutX="-1.0" layoutY="1.0" mnemonicParsing="false" prefHeight="75.0" prefWidth="210.0" styleClass="oneColor" />
-                  <Label layoutX="20.0" layoutY="64.0" prefHeight="23.0" prefWidth="181.0" styleClass="p2" text="Tillbaka till startsidan" />
-                  <TextField layoutX="209.0" layoutY="26.0" prefHeight="42.0" prefWidth="673.0" promptText="Sök bland tusentals varor..." AnchorPane.leftAnchor="209.0" AnchorPane.rightAnchor="284.0" AnchorPane.topAnchor="26.0" />
-                  <Button layoutX="830.0" layoutY="25.0" mnemonicParsing="false" prefHeight="43.0" prefWidth="67.0" style="-fx-background-color: -fx-altBase2; -fx-border-color: rgba(0,0,0,0.2);" text="Sök" AnchorPane.rightAnchor="285.0" AnchorPane.topAnchor="25.0" />
+                  <Label layoutX="20.0" layoutY="64.0" prefHeight="23.0" prefWidth="181.0" style="-fx-text-fill: -fx-altBase4;" styleClass="p2" text="Tillbaka till startsidan" underline="true" />
+                  <TextField layoutX="209.0" layoutY="26.0" prefHeight="45.0" prefWidth="673.0" promptText="Sök bland tusentals varor..." AnchorPane.leftAnchor="209.0" AnchorPane.rightAnchor="284.0" AnchorPane.topAnchor="26.0" />
+                  <Button layoutX="814.0" layoutY="26.0" mnemonicParsing="false" prefHeight="45.0" prefWidth="67.0" style="-fx-background-color: -fx-altBase2; -fx-border-color: rgba(0,0,0,0.2);" text="Sök" AnchorPane.rightAnchor="285.0" AnchorPane.topAnchor="26.0" />
                   <Button layoutX="957.0" layoutY="-2.0" minHeight="-Infinity" minWidth="-Infinity" mnemonicParsing="false" prefHeight="98.0" prefWidth="123.0" styleClass="oneColor" AnchorPane.rightAnchor="116.0">
                      <graphic>
                         <ImageView fitHeight="62.0" fitWidth="69.0" pickOnBounds="true" preserveRatio="true">
@@ -91,7 +91,7 @@
          <right>
             <AnchorPane prefHeight="650.0" prefWidth="283.0" BorderPane.alignment="TOP_RIGHT">
                <children>
-                  <VBox alignment="TOP_CENTER" layoutX="-5.0" layoutY="2.0" prefHeight="625.0" prefWidth="288.0" style="-fx-background-color: transparent;" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+                  <VBox alignment="TOP_CENTER" layoutX="-5.0" layoutY="2.0" prefHeight="625.0" prefWidth="288.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
                      <children>
                         <ImageView fitHeight="53.0" fitWidth="71.0" opacity="0.4" pickOnBounds="true" preserveRatio="true">
                            <image>
@@ -109,11 +109,11 @@
                               <Insets top="10.0" />
                            </VBox.margin>
                         </Label>
-                        <ScrollPane fitToHeight="true" fitToWidth="true" prefHeight="604.0" prefWidth="283.0" style="-fx-background-color: transparent;">
+                        <ScrollPane fitToWidth="true" prefHeight="192.0" prefWidth="283.0">
                            <content>
-                              <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="509.0" prefWidth="281.0">
+                              <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="175.0" prefWidth="281.0">
                                  <children>
-                                    <FlowPane fx:id="shoppingCartFlowPane" prefHeight="200.0" prefWidth="200.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0" />
+                                    <FlowPane fx:id="shoppingCartFlowPane" prefHeight="164.0" prefWidth="264.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0" />
                                  </children>
                                  <styleClass>
                                     <String fx:value="oneColor" />
@@ -122,15 +122,24 @@
                               </AnchorPane>
                            </content>
                            <VBox.margin>
-                              <Insets top="40.0" />
+                              <Insets top="20.0" />
                            </VBox.margin>
                            <opaqueInsets>
                               <Insets />
                            </opaqueInsets>
+                           <styleClass>
+                              <String fx:value="oneColor" />
+                              <String fx:value="cart" />
+                           </styleClass>
                         </ScrollPane>
                      </children>
+                     <styleClass>
+                        <String fx:value="oneColor" />
+                        <String fx:value="cart" />
+                     </styleClass>
                   </VBox>
-                  <Button fx:id="emptyButton" layoutX="196.0" layoutY="7.0" mnemonicParsing="false" style="-fx-background-color: -fx-alt2Base4;" styleClass="h4" text="Töm" />
+                  <Button layoutY="72.0" minWidth="-Infinity" mnemonicParsing="false" prefHeight="63.0" prefWidth="282.0" style="-fx-background-color: -fx-altBase4;" styleClass="h3" text="Gå till kassan -&gt;" textFill="WHITE" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" />
+                  <Button fx:id="emptyButton" layoutX="196.0" layoutY="8.0" mnemonicParsing="false" style="-fx-background-color: -fx-alt2Base4; -fx-text-fill: -fx-altBase1;" styleClass="h4" text="Töm" />
                </children>
                <styleClass>
                   <String fx:value="oneColor" />
@@ -143,9 +152,9 @@
                <children>
                   <ScrollPane fitToWidth="true" hbarPolicy="NEVER" prefHeight="646.0" prefWidth="215.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
                      <content>
-                        <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="720.0" prefWidth="200.0">
+                        <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="546.0" prefWidth="213.0">
                            <children>
-                              <VBox prefHeight="578.0" prefWidth="222.0" AnchorPane.leftAnchor="-4.0" AnchorPane.rightAnchor="-4.0">
+                              <VBox prefHeight="494.0" prefWidth="204.0" AnchorPane.leftAnchor="-4.0" AnchorPane.rightAnchor="-4.0" AnchorPane.topAnchor="0.0">
                                  <children>
                                     <Button alignment="TOP_LEFT" mnemonicParsing="false" prefHeight="31.0" prefWidth="312.0" styleClass="browseButton" text="Favoritvaror" />
                                     <Button alignment="TOP_LEFT" mnemonicParsing="false" prefHeight="31.0" prefWidth="312.0" styleClass="browseButton" text="Nånting till" />

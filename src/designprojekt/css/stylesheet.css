@@ -55,7 +55,7 @@
 }
 
 .browseButton:hover{
-    -fx-background-color: -fx-base2;
+    -fx-background-color: -fx-altBase2;
 }
 
 .browseButton:pressed{
@@ -93,6 +93,8 @@
 
 }
 .browseMenu{
+
+    -fx-background-color: -fx-base2;
 
 }
 .topBar{

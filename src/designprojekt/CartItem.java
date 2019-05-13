@@ -13,20 +13,15 @@ import java.io.IOException;
 
 public class CartItem extends AnchorPane {
     private Controller parentController;
-
-    public Controller getParentController() {
-        return parentController;
-    }
-
-    public ShoppingItem getShoppingItem() {
-        return shoppingItem;
-    }
-
     private ShoppingItem shoppingItem;
+
+    @FXML private Label cartItemName;
+    @FXML private Label cartItemPrice;
+    @FXML private Label cartItemTotalPrice;
 
 
     public CartItem(ShoppingItem shoppingItem, Controller parentController){
-        FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("ShoppingItem.fxml"));
+        FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("cartItem.fxml"));
         fxmlLoader.setRoot(this);
         fxmlLoader.setController(this);
 
@@ -39,7 +34,21 @@ public class CartItem extends AnchorPane {
         this.shoppingItem = shoppingItem;
         this.parentController = parentController;
 
-
+        cartItemName.setText(shoppingItem.getProduct().getName());
+        cartItemPrice.setText(shoppingItem.getAmount() + "");
+        cartItemTotalPrice.setText(Math.round(shoppingItem.getTotal() * 100) / 100 + " kr");
+        System.out.println(Math.round(shoppingItem.getTotal() * 100) / 100);
     }
+
+    public Controller getParentController() {
+        return this.parentController;
+    }
+
+    public ShoppingItem getShoppingItem() {
+        return this.shoppingItem;
+    }
+
+
+
 
 }
