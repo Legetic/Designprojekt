@@ -52,13 +52,13 @@
       </AnchorPane>
       <BorderPane AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
          <top>
-            <AnchorPane maxHeight="79.0" minHeight="50.0" prefHeight="68.0" prefWidth="1166.0" BorderPane.alignment="CENTER">
+            <AnchorPane maxHeight="95.0" minHeight="50.0" prefHeight="95.0" prefWidth="1166.0" BorderPane.alignment="CENTER">
                <children>
                   <Button layoutX="-1.0" layoutY="1.0" mnemonicParsing="false" prefHeight="75.0" prefWidth="210.0" styleClass="oneColor" />
-                  <Label layoutX="29.0" layoutY="49.0" prefHeight="23.0" prefWidth="172.0" styleClass="p2" text="Tillbaka till startsidan" />
-                  <TextField layoutX="213.0" layoutY="21.0" prefHeight="31.0" prefWidth="673.0" promptText="Sök bland tusentals varor..." AnchorPane.leftAnchor="213.0" AnchorPane.rightAnchor="280.0" AnchorPane.topAnchor="21.0" />
-                  <Button layoutX="745.0" layoutY="21.0" mnemonicParsing="false" prefHeight="31.0" prefWidth="51.0" style="-fx-background-color: -fx-altBase2; -fx-border-color: rgba(0,0,0,0.2);" text="Sök" AnchorPane.rightAnchor="280.0" AnchorPane.topAnchor="21.0" />
-                  <Button layoutX="958.0" layoutY="7.0" minHeight="-Infinity" minWidth="-Infinity" mnemonicParsing="false" prefHeight="55.0" prefWidth="64.0" styleClass="oneColor">
+                  <Label layoutX="29.0" layoutY="64.0" prefHeight="23.0" prefWidth="172.0" styleClass="p2" text="Tillbaka till startsidan" />
+                  <TextField layoutX="209.0" layoutY="26.0" prefHeight="42.0" prefWidth="673.0" promptText="Sök bland tusentals varor..." AnchorPane.leftAnchor="209.0" AnchorPane.rightAnchor="284.0" AnchorPane.topAnchor="26.0" />
+                  <Button layoutX="830.0" layoutY="25.0" mnemonicParsing="false" prefHeight="43.0" prefWidth="67.0" style="-fx-background-color: -fx-altBase2; -fx-border-color: rgba(0,0,0,0.2);" text="Sök" AnchorPane.rightAnchor="285.0" AnchorPane.topAnchor="25.0" />
+                  <Button layoutX="957.0" layoutY="-2.0" minHeight="-Infinity" minWidth="-Infinity" mnemonicParsing="false" prefHeight="98.0" prefWidth="123.0" styleClass="oneColor" AnchorPane.rightAnchor="116.0">
                      <graphic>
                         <ImageView fitHeight="62.0" fitWidth="69.0" pickOnBounds="true" preserveRatio="true">
                            <image>
@@ -67,16 +67,16 @@
                         </ImageView>
                      </graphic>
                   </Button>
-                  <Button layoutX="1051.0" layoutY="6.0" minHeight="-Infinity" minWidth="-Infinity" mnemonicParsing="false" prefHeight="55.0" prefWidth="64.0">
+                  <Button layoutX="1051.0" minHeight="-Infinity" minWidth="-Infinity" mnemonicParsing="false" prefHeight="96.0" prefWidth="114.0" styleClass="oneColor" AnchorPane.rightAnchor="1.0">
                      <graphic>
                         <ImageView fitHeight="59.0" fitWidth="73.0" pickOnBounds="true" preserveRatio="true">
                            <image>
-                              <Image url="@resources/icons/kundservice.png" />
+                              <Image url="@resources/icons/kundservice2.png" />
                            </image>
                         </ImageView>
                      </graphic>
                   </Button>
-                  <Label id="Logo" layoutX="50.0" layoutY="3.0" text="iMat" textFill="#ff8366">
+                  <Label id="Logo" layoutX="50.0" layoutY="3.0" prefHeight="70.0" prefWidth="118.0" text="iMat" textFill="#ff8366">
                      <font>
                         <Font name="System Bold" size="38.0" />
                      </font>
@@ -101,7 +101,7 @@
                               <Insets top="50.0" />
                            </VBox.margin>
                         </ImageView>
-                        <Label contentDisplay="CENTER" prefHeight="39.0" prefWidth="132.0" styleClass="h2" text="Varukorg">
+                        <Label contentDisplay="CENTER" prefHeight="43.0" prefWidth="268.0" styleClass="h2" text="Varukorg" textAlignment="CENTER">
                            <font>
                               <Font size="32.0" />
                            </font>
@@ -113,7 +113,7 @@
                            <content>
                               <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="509.0" prefWidth="281.0">
                                  <children>
-                                    <FlowPane prefHeight="200.0" prefWidth="200.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0" />
+                                    <FlowPane fx:id="shoppingCartFlowpane" prefHeight="200.0" prefWidth="200.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0" />
                                  </children>
                                  <styleClass>
                                     <String fx:value="oneColor" />
@@ -213,7 +213,7 @@
                            <children>
                               <VBox alignment="TOP_CENTER" prefHeight="649.0" prefWidth="579.0" style="-fx-background-color: transparent;" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
                                  <children>
-                                    <AnchorPane minHeight="200.0" prefHeight="328.0" prefWidth="611.0" style="-fx-background-image: url(&quot;https://images.unsplash.com/photo-1466637574441-749b8f19452f?ixlib=rb-1.2.1&amp;ixid=eyJhcHBfaWQiOjEyMDd9&amp;auto=format&amp;fit=crop&amp;w=800&amp;q=80&quot;); -fx-background-size: cover; -fx-background-position: center;" VBox.vgrow="NEVER">
+                                    <AnchorPane minHeight="197.0" prefHeight="328.0" prefWidth="621.0" style="-fx-background-image: url(&quot;https://images.unsplash.com/photo-1466637574441-749b8f19452f?ixlib=rb-1.2.1&amp;ixid=eyJhcHBfaWQiOjEyMDd9&amp;auto=format&amp;fit=crop&amp;w=800&amp;q=80&quot;); -fx-background-size: cover; -fx-background-position: center;" VBox.vgrow="NEVER">
                                        <children>
                                           <Label alignment="CENTER" contentDisplay="CENTER" layoutY="41.0" minHeight="60.0" prefHeight="71.0" prefWidth="626.0" styleClass="h1" text="Välkommen!" textFill="WHITE" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="31.0">
                                              <font>
