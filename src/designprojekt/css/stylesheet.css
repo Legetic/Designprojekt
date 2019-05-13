@@ -105,6 +105,11 @@
 .p{
     -fx-font-size: 20px;
 }
+
+.p2{
+    -fx-font-size: 17px;
+}
+
 #Card{
     -fx-border-width: 0 1 1 0;
     -fx-border-color: rgba(0,0,0,0.1);
