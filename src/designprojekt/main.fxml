@@ -55,7 +55,7 @@
             <AnchorPane maxHeight="95.0" minHeight="50.0" prefHeight="95.0" prefWidth="1166.0" BorderPane.alignment="CENTER">
                <children>
                   <Button layoutX="-1.0" layoutY="1.0" mnemonicParsing="false" prefHeight="75.0" prefWidth="210.0" styleClass="oneColor" />
-                  <Label layoutX="29.0" layoutY="64.0" prefHeight="23.0" prefWidth="172.0" styleClass="p2" text="Tillbaka till startsidan" />
+                  <Label layoutX="20.0" layoutY="64.0" prefHeight="23.0" prefWidth="181.0" styleClass="p2" text="Tillbaka till startsidan" />
                   <TextField layoutX="209.0" layoutY="26.0" prefHeight="42.0" prefWidth="673.0" promptText="Sök bland tusentals varor..." AnchorPane.leftAnchor="209.0" AnchorPane.rightAnchor="284.0" AnchorPane.topAnchor="26.0" />
                   <Button layoutX="830.0" layoutY="25.0" mnemonicParsing="false" prefHeight="43.0" prefWidth="67.0" style="-fx-background-color: -fx-altBase2; -fx-border-color: rgba(0,0,0,0.2);" text="Sök" AnchorPane.rightAnchor="285.0" AnchorPane.topAnchor="25.0" />
                   <Button layoutX="957.0" layoutY="-2.0" minHeight="-Infinity" minWidth="-Infinity" mnemonicParsing="false" prefHeight="98.0" prefWidth="123.0" styleClass="oneColor" AnchorPane.rightAnchor="116.0">
@@ -101,7 +101,7 @@
                               <Insets top="50.0" />
                            </VBox.margin>
                         </ImageView>
-                        <Label contentDisplay="CENTER" prefHeight="43.0" prefWidth="268.0" styleClass="h2" text="Varukorg" textAlignment="CENTER">
+                        <Label contentDisplay="CENTER" prefHeight="43.0" prefWidth="158.0" styleClass="h2" text="Varukorg">
                            <font>
                               <Font size="32.0" />
                            </font>
