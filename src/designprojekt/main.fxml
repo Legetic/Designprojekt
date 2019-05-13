@@ -54,18 +54,15 @@
          <top>
             <AnchorPane maxHeight="79.0" minHeight="50.0" prefHeight="68.0" prefWidth="1166.0" BorderPane.alignment="CENTER">
                <children>
-                  <Label id="Logo" layoutX="14.0" layoutY="4.0" text="iMat" textFill="#ff8366">
-                     <font>
-                        <Font name="System Bold" size="38.0" />
-                     </font>
-                  </Label>
+                  <Button layoutX="-1.0" layoutY="1.0" mnemonicParsing="false" prefHeight="75.0" prefWidth="210.0" styleClass="oneColor" />
+                  <Label layoutX="29.0" layoutY="49.0" prefHeight="23.0" prefWidth="172.0" styleClass="p2" text="Tillbaka till startsidan" />
                   <TextField layoutX="213.0" layoutY="21.0" prefHeight="31.0" prefWidth="673.0" promptText="Sök bland tusentals varor..." AnchorPane.leftAnchor="213.0" AnchorPane.rightAnchor="280.0" AnchorPane.topAnchor="21.0" />
                   <Button layoutX="745.0" layoutY="21.0" mnemonicParsing="false" prefHeight="31.0" prefWidth="51.0" style="-fx-background-color: -fx-altBase2; -fx-border-color: rgba(0,0,0,0.2);" text="Sök" AnchorPane.rightAnchor="280.0" AnchorPane.topAnchor="21.0" />
-                  <Button layoutX="922.0" layoutY="6.0" minHeight="-Infinity" minWidth="-Infinity" mnemonicParsing="false" prefHeight="55.0" prefWidth="64.0">
+                  <Button layoutX="958.0" layoutY="7.0" minHeight="-Infinity" minWidth="-Infinity" mnemonicParsing="false" prefHeight="55.0" prefWidth="64.0" styleClass="oneColor">
                      <graphic>
-                        <ImageView fitHeight="83.0" fitWidth="74.0" pickOnBounds="true" preserveRatio="true">
+                        <ImageView fitHeight="62.0" fitWidth="69.0" pickOnBounds="true" preserveRatio="true">
                            <image>
-                              <Image url="@resources/placeholder.png" />
+                              <Image url="@resources/icons/Tidigare%20köp.png" />
                            </image>
                         </ImageView>
                      </graphic>
@@ -79,6 +76,11 @@
                         </ImageView>
                      </graphic>
                   </Button>
+                  <Label id="Logo" layoutX="50.0" layoutY="3.0" text="iMat" textFill="#ff8366">
+                     <font>
+                        <Font name="System Bold" size="38.0" />
+                     </font>
+                  </Label>
                </children>
                <styleClass>
                   <String fx:value="oneColor" />
