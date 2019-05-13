@@ -8,6 +8,7 @@ import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.FlowPane;
 import se.chalmers.cse.dat216.project.IMatDataHandler;
 import se.chalmers.cse.dat216.project.Product;
+import se.chalmers.cse.dat216.project.ShoppingCart;
 import se.chalmers.cse.dat216.project.ShoppingItem;
 
 import java.net.URL;
@@ -23,6 +24,8 @@ public class Controller implements Initializable {
     @FXML private Button startPage_exit_btn;
     @FXML private Button startPage_home_btn;
     @FXML private Button startPage_recentBuy_btn;
+    @FXML private Button addButton;
+    @FXML private FlowPane shoppingCartFlowPane;
 
 
     List<Product> productList = new ArrayList<>();
@@ -50,6 +53,11 @@ public class Controller implements Initializable {
 
         }
 
+    }
+
+    private void addCartItem(CartItem cartItem){ //VERY WIP
+        dataHandler.getShoppingCart().addItem(cartItem.getShoppingItem());
+        shoppingCartFlowPane.getChildren().add(cartItem);
     }
 
 

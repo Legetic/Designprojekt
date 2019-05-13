@@ -13,6 +13,15 @@ import java.io.IOException;
 
 public class CartItem extends AnchorPane {
     private Controller parentController;
+
+    public Controller getParentController() {
+        return parentController;
+    }
+
+    public ShoppingItem getShoppingItem() {
+        return shoppingItem;
+    }
+
     private ShoppingItem shoppingItem;
 
 
@@ -31,6 +40,6 @@ public class CartItem extends AnchorPane {
         this.parentController = parentController;
 
 
-
     }
+
 }
