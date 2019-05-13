@@ -192,14 +192,14 @@
                     <content>
                       <AnchorPane prefHeight="665.0" prefWidth="594.0">
                            <children>
-                              <Label layoutX="201.0" layoutY="45.0" text="Tidigare Köp">
+                              <Label layoutX="201.0" layoutY="45.0" styleClass="h1" text="Tidigare Köp">
                                  <font>
                                     <Font size="40.0" />
                                  </font>
                               </Label>
-                              <ImageView fitHeight="60.0" fitWidth="90.0" layoutX="128.0" layoutY="44.0" pickOnBounds="true" preserveRatio="true">
+                              <ImageView fitHeight="97.0" fitWidth="169.0" layoutX="92.0" layoutY="20.0" pickOnBounds="true" preserveRatio="true">
                                  <image>
-                                    <Image url="@resources/placeholder.png" />
+                                    <Image url="@resources/icons/Tidigare%20köp.png" />
                                  </image>
                               </ImageView>
                               <FlowPane layoutX="25.0" layoutY="116.0" prefHeight="500.0" prefWidth="536.0" AnchorPane.leftAnchor="25.0" AnchorPane.rightAnchor="24.0" AnchorPane.topAnchor="116.0" />
@@ -207,7 +207,27 @@
                         </AnchorPane>
                     </content>
                   </ScrollPane>
-                  <ScrollPane fitToHeight="true" fitToWidth="true" hbarPolicy="NEVER" prefHeight="640.0" prefWidth="596.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+                  <AnchorPane fx:id="CostumerservicePage" prefHeight="549.0" prefWidth="668.0">
+                     <children>
+                        <ImageView fitHeight="114.0" fitWidth="144.0" layoutX="108.0" layoutY="23.0" pickOnBounds="true" preserveRatio="true">
+                           <image>
+                              <Image url="@resources/icons/kundservice2.png" />
+                           </image>
+                        </ImageView>
+                        <Label layoutX="233.0" layoutY="56.0" styleClass="h1" text="Kundservice">
+                           <font>
+                              <Font size="40.0" />
+                           </font>
+                        </Label>
+                        <Button layoutX="256.0" layoutY="184.0" mnemonicParsing="false" prefHeight="90.0" prefWidth="182.0" text="Button" />
+                        <Button layoutX="453.0" layoutY="184.0" mnemonicParsing="false" prefHeight="90.0" prefWidth="182.0" text="Button" />
+                     </children>
+                     <styleClass>
+                        <String fx:value="centerStage" />
+                        <String fx:value="oneColor" />
+                     </styleClass>
+                  </AnchorPane>
+                  <ScrollPane fx:id="Varor" fitToHeight="true" fitToWidth="true" hbarPolicy="NEVER" prefHeight="640.0" prefWidth="596.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
                      <content>
                         <AnchorPane prefHeight="484.0" prefWidth="595.0">
                            <children>
