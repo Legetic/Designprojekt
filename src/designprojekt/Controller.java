@@ -29,6 +29,8 @@ public class Controller implements Initializable {
 
 
     List<Product> productList = new ArrayList<>();
+    List<ShoppingItem> cartList = new ArrayList<>();
+
     private Map<String, Card> cardMap = new HashMap<String, Card>();
 
     @Override
@@ -55,10 +57,29 @@ public class Controller implements Initializable {
 
     }
 
-    private void addCartItem(CartItem cartItem){ //VERY WIP
-        dataHandler.getShoppingCart().addItem(cartItem.getShoppingItem());
+    private void updateShoppingCart(){
+        shoppingCartFlowPane.getChildren().clear();
+        cartList = dataHandler.getShoppingCart().getItems();
+        for (ShoppingItem s : cartList){
+            CartItem cartItem = new CartItem(s,this);
+            shoppingCartFlowPane.getChildren().add(cartItem);
+
+        }
+    }
+    private void clearShoppingCart(){
+        shoppingCartFlowPane.getChildren().clear();
+        dataHandler.getShoppingCart().clear();
+    }
+
+    public void addProductToCart(Product product){
+        ShoppingItem item = new ShoppingItem(product,product.getPrice());
+        CartItem cartItem = new CartItem(item,this);
+        dataHandler.getShoppingCart().addItem(item);
         shoppingCartFlowPane.getChildren().add(cartItem);
     }
+
+
+
 
 
     public Image getProductImage(Product product) {
@@ -74,6 +95,8 @@ public class Controller implements Initializable {
     public void closeStartMenu(){
         startMenu.toBack();
     }
+
+
 
     /*public void openStartMenu(){
 

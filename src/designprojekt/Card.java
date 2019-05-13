@@ -6,6 +6,7 @@ import javafx.scene.control.Label;
 import javafx.scene.image.ImageView;
 import javafx.scene.layout.AnchorPane;
 import se.chalmers.cse.dat216.project.Product;
+import se.chalmers.cse.dat216.project.ShoppingItem;
 
 import java.io.IOException;
 
@@ -34,5 +35,10 @@ public class Card extends AnchorPane {
         cardImage.setImage(this.parentController.getProductImage(product));
         cardName.setText(product.getName());
 
+    }
+
+    @FXML
+    public void addToCart(){
+        parentController.addProductToCart(this.product);
     }
 }
