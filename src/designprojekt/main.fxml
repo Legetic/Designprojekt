@@ -15,7 +15,7 @@
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="644.0" prefWidth="1166.0" styleClass="body" stylesheets="@css/stylesheet.css" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="designprojekt.Controller">
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="644.0" prefWidth="1166.0" styleClass="body" stylesheets="@css/stylesheet.css" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="designprojekt.Controller">
    <children>
       <AnchorPane fx:id="startMenu" prefHeight="200.0" prefWidth="200.0" style="-fx-background-image: url(&quot;resources/startPage/28.png&quot;);; -fx-background-color: white; -fx-background-size: contain; -fx-background-repeat: no-repeat; -fx-background-position: center;" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
          <children>
@@ -61,6 +61,24 @@
                   </Label>
                   <TextField layoutX="213.0" layoutY="21.0" prefHeight="31.0" prefWidth="673.0" promptText="Sök bland tusentals varor..." AnchorPane.leftAnchor="213.0" AnchorPane.rightAnchor="280.0" AnchorPane.topAnchor="21.0" />
                   <Button layoutX="745.0" layoutY="21.0" mnemonicParsing="false" prefHeight="31.0" prefWidth="51.0" style="-fx-background-color: -fx-altBase2; -fx-border-color: rgba(0,0,0,0.2);" text="Sök" AnchorPane.rightAnchor="280.0" AnchorPane.topAnchor="21.0" />
+                  <Button layoutX="922.0" layoutY="6.0" minHeight="-Infinity" minWidth="-Infinity" mnemonicParsing="false" prefHeight="55.0" prefWidth="64.0">
+                     <graphic>
+                        <ImageView fitHeight="83.0" fitWidth="74.0" pickOnBounds="true" preserveRatio="true">
+                           <image>
+                              <Image url="@resources/placeholder.png" />
+                           </image>
+                        </ImageView>
+                     </graphic>
+                  </Button>
+                  <Button layoutX="1051.0" layoutY="6.0" minHeight="-Infinity" minWidth="-Infinity" mnemonicParsing="false" prefHeight="55.0" prefWidth="64.0">
+                     <graphic>
+                        <ImageView fitHeight="59.0" fitWidth="73.0" pickOnBounds="true" preserveRatio="true">
+                           <image>
+                              <Image url="@resources/icons/kundservice.png" />
+                           </image>
+                        </ImageView>
+                     </graphic>
+                  </Button>
                </children>
                <styleClass>
                   <String fx:value="oneColor" />
@@ -110,7 +128,7 @@
                         </ScrollPane>
                      </children>
                   </VBox>
-                  <Button layoutX="196.0" layoutY="7.0" mnemonicParsing="false" style="-fx-background-color: -fx-alt2Base4;" styleClass="h4" text="Töm" />
+                  <Button fx:id="emptyButton" layoutX="196.0" layoutY="7.0" mnemonicParsing="false" style="-fx-background-color: -fx-alt2Base4;" styleClass="h4" text="Töm" />
                </children>
                <styleClass>
                   <String fx:value="oneColor" />
@@ -121,16 +139,15 @@
          <left>
             <AnchorPane prefHeight="579.0" prefWidth="215.0" BorderPane.alignment="CENTER">
                <children>
-                  <ScrollPane fitToHeight="true" fitToWidth="true" hbarPolicy="NEVER" prefHeight="646.0" prefWidth="223.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="-3.0">
+                  <ScrollPane fitToWidth="true" hbarPolicy="NEVER" prefHeight="646.0" prefWidth="215.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
                      <content>
-                        <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="644.0" prefWidth="244.0">
+                        <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="720.0" prefWidth="200.0">
                            <children>
-                              <VBox prefHeight="551.0" prefWidth="227.0" AnchorPane.leftAnchor="-4.0" AnchorPane.rightAnchor="-4.0">
+                              <VBox prefHeight="578.0" prefWidth="222.0" AnchorPane.leftAnchor="-4.0" AnchorPane.rightAnchor="-4.0">
                                  <children>
-                                    <Button alignment="TOP_LEFT" mnemonicParsing="false" prefHeight="31.0" prefWidth="312.0" styleClass="browseButton" text="Nyheter" />
-                                    <Button alignment="TOP_LEFT" mnemonicParsing="false" prefHeight="31.0" prefWidth="312.0" styleClass="browseButton" text="Något Kul" />
-                                    <Button alignment="TOP_LEFT" mnemonicParsing="false" prefHeight="31.0" prefWidth="312.0" styleClass="browseButton" text="Trevligt" />
-                                    <Label alignment="BOTTOM_LEFT" prefHeight="76.0" prefWidth="238.0" styleClass="h2" text="Sortiment" VBox.vgrow="NEVER">
+                                    <Button alignment="TOP_LEFT" mnemonicParsing="false" prefHeight="31.0" prefWidth="312.0" styleClass="browseButton" text="Favoritvaror" />
+                                    <Button alignment="TOP_LEFT" mnemonicParsing="false" prefHeight="31.0" prefWidth="312.0" styleClass="browseButton" text="Nånting till" />
+                                    <Label alignment="BOTTOM_LEFT" minHeight="-Infinity" prefHeight="74.0" prefWidth="208.0" styleClass="h2" text="Sortiment" VBox.vgrow="NEVER">
                                        <font>
                                           <Font size="23.0" />
                                        </font>
@@ -141,10 +158,14 @@
                                           <Insets />
                                        </VBox.margin>
                                     </Label>
-                                    <Button alignment="TOP_LEFT" mnemonicParsing="false" prefHeight="31.0" prefWidth="312.0" styleClass="browseButton" text="Kött" />
                                     <Button alignment="TOP_LEFT" mnemonicParsing="false" prefHeight="31.0" prefWidth="312.0" styleClass="browseButton" text="Frukt &amp; Grönt" />
-                                    <Button alignment="TOP_LEFT" mnemonicParsing="false" prefHeight="31.0" prefWidth="312.0" styleClass="browseButton" text="Button" />
-                                    <Button alignment="TOP_LEFT" mnemonicParsing="false" prefHeight="31.0" prefWidth="221.0" styleClass="browseButton" text="Button" />
+                                    <Button alignment="TOP_LEFT" mnemonicParsing="false" prefHeight="31.0" prefWidth="221.0" styleClass="browseButton" text="Mejeriprodukter" />
+                                    <Button fx:id="meatCategory" alignment="TOP_LEFT" mnemonicParsing="false" prefHeight="31.0" prefWidth="312.0" styleClass="browseButton" text="Kött &amp; Fisk" />
+                                    <Button alignment="TOP_LEFT" mnemonicParsing="false" prefHeight="35.0" prefWidth="222.0" styleClass="browseButton" text="Potatis, Ris &amp; Pasta" />
+                                    <Button alignment="TOP_LEFT" mnemonicParsing="false" prefHeight="35.0" prefWidth="222.0" styleClass="browseButton" text="Skafferi" />
+                                    <Button alignment="TOP_LEFT" mnemonicParsing="false" prefHeight="31.0" prefWidth="312.0" styleClass="browseButton" text="Dryck" />
+                                    <Button alignment="TOP_LEFT" mnemonicParsing="false" prefHeight="31.0" prefWidth="221.0" styleClass="browseButton" text="Sötsaker" />
+                                    <Button alignment="TOP_LEFT" mnemonicParsing="false" prefHeight="31.0" prefWidth="221.0" styleClass="browseButton" text="Örtkryddor" />
                                  </children>
                               </VBox>
                            </children>
@@ -210,7 +231,8 @@
                                     <FlowPane fx:id="mainGrid" alignment="TOP_CENTER" prefHeight="503.0" prefWidth="553.0" VBox.vgrow="NEVER">
                                        <VBox.margin>
                                           <Insets top="20.0" />
-                                       </VBox.margin></FlowPane>
+                                       </VBox.margin>
+                                    </FlowPane>
                                  </children>
                               </VBox>
                            </children>
