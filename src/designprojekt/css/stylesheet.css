@@ -34,6 +34,7 @@
 /*Paste this attribution on the final work so the authorship is known (for instance, in the acknowledgements chapter of a book)*/
 .label{
     -fx-font-family: "Segoe UI", sans-serif;
+    -fx-font-size: 18px;
     /*-fx-font-family: 'Roboto', sans-serif;*/
     /*-fx-font-family: 'Montserrat', sans-serif;*/
     /*-fx-text-fill: red;*/
@@ -41,7 +42,7 @@
 
 .button{
     -fx-font-family: "Segoe UI", sans-serif;
-
+    -fx-font-size: 20px;
 }
 
 .browseButton{
@@ -67,7 +68,7 @@
     /*-fx-text-fill: rgba(0,0,0,0.75);*/
 }
 .h2{
-    -fx-font-size: 30px;
+    -fx-font-size: 35px;
     -fx-font-weight: bold;
     /*-fx-text-fill: rgba(0,0,0,0.75);*/
 }
@@ -99,11 +100,11 @@
 }
 .cart{
     -fx-background-color: white;
-
 }
 
-
-
+.p{
+    -fx-font-size: 20px;
+}
 #Card{
     -fx-border-width: 0 1 1 0;
     -fx-border-color: rgba(0,0,0,0.1);

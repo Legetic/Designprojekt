@@ -12,7 +12,7 @@
 <?import javafx.scene.shape.Circle?>
 <?import javafx.scene.text.Font?>
 
-<fx:root id="Card" prefHeight="453.0" prefWidth="314.0" stylesheets="@css/stylesheet.css" type="AnchorPane" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1">
+<fx:root id="Card" prefHeight="453.0" prefWidth="314.0" stylesheets="@css/stylesheet.css" type="AnchorPane" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1">
    <children>
       <HBox alignment="CENTER" layoutX="20.0" layoutY="10.0" prefHeight="442.0" prefWidth="313.0" style="-fx-background-color: white;" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
          <children>
@@ -32,7 +32,7 @@
                   </HBox>
                   <VBox prefHeight="244.0" prefWidth="230.0">
                      <children>
-                        <Label fx:id="cardName" prefHeight="58.0" prefWidth="230.0" text="Name, 300g, scan, whatever" wrapText="true">
+                        <Label fx:id="cardName" prefHeight="58.0" prefWidth="230.0" styleClass="p" text="Name, 300g, scan, whatever" wrapText="true">
                            <font>
                               <Font size="20.0" />
                            </font>
@@ -99,7 +99,7 @@
          </children>
       </HBox>
       <Circle fill="#6cd1fd" layoutX="253.0" layoutY="55.0" opacity="0.9" radius="48.0" stroke="BLACK" strokeType="INSIDE" strokeWidth="0.0" style="-fx-fill: -fx-alt2Base3;" />
-      <Label fx:id="cardName2" layoutX="228.0" layoutY="30.0" text="35:-" wrapText="true">
+      <Label fx:id="cardName2" layoutX="228.0" layoutY="30.0" styleClass="h2" text="35:-" wrapText="true">
          <font>
             <Font size="35.0" />
          </font>
