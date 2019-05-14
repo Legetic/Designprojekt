@@ -12,9 +12,9 @@
 <?import javafx.scene.shape.Circle?>
 <?import javafx.scene.text.Font?>
 
-<fx:root id="Card" prefHeight="453.0" prefWidth="314.0" stylesheets="@css/stylesheet.css" type="AnchorPane" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1">
+<fx:root id="Card" prefHeight="427.0" prefWidth="296.0" stylesheets="@css/stylesheet.css" type="AnchorPane" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1">
    <children>
-      <HBox alignment="CENTER" layoutX="20.0" layoutY="10.0" prefHeight="442.0" prefWidth="313.0" style="-fx-background-color: white;" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+      <HBox alignment="CENTER" layoutX="20.0" layoutY="10.0" prefHeight="451.0" prefWidth="260.0" style="-fx-background-color: white;" AnchorPane.bottomAnchor="1.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
          <children>
             <VBox alignment="TOP_CENTER" prefHeight="441.0" prefWidth="204.0">
                <children>
@@ -32,7 +32,7 @@
                   </HBox>
                   <VBox prefHeight="244.0" prefWidth="230.0">
                      <children>
-                        <Label fx:id="cardName" prefHeight="58.0" prefWidth="230.0" styleClass="p" text="Name, 300g, scan, whatever" wrapText="true">
+                        <Label fx:id="cardName" prefHeight="20.0" prefWidth="230.0" styleClass="h4" text="Name, 300g, scan, whatever" wrapText="true">
                            <font>
                               <Font size="20.0" />
                            </font>
@@ -40,7 +40,7 @@
                               <Insets />
                            </VBox.margin>
                         </Label>
-                        <Label fx:id="cardName1" prefHeight="23.0" prefWidth="251.0" text="Jfr. pris 31,25 kr/kg" textFill="#6b6b6b" wrapText="true">
+                        <Label fx:id="cardName1" prefHeight="23.0" prefWidth="251.0" styleClass="p4" text="Jfr. pris 31,25 kr/kg" textFill="#6b6b6b" wrapText="true">
                            <font>
                               <Font size="18.0" />
                            </font>
@@ -56,11 +56,11 @@
                         <Insets bottom="10.0" top="10.0" />
                      </padding>
                   </VBox>
-                  <VBox alignment="BOTTOM_CENTER" prefHeight="155.0" prefWidth="249.0">
+                  <VBox alignment="BOTTOM_CENTER" prefHeight="2.0" prefWidth="232.0">
                      <children>
-                        <AnchorPane prefHeight="89.0" prefWidth="180.0" VBox.vgrow="NEVER">
+                        <AnchorPane prefHeight="104.0" prefWidth="232.0" VBox.vgrow="NEVER">
                            <children>
-                              <HBox fx:id="amountControl" alignment="CENTER" disable="true" layoutX="51.0" layoutY="2.0" prefHeight="0.0" prefWidth="200.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+                              <HBox fx:id="amountControl" alignment="CENTER" layoutX="51.0" layoutY="2.0" prefHeight="0.0" prefWidth="200.0" visible="false" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
                                  <children>
                                     <Button mnemonicParsing="false" prefHeight="50.0" prefWidth="50.0" text="-" HBox.hgrow="NEVER">
                                        <font>
@@ -75,9 +75,9 @@
                                     </Button>
                                  </children>
                               </HBox>
-                              <HBox alignment="CENTER" layoutY="4.0" prefHeight="0.0" prefWidth="200.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+                              <HBox alignment="CENTER" layoutY="-33.0" prefHeight="79.0" prefWidth="232.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
                                  <children>
-                                    <Button fx:id="addButton" mnemonicParsing="false" onAction="#addToCart" prefHeight="50.0" prefWidth="100.0" style="-fx-background-color: #27AE60;" text="Lägg till" textFill="WHITE" HBox.hgrow="NEVER">
+                                    <Button fx:id="addButton" mnemonicParsing="false" onAction="#addToCart" prefHeight="45.0" prefWidth="120.0" style="-fx-background-color: #27AE60;" text="Lägg till" textFill="WHITE" HBox.hgrow="NEVER">
                                        <font>
                                           <Font name="System Bold" size="16.0" />
                                        </font>
@@ -98,11 +98,12 @@
             </VBox>
          </children>
       </HBox>
-      <Circle fill="#6cd1fd" layoutX="253.0" layoutY="55.0" opacity="0.9" radius="48.0" stroke="BLACK" strokeType="INSIDE" strokeWidth="0.0" style="-fx-fill: -fx-alt2Base3;" />
-      <Label fx:id="cardName2" layoutX="228.0" layoutY="34.0" style="-fx-text-fill: -fx-altBase1;" styleClass="h2" text="35:-" wrapText="true">
+      <Circle fill="#6cd1fd" layoutX="229.0" layoutY="55.0" opacity="0.9" radius="48.0" stroke="BLACK" strokeType="INSIDE" strokeWidth="0.0" style="-fx-fill: -fx-alt2Base3;" AnchorPane.rightAnchor="19.0" AnchorPane.topAnchor="7.0" />
+      <Label fx:id="cardPrice" alignment="CENTER" layoutX="184.0" layoutY="32.0" prefHeight="37.0" prefWidth="96.0" style="-fx-text-fill: -fx-altBase1;" styleClass="h4" text="1" wrapText="true" AnchorPane.leftAnchor="184.0" AnchorPane.rightAnchor="22.0" AnchorPane.topAnchor="32.0">
          <font>
             <Font size="35.0" />
          </font>
       </Label>
+      <Label layoutX="217.0" layoutY="66.0" style="-fx-text-fill: -fx-altBase1;" text="Kr" />
    </children>
 </fx:root>

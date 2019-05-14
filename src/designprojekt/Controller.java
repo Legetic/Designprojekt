@@ -32,6 +32,7 @@ public class Controller implements Initializable {
     List<ShoppingItem> cartList = new ArrayList<>();
 
     private Map<String, Card> cardMap = new HashMap<String, Card>();
+    private Map<String, ShoppingItem> shoppingItemMap = new HashMap<String, ShoppingItem>();
 
     @Override
     public void initialize(URL url, ResourceBundle rb) {
@@ -72,7 +73,8 @@ public class Controller implements Initializable {
     }
 
     public void addProductToCart(Product product){
-        ShoppingItem item = new ShoppingItem(product,product.getPrice());
+
+        ShoppingItem item = new ShoppingItem(product);
         CartItem cartItem = new CartItem(item,this);
         dataHandler.getShoppingCart().addItem(item);
         shoppingCartFlowPane.getChildren().add(cartItem);
