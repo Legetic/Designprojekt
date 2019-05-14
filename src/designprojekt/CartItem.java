@@ -35,8 +35,8 @@ public class CartItem extends AnchorPane {
         this.parentController = parentController;
 
         cartItemName.setText(shoppingItem.getProduct().getName());
-        cartItemPrice.setText(shoppingItem.getAmount() + "");
-        cartItemTotalPrice.setText(Math.round(shoppingItem.getTotal() * 100) / 100 + " kr");
+        cartItemPrice.setText(shoppingItem.getProduct().getPrice() + "");
+        cartItemTotalPrice.setText(shoppingItem.getTotal() + " kr");
         System.out.println(Math.round(shoppingItem.getTotal() * 100) / 100);
     }
 

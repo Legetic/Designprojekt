@@ -15,6 +15,7 @@ public class Card extends AnchorPane {
     private Product product;
 
     @FXML private ImageView cardImage;
+    @FXML private Label cardPrice;
     @FXML private Label cardName;
 
 
@@ -34,6 +35,7 @@ public class Card extends AnchorPane {
 
         cardImage.setImage(this.parentController.getProductImage(product));
         cardName.setText(product.getName());
+        cardPrice.setText(product.getPrice() + "");
 
     }
 

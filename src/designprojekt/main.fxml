@@ -92,7 +92,7 @@
             </AnchorPane>
          </top>
          <right>
-            <AnchorPane prefHeight="650.0" prefWidth="283.0" BorderPane.alignment="TOP_RIGHT">
+            <AnchorPane prefHeight="549.0" prefWidth="343.0" BorderPane.alignment="TOP_RIGHT">
                <children>
                   <VBox alignment="TOP_CENTER" layoutX="-5.0" layoutY="2.0" prefHeight="625.0" prefWidth="288.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
                      <children>
@@ -117,12 +117,15 @@
                                  <content>
                                     <AnchorPane prefHeight="175.0" prefWidth="264.0">
                                        <children>
-                                          <FlowPane fx:id="shoppingCartFlowPane" prefHeight="164.0" prefWidth="281.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0" />
+                                          <FlowPane fx:id="shoppingCartFlowPane" alignment="TOP_CENTER" prefHeight="164.0" prefWidth="281.0" vgap="10.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0" />
                                        </children>
                                        <styleClass>
                                           <String fx:value="oneColor" />
                                           <String fx:value="cart" />
                                        </styleClass>
+                                       <padding>
+                                          <Insets top="10.0" />
+                                       </padding>
                                     </AnchorPane>
                                  </content>
                                  <opaqueInsets>
@@ -145,7 +148,7 @@
                      <cursor>
                         <Cursor fx:constant="HAND" />
                      </cursor></Button>
-                  <Button fx:id="emptyButton" layoutX="185.0" mnemonicParsing="false" style="-fx-background-color: -fx-niceGray; -fx-text-fill: black;" styleClass="p3" text="Töm" />
+                  <Button fx:id="emptyButton" layoutX="185.0" mnemonicParsing="false" style="-fx-background-color: -fx-niceGray; -fx-text-fill: black;" styleClass="p3" text="Töm" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0" />
                </children>
                <styleClass>
                   <String fx:value="oneColor" />
