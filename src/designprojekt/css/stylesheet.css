@@ -28,6 +28,7 @@
     -fx-alt2base4:#FF8366;
 
     -fx-niceGray:#f4f7f6;
+    -fx-niceGreen:#3BBB43;
 
 }
 /*Icon made by https://www.flaticon.com/authors/chanut from www.flaticon.com */
@@ -117,8 +118,22 @@
     -fx-border-width: 0 1 1 0;
     -fx-border-color: rgba(0,0,0,0.1);
 }
-#Logo{
+.logo{
     -fx-text-fill: -fx-Base4;
     -fx-font-size: 50px;
     -fx-font-weight: bold;
+
+    -fx-border-width: 5 5 5 5;
+    -fx-border-color: linear-gradient(to right, -fx-base3, -fx-base4);
+    -fx-label-padding: 0 5 0 5;
+
+}
+.bigLogo{
+    -fx-text-fill: -fx-Base4;
+    -fx-font-size: 120px;
+    -fx-font-weight: bold;
+
+    -fx-border-width: 20 20 20 20;
+    -fx-border-color: linear-gradient(to right, -fx-base3, -fx-base4);
+    -fx-label-padding: 0 20 0 20;
 }
