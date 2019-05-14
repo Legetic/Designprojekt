@@ -12,6 +12,8 @@
 }
 
 *{
+    /*Denn är nice med vit text: #77BCFC*/
+
     -fx-base1:#DEF4FD;
     -fx-base2:#D0F1FF;
     -fx-base3:#9AE1FF;
@@ -33,9 +35,23 @@
 }
 /*Icon made by https://www.flaticon.com/authors/chanut from www.flaticon.com */
 /*Paste this attribution on the final work so the authorship is known (for instance, in the acknowledgements chapter of a book)*/
+
+/*Deisgnat för en 1920 x 1080 cm laptopskärm med 40cm diagonal vilket ger en ppi på 140, vi sänker detta något till 120ppi för att få bättre marginal på resultatet*/
+/*Segoe UI valdes då det är den font som används till vanliga Microsoft-applikationer såsom Skype.
+Ytterligare har fonten en medelstor till stor x-height på 0.5 (ratio) (https://www.fonts.com/content/learning/fontology/level-1/type-anatomy/x-height) (http://jkorpela.fi/x-height.html),
+Om vi antar att användaren sitter runt än 40 cm ifrån skärmen kan vi beräkna läsbarheten (https://www.imarc.com/blog/best-font-size-for-any-device).
+Med tanke på programmets målgrupp, äldre användare som kan använda program som skype och facebook, siktar vi ändå på en balans
+mellan att fånga de äldre med sämre syn utan att ta upp onödigt stor plats, detta leder os till en strävan efter
+en upplevt x-höjd på 0.35 för gränssnittets minsta text. Slutligen innebär detta att gränssnittets minsta font ligger
+på 18pt (points). Ha i åtanke att fontens läsbarhet också påverkas av dess kontrast till bakgrunden, vilket
+ytterligare talar för att en stor font är viktig.
+
+
+https://blog.marvelapp.com/body-text-small/
+*/
 .label{
     -fx-font-family: "Segoe UI", sans-serif;
-    -fx-font-size: 18px;
+    -fx-font-size: 18pt;
     /*-fx-font-family: 'Roboto', sans-serif;*/
     /*-fx-font-family: 'Montserrat', sans-serif;*/
     /*-fx-text-fill: red;*/
@@ -43,13 +59,17 @@
 
 .button{
     -fx-font-family: "Segoe UI", sans-serif;
-    -fx-font-size: 20px;
+    -fx-font-size: 18pt;
+}
+
+.text-field{
+    -fx-font-family: "Segoe UI", sans-serif;
+    -fx-font-size: 18pt;
 }
 
 .browseButton{
     -fx-padding: 10 0 10 20;
     -fx-background-color: transparent;
-    -fx-font-size: 20px;
 
     -fx-border-width: 0 0 1 0;
     -fx-border-color: -fx-base3;
@@ -64,23 +84,26 @@
 }
 
 .h1{
-    -fx-font-size: 40px;
+    /*Only applied here for performance reasons*/
+    -fx-font-smoothing-type: gray;
+
+    -fx-font-size: 50pt;
     -fx-font-weight: bold;
     /*-fx-text-fill: rgba(0,0,0,0.75);*/
 }
 .h2{
-    -fx-font-size: 35px;
+    -fx-font-size: 40pt;
     -fx-font-weight: bold;
     /*-fx-text-fill: rgba(0,0,0,0.75);*/
 }
 
 .h3{
-    -fx-font-size: 26px;
+    -fx-font-size: 30pt;
     -fx-font-weight: bold;
     /*-fx-text-fill: rgba(0,0,0,0.75);*/
 }
 .h4{
-    -fx-font-size: 22px;
+    -fx-font-size: 22pt;
     -fx-font-weight: bold;
     /*-fx-text-fill: rgba(0,0,0,0.75);*/
 }
@@ -105,13 +128,20 @@
     -fx-background-color: white;
 }
 
-.p{
-    -fx-font-size: 20px;
+.p1{
+    -fx-font-size: 30pt;
 }
 
 .p2{
-    -fx-font-size: 17px;
-    -fx-font-weight: bold;
+    -fx-font-size: 26pt;
+}
+
+.p3{
+    -fx-font-size: 22pt;
+}
+
+.p4{
+
 }
 
 #Card{
@@ -120,7 +150,7 @@
 }
 .logo{
     -fx-text-fill: -fx-Base4;
-    -fx-font-size: 50px;
+    -fx-font-size: 38pt;
     -fx-font-weight: bold;
 
     -fx-border-width: 5 5 5 5;
@@ -130,7 +160,7 @@
 }
 .bigLogo{
     -fx-text-fill: -fx-Base4;
-    -fx-font-size: 120px;
+    -fx-font-size: 90pt;
     -fx-font-weight: bold;
 
     -fx-border-width: 20 20 20 20;
