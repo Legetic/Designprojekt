@@ -3,6 +3,7 @@ package designprojekt;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
+import javafx.scene.Node;
 import javafx.scene.control.Button;
 import javafx.scene.image.Image;
 import javafx.scene.layout.AnchorPane;
@@ -35,6 +36,7 @@ public class Controller implements Initializable {
     @FXML private FlowPane shoppingCartFlowPane;
 
     @FXML private AnchorPane previousPurchasesRoot;
+    @FXML private AnchorPane costumerServicePage;
 
 
 
@@ -139,6 +141,23 @@ public class Controller implements Initializable {
         previousPurchasesRoot.toBack();
 
     }
+
+    @FXML
+    public void openCustomerServicePage(){
+        previousPurchasesRoot.getChildren().clear();
+        CustomerServicePage customerServicePage = new CustomerServicePage( this);
+        previousPurchasesRoot.getChildren().addAll(customerServicePage);
+
+        homePage.toFront();
+        previousPurchasesRoot.toFront();
+
+    }
+    @FXML
+    public void closeCustomerServicePage(){
+        previousPurchasesRoot.toBack();
+
+    }
+
 
     /*public void openStartMenu(){
 
