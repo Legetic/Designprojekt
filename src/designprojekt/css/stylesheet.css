@@ -151,6 +151,10 @@ https://blog.marvelapp.com/body-text-small/
     -fx-font-size: 18pt;
 }
 
+.colorTextBlack{
+    -fx-text-fill: #000000
+}
+
 #Card{
     -fx-border-width: 0 1 1 0;
     -fx-border-color: rgba(0,0,0,0.1);
@@ -173,4 +177,9 @@ https://blog.marvelapp.com/body-text-small/
     -fx-border-width: 20 20 20 20;
     -fx-border-color: linear-gradient(to right, -fx-base3, -fx-base4);
     -fx-label-padding: 0 20 0 20;
+}
+
+.standOutColor{
+    -fx-background-color: #e6e6e6
+    -fx-border-color: #a6a6a6
 }
