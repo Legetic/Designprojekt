@@ -22,7 +22,7 @@
     -fx-altBase1:#FFF6DE;
     -fx-altBase2:#FFF1CD;
     -fx-altBase3:#FFE196;
-    -fx-altBase4:#FFD466;
+    -fx-altBase4:#E00F00;
 
     -fx-alt2base1:#FFE4DE;
     -fx-alt2base2:#FFD7CD;
@@ -142,7 +142,7 @@ https://blog.marvelapp.com/body-text-small/
 }
 
 .p4{
-
+    -fx-font-size: 18pt;
 }
 
 #Card{
