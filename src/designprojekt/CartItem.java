@@ -51,19 +51,19 @@ public class CartItem extends AnchorPane {
             }
         });
     }
-
+    @FXML
     public void decAmount() {
         shoppingItem.setAmount(shoppingItem.getAmount() - 1);
         cartItemAmount.setText((int) shoppingItem.getAmount() + " st");
         updatePrice();
     }
-
+    @FXML
     public void incAmount() {
         shoppingItem.setAmount(shoppingItem.getAmount() + 1);
         cartItemAmount.setText((int) shoppingItem.getAmount() + " st");
         updatePrice();
     }
-
+    @FXML
     public void setAmount() { //Invalid input doesn't exist with this method.
         try {
             shoppingItem.setAmount(Integer.parseInt(cartItemAmount.getText())); //throws NumberFormatException if String contains non-digits
@@ -84,7 +84,14 @@ public class CartItem extends AnchorPane {
         cartItemAmount.setText((int)shoppingItem.getAmount() + " st");
         updatePrice();
     }
-
+    @FXML
+    public void selectText() {
+        cartItemAmount.selectAll();
+    }
+    @FXML
+    public void updatePrice() {
+        cartItemTotalPrice.setText(shoppingItem.getTotal() + " kr");
+    }
     public Controller getParentController() {
         return this.parentController;
     }
@@ -93,12 +100,5 @@ public class CartItem extends AnchorPane {
         return this.shoppingItem;
     }
 
-    public void selectText() {
-        cartItemAmount.selectAll();
-    }
-
-    public void updatePrice() {
-        cartItemTotalPrice.setText(shoppingItem.getTotal() + " kr");
-    }
 
 }
