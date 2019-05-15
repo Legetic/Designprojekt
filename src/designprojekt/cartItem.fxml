@@ -6,10 +6,9 @@
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.text.Font?>
 
-<fx:root maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="93.0" prefWidth="310.0" stylesheets="@css/stylesheet.css" type="AnchorPane" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1">
+<fx:root maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="129.0" prefWidth="310.0" stylesheets="@css/stylesheet.css" type="AnchorPane" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1">
    <children>
-      <TextField fx:id="cartItemAmount" alignment="CENTER" layoutY="3.0" onAction="#setAmount" onMouseClicked="#selectText" prefHeight="45.0" prefWidth="114.0" text="1 st" AnchorPane.bottomAnchor="45.0" AnchorPane.leftAnchor="0.0" AnchorPane.topAnchor="0.0" />
-      <Label fx:id="cartItemName" alignment="TOP_LEFT" layoutX="121.0" layoutY="14.0" prefHeight="29.0" prefWidth="217.0" text="Falukorv, 300g, Scan" AnchorPane.leftAnchor="121.0" AnchorPane.rightAnchor="10.0" AnchorPane.topAnchor="14.0" />
+      <TextField fx:id="cartItemAmount" alignment="CENTER" layoutY="3.0" onAction="#setAmount" onMouseClicked="#selectText" prefHeight="45.0" prefWidth="114.0" text="1 st" AnchorPane.bottomAnchor="45.0" AnchorPane.leftAnchor="0.0" AnchorPane.topAnchor="43.0" />
       <Label fx:id="cartItemTotalPrice" layoutX="231.0" layoutY="50.0" style="-fx-font-weight: bold;" text="300,00" AnchorPane.bottomAnchor="10.0" AnchorPane.rightAnchor="10.0">
          <font>
             <Font name="System Bold" size="15.0" />
@@ -18,5 +17,7 @@
       <Label fx:id="cartItemPrice" layoutX="121.0" layoutY="54.0" text="30,00" AnchorPane.bottomAnchor="10.0" AnchorPane.leftAnchor="121.0" />
       <Button layoutX="-8.0" layoutY="45.0" mnemonicParsing="false" onAction="#decAmount" prefHeight="45.0" prefWidth="57.0" text="-" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" />
       <Button layoutX="57.0" layoutY="48.0" mnemonicParsing="false" onAction="#incAmount" prefWidth="57.0" text="+" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="57.0" />
+      <Button fx:id="removeBtn" layoutX="248.0" layoutY="14.0" mnemonicParsing="false" onAction="#removeItem" prefHeight="75.0" prefWidth="95.0" text="TA BORT" textAlignment="CENTER" wrapText="true" AnchorPane.rightAnchor="3.0" AnchorPane.topAnchor="3.0" />
+      <Label fx:id="cartItemName" alignment="TOP_LEFT" layoutX="121.0" layoutY="15.0" prefHeight="29.0" prefWidth="197.0" text="Falukorv, 300g, Scan" AnchorPane.leftAnchor="10.0" AnchorPane.rightAnchor="105.0" AnchorPane.topAnchor="6.0" />
    </children>
 </fx:root>
