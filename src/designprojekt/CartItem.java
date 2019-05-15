@@ -43,7 +43,7 @@ public class CartItem extends AnchorPane {
 
         cartItemName.setText(shoppingItem.getProduct().getName());
         cartItemPrice.setText(shoppingItem.getProduct().getPrice() + "");
-        cartItemTotalPrice.setText(shoppingItem.getTotal() + " kr");
+        updatePrice();
         System.out.println(Math.round(shoppingItem.getTotal() * 100) / 100);
         cartItemAmount.focusedProperty().addListener((ov, oldV, newV) -> { //executes setAmount() on lost focus
             if (!newV) {
@@ -55,11 +55,13 @@ public class CartItem extends AnchorPane {
     public void decAmount() {
         shoppingItem.setAmount(shoppingItem.getAmount() - 1);
         cartItemAmount.setText((int) shoppingItem.getAmount() + " st");
+        updatePrice();
     }
 
     public void incAmount() {
         shoppingItem.setAmount(shoppingItem.getAmount() + 1);
         cartItemAmount.setText((int) shoppingItem.getAmount() + " st");
+        updatePrice();
     }
 
     public void setAmount() { //Invalid input doesn't exist with this method.
@@ -80,6 +82,7 @@ public class CartItem extends AnchorPane {
             }
         }
         cartItemAmount.setText((int)shoppingItem.getAmount() + " st");
+        updatePrice();
     }
 
     public Controller getParentController() {
@@ -94,5 +97,8 @@ public class CartItem extends AnchorPane {
         cartItemAmount.selectAll();
     }
 
+    public void updatePrice() {
+        cartItemTotalPrice.setText(shoppingItem.getTotal() + " kr");
+    }
 
 }
