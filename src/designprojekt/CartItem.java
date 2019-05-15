@@ -3,6 +3,7 @@ package designprojekt;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.control.Label;
+import javafx.scene.control.TextField;
 import javafx.scene.image.ImageView;
 import javafx.scene.layout.AnchorPane;
 import se.chalmers.cse.dat216.project.Order;
@@ -15,12 +16,17 @@ public class CartItem extends AnchorPane {
     private Controller parentController;
     private ShoppingItem shoppingItem;
 
-    @FXML private Label cartItemName;
-    @FXML private Label cartItemPrice;
-    @FXML private Label cartItemTotalPrice;
+    @FXML
+    private Label cartItemName;
+    @FXML
+    private Label cartItemPrice;
+    @FXML
+    private Label cartItemTotalPrice;
+    @FXML
+    private TextField cartItemAmount;
 
 
-    public CartItem(ShoppingItem shoppingItem, Controller parentController){
+    public CartItem(ShoppingItem shoppingItem, Controller parentController) {
         FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("cartItem.fxml"));
         fxmlLoader.setRoot(this);
         fxmlLoader.setController(this);
@@ -31,6 +37,7 @@ public class CartItem extends AnchorPane {
             throw new RuntimeException(exception);
         }
 
+
         this.shoppingItem = shoppingItem;
         this.parentController = parentController;
 
@@ -38,6 +45,41 @@ public class CartItem extends AnchorPane {
         cartItemPrice.setText(shoppingItem.getProduct().getPrice() + "");
         cartItemTotalPrice.setText(shoppingItem.getTotal() + " kr");
         System.out.println(Math.round(shoppingItem.getTotal() * 100) / 100);
+        cartItemAmount.focusedProperty().addListener((ov, oldV, newV) -> { //executes setAmount() on lost focus
+            if (!newV) {
+                setAmount();
+            }
+        });
+    }
+
+    public void decAmount() {
+        shoppingItem.setAmount(shoppingItem.getAmount() - 1);
+        cartItemAmount.setText((int) shoppingItem.getAmount() + " st");
+    }
+
+    public void incAmount() {
+        shoppingItem.setAmount(shoppingItem.getAmount() + 1);
+        cartItemAmount.setText((int) shoppingItem.getAmount() + " st");
+    }
+
+    public void setAmount() { //Invalid input doesn't exist with this method.
+        try {
+            shoppingItem.setAmount(Integer.parseInt(cartItemAmount.getText())); //throws NumberFormatException if String contains non-digits
+        } catch(NumberFormatException e) {
+            StringBuilder stringBuilder = new StringBuilder();
+            for(char c : cartItemAmount.getText().toCharArray()) { //Isolates digits
+                if(Character.isDigit(c)) {
+                    stringBuilder.append(c);
+                }
+            }
+            String digitString = stringBuilder.toString();
+            if(!digitString.isEmpty()) { //if the string is empty (contained no digits), reset amount
+                shoppingItem.setAmount(Integer.parseInt(digitString));
+            } else {
+                shoppingItem.setAmount(shoppingItem.getAmount());
+            }
+        }
+        cartItemAmount.setText((int)shoppingItem.getAmount() + " st");
     }
 
     public Controller getParentController() {
@@ -48,7 +90,9 @@ public class CartItem extends AnchorPane {
         return this.shoppingItem;
     }
 
-
+    public void selectText() {
+        cartItemAmount.selectAll();
+    }
 
 
 }
