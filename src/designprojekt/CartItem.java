@@ -37,6 +37,8 @@ public class CartItem extends AnchorPane {
             throw new RuntimeException(exception);
         }
 
+        setLeftAnchor(this,0.0);
+        setRightAnchor(this,0.0);
 
         this.shoppingItem = shoppingItem;
         this.parentController = parentController;
@@ -51,15 +53,28 @@ public class CartItem extends AnchorPane {
             }
         });
     }
+
+    @FXML
+    public void removeItem() {
+        parentController.removeItem(this);
+    }
+
+
     @FXML
     public void decAmount() {
         shoppingItem.setAmount(shoppingItem.getAmount() - 1);
+        if(shoppingItem.getAmount() < 0) {
+            shoppingItem.setAmount(0);
+        }
         cartItemAmount.setText((int) shoppingItem.getAmount() + " st");
         updatePrice();
     }
     @FXML
     public void incAmount() {
         shoppingItem.setAmount(shoppingItem.getAmount() + 1);
+        if(shoppingItem.getAmount() < 0) { //Maybe redundant
+            shoppingItem.setAmount(0);
+        }
         cartItemAmount.setText((int) shoppingItem.getAmount() + " st");
         updatePrice();
     }
@@ -81,6 +96,9 @@ public class CartItem extends AnchorPane {
                 shoppingItem.setAmount(shoppingItem.getAmount());
             }
         }
+        if(shoppingItem.getAmount() < 0) {
+            shoppingItem.setAmount(0);
+        }
         cartItemAmount.setText((int)shoppingItem.getAmount() + " st");
         updatePrice();
     }
@@ -92,6 +110,8 @@ public class CartItem extends AnchorPane {
     public void updatePrice() {
         cartItemTotalPrice.setText(shoppingItem.getTotal() + " kr");
     }
+
+
     public Controller getParentController() {
         return this.parentController;
     }
@@ -99,6 +119,8 @@ public class CartItem extends AnchorPane {
     public ShoppingItem getShoppingItem() {
         return this.shoppingItem;
     }
+
+
 
 
 }

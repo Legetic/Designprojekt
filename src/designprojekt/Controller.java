@@ -73,7 +73,12 @@ public class Controller implements Initializable {
         dataHandler.getShoppingCart().clear();
     }
 
-    public void addProductToCart(Product product) {//TODO: implement method for checking duplicate
+    protected void removeItem(CartItem cartItem) {
+        shoppingCartFlowPane.getChildren().remove(cartItem);
+        dataHandler.getShoppingCart().getItems().remove(cartItem.getShoppingItem());
+    }
+
+    public void addProductToCart(Product product) {//TODO: implement separate method for the duplicate check
         Boolean isDuplicate = false;
         for(ShoppingItem si : dataHandler.getShoppingCart().getItems()) {
             if(si.getProduct().equals(product)) {
