@@ -1,0 +1,112 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import com.gluonhq.charm.glisten.control.ToggleButtonGroup?>
+<?import java.lang.String?>
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.ScrollPane?>
+<?import javafx.scene.control.ToggleButton?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.FlowPane?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Font?>
+
+
+<AnchorPane fx:id="checkoutPage" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="749.0" prefWidth="948.0" stylesheets="@css/stylesheet.css" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1">
+   <children>
+      <AnchorPane layoutX="608.0" layoutY="170.0" prefHeight="426.0" prefWidth="306.0">
+         <children>
+            <VBox prefHeight="426.0" prefWidth="306.0" styleClass="oneColor" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+               <children>
+                  <Label prefHeight="78.0" prefWidth="323.0" style="-fx-alignment: center;" text="Sammanfattning" textAlignment="CENTER" />
+                  <Label prefHeight="60.0" prefWidth="322.0" style="-fx-alignment: center;" text="Antal produkter: " />
+               </children>
+            </VBox>
+         </children>
+      </AnchorPane>
+      <ToggleButtonGroup layoutX="23.0" layoutY="2.0" selectionType="SINGLE">
+          <toggles>
+              <ToggleButton prefHeight="51.0" prefWidth="70.0" selected="true">
+               <graphic>
+                  <Label text="1" />
+               </graphic>
+              </ToggleButton>
+              <ToggleButton prefHeight="45.0" prefWidth="74.0" styleClass="oneColor">
+               <graphic>
+                  <Label text="2" />
+               </graphic>
+              </ToggleButton>
+              <ToggleButton>
+               <graphic>
+                  <Label alignment="CENTER" prefHeight="29.0" prefWidth="56.0" text="3" textAlignment="CENTER" />
+               </graphic>
+              </ToggleButton>
+            <ToggleButton contentDisplay="CENTER" styleClass="oneColor">
+               <graphic>
+                  <Label alignment="CENTER" prefHeight="29.0" prefWidth="57.0" text="4" />
+               </graphic>
+            </ToggleButton>
+          </toggles>
+      </ToggleButtonGroup>
+      <Button layoutX="608.0" layoutY="28.0" mnemonicParsing="false" prefHeight="88.0" prefWidth="305.0" style="-fx-background-color: -fx-altBase4;" text="Fortsätta att handla">
+         <styleClass>
+            <String fx:value="p3" />
+            <String fx:value="colorTextBlack" />
+         </styleClass>
+      </Button>
+      <AnchorPane fx:id="varukorg" layoutY="127.0" prefHeight="622.0" prefWidth="578.0">
+         <children>
+            <AnchorPane layoutX="70.0" layoutY="14.0" prefHeight="563.0" prefWidth="458.0">
+               <children>
+                  <VBox alignment="TOP_CENTER" layoutX="-1.0" prefHeight="563.0" prefWidth="458.0">
+                     <children>
+                        <Label alignment="BOTTOM_CENTER" graphicTextGap="10.0" minHeight="-Infinity" prefHeight="78.0" prefWidth="283.0" styleClass="h3" text="Varukorg" VBox.vgrow="NEVER">
+                           <font>
+                              <Font size="32.0" />
+                           </font>
+                           <VBox.margin>
+                              <Insets top="10.0" />
+                           </VBox.margin>
+                           <graphic>
+                              <ImageView fitHeight="42.0" fitWidth="43.0" pickOnBounds="true" preserveRatio="true">
+                                 <image>
+                                    <Image url="@resources/icons/e-commerce-pack/shopping-cart-4.png" />
+                                 </image>
+                              </ImageView>
+                           </graphic>
+                        </Label>
+                        <AnchorPane prefHeight="351.0" prefWidth="283.0" VBox.vgrow="ALWAYS">
+                           <children>
+                              <ScrollPane fitToHeight="true" fitToWidth="true" hbarPolicy="NEVER" prefHeight="337.0" prefWidth="283.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+                                 <content>
+                                    <AnchorPane prefHeight="175.0" prefWidth="264.0">
+                                       <children>
+                                          <FlowPane fx:id="itemsCheckoutFlowpane" alignment="TOP_CENTER" prefHeight="130.0" prefWidth="457.0" vgap="10.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0" />
+                                       </children>
+                                       <padding>
+                                          <Insets top="10.0" />
+                                       </padding>
+                                    </AnchorPane>
+                                 </content>
+                                 <opaqueInsets>
+                                    <Insets />
+                                 </opaqueInsets>
+                              </ScrollPane>
+                           </children>
+                        </AnchorPane>
+                     </children>
+                  </VBox>
+               </children>
+            </AnchorPane>
+         </children>
+      </AnchorPane>
+      <AnchorPane prefHeight="622.0" prefWidth="578.0" styleClass="oneColor" AnchorPane.bottomAnchor="1.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="370.0">
+         <children>
+            <AnchorPane layoutX="74.0" layoutY="45.0" prefHeight="374.0" prefWidth="430.0" />
+         </children>
+      </AnchorPane>
+   </children>
+</AnchorPane>
