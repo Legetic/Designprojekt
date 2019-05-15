@@ -1,0 +1,227 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import com.gluonhq.charm.glisten.control.ToggleButtonGroup?>
+<?import java.lang.String?>
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.ChoiceBox?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.RadioButton?>
+<?import javafx.scene.control.ScrollPane?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.control.ToggleButton?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.FlowPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.shape.Circle?>
+<?import javafx.scene.text.Font?>
+
+
+<AnchorPane fx:id="checkoutPage" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="749.0" prefWidth="948.0" stylesheets="@css/stylesheet.css" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1">
+   <children>
+      <AnchorPane layoutX="608.0" layoutY="170.0" prefHeight="426.0" prefWidth="306.0">
+         <children>
+            <VBox layoutY="211.0" prefHeight="215.0" prefWidth="306.0" styleClass="oneColor" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="211.0">
+               <children>
+                  <Label alignment="CENTER" prefHeight="60.0" prefWidth="322.0" style="-fx-alignment: center;" text="Antal produkter: " />
+                  <Label prefHeight="78.0" prefWidth="323.0" style="-fx-alignment: center;" text="Total" textAlignment="CENTER" />
+               </children>
+            </VBox>
+            <Label prefHeight="78.0" prefWidth="323.0" style="-fx-alignment: center;" text="Sammanfattning" textAlignment="CENTER" />
+         </children>
+      </AnchorPane>
+      <ToggleButtonGroup layoutX="35.0" prefWidth="283.0" selectionType="SINGLE" AnchorPane.topAnchor="0.0">
+          <toggles>
+              <ToggleButton prefHeight="73.0" prefWidth="70.0" selected="true">
+               <graphic>
+                  <Label text="1" />
+               </graphic>
+              </ToggleButton>
+              <ToggleButton prefHeight="45.0" prefWidth="74.0" styleClass="oneColor">
+               <graphic>
+                  <Label text="2" />
+               </graphic>
+              </ToggleButton>
+              <ToggleButton>
+               <graphic>
+                  <Label alignment="CENTER" prefHeight="29.0" prefWidth="56.0" text="3" textAlignment="CENTER" />
+               </graphic>
+              </ToggleButton>
+            <ToggleButton contentDisplay="CENTER" styleClass="oneColor">
+               <graphic>
+                  <Label alignment="CENTER" prefHeight="29.0" prefWidth="57.0" text="4" />
+               </graphic>
+            </ToggleButton>
+          </toggles>
+      </ToggleButtonGroup>
+      <Button layoutX="608.0" layoutY="28.0" mnemonicParsing="false" prefHeight="88.0" prefWidth="305.0" style="-fx-background-color: -fx-altBase4;" text="Fortsätt att handla">
+         <styleClass>
+            <String fx:value="p3" />
+            <String fx:value="colorTextBlack" />
+         </styleClass>
+      </Button>
+      <AnchorPane fx:id="varukorg" layoutY="127.0" prefHeight="622.0" prefWidth="578.0" style="-fx-background-color: #ffffff;">
+         <children>
+            <AnchorPane layoutX="70.0" layoutY="14.0" prefHeight="563.0" prefWidth="458.0">
+               <children>
+                  <VBox alignment="TOP_CENTER" layoutX="-1.0" prefHeight="563.0" prefWidth="458.0">
+                     <children>
+                        <Label alignment="BOTTOM_CENTER" graphicTextGap="10.0" minHeight="-Infinity" prefHeight="78.0" prefWidth="283.0" styleClass="h3" text="Varukorg" VBox.vgrow="NEVER">
+                           <font>
+                              <Font size="32.0" />
+                           </font>
+                           <VBox.margin>
+                              <Insets top="10.0" />
+                           </VBox.margin>
+                           <graphic>
+                              <ImageView fitHeight="42.0" fitWidth="43.0" pickOnBounds="true" preserveRatio="true">
+                                 <image>
+                                    <Image url="@resources/icons/e-commerce-pack/shopping-cart-4.png" />
+                                 </image>
+                              </ImageView>
+                           </graphic>
+                        </Label>
+                        <AnchorPane prefHeight="351.0" prefWidth="283.0" VBox.vgrow="ALWAYS">
+                           <children>
+                              <ScrollPane fitToHeight="true" fitToWidth="true" hbarPolicy="NEVER" prefHeight="337.0" prefWidth="283.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+                                 <content>
+                                    <AnchorPane prefHeight="175.0" prefWidth="264.0">
+                                       <children>
+                                          <FlowPane fx:id="itemsCheckoutFlowpane" alignment="TOP_CENTER" prefHeight="130.0" prefWidth="457.0" vgap="10.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0" />
+                                       </children>
+                                       <padding>
+                                          <Insets top="10.0" />
+                                       </padding>
+                                    </AnchorPane>
+                                 </content>
+                                 <opaqueInsets>
+                                    <Insets />
+                                 </opaqueInsets>
+                              </ScrollPane>
+                           </children>
+                        </AnchorPane>
+                     </children>
+                  </VBox>
+               </children>
+            </AnchorPane>
+            <Circle fill="#1f93ff00" layoutX="46.0" layoutY="73.0" radius="23.0" stroke="BLACK" strokeType="INSIDE" />
+            <Label layoutX="39.0" layoutY="58.0" prefHeight="30.0" prefWidth="14.0" text="1" />
+         </children>
+      </AnchorPane>
+      <AnchorPane prefHeight="622.0" prefWidth="578.0" style="-fx-background-color: #ffffff;" AnchorPane.bottomAnchor="1.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="370.0">
+         <children>
+            <AnchorPane layoutX="94.0" layoutY="101.0" prefHeight="374.0" prefWidth="390.0">
+               <children>
+                  <VBox layoutX="39.0" layoutY="68.0" prefHeight="374.0" prefWidth="390.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+                     <children>
+                        <HBox prefHeight="62.0" prefWidth="430.0">
+                           <children>
+                              <TextField prefHeight="58.0" prefWidth="233.0" text="Hjördis" />
+                              <TextField prefHeight="58.0" prefWidth="271.0" text="Andersson" />
+                           </children>
+                        </HBox>
+                        <HBox prefHeight="57.0" prefWidth="390.0">
+                           <children>
+                              <TextField prefHeight="54.0" prefWidth="394.0" text="070-1234567" />
+                           </children>
+                        </HBox>
+                        <HBox prefHeight="51.0" prefWidth="390.0">
+                           <children>
+                              <TextField prefHeight="51.0" prefWidth="390.0" text="hjordisA@gmail.com" />
+                           </children>
+                        </HBox>
+                        <HBox prefHeight="55.0" prefWidth="390.0">
+                           <children>
+                              <TextField prefHeight="56.0" prefWidth="390.0" text="410404-1234" />
+                           </children>
+                        </HBox>
+                        <HBox prefHeight="53.0" prefWidth="390.0">
+                           <children>
+                              <TextField prefHeight="56.0" prefWidth="398.0" text="Gatgatan 12" />
+                           </children>
+                        </HBox>
+                        <HBox prefHeight="52.0" prefWidth="390.0">
+                           <children>
+                              <TextField prefHeight="50.0" prefWidth="182.0" text="412 12" />
+                              <TextField prefHeight="56.0" prefWidth="219.0" text="Göteborg" />
+                           </children>
+                        </HBox>
+                        <HBox prefHeight="46.0" prefWidth="390.0">
+                           <children>
+                              <ChoiceBox prefHeight="46.0" prefWidth="403.0" />
+                           </children>
+                        </HBox>
+                     </children>
+                  </VBox>
+               </children>
+            </AnchorPane>
+            <Circle fill="#1f93ff00" layoutX="117.0" layoutY="77.0" radius="23.0" stroke="BLACK" strokeType="INSIDE" />
+            <Label layoutX="110.0" layoutY="62.0" prefHeight="30.0" prefWidth="14.0" text="2" />
+            <Label layoutX="150.0" layoutY="53.0" styleClass="h3" text="Dina uppgifter" />
+         </children>
+      </AnchorPane>
+      <Button alignment="CENTER" layoutX="611.0" layoutY="623.0" mnemonicParsing="false" prefHeight="110.0" prefWidth="299.0" style="-fx-background-color: -fx-niceGreen;" styleClass="h3" text="Fortsätt" />
+      <AnchorPane layoutY="144.0" prefHeight="606.0" prefWidth="597.0" style="-fx-background-color: #ffffff;">
+         <children>
+            <AnchorPane layoutX="92.0" layoutY="104.0" prefHeight="374.0" prefWidth="390.0">
+               <children>
+                  <VBox layoutX="39.0" layoutY="68.0" prefHeight="374.0" prefWidth="390.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+                     <children>
+                        <HBox prefHeight="62.0" prefWidth="430.0">
+                           <children>
+                              <TextField prefHeight="58.0" prefWidth="233.0" text="Hjördis" />
+                              <TextField prefHeight="58.0" prefWidth="271.0" text="Andersson" />
+                           </children>
+                        </HBox>
+                        <HBox prefHeight="55.0" prefWidth="390.0">
+                           <children>
+                              <TextField prefHeight="56.0" prefWidth="390.0" text="410404-1234" />
+                           </children>
+                        </HBox>
+                        <HBox prefHeight="53.0" prefWidth="390.0">
+                           <children>
+                              <TextField prefHeight="56.0" prefWidth="398.0" text="Gatgatan 12" />
+                           </children>
+                        </HBox>
+                        <HBox prefHeight="52.0" prefWidth="390.0">
+                           <children>
+                              <TextField prefHeight="50.0" prefWidth="182.0" text="412 12" />
+                              <TextField prefHeight="56.0" prefWidth="219.0" text="Göteborg" />
+                           </children>
+                        </HBox>
+                        <HBox prefHeight="46.0" prefWidth="390.0">
+                           <children>
+                              <ChoiceBox prefHeight="46.0" prefWidth="403.0" />
+                           </children>
+                        </HBox>
+                     </children>
+                  </VBox>
+               </children>
+            </AnchorPane>
+            <Circle fill="#1f93ff00" layoutX="126.0" layoutY="58.0" radius="23.0" stroke="BLACK" strokeType="INSIDE" />
+            <Label layoutX="119.0" layoutY="43.0" prefHeight="30.0" prefWidth="14.0" text="3" />
+            <Label layoutX="159.0" layoutY="34.0" styleClass="h3" text="Leverans" />
+         </children>
+      </AnchorPane>
+      <AnchorPane layoutX="3.0" layoutY="126.0" prefHeight="606.0" prefWidth="586.0" style="-fx-background-color: #ffffff;" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0">
+         <children>
+            <AnchorPane layoutX="94.0" layoutY="101.0" prefHeight="374.0" prefWidth="390.0">
+               <children>
+                  <ToggleButtonGroup layoutX="37.0" layoutY="18.0" prefHeight="250.0" prefWidth="299.0" selectionType="SINGLE">
+                      <toggles>
+                        <RadioButton mnemonicParsing="false" prefHeight="129.0" prefWidth="153.0" text="Kort" />
+                        <RadioButton mnemonicParsing="false" prefHeight="134.0" prefWidth="145.0" text="Faktura" />
+                      </toggles>
+                  </ToggleButtonGroup>
+               </children>
+            </AnchorPane>
+            <Circle fill="#1f93ff00" layoutX="117.0" layoutY="77.0" radius="23.0" stroke="BLACK" strokeType="INSIDE" />
+            <Label layoutX="110.0" layoutY="62.0" prefHeight="30.0" prefWidth="14.0" text="4" />
+            <Label layoutX="150.0" layoutY="53.0" styleClass="h3" text="Betalningssätt" />
+         </children>
+      </AnchorPane>
+   </children>
+</AnchorPane>
