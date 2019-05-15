@@ -28,8 +28,8 @@ public class Controller implements Initializable {
     @FXML private FlowPane shoppingCartFlowPane;
 
 
-    List<Product> productList = new ArrayList<>();
-    List<ShoppingItem> cartList = new ArrayList<>();
+    private List<Product> productList = new ArrayList<>();
+    private List<ShoppingItem> cartList = new ArrayList<>();
 
     private Map<String, Card> cardMap = new HashMap<String, Card>();
     private Map<String, ShoppingItem> shoppingItemMap = new HashMap<String, ShoppingItem>();
@@ -46,11 +46,11 @@ public class Controller implements Initializable {
         updateMainGrid();
     }
 
-    private void updateMainGrid(){
+    private void updateMainGrid() {
 
         mainGrid.getChildren().clear();
         productList = imatBackendController.getProducts();
-        for (Product r : productList){
+        for (Product r : productList) {
             Card productCard = cardMap.get(r.getName());
             mainGrid.getChildren().add(productCard);
 
@@ -58,43 +58,49 @@ public class Controller implements Initializable {
 
     }
 
-    private void updateShoppingCart(){
+    private void updateShoppingCart() {
         shoppingCartFlowPane.getChildren().clear();
         cartList = dataHandler.getShoppingCart().getItems();
-        for (ShoppingItem s : cartList){
-            CartItem cartItem = new CartItem(s,this);
+        for (ShoppingItem s : cartList) {
+            CartItem cartItem = new CartItem(s, this);
             shoppingCartFlowPane.getChildren().add(cartItem);
 
         }
     }
-    private void clearShoppingCart(){
+
+    public void clearShoppingCart() {
         shoppingCartFlowPane.getChildren().clear();
         dataHandler.getShoppingCart().clear();
     }
 
-    public void addProductToCart(Product product){
-
-        ShoppingItem item = new ShoppingItem(product);
-        CartItem cartItem = new CartItem(item,this);
-        dataHandler.getShoppingCart().addItem(item);
-        shoppingCartFlowPane.getChildren().add(cartItem);
+    public void addProductToCart(Product product) {//TODO: implement method for checking duplicate
+        Boolean isDuplicate = false;
+        for(ShoppingItem si : dataHandler.getShoppingCart().getItems()) {
+            if(si.getProduct().equals(product)) {
+                isDuplicate = true;
+                break;
+            }
+        }
+        if(!isDuplicate) {
+            ShoppingItem item = new ShoppingItem(product);
+            CartItem cartItem = new CartItem(item, this);
+            dataHandler.getShoppingCart().addItem(item);
+            shoppingCartFlowPane.getChildren().add(cartItem);
+        }
     }
-
-
-
 
 
     public Image getProductImage(Product product) {
-       return dataHandler.getFXImage(product);
+        return dataHandler.getFXImage(product);
     }
 
     public Image getProductImage(Product product, double width, double height, boolean keepRatio) {
-       return dataHandler.getFXImage(product,width,height,keepRatio);
+        return dataHandler.getFXImage(product, width, height, keepRatio);
     }
 
 
     @FXML
-    public void closeStartMenu(){
+    public void closeStartMenu() {
         startMenu.toBack();
     }
 
