@@ -1,16 +1,21 @@
 package designprojekt;
 
 import javafx.fxml.FXML;
+import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
+import javafx.scene.Node;
 import javafx.scene.control.Button;
 import javafx.scene.image.Image;
 import javafx.scene.layout.AnchorPane;
+import javafx.scene.layout.BorderPane;
 import javafx.scene.layout.FlowPane;
 import se.chalmers.cse.dat216.project.IMatDataHandler;
 import se.chalmers.cse.dat216.project.Product;
 import se.chalmers.cse.dat216.project.ShoppingCart;
 import se.chalmers.cse.dat216.project.ShoppingItem;
 
+import java.awt.event.ActionEvent;
+import java.io.IOException;
 import java.net.URL;
 import java.util.*;
 
@@ -19,13 +24,20 @@ public class Controller implements Initializable {
     ImatBackendController imatBackendController = new ImatBackendController();
     private IMatDataHandler dataHandler = IMatDataHandler.getInstance();
 
-    @FXML private FlowPane mainGrid;
     @FXML private AnchorPane startMenu;
+    @FXML private BorderPane homePage;
+
+
+    @FXML private FlowPane mainGrid;
     @FXML private Button startPage_exit_btn;
     @FXML private Button startPage_home_btn;
     @FXML private Button startPage_recentBuy_btn;
     @FXML private Button addButton;
     @FXML private FlowPane shoppingCartFlowPane;
+
+    @FXML private AnchorPane previousPurchasesRoot;
+    @FXML private AnchorPane costumerServicePage;
+
 
 
     private List<Product> productList = new ArrayList<>();
@@ -104,6 +116,42 @@ public class Controller implements Initializable {
         startMenu.toBack();
     }
 
+    @FXML
+    public void openPreviousPurchases() throws IOException{
+        //ResourceBundle bundle = java.util.ResourceBundle.getBundle("designprojekt/resources/Imat");
+        //FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("earlierOrders.fxml"));
+
+        previousPurchasesRoot.getChildren().clear();
+        EarlierOrdersPage earlierOrdersPage = new EarlierOrdersPage( this);
+        previousPurchasesRoot.getChildren().addAll(earlierOrdersPage);
+
+        homePage.toFront();
+        previousPurchasesRoot.toFront();
+
+    }
+
+    @FXML
+    public void closePreviousPurchases(){
+
+        previousPurchasesRoot.toBack();
+
+    }
+
+    @FXML
+    public void openCustomerServicePage(){
+        previousPurchasesRoot.getChildren().clear();
+        CustomerServicePage customerServicePage = new CustomerServicePage( this);
+        previousPurchasesRoot.getChildren().addAll(customerServicePage);
+
+        homePage.toFront();
+        previousPurchasesRoot.toFront();
+
+    }
+    @FXML
+    public void closeCustomerServicePage(){
+        previousPurchasesRoot.toBack();
+
+    }
 
 
     /*public void openStartMenu(){
