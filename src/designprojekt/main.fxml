@@ -16,8 +16,9 @@
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="644.0" prefWidth="1166.0" styleClass="body" stylesheets="@css/stylesheet.css" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="designprojekt.Controller">
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="644.0" prefWidth="1166.0" styleClass="body" stylesheets="@css/stylesheet.css" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="designprojekt.Controller">
    <children>
+      <AnchorPane fx:id="previousPurchasesRoot" layoutX="-12.0" layoutY="95.0" prefHeight="549.0" prefWidth="821.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="345.0" AnchorPane.topAnchor="95.0" />
       <AnchorPane fx:id="startMenu" prefHeight="200.0" prefWidth="200.0" style="-fx-background-image: url(&quot;resources/startPage/28.png&quot;); -fx-background-color: white; -fx-background-size: contain; -fx-background-repeat: no-repeat; -fx-background-position: center;" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
          <children>
             <VBox alignment="CENTER" prefHeight="680.0" prefWidth="1080.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
@@ -49,7 +50,7 @@
             </VBox>
          </children>
       </AnchorPane>
-      <BorderPane AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+      <BorderPane fx:id="homePage" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
          <top>
             <AnchorPane maxHeight="95.0" minHeight="50.0" prefHeight="95.0" prefWidth="1166.0" BorderPane.alignment="CENTER">
                <children>
@@ -61,12 +62,12 @@
                            </font>
                         </Label>
                      </graphic></Button>
-                  <TextField layoutX="216.0" layoutY="24.0" prefHeight="47.0" prefWidth="588.0" promptText="Sök bland tusentals varor..." AnchorPane.leftAnchor="216.0" AnchorPane.rightAnchor="377.0" AnchorPane.topAnchor="24.0" />
-                  <Button layoutX="809.0" layoutY="24.0" mnemonicParsing="false" prefHeight="0.0" prefWidth="76.0" style="-fx-background-color: -fx-altBase2; -fx-border-color: rgba(0,0,0,0.2);" text="Sök" AnchorPane.rightAnchor="296.0" AnchorPane.topAnchor="24.0">
+                  <TextField layoutX="216.0" layoutY="24.0" prefHeight="47.0" prefWidth="519.0" promptText="Sök bland tusentals varor..." AnchorPane.leftAnchor="216.0" AnchorPane.rightAnchor="431.0" AnchorPane.topAnchor="24.0" />
+                  <Button layoutX="748.0" layoutY="25.0" mnemonicParsing="false" prefHeight="0.0" prefWidth="76.0" style="-fx-background-color: -fx-altBase2; -fx-border-color: rgba(0,0,0,0.2);" text="Sök" AnchorPane.rightAnchor="342.0" AnchorPane.topAnchor="25.0">
                      <cursor>
                         <Cursor fx:constant="HAND" />
                      </cursor></Button>
-                  <Button layoutX="957.0" layoutY="-2.0" minHeight="-Infinity" minWidth="-Infinity" mnemonicParsing="false" prefHeight="98.0" prefWidth="123.0" styleClass="oneColor" AnchorPane.rightAnchor="116.0">
+                  <Button layoutX="957.0" layoutY="-2.0" minHeight="-Infinity" minWidth="-Infinity" mnemonicParsing="false" onAction="#openPreviousPurchases" prefHeight="98.0" prefWidth="123.0" styleClass="oneColor" AnchorPane.rightAnchor="116.0">
                      <graphic>
                         <ImageView fitHeight="62.0" fitWidth="69.0" pickOnBounds="true" preserveRatio="true">
                            <image>
