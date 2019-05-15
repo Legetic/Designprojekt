@@ -115,24 +115,24 @@ https://blog.marvelapp.com/body-text-small/
     /*-fx-text-fill: rgba(0,0,0,0.75);*/
 }
 .oneColor{
-    -fx-background-color: -fx-base1;
+    -fx-background-color: -fx-niceGray;
 }
 
 
 .centerStage{
-    -fx-background-color: -fx-niceGray;
+    -fx-background-color: -fx-niceWhite;
 
 }
 .browseMenu{
 
-    -fx-background-color: -fx-base2;
+    /*-fx-background-color: -fx-base2;*/
 
 }
 .topBar{
+    -fx-background-color: -fx-base1;
 
 }
 .cart{
-    -fx-background-color: white;
 }
 
 .p1{
@@ -160,13 +160,14 @@ https://blog.marvelapp.com/body-text-small/
     -fx-border-color: rgba(0,0,0,0.1);
 }
 .logo{
-    -fx-text-fill: -fx-Base4;
+    -fx-text-fill: white;
     -fx-font-size: 38pt;
     -fx-font-weight: bold;
 
-    -fx-border-width: 5 5 5 5;
+    -fx-background-color: linear-gradient(to left, -fx-base3, -fx-base4);
+    /*-fx-border-width: 5 5 5 5;
     -fx-border-color: linear-gradient(to right, -fx-base3, -fx-base4);
-    -fx-label-padding: 0 5 0 5;
+    -fx-label-padding: 0 5 0 5;*/
 
 }
 .bigLogo{
@@ -179,7 +180,7 @@ https://blog.marvelapp.com/body-text-small/
     -fx-label-padding: 0 20 0 20;
 }
 
-.standOutColor{
-    -fx-background-color: #e6e6e6
-    -fx-border-color: #a6a6a6
+.highlightColor{
+    -fx-background-color: #e6e6e6;
+    -fx-border-color: #a6a6a6;
 }
