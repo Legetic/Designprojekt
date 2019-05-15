@@ -264,7 +264,7 @@
                                                 <Font name="System Bold" size="41.0" />
                                              </font>
                                           </Label>
-                                          <Label alignment="TOP_RIGHT" contentDisplay="RIGHT" layoutX="61.0" layoutY="96.0" nodeOrientation="LEFT_TO_RIGHT" prefHeight="109.0" prefWidth="460.0" styleClass="p3" text="Här hittar du allt du behöver för att laga mat." textAlignment="CENTER" textFill="WHITE" wrapText="true" AnchorPane.leftAnchor="61.0" AnchorPane.rightAnchor="61.0" AnchorPane.topAnchor="96.0">
+                                          <Label alignment="TOP_CENTER" contentDisplay="CENTER" layoutX="61.0" layoutY="96.0" nodeOrientation="LEFT_TO_RIGHT" prefHeight="109.0" prefWidth="460.0" styleClass="p3" text="Här hittar du allt du behöver för att laga mat." textAlignment="CENTER" textFill="WHITE" wrapText="true" AnchorPane.leftAnchor="61.0" AnchorPane.rightAnchor="61.0" AnchorPane.topAnchor="96.0">
                                              <font>
                                                 <Font name="System Bold" size="41.0" />
                                              </font>
