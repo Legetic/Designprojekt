@@ -81,6 +81,21 @@ https://blog.marvelapp.com/body-text-small/
     -fx-font-size: 18pt;
 }
 
+
+.list-cell:filled:selected:focused, .list-cell:filled:selected {
+    /* 3:, 4: */
+    -fx-background-color: linear-gradient(#333 0%, #777 25%, #aaa 75%, #eee 100%);
+    -fx-text-fill: white; /* 5 */
+}
+.list-cell { -fx-text-fill: black; /* 5 */ }
+.list-cell:odd { -fx-background-color: white; /* 1 */ }
+.list-cell:even { -fx-background-color: #8f8; /* for information */ }
+.list-cell:filled:hover {
+    -fx-background-color: #00f; /* 2 */
+    -fx-text-fill: white; /* 5 */
+}
+
+
 .browseButton{
     -fx-padding: 10 0 10 20;
     -fx-background-color: transparent;
