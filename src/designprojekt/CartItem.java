@@ -15,6 +15,7 @@ import java.io.IOException;
 public class CartItem extends AnchorPane {
     private Controller parentController;
     private ShoppingItem shoppingItem;
+    private Card card;
 
     @FXML
     private Label cartItemName;
@@ -26,7 +27,7 @@ public class CartItem extends AnchorPane {
     private TextField cartItemAmount;
 
 
-    public CartItem(ShoppingItem shoppingItem, Controller parentController) {
+    public CartItem(ShoppingItem shoppingItem, Controller parentController, Card card) {
         FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("cartItem.fxml"));
         fxmlLoader.setRoot(this);
         fxmlLoader.setController(this);
@@ -42,6 +43,7 @@ public class CartItem extends AnchorPane {
 
         this.shoppingItem = shoppingItem;
         this.parentController = parentController;
+        this.card = card;
 
         cartItemName.setText(shoppingItem.getProduct().getName());
         cartItemPrice.setText(shoppingItem.getProduct().getPrice() + "");
@@ -107,11 +109,11 @@ public class CartItem extends AnchorPane {
     public void selectText() {
         cartItemAmount.selectAll();
     }
+
     @FXML
     public void updatePrice() {
         cartItemTotalPrice.setText(shoppingItem.getTotal() + " kr");
     }
-
 
     public Controller getParentController() {
         return this.parentController;
@@ -120,6 +122,11 @@ public class CartItem extends AnchorPane {
     public ShoppingItem getShoppingItem() {
         return this.shoppingItem;
     }
+
+    public Card getCard() {
+        return card;
+    }
+
 
 
 

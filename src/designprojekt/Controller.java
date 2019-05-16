@@ -93,6 +93,8 @@ public class Controller implements Initializable{
         });
 
 
+
+
         updateMainGrid();
     }
 
@@ -130,12 +132,12 @@ public class Controller implements Initializable{
 
 
     //SHOPPING CART
-    private void updateShoppingCart() {
+    private void updateShoppingCart() {//TODO: MAKE USE OF CARDS INSTEAD OF CARTITEMS!
         shoppingCartFlowPane.getChildren().clear();
         cartList = dataHandler.getShoppingCart().getItems();
         for (ShoppingItem s : cartList) {
-            CartItem cartItem = new CartItem(s, this);
-            shoppingCartFlowPane.getChildren().add(cartItem);
+            //CartItem cartItem = new CartItem(s, this);
+            //shoppingCartFlowPane.getChildren().add(cartItem);
 
         }
     }
@@ -145,25 +147,30 @@ public class Controller implements Initializable{
         dataHandler.getShoppingCart().clear();
     }
 
+    protected void setAmount() {}//TODO: fix this
+
     protected void removeItem(CartItem cartItem) {
         shoppingCartFlowPane.getChildren().remove(cartItem);
         dataHandler.getShoppingCart().getItems().remove(cartItem.getShoppingItem());
+        cartItem.getCard().getAmountControl().setVisible(false);
+        cartItem.getCard().getAddButton().setVisible(true);
     }
 
-    public void addProductToCart(Product product) {//TODO: implement separate method for the duplicate check
+    public void addProductToCart(Card productCard) {//TODO: implement separate method for the duplicate check
         Boolean isDuplicate = false;
         for(ShoppingItem si : dataHandler.getShoppingCart().getItems()) {
-            if(si.getProduct().equals(product)) {
+            if(si.getProduct().equals(productCard.getProduct())) {
                 isDuplicate = true;
                 break;
             }
         }
-        if(!isDuplicate) {
-            ShoppingItem item = new ShoppingItem(product);
-            CartItem cartItem = new CartItem(item, this);
+        if(!isDuplicate) {//If not duplicate, add to cart
+            ShoppingItem item = new ShoppingItem(productCard.getProduct());
+            CartItem cartItem = new CartItem(item, this, productCard);
             dataHandler.getShoppingCart().addItem(item);
             shoppingCartFlowPane.getChildren().add(cartItem);
-
+            productCard.getAmountControl().setVisible(true);
+            productCard.getAddButton().setVisible(false);
         }
     }
 
