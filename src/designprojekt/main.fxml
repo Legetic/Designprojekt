@@ -19,6 +19,7 @@
 
 <AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" prefHeight="596.0" prefWidth="1073.0" styleClass="body" stylesheets="@css/stylesheet.css" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="designprojekt.Controller">
    <children>
+      <AnchorPane fx:id="fullscreenPage" layoutY="95.0" prefHeight="501.0" prefWidth="1073.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="95.0" />
       <AnchorPane fx:id="previousPurchasesRoot" layoutX="-12.0" layoutY="95.0" prefHeight="549.0" prefWidth="821.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="345.0" AnchorPane.topAnchor="95.0" />
       <AnchorPane fx:id="startMenu" prefHeight="200.0" prefWidth="200.0" style="-fx-background-image: url(&quot;resources/startPage/28.png&quot;); -fx-background-color: white; -fx-background-size: contain; -fx-background-repeat: no-repeat; -fx-background-position: center;" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
          <children>
@@ -55,7 +56,7 @@
          <top>
             <AnchorPane maxHeight="95.0" minHeight="50.0" prefHeight="95.0" prefWidth="1166.0" BorderPane.alignment="CENTER">
                <children>
-                  <Button alignment="BASELINE_LEFT" layoutX="-1.0" layoutY="1.0" mnemonicParsing="false" prefHeight="95.0" prefWidth="216.0" style="-fx-background-color: transparent;" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.topAnchor="0.0">
+                  <Button alignment="BASELINE_LEFT" layoutX="-1.0" layoutY="1.0" mnemonicParsing="false" onAction="#goHome" prefHeight="95.0" prefWidth="216.0" style="-fx-background-color: transparent;" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.topAnchor="0.0">
                      <graphic>
                         <Label alignment="CENTER" prefHeight="71.0" prefWidth="192.0" styleClass="logo" text="iMat" textFill="#ff8366">
                            <font>
@@ -68,23 +69,29 @@
                      <cursor>
                         <Cursor fx:constant="HAND" />
                      </cursor></Button>
-                  <Button layoutX="957.0" layoutY="-2.0" minHeight="-Infinity" minWidth="-Infinity" mnemonicParsing="false" onAction="#openPreviousPurchases" prefHeight="98.0" prefWidth="123.0" style="-fx-background-color: transparent;" AnchorPane.rightAnchor="116.0">
+                  <Button alignment="CENTER" contentDisplay="TOP" layoutX="749.0" layoutY="1.0" minHeight="-Infinity" minWidth="-Infinity" mnemonicParsing="false" onAction="#openPreviousPurchases" prefHeight="95.0" prefWidth="150.0" style="-fx-font-weight: bold; -fx-background-color: transparent;" text="Tidigare Köp" AnchorPane.bottomAnchor="-1.0" AnchorPane.rightAnchor="174.0" AnchorPane.topAnchor="1.0">
                      <graphic>
-                        <ImageView fitHeight="62.0" fitWidth="69.0" pickOnBounds="true" preserveRatio="true">
+                        <ImageView fitHeight="30.0" fitWidth="35.0" pickOnBounds="true" preserveRatio="true">
                            <image>
                               <Image url="@resources/icons/Tidigare%20köp.png" />
                            </image>
                         </ImageView>
                      </graphic>
+                     <padding>
+                        <Insets left="-10.0" right="-10.0" />
+                     </padding>
                   </Button>
-                  <Button layoutX="1051.0" minHeight="-Infinity" minWidth="-Infinity" mnemonicParsing="false" onAction="#openCustomerServicePage" prefHeight="96.0" prefWidth="114.0" style="-fx-background-color: transparent;" AnchorPane.rightAnchor="1.0">
+                  <Button contentDisplay="TOP" layoutX="912.0" minHeight="-Infinity" minWidth="-Infinity" mnemonicParsing="false" onAction="#openCustomerServicePage" prefHeight="95.0" prefWidth="150.0" style="-fx-background-color: transparent; -fx-font-weight: bold;" text="Kundservice" AnchorPane.bottomAnchor="0.0" AnchorPane.rightAnchor="11.0" AnchorPane.topAnchor="0.0">
                      <graphic>
-                        <ImageView fitHeight="59.0" fitWidth="73.0" pickOnBounds="true" preserveRatio="true">
+                        <ImageView fitHeight="30.0" fitWidth="32.0" pickOnBounds="true" preserveRatio="true">
                            <image>
                               <Image url="@resources/icons/kundservice2.png" />
                            </image>
                         </ImageView>
                      </graphic>
+                     <padding>
+                        <Insets left="-10.0" right="-10.0" />
+                     </padding>
                   </Button>
                </children>
                <styleClass>
@@ -146,11 +153,11 @@
                         <String fx:value="cart" />
                      </styleClass>
                   </VBox>
-                  <Button layoutX="12.0" layoutY="72.0" minWidth="-Infinity" mnemonicParsing="false" prefHeight="63.0" prefWidth="259.0" style="-fx-background-color: -fx-niceGreen;" styleClass="h4" text="Gå till kassan -&gt;" textFill="WHITE" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="12.0" AnchorPane.rightAnchor="12.0">
+                  <Button layoutX="12.0" layoutY="72.0" minWidth="-Infinity" mnemonicParsing="false" onAction="#openCheckoutPage" prefHeight="63.0" prefWidth="259.0" style="-fx-background-color: -fx-niceGreen;" styleClass="h4" text="Gå till kassan -&gt;" textFill="WHITE" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="12.0" AnchorPane.rightAnchor="12.0">
                      <cursor>
                         <Cursor fx:constant="HAND" />
                      </cursor></Button>
-                  <Button fx:id="emptyButton" layoutX="185.0" mnemonicParsing="false" onAction="#clearShoppingCart" style="-fx-background-color: -fx-niceGray; -fx-text-fill: black;" styleClass="p3" text="Töm" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0" />
+                  <Button fx:id="emptyButton" layoutX="185.0" mnemonicParsing="false" onAction="#clearShoppingCart" style="-fx-background-color: -fx-alt2Base4; -fx-text-fill: black;" styleClass="p3" text="Töm" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0" />
                </children>
                <styleClass>
                   <String fx:value="oneColor" />
@@ -234,7 +241,7 @@
                                        </VBox.margin>
                                        <children>
                                           <Label layoutY="16.0" prefHeight="37.0" prefWidth="435.0" styleClass="h4" text="Sortera Efter:" AnchorPane.rightAnchor="4.0" AnchorPane.topAnchor="16.0" />
-                                          <ComboBox layoutX="225.0" layoutY="18.0" prefHeight="33.0" prefWidth="217.0" promptText="Ingen Sortering" style="-fx-background-color: transparent; -fx-border-color: -fx-base4;" AnchorPane.rightAnchor="14.0" AnchorPane.topAnchor="18.0" />
+                                          <ComboBox layoutX="228.0" layoutY="11.0" prefHeight="33.0" prefWidth="217.0" promptText="Ingen Sortering" style="-fx-background-color: transparent; -fx-border-color: -fx-base4;" AnchorPane.rightAnchor="11.0" AnchorPane.topAnchor="11.0" />
                                        </children>
                                     </AnchorPane>
                                     <FlowPane fx:id="mainGrid" alignment="TOP_CENTER" prefHeight="503.0" prefWidth="553.0" VBox.vgrow="NEVER">
