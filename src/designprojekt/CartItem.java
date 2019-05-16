@@ -63,8 +63,9 @@ public class CartItem extends AnchorPane {
     @FXML
     public void decAmount() {
         shoppingItem.setAmount(shoppingItem.getAmount() - 1);
-        if(shoppingItem.getAmount() < 0) {
-            shoppingItem.setAmount(0);
+        if(shoppingItem.getAmount() < 1) {
+            //shoppingItem.setAmount(0);
+            removeItem();
         }
         cartItemAmount.setText((int) shoppingItem.getAmount() + " st");
         updatePrice();
@@ -96,8 +97,8 @@ public class CartItem extends AnchorPane {
                 shoppingItem.setAmount(shoppingItem.getAmount());
             }
         }
-        if(shoppingItem.getAmount() < 0) {
-            shoppingItem.setAmount(0);
+        if(shoppingItem.getAmount() <= 0) {
+            shoppingItem.setAmount(1);
         }
         cartItemAmount.setText((int)shoppingItem.getAmount() + " st");
         updatePrice();
