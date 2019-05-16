@@ -36,7 +36,7 @@ public class Controller implements Initializable {
     @FXML private FlowPane shoppingCartFlowPane;
 
     @FXML private AnchorPane previousPurchasesRoot;
-    @FXML private AnchorPane costumerServicePage;
+    @FXML private AnchorPane fullscreenPage;
 
 
 
@@ -156,6 +156,28 @@ public class Controller implements Initializable {
     public void closeCustomerServicePage(){
         previousPurchasesRoot.toBack();
 
+    }
+
+    @FXML
+    public void openCheckoutPage(){
+        fullscreenPage.getChildren().clear();
+        Checkout checkout = new Checkout( this);
+        fullscreenPage.getChildren().addAll(checkout);
+
+        homePage.toFront();
+        fullscreenPage.toFront();
+
+    }
+
+    @FXML
+    public void closeCheckoutPage(){
+        fullscreenPage.toBack();
+
+    }
+
+    @FXML
+    public void goHome(){
+        homePage.toFront();
     }
 
 

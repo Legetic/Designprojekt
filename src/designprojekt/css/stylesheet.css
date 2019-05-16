@@ -67,6 +67,13 @@ https://blog.marvelapp.com/body-text-small/
 .button{
     -fx-font-family: "Segoe UI", sans-serif;
     -fx-font-size: 18pt;
+    -fx-cursor: hand;
+}
+
+.combo-box{
+
+    -fx-font-family: "Segoe UI", sans-serif;
+    -fx-font-size: 18pt;
 }
 
 .text-field{
