@@ -45,8 +45,20 @@ public class Card extends AnchorPane {
 
     @FXML
     public void addToCart(){
-        parentController.addProductToCart(this.product);
-        amountControl.setVisible(true);
-        addButton.setVisible(false);
+        parentController.addProductToCart(this);
     }
+
+
+    public Product getProduct() {
+        return product;
+    }
+
+    public HBox getAddButton() {
+        return addButton;
+    }
+
+    public HBox getAmountControl() {
+        return amountControl;
+    }
+
 }
