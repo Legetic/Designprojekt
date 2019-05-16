@@ -67,7 +67,7 @@
                                           <Font name="System Bold" size="16.0" />
                                        </font>
                                     </Button>
-                                    <TextField fx:id="amountTextField" onAction="#setAmount" prefHeight="50.0" prefWidth="100.0" HBox.hgrow="NEVER" />
+                                    <TextField fx:id="amountTextField" prefHeight="50.0" prefWidth="100.0" HBox.hgrow="NEVER" />
                                     <Button mnemonicParsing="false" prefHeight="50.0" prefWidth="50.0" text="+" HBox.hgrow="NEVER">
                                        <font>
                                           <Font name="System Bold" size="16.0" />
