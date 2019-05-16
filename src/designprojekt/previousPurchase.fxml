@@ -5,7 +5,7 @@
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.text.Font?>
 
-<fx:root prefHeight="90.0" prefWidth="569.0" stylesheets="@css/stylesheet.css" type="AnchorPane" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1">
+<fx:root fx:id="PreviousPurchaseAnchorPane" prefHeight="90.0" prefWidth="569.0" styleClass="browseButton" stylesheets="@css/stylesheet.css" type="AnchorPane" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1">
    <children>
       <Label fx:id="previousPurchaseDate" layoutX="36.0" layoutY="30.0" text="2019-01-01">
          <font>
@@ -17,6 +17,6 @@
             <Font size="25.0" />
          </font>
       </Label>
-      <Button fx:id="AddPreviousPurchaseToCartButton" layoutX="313.0" layoutY="22.0" mnemonicParsing="false" text="Lägga till i varukorg" />
+      <Button fx:id="AddPreviousPurchaseToCartButton" layoutX="313.0" layoutY="22.0" mnemonicParsing="false" style="-fx-background-color: -fx-niceGreen;" text="Lägga till i varukorg" />
    </children>
 </fx:root>
