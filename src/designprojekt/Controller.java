@@ -1,20 +1,29 @@
 package designprojekt;
 
+import javafx.beans.value.ChangeListener;
+import javafx.beans.value.ObservableValue;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
 import javafx.scene.Node;
 import javafx.scene.control.Button;
+import javafx.scene.control.ListView;
+import javafx.scene.control.ScrollPane;
+import javafx.scene.control.TextField;
 import javafx.scene.image.Image;
 import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.BorderPane;
 import javafx.scene.layout.FlowPane;
 import se.chalmers.cse.dat216.project.*;
 
+
+
 import java.awt.event.ActionEvent;
 import java.io.IOException;
+import java.lang.reflect.Array;
 import java.net.URL;
 import java.util.*;
+import java.util.List;
 
 public class Controller implements Initializable{
 
@@ -36,6 +45,12 @@ public class Controller implements Initializable{
     @FXML private AnchorPane fullscreenPage;
 
 
+    @FXML private ListView searchList;
+    @FXML private TextField searchBar;
+    @FXML private ScrollPane searchPane;
+
+
+
 
     private List<Product> productList = new ArrayList<>();
     private List<ShoppingItem> cartList = new ArrayList<>();
@@ -51,6 +66,33 @@ public class Controller implements Initializable{
             Card productCard = new Card(item, this);
             cardMap.put(item.getName(), productCard);
         }
+
+
+        searchBar.focusedProperty().addListener(new ChangeListener<Boolean>() {
+
+            @Override
+            public void changed(ObservableValue<? extends Boolean> observable, Boolean oldValue, Boolean newValue) {
+
+                if(newValue){
+                    //focusgained - do nothing
+                    openSearchList();
+                }
+                else{
+
+                    closeSearchList();
+                }
+
+            }
+        });
+
+        searchBar.textProperty().addListener((observable, oldValue, newValue) -> {
+            List<Product> searchResults = dataHandler.findProducts(searchBar.getText());
+            searchList.getItems().clear();
+            searchList.getItems().addAll(searchResults);
+
+        });
+
+
 
 
         updateMainGrid();
@@ -69,8 +111,17 @@ public class Controller implements Initializable{
     }
 
 
-    @FXML private void fillSearchList(){
+    @FXML private void openSearchList(){
+        searchList.getItems().clear();
+        searchPane.toFront();
 
+        //
+    }
+
+    @FXML private void closeSearchList(){
+        searchPane.toBack();
+
+        //dataHandler.findProducts(searchBar.getText())
     }
 
 
