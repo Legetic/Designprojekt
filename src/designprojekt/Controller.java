@@ -1,29 +1,20 @@
 package designprojekt;
 
-import javafx.beans.value.ChangeListener;
-import javafx.beans.value.ObservableValue;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
 import javafx.scene.Node;
 import javafx.scene.control.Button;
-import javafx.scene.control.ListView;
-import javafx.scene.control.ScrollPane;
-import javafx.scene.control.TextField;
 import javafx.scene.image.Image;
 import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.BorderPane;
 import javafx.scene.layout.FlowPane;
 import se.chalmers.cse.dat216.project.*;
 
-
-
 import java.awt.event.ActionEvent;
 import java.io.IOException;
-import java.lang.reflect.Array;
 import java.net.URL;
 import java.util.*;
-import java.util.List;
 
 public class Controller implements Initializable{
 
@@ -45,12 +36,6 @@ public class Controller implements Initializable{
     @FXML private AnchorPane fullscreenPage;
 
 
-    @FXML private ListView searchList;
-    @FXML private TextField searchBar;
-    @FXML private ScrollPane searchPane;
-
-
-
 
     private List<Product> productList = new ArrayList<>();
     private List<ShoppingItem> cartList = new ArrayList<>();
@@ -66,31 +51,6 @@ public class Controller implements Initializable{
             Card productCard = new Card(item, this);
             cardMap.put(item.getName(), productCard);
         }
-
-
-        searchBar.focusedProperty().addListener(new ChangeListener<Boolean>() {
-
-            @Override
-            public void changed(ObservableValue<? extends Boolean> observable, Boolean oldValue, Boolean newValue) {
-
-                if(newValue){
-                    //focusgained - do nothing
-                    openSearchList();
-                }
-                else{
-
-                    closeSearchList();
-                }
-
-            }
-        });
-
-        searchBar.textProperty().addListener((observable, oldValue, newValue) -> {
-            List<Product> searchResults = dataHandler.findProducts(searchBar.getText());
-            searchList.getItems().clear();
-            searchList.getItems().addAll(searchResults);
-
-        });
 
 
         updateMainGrid();
@@ -109,33 +69,18 @@ public class Controller implements Initializable{
     }
 
 
-    @FXML private void openSearchList(){
-        //searchList.getItems().clear();
-        searchPane.toFront();
-
-        //
-    }
-
-    @FXML private void closeSearchList(){
-        searchPane.toBack();
-
-        //dataHandler.findProducts(searchBar.getText())
-    }
-
-    @FXML private void search(){
-        System.out.println("lolol");
-        //searchList.getSelectionModel().getSelectedItem().toString()
+    @FXML private void fillSearchList(){
 
     }
 
 
     //SHOPPING CART
-    private void updateShoppingCart() {
+    private void updateShoppingCart() {//TODO: MAKE USE OF CARDS INSTEAD OF CARTITEMS!
         shoppingCartFlowPane.getChildren().clear();
         cartList = dataHandler.getShoppingCart().getItems();
         for (ShoppingItem s : cartList) {
-            CartItem cartItem = new CartItem(s, this);
-            shoppingCartFlowPane.getChildren().add(cartItem);
+            //CartItem cartItem = new CartItem(s, this);
+            //shoppingCartFlowPane.getChildren().add(cartItem);
 
         }
     }
@@ -145,25 +90,30 @@ public class Controller implements Initializable{
         dataHandler.getShoppingCart().clear();
     }
 
+    protected void setAmount() {}//TODO: fix this
+
     protected void removeItem(CartItem cartItem) {
         shoppingCartFlowPane.getChildren().remove(cartItem);
         dataHandler.getShoppingCart().getItems().remove(cartItem.getShoppingItem());
+        cartItem.getCard().getAmountControl().setVisible(false);
+        cartItem.getCard().getAddButton().setVisible(true);
     }
 
-    public void addProductToCart(Product product) {//TODO: implement separate method for the duplicate check
+    public void addProductToCart(Card productCard) {//TODO: implement separate method for the duplicate check
         Boolean isDuplicate = false;
         for(ShoppingItem si : dataHandler.getShoppingCart().getItems()) {
-            if(si.getProduct().equals(product)) {
+            if(si.getProduct().equals(productCard.getProduct())) {
                 isDuplicate = true;
                 break;
             }
         }
-        if(!isDuplicate) {
-            ShoppingItem item = new ShoppingItem(product);
-            CartItem cartItem = new CartItem(item, this);
+        if(!isDuplicate) {//If not duplicate, add to cart
+            ShoppingItem item = new ShoppingItem(productCard.getProduct());
+            CartItem cartItem = new CartItem(item, this, productCard);
             dataHandler.getShoppingCart().addItem(item);
             shoppingCartFlowPane.getChildren().add(cartItem);
-
+            productCard.getAmountControl().setVisible(true);
+            productCard.getAddButton().setVisible(false);
         }
     }
 
