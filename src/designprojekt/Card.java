@@ -3,27 +3,37 @@ package designprojekt;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.control.Label;
+import javafx.scene.control.TextField;
 import javafx.scene.image.ImageView;
 import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.HBox;
 import se.chalmers.cse.dat216.project.Product;
-import se.chalmers.cse.dat216.project.ShoppingItem;
 
 import java.io.IOException;
 
 public class Card extends AnchorPane {
     private Controller parentController;
     private Product product;
+    private CartItem cartItem;
 
-    @FXML private ImageView cardImage;
-    @FXML private Label cardPrice;
-    @FXML private Label cardName;
+    @FXML
+    private ImageView cardImage;
+    @FXML
+    private Label cardPrice;
+    @FXML
+    private Label cardName;
 
-    @FXML private HBox amountControl;
-    @FXML private HBox addButton;
+
+    @FXML
+    private TextField amountTextField;
+
+    @FXML
+    private HBox amountControl;
+    @FXML
+    private HBox addButton;
 
 
-    public Card(Product product, Controller parentController){
+    public Card(Product product, Controller parentController) {
         FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("card.fxml"));
         fxmlLoader.setRoot(this);
         fxmlLoader.setController(this);
@@ -41,13 +51,39 @@ public class Card extends AnchorPane {
         cardName.setText(product.getName());
         cardPrice.setText(product.getPrice() + "");
 
+        amountTextField.focusedProperty().addListener((ov, oldV, newV) -> { //executes setAmount() on lost focus
+            if (!newV) {
+                setAmount();
+            }
+        });
+
     }
 
     @FXML
-    public void addToCart(){
+    public void setAmount() {
+        parentController.setAmount(this, true);
+    }
+
+    protected void setAmount(boolean readCard) {
+        parentController.setAmount(this, readCard);
+    }
+
+    public void decAmount() {
+        parentController.decAmount(this);
+    }
+
+    public void incAmount() {
+        parentController.incAmount(this);
+    }
+
+    @FXML
+    public void addToCart() {
         parentController.addProductToCart(this);
     }
 
+    public CartItem getCartItem() {
+        return cartItem;
+    }
 
     public Product getProduct() {
         return product;
@@ -61,4 +97,16 @@ public class Card extends AnchorPane {
         return amountControl;
     }
 
+    public TextField getAmountField() {
+        return amountTextField;
+    }
+
+
+    public void setCartItem(CartItem cartItem) {
+        this.cartItem = cartItem;
+    }
+
+    public void selectText() {
+        parentController.selectText(amountTextField);
+    }
 }
