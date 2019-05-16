@@ -182,21 +182,47 @@
          <children>
             <AnchorPane layoutX="117.0" layoutY="116.0" prefHeight="374.0" prefWidth="428.0" styleClass="checkout-boxes">
                <children>
-                  <TextField layoutX="10.0" layoutY="14.0" prefHeight="124.0" prefWidth="190.0" styleClass="checkoutCard" />
-                  <TextField layoutX="220.0" layoutY="14.0" prefHeight="124.0" prefWidth="190.0" styleClass="checkoutCard" />
-                  <RadioButton layoutX="47.0" layoutY="57.0" mnemonicParsing="false" styleClass="p4" text="Kort" />
-                  <RadioButton layoutX="244.0" layoutY="57.0" mnemonicParsing="false" styleClass="p4" text="Faktura" />
-                  <AnchorPane layoutX="10.0" layoutY="154.0" prefHeight="214.0" prefWidth="400.0" />
-                  <AnchorPane layoutX="10.0" layoutY="156.0" prefHeight="214.0" prefWidth="400.0">
+                  <TextField fx:id="cardBackgroundTextField" layoutX="10.0" layoutY="14.0" prefHeight="124.0" prefWidth="190.0" styleClass="checkoutCard" />
+                  <TextField fx:id="fakturaBackgroundTextField" layoutX="220.0" layoutY="14.0" prefHeight="124.0" prefWidth="190.0" styleClass="checkoutCard" />
+                  <RadioButton fx:id="cardRadioButton" layoutX="47.0" layoutY="57.0" mnemonicParsing="false" styleClass="p4" text="Kort" />
+                  <RadioButton fx:id="fakturaRadioButton" layoutX="244.0" layoutY="57.0" mnemonicParsing="false" styleClass="p4" text="Faktura" />
+                  <AnchorPane fx:id="cardInfoAnchorPane" layoutX="10.0" layoutY="156.0" prefHeight="214.0" prefWidth="400.0" style="-fx-background-color: -fx-checkoutBox;">
                      <children>
-                        <VBox layoutX="21.0" layoutY="14.0" prefHeight="124.0" prefWidth="358.0" AnchorPane.bottomAnchor="76.0" AnchorPane.leftAnchor="21.0" AnchorPane.rightAnchor="21.0" AnchorPane.topAnchor="14.0">
+                        <VBox layoutX="12.0" layoutY="14.0" prefHeight="194.0" prefWidth="379.0" AnchorPane.bottomAnchor="6.0" AnchorPane.leftAnchor="12.0" AnchorPane.rightAnchor="9.0" AnchorPane.topAnchor="14.0">
                            <children>
-                              <TextField promptText="Kortnumner" />
-                              <TextField promptText="Kortinnehavare" />
+                              <HBox prefHeight="70.0" prefWidth="379.0">
+                                 <children>
+                                    <TextField prefHeight="58.0" prefWidth="182.0" promptText="Förnamn" />
+                                    <TextField prefHeight="58.0" prefWidth="208.0" promptText="Efternamn" />
+                                 </children>
+                              </HBox>
+                              <TextField prefHeight="62.0" prefWidth="358.0" promptText="Kortnumner" />
                               <HBox prefHeight="100.0" prefWidth="200.0">
                                  <children>
-                                    <TextField promptText="MM/YY" />
-                                    <TextField promptText="CVV" />
+                                    <TextField prefHeight="54.0" prefWidth="194.0" promptText="MM/YY" />
+                                    <TextField prefHeight="54.0" prefWidth="218.0" promptText="CVV/CVC" />
+                                 </children>
+                              </HBox>
+                           </children>
+                        </VBox>
+                     </children>
+                  </AnchorPane>
+                  <AnchorPane fx:id="fakturaInfoAnchorPane" layoutX="12.0" layoutY="154.0" prefHeight="213.0" prefWidth="400.0" style="-fx-background-color: -fx-checkoutBox;">
+                     <children>
+                        <VBox layoutY="2.0" prefHeight="213.0" prefWidth="400.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+                           <children>
+                              <HBox prefHeight="82.0" prefWidth="400.0">
+                                 <children>
+                                    <TextField prefHeight="65.0" prefWidth="199.0" promptText="Förnamn" />
+                                    <TextField prefHeight="51.0" prefWidth="202.0" promptText="Efternamn" />
+                                 </children>
+                              </HBox>
+                              <TextField prefHeight="78.0" prefWidth="400.0" promptText="Personnummer" />
+                              <TextField prefHeight="80.0" prefWidth="400.0" promptText="Postnummer" />
+                              <HBox prefHeight="100.0" prefWidth="200.0">
+                                 <children>
+                                    <TextField prefHeight="52.0" prefWidth="200.0" promptText="Adress" />
+                                    <TextField prefHeight="52.0" prefWidth="200.0" promptText="Ort" />
                                  </children>
                               </HBox>
                            </children>
