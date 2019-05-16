@@ -6,6 +6,7 @@
 <?import javafx.scene.control.Button?>
 <?import javafx.scene.control.ComboBox?>
 <?import javafx.scene.control.Label?>
+<?import javafx.scene.control.ListView?>
 <?import javafx.scene.control.ScrollPane?>
 <?import javafx.scene.control.TextField?>
 <?import javafx.scene.image.Image?>
@@ -21,6 +22,15 @@
    <children>
       <AnchorPane fx:id="fullscreenPage" layoutY="95.0" prefHeight="501.0" prefWidth="1073.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="95.0" />
       <AnchorPane fx:id="previousPurchasesRoot" layoutX="-12.0" layoutY="95.0" prefHeight="549.0" prefWidth="821.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="345.0" AnchorPane.topAnchor="95.0" />
+      <ScrollPane fx:id="searchPane" fitToHeight="true" fitToWidth="true" hbarPolicy="NEVER" layoutX="215.0" layoutY="70.0" prefHeight="200.0" prefWidth="513.0" AnchorPane.leftAnchor="215.0" AnchorPane.rightAnchor="345.0" AnchorPane.topAnchor="70.0">
+        <content>
+          <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="200.0" prefWidth="200.0">
+               <children>
+                  <ListView fx:id="searchList" prefHeight="200.0" prefWidth="427.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0" />
+               </children>
+            </AnchorPane>
+        </content>
+      </ScrollPane>
       <AnchorPane fx:id="startMenu" prefHeight="200.0" prefWidth="200.0" style="-fx-background-image: url(&quot;resources/startPage/28.png&quot;); -fx-background-color: white; -fx-background-size: contain; -fx-background-repeat: no-repeat; -fx-background-position: center;" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
          <children>
             <VBox alignment="CENTER" prefHeight="680.0" prefWidth="1080.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
@@ -64,8 +74,8 @@
                            </font>
                         </Label>
                      </graphic></Button>
-                  <TextField layoutX="216.0" layoutY="24.0" prefHeight="47.0" prefWidth="519.0" promptText="Sök bland tusentals varor..." AnchorPane.leftAnchor="216.0" AnchorPane.rightAnchor="431.0" AnchorPane.topAnchor="24.0" />
-                  <Button layoutX="748.0" layoutY="25.0" mnemonicParsing="false" prefHeight="0.0" prefWidth="76.0" style="-fx-background-color: -fx-base3; -fx-border-color: rgba(0,0,0,0.2); -fx-text-fill: white; -fx-font-weight: bold;" styleClass="p4" text="Sök" AnchorPane.rightAnchor="342.0" AnchorPane.topAnchor="25.0">
+                  <TextField fx:id="searchBar" layoutX="216.0" layoutY="24.0" prefHeight="47.0" prefWidth="438.0" promptText="Sök bland tusentals varor..." AnchorPane.leftAnchor="216.0" AnchorPane.rightAnchor="419.0" AnchorPane.topAnchor="24.0" />
+                  <Button layoutX="652.0" layoutY="24.0" mnemonicParsing="false" prefHeight="0.0" prefWidth="76.0" style="-fx-background-color: -fx-base3; -fx-border-color: rgba(0,0,0,0.2); -fx-text-fill: white; -fx-font-weight: bold;" styleClass="p4" text="Sök" AnchorPane.rightAnchor="345.0" AnchorPane.topAnchor="24.0">
                      <cursor>
                         <Cursor fx:constant="HAND" />
                      </cursor></Button>
