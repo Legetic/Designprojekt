@@ -93,8 +93,6 @@ public class Controller implements Initializable{
         });
 
 
-
-
         updateMainGrid();
     }
 
@@ -112,7 +110,7 @@ public class Controller implements Initializable{
 
 
     @FXML private void openSearchList(){
-        searchList.getItems().clear();
+        //searchList.getItems().clear();
         searchPane.toFront();
 
         //
@@ -122,6 +120,12 @@ public class Controller implements Initializable{
         searchPane.toBack();
 
         //dataHandler.findProducts(searchBar.getText())
+    }
+
+    @FXML private void search(){
+        System.out.println("lolol");
+        //searchList.getSelectionModel().getSelectedItem().toString()
+
     }
 
 
@@ -159,6 +163,7 @@ public class Controller implements Initializable{
             CartItem cartItem = new CartItem(item, this);
             dataHandler.getShoppingCart().addItem(item);
             shoppingCartFlowPane.getChildren().add(cartItem);
+
         }
     }
 
