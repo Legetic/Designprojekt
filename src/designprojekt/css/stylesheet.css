@@ -39,6 +39,7 @@ Frukt  https://unsplash.com/photos/atzWFItRHy8
     -fx-niceGray:#f4f7f6;
     -fx-niceGreen:#3BBB43;
 
+    -fx-checkoutBox: #f8F8F8;
 }
 /*Icon made by https://www.flaticon.com/authors/chanut from www.flaticon.com */
 /*Paste this attribution on the final work so the authorship is known (for instance, in the acknowledgements chapter of a book)*/
@@ -95,6 +96,22 @@ https://blog.marvelapp.com/body-text-small/
 
 .browseButton:pressed{
     -fx-background-color: -fx-niceGray;
+}
+
+.conclusion{
+    -fx-background-color: #ffffff
+}
+
+.checkout-boxes{
+    -fx-background-color: -fx-checkoutBox;
+    -fx-border-color: #e0E0E0;
+    -fx-border-radius: 4;
+    -fx-border-width: 1;
+}
+
+.checkoutCard{
+    -fx-background-color: #f0f0f0;
+    -fx-border-color: #e0E0E0;
 }
 
 .h1{
