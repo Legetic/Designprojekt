@@ -9,17 +9,14 @@ import javafx.scene.image.Image;
 import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.BorderPane;
 import javafx.scene.layout.FlowPane;
-import se.chalmers.cse.dat216.project.IMatDataHandler;
-import se.chalmers.cse.dat216.project.Product;
-import se.chalmers.cse.dat216.project.ShoppingCart;
-import se.chalmers.cse.dat216.project.ShoppingItem;
+import se.chalmers.cse.dat216.project.*;
 
 import java.awt.event.ActionEvent;
 import java.io.IOException;
 import java.net.URL;
 import java.util.*;
 
-public class Controller implements Initializable {
+public class Controller implements Initializable{
 
     ImatBackendController imatBackendController = new ImatBackendController();
     private IMatDataHandler dataHandler = IMatDataHandler.getInstance();
@@ -49,6 +46,7 @@ public class Controller implements Initializable {
     @Override
     public void initialize(URL url, ResourceBundle rb) {
 
+
         for (Product item : imatBackendController.getProducts()) {
             Card productCard = new Card(item, this);
             cardMap.put(item.getName(), productCard);
@@ -70,6 +68,13 @@ public class Controller implements Initializable {
 
     }
 
+
+    @FXML private void fillSearchList(){
+
+    }
+
+
+    //SHOPPING CART
     private void updateShoppingCart() {
         shoppingCartFlowPane.getChildren().clear();
         cartList = dataHandler.getShoppingCart().getItems();
@@ -107,6 +112,10 @@ public class Controller implements Initializable {
     }
 
 
+
+
+    //GET IMAGES
+
     public Image getProductImage(Product product) {
         return dataHandler.getFXImage(product);
     }
@@ -116,6 +125,7 @@ public class Controller implements Initializable {
     }
 
 
+    //MENUS AND PAGES
     @FXML
     public void closeStartMenu() {
         startMenu.toBack();
@@ -179,6 +189,8 @@ public class Controller implements Initializable {
     public void goHome(){
         homePage.toFront();
     }
+
+
 
 
     /*public void openStartMenu(){

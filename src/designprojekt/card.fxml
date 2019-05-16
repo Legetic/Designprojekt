@@ -75,9 +75,9 @@
                                     </Button>
                                  </children>
                               </HBox>
-                              <HBox alignment="CENTER" layoutY="-33.0" prefHeight="79.0" prefWidth="232.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+                              <HBox fx:id="addButton" alignment="CENTER" layoutY="-33.0" prefHeight="79.0" prefWidth="232.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
                                  <children>
-                                    <Button fx:id="addButton" mnemonicParsing="false" onAction="#addToCart" prefHeight="45.0" prefWidth="120.0" style="-fx-background-color: #27AE60;" text="Lägg till" textFill="WHITE" HBox.hgrow="NEVER">
+                                    <Button mnemonicParsing="false" onAction="#addToCart" prefHeight="45.0" prefWidth="120.0" style="-fx-background-color: #27AE60;" text="Lägg till" textFill="WHITE" HBox.hgrow="NEVER">
                                        <font>
                                           <Font name="System Bold" size="16.0" />
                                        </font>

@@ -5,6 +5,7 @@ import javafx.fxml.FXMLLoader;
 import javafx.scene.control.Label;
 import javafx.scene.image.ImageView;
 import javafx.scene.layout.AnchorPane;
+import javafx.scene.layout.HBox;
 import se.chalmers.cse.dat216.project.Product;
 import se.chalmers.cse.dat216.project.ShoppingItem;
 
@@ -17,6 +18,9 @@ public class Card extends AnchorPane {
     @FXML private ImageView cardImage;
     @FXML private Label cardPrice;
     @FXML private Label cardName;
+
+    @FXML private HBox amountControl;
+    @FXML private HBox addButton;
 
 
     public Card(Product product, Controller parentController){
@@ -42,5 +46,7 @@ public class Card extends AnchorPane {
     @FXML
     public void addToCart(){
         parentController.addProductToCart(this.product);
+        amountControl.setVisible(true);
+        addButton.setVisible(false);
     }
 }
