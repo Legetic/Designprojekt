@@ -9,7 +9,6 @@
 <?import javafx.scene.control.ListView?>
 <?import javafx.scene.control.ScrollPane?>
 <?import javafx.scene.control.TextField?>
-<?import javafx.scene.effect.InnerShadow?>
 <?import javafx.scene.image.Image?>
 <?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.AnchorPane?>
@@ -19,7 +18,7 @@
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" prefHeight="596.0" prefWidth="1073.0" styleClass="body" stylesheets="@css/stylesheet.css" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="designprojekt.Controller">
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" prefHeight="596.0" prefWidth="1073.0" styleClass="body" stylesheets="@css/stylesheet.css" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="designprojekt.Controller">
    <children>
       <AnchorPane fx:id="fullscreenPage" layoutY="95.0" prefHeight="501.0" prefWidth="1073.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="95.0" />
       <AnchorPane fx:id="previousPurchasesRoot" layoutX="-12.0" layoutY="95.0" prefHeight="549.0" prefWidth="821.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="345.0" AnchorPane.topAnchor="95.0" />
@@ -84,7 +83,7 @@
                      <graphic>
                         <ImageView fitHeight="30.0" fitWidth="35.0" pickOnBounds="true" preserveRatio="true">
                            <image>
-                              <Image url="@resources/icons/MainBlue/time_machine_96px.png" />
+                              <Image url="@resources/icons/Tidigare%20köp.png" />
                            </image>
                         </ImageView>
                      </graphic>
@@ -96,7 +95,7 @@
                      <graphic>
                         <ImageView fitHeight="30.0" fitWidth="32.0" pickOnBounds="true" preserveRatio="true">
                            <image>
-                              <Image url="@resources/icons/MainBlue/phone_96px.png" />
+                              <Image url="@resources/icons/kundservice2.png" />
                            </image>
                         </ImageView>
                      </graphic>
@@ -126,7 +125,7 @@
                            <graphic>
                               <ImageView fitHeight="42.0" fitWidth="43.0" pickOnBounds="true" preserveRatio="true">
                                  <image>
-                                    <Image url="@resources/icons/DarkBlue/shopping_cart_96px.png" />
+                                    <Image url="@resources/icons/e-commerce-pack/shopping-cart-4.png" />
                                  </image>
                               </ImageView>
                            </graphic>
@@ -164,25 +163,11 @@
                         <String fx:value="cart" />
                      </styleClass>
                   </VBox>
-                  <Button contentDisplay="RIGHT" layoutX="12.0" layoutY="72.0" minWidth="-Infinity" mnemonicParsing="false" onAction="#openCheckoutPage" prefHeight="63.0" prefWidth="329.0" style="-fx-background-color: -fx-second4;" styleClass="h4" text="Gå till kassan" textFill="WHITE" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0">
+                  <Button layoutX="12.0" layoutY="72.0" minWidth="-Infinity" mnemonicParsing="false" onAction="#openCheckoutPage" prefHeight="63.0" prefWidth="259.0" style="-fx-background-color: -fx-niceGreen;" styleClass="h4" text="Gå till kassan -&gt;" textFill="WHITE" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="12.0" AnchorPane.rightAnchor="12.0">
                      <cursor>
                         <Cursor fx:constant="HAND" />
-                     </cursor>
-                     <graphic>
-                        <ImageView fitHeight="31.0" fitWidth="45.0" pickOnBounds="true" preserveRatio="true">
-                           <image>
-                              <Image url="@resources/icons/White/checkout_96px.png" />
-                           </image>
-                        </ImageView>
-                     </graphic></Button>
-                  <Button fx:id="emptyButton" alignment="CENTER" contentDisplay="RIGHT" layoutX="185.0" mnemonicParsing="false" onAction="#clearShoppingCart" prefHeight="54.0" prefWidth="133.0" style="-fx-background-color: -fx-base4; -fx-text-fill: white;" styleClass="h4" text="Töm" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
-                     <graphic>
-                        <ImageView fitHeight="31.0" fitWidth="32.0" pickOnBounds="true" preserveRatio="true">
-                           <image>
-                              <Image url="@resources/icons/White/waste_96px.png" />
-                           </image>
-                        </ImageView>
-                     </graphic></Button>
+                     </cursor></Button>
+                  <Button fx:id="emptyButton" layoutX="185.0" mnemonicParsing="false" onAction="#clearShoppingCart" prefHeight="10.0" prefWidth="98.0" style="-fx-background-color: -fx-base1; -fx-text-fill: white;" styleClass="h4" text="Töm" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0" />
                </children>
                <styleClass>
                   <String fx:value="oneColor" />
@@ -201,7 +186,7 @@
                                  <children>
                                     <Button alignment="TOP_LEFT" mnemonicParsing="false" prefHeight="31.0" prefWidth="312.0" styleClass="browseButton" text="Favoritvaror" />
                                     <Button alignment="TOP_LEFT" mnemonicParsing="false" prefHeight="31.0" prefWidth="312.0" styleClass="browseButton" text="Nånting till" />
-                                    <Label alignment="BOTTOM_LEFT" minHeight="-Infinity" prefHeight="74.0" prefWidth="208.0" style="-fx-text-fill: white;" styleClass="h4" text="Sortiment" VBox.vgrow="NEVER">
+                                    <Label alignment="BOTTOM_LEFT" minHeight="-Infinity" prefHeight="74.0" prefWidth="208.0" style="-fx-text-fill: -fx-base1;" styleClass="h4" text="Sortiment" VBox.vgrow="NEVER">
                                        <font>
                                           <Font size="23.0" />
                                        </font>
@@ -235,9 +220,6 @@
                      </styleClass>
                   </ScrollPane>
                </children>
-               <effect>
-                  <InnerShadow color="#0e2d4580" height="49.76" offsetY="10.0" radius="11.94" width="0.0" />
-               </effect>
             </AnchorPane>
          </left>
          <center>
@@ -249,30 +231,30 @@
                            <children>
                               <VBox alignment="TOP_CENTER" prefHeight="649.0" prefWidth="579.0" style="-fx-background-color: transparent;" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
                                  <children>
-                                    <AnchorPane minHeight="197.0" prefHeight="328.0" prefWidth="621.0" style="-fx-background-size: cover; -fx-background-position: center; -fx-background-color: -fx-niceWhite;">
+                                    <AnchorPane minHeight="197.0" prefHeight="328.0" prefWidth="621.0" style="-fx-background-size: cover; -fx-background-position: center;">
                                        <children>
-                                          <Label alignment="CENTER" contentDisplay="CENTER" layoutY="14.0" prefHeight="71.0" prefWidth="626.0" style="-fx-text-fill: -fx-base1;" styleClass="h1" text="Välkommen!" textFill="WHITE" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="14.0">
+                                          <Label alignment="CENTER" contentDisplay="CENTER" layoutY="4.0" prefHeight="71.0" prefWidth="626.0" style="-fx-text-fill: -fx-base4;" styleClass="h1" text="Välkommen!" textFill="WHITE" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="4.0">
                                              <font>
                                                 <Font name="System Bold" size="41.0" />
                                              </font>
                                           </Label>
-                                          <Label alignment="TOP_CENTER" contentDisplay="CENTER" layoutX="61.0" layoutY="94.0" nodeOrientation="LEFT_TO_RIGHT" prefHeight="109.0" prefWidth="460.0" style="-fx-text-fill: -fx-base1;" styleClass="p3" text="Här hittar du allt du behöver för att laga mat." textAlignment="CENTER" textFill="WHITE" wrapText="true" AnchorPane.leftAnchor="61.0" AnchorPane.rightAnchor="61.0" AnchorPane.topAnchor="94.0">
+                                          <Label alignment="TOP_CENTER" contentDisplay="CENTER" layoutX="61.0" layoutY="84.0" nodeOrientation="LEFT_TO_RIGHT" prefHeight="109.0" prefWidth="460.0" style="-fx-text-fill: #000000;" styleClass="p3" text="Här hittar du allt du behöver för att laga mat." textAlignment="CENTER" textFill="WHITE" wrapText="true" AnchorPane.leftAnchor="61.0" AnchorPane.rightAnchor="61.0" AnchorPane.topAnchor="84.0">
                                              <font>
                                                 <Font name="System Bold" size="41.0" />
                                              </font>
                                           </Label>
                                        </children>
                                     </AnchorPane>
-                                    <AnchorPane minHeight="68.0" prefHeight="68.0" prefWidth="456.0" style="-fx-border-width: 1 0 1 0; -fx-border-color: -fx-niceGray; -fx-background-color: -fx-niceWhite;" VBox.vgrow="NEVER">
+                                    <AnchorPane minHeight="68.0" prefHeight="68.0" prefWidth="456.0" VBox.vgrow="NEVER">
                                        <VBox.margin>
                                           <Insets />
                                        </VBox.margin>
                                        <children>
-                                          <Label layoutX="54.0" layoutY="18.0" prefHeight="37.0" prefWidth="155.0" style="-fx-text-fill: -fx-base1;" styleClass="h4" text="Sortera Efter:" AnchorPane.rightAnchor="287.0" AnchorPane.topAnchor="18.0" />
-                                          <ComboBox layoutX="228.0" layoutY="13.0" prefHeight="47.0" prefWidth="268.0" promptText="Ingen Sortering" style="-fx-background-color: transparent; -fx-border-color: -fx-base4;" AnchorPane.rightAnchor="11.0" AnchorPane.topAnchor="12.0" />
+                                          <Label layoutY="16.0" prefHeight="37.0" prefWidth="435.0" style="-fx-text-fill: -fx-base1;" styleClass="h4" text="Sortera Efter:" AnchorPane.rightAnchor="4.0" AnchorPane.topAnchor="16.0" />
+                                          <ComboBox layoutX="228.0" layoutY="11.0" prefHeight="33.0" prefWidth="217.0" promptText="Ingen Sortering" style="-fx-background-color: transparent; -fx-border-color: -fx-base4;" AnchorPane.rightAnchor="11.0" AnchorPane.topAnchor="11.0" />
                                        </children>
                                     </AnchorPane>
-                                    <FlowPane fx:id="mainGrid" alignment="TOP_CENTER" hgap="10.0" prefHeight="503.0" prefWidth="553.0" vgap="10.0" VBox.vgrow="NEVER">
+                                    <FlowPane fx:id="mainGrid" alignment="TOP_CENTER" prefHeight="503.0" prefWidth="553.0" VBox.vgrow="NEVER">
                                        <VBox.margin>
                                           <Insets top="20.0" />
                                        </VBox.margin>
@@ -284,6 +266,9 @@
                               <String fx:value="oneColor" />
                               <String fx:value="centerStage" />
                            </styleClass>
+                           <padding>
+                              <Insets left="20.0" right="20.0" top="20.0" />
+                           </padding>
                         </AnchorPane>
                      </content>
                      <styleClass>
