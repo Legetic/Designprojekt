@@ -12,15 +12,15 @@
 <?import javafx.scene.shape.Circle?>
 <?import javafx.scene.text.Font?>
 
-<fx:root id="Card" prefHeight="427.0" prefWidth="296.0" stylesheets="@css/stylesheet.css" type="AnchorPane" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1">
+<fx:root id="Card" prefHeight="427.0" prefWidth="296.0" stylesheets="@css/stylesheet.css" type="AnchorPane" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1">
    <children>
       <HBox alignment="CENTER" layoutX="20.0" layoutY="10.0" prefHeight="451.0" prefWidth="260.0" style="-fx-background-color: white;" AnchorPane.bottomAnchor="1.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
          <children>
             <VBox alignment="TOP_CENTER" prefHeight="441.0" prefWidth="204.0">
                <children>
-                  <HBox alignment="CENTER" prefHeight="189.0" prefWidth="445.0">
+                  <HBox alignment="CENTER" prefHeight="232.0" prefWidth="273.0">
                      <children>
-                        <ImageView fx:id="cardImage" fitHeight="232.0" fitWidth="239.0" pickOnBounds="true" preserveRatio="true">
+                        <ImageView fx:id="cardImage" fitHeight="232.0" fitWidth="266.0" pickOnBounds="true" preserveRatio="true">
                            <image>
                               <Image url="@resources/placeholder.png" />
                            </image>
@@ -77,7 +77,7 @@
                               </HBox>
                               <HBox fx:id="addButton" alignment="CENTER" layoutY="-33.0" prefHeight="79.0" prefWidth="232.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
                                  <children>
-                                    <Button mnemonicParsing="false" onAction="#addToCart" prefHeight="45.0" prefWidth="120.0" style="-fx-background-color: #27AE60;" text="Lägg till" textFill="WHITE" HBox.hgrow="NEVER">
+                                    <Button mnemonicParsing="false" onAction="#addToCart" prefHeight="45.0" prefWidth="120.0" style="-fx-background-color: -fx-second4;" text="Lägg till" textFill="WHITE" HBox.hgrow="NEVER">
                                        <font>
                                           <Font name="System Bold" size="16.0" />
                                        </font>
@@ -98,7 +98,7 @@
             </VBox>
          </children>
       </HBox>
-      <Circle fill="#6cd1fd" layoutX="229.0" layoutY="55.0" opacity="0.9" radius="48.0" stroke="BLACK" strokeType="INSIDE" strokeWidth="0.0" style="-fx-fill: -fx-alt2Base3;" AnchorPane.rightAnchor="19.0" AnchorPane.topAnchor="7.0" />
+      <Circle fill="#6cd1fd" layoutX="229.0" layoutY="55.0" opacity="0.9" radius="48.0" stroke="BLACK" strokeType="INSIDE" strokeWidth="0.0" style="-fx-fill: -fx-base2;" AnchorPane.rightAnchor="19.0" AnchorPane.topAnchor="7.0" />
       <Label fx:id="cardPrice" alignment="CENTER" layoutX="184.0" layoutY="32.0" prefHeight="37.0" prefWidth="96.0" style="-fx-text-fill: -fx-altBase1;" styleClass="h4" text="1" wrapText="true" AnchorPane.leftAnchor="184.0" AnchorPane.rightAnchor="22.0" AnchorPane.topAnchor="32.0">
          <font>
             <Font size="35.0" />
