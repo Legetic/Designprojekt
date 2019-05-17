@@ -28,9 +28,39 @@ Frukt  https://unsplash.com/photos/atzWFItRHy8
    light blue and purple #D7F0F5 with #08197E
 
     Call to action - https://www.convertize.com/call-to-action-button/
+    https://www.resene.co.nz/homeown/use_colr/colours-for-living.htm - ELDERS AND COLOR
 
     */
 
+    /*#2C31F6*/
+    -fx-base1:#19466B;
+    -fx-base2:#61B3F8;
+    -fx-base3:#8FC9F9;
+    -fx-base4:#3599EB;
+
+    -fx-second1: #FA7268;
+    -fx-second2: #FA7268;
+    -fx-second3: #FA7268;
+    -fx-second4: #FA7268;
+
+
+
+    -fx-altBase1:#FFF6DE;
+    -fx-altBase2:#FFF1CD;
+    -fx-altBase3:#FFE196;
+
+    -fx-alt2base1:#FFE4DE;
+    -fx-alt2base2:#FFD7CD;
+    -fx-alt2base3:#FFAA96;
+    -fx-alt2base4:#FF8366;
+
+    -fx-niceWhite:white;
+    -fx-niceGray:#EDF3F7;
+    -fx-niceGreen:#3BBB43;
+    -fx-niceRed:#E00F00;
+
+
+/*
     -fx-base1:#DEF4FD;
     -fx-base2:#D0F1FF;
     -fx-base3:#9AE1FF;
@@ -39,7 +69,6 @@ Frukt  https://unsplash.com/photos/atzWFItRHy8
     -fx-altBase1:#FFF6DE;
     -fx-altBase2:#FFF1CD;
     -fx-altBase3:#FFE196;
-    -fx-altBase4:#E00F00;
 
     -fx-alt2base1:#FFE4DE;
     -fx-alt2base2:#FFD7CD;
@@ -49,8 +78,10 @@ Frukt  https://unsplash.com/photos/atzWFItRHy8
     -fx-niceWhite:#fcfcfc;
     -fx-niceGray:#f4f7f6;
     -fx-niceGreen:#3BBB43;
+    -fx-niceRed:#E00F00;
+    */
 
-    -fx-checkoutBox: #f8F8F8;
+
 }
 /*Icon made by https://www.flaticon.com/authors/chanut from www.flaticon.com */
 /*Paste this attribution on the final work so the authorship is known (for instance, in the acknowledgements chapter of a book)*/
@@ -160,29 +191,31 @@ https://blog.marvelapp.com/body-text-small/
     /*-fx-text-fill: rgba(0,0,0,0.75);*/
 }
 .h4{
-    -fx-font-size: 22pt;
+    -fx-font-size: 18pt;
     -fx-font-weight: bold;
     /*-fx-text-fill: rgba(0,0,0,0.75);*/
 }
 .oneColor{
-    -fx-background-color: -fx-niceGray;
+    -fx-background-color: -fx-niceWhite;
 }
 
 
 .centerStage{
-    -fx-background-color: -fx-niceWhite;
 
 }
 .browseMenu{
+    -fx-background-color: -fx-niceGray;
 
     /*-fx-background-color: -fx-base2;*/
 
 }
 .topBar{
-    -fx-background-color: -fx-base1;
+    -fx-background-color: -fx-niceGray;
+
 
 }
 .cart{
+
 }
 
 .p1{
@@ -214,7 +247,7 @@ https://blog.marvelapp.com/body-text-small/
     -fx-font-size: 38pt;
     -fx-font-weight: bold;
 
-    -fx-background-color: linear-gradient(to left, -fx-base3, -fx-base4);
+    -fx-background-color: -fx-base4;
     /*-fx-border-width: 5 5 5 5;
     -fx-border-color: linear-gradient(to right, -fx-base3, -fx-base4);
     -fx-label-padding: 0 5 0 5;*/
@@ -226,7 +259,7 @@ https://blog.marvelapp.com/body-text-small/
     -fx-font-weight: bold;
 
     -fx-border-width: 20 20 20 20;
-    -fx-border-color: linear-gradient(to right, -fx-base3, -fx-base4);
+    -fx-border-color: -fx-base4
     -fx-label-padding: 0 20 0 20;
 }
 
