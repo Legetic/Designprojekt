@@ -259,7 +259,7 @@ https://blog.marvelapp.com/body-text-small/
     -fx-font-weight: bold;
 
     -fx-border-width: 20 20 20 20;
-    -fx-border-color: -fx-base4
+    -fx-border-color: -fx-base4;
     -fx-label-padding: 0 20 0 20;
 }
 
