@@ -261,6 +261,7 @@ public class Controller implements Initializable {
             shoppingCartFlowPane.getChildren().add(cartItem);
 
             productCard.getAmountControl().setVisible(true);
+            productCard.getAmountField().requestFocus();
             productCard.getAddButton().setVisible(false);
         }
     }
