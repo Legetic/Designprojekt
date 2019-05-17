@@ -35,7 +35,7 @@
             <String fx:value="colorTextBlack" />
          </styleClass>
       </Button>
-      <AnchorPane fx:id="deliveryAnchorPane" layoutY="154.0" prefHeight="596.0" prefWidth="702.0" styleClass="oneColor" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="408.6">
+      <AnchorPane fx:id="deliveryAnchorPane" layoutY="154.0" prefHeight="596.0" prefWidth="702.0" styleClass="oneColor">
          <children>
             <AnchorPane layoutX="128.0" layoutY="132.0" prefHeight="374.0" prefWidth="390.0">
                <children>

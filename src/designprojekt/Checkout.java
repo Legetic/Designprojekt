@@ -9,14 +9,16 @@ import javafx.scene.control.TextField;
 import javafx.scene.image.ImageView;
 import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.FlowPane;
-import se.chalmers.cse.dat216.project.Product;
-import se.chalmers.cse.dat216.project.ShoppingItem;
+import se.chalmers.cse.dat216.project.*;
 
 import java.io.IOException;
 import java.net.URL;
 import java.util.ResourceBundle;
 
 public class Checkout extends AnchorPane {
+    private CreditCard creditCard;
+    private Customer customer;
+
     private Controller parentController;
     @FXML
     private AnchorPane conclusionAnchorPane;
@@ -109,6 +111,8 @@ public class Checkout extends AnchorPane {
         setRightAnchor(this, 0.0);
         setLeftAnchor(this, 0.0);
 
+
+
     }
 
     @FXML
@@ -116,5 +120,7 @@ public class Checkout extends AnchorPane {
         parentController.closeCheckoutPage();
 
     }
+
+
 
 }
