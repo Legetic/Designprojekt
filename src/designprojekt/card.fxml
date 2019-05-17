@@ -62,13 +62,13 @@
                            <children>
                               <HBox fx:id="amountControl" alignment="CENTER" layoutX="51.0" layoutY="2.0" prefHeight="0.0" prefWidth="200.0" visible="false" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
                                  <children>
-                                    <Button mnemonicParsing="false" prefHeight="50.0" prefWidth="50.0" text="-" HBox.hgrow="NEVER">
+                                    <Button mnemonicParsing="false" onAction="#decAmount" prefHeight="50.0" prefWidth="50.0" text="-" HBox.hgrow="NEVER">
                                        <font>
                                           <Font name="System Bold" size="16.0" />
                                        </font>
                                     </Button>
-                                    <TextField fx:id="amountTextField" onAction="#setAmount" prefHeight="50.0" prefWidth="100.0" HBox.hgrow="NEVER" />
-                                    <Button mnemonicParsing="false" prefHeight="50.0" prefWidth="50.0" text="+" HBox.hgrow="NEVER">
+                                    <TextField fx:id="amountTextField" onAction="#setAmount" onMouseClicked="#selectText" prefHeight="50.0" prefWidth="100.0" text="1 st" HBox.hgrow="NEVER" />
+                                    <Button mnemonicParsing="false" onAction="#incAmount" prefHeight="50.0" prefWidth="50.0" text="+" HBox.hgrow="NEVER">
                                        <font>
                                           <Font name="System Bold" size="16.0" />
                                        </font>

@@ -3,13 +3,9 @@ package designprojekt;
 import javafx.beans.value.ChangeListener;
 import javafx.beans.value.ObservableValue;
 import javafx.fxml.FXML;
-import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
 import javafx.scene.Node;
-import javafx.scene.control.Button;
-import javafx.scene.control.ListView;
-import javafx.scene.control.ScrollPane;
-import javafx.scene.control.TextField;
+import javafx.scene.control.*;
 import javafx.scene.image.Image;
 import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.BorderPane;
@@ -17,39 +13,47 @@ import javafx.scene.layout.FlowPane;
 import se.chalmers.cse.dat216.project.*;
 
 
-
-import java.awt.event.ActionEvent;
 import java.io.IOException;
-import java.lang.reflect.Array;
 import java.net.URL;
 import java.util.*;
 import java.util.List;
 
-public class Controller implements Initializable{
+public class Controller implements Initializable {
 
     ImatBackendController imatBackendController = new ImatBackendController();
     private IMatDataHandler dataHandler = IMatDataHandler.getInstance();
 
-    @FXML private AnchorPane startMenu;
-    @FXML private BorderPane homePage;
+    @FXML
+    private AnchorPane startMenu;
+    @FXML
+    private BorderPane homePage;
 
 
-    @FXML private FlowPane mainGrid;
-    @FXML private Button startPage_exit_btn;
-    @FXML private Button startPage_home_btn;
-    @FXML private Button startPage_recentBuy_btn;
-    @FXML private Button addButton;
-    @FXML private FlowPane shoppingCartFlowPane;
+    @FXML
+    private FlowPane mainGrid;
+    @FXML
+    private Button startPage_exit_btn;
+    @FXML
+    private Button startPage_home_btn;
+    @FXML
+    private Button startPage_recentBuy_btn;
+    @FXML
+    private Button addButton;
+    @FXML
+    private FlowPane shoppingCartFlowPane;
 
-    @FXML private AnchorPane previousPurchasesRoot;
-    @FXML private AnchorPane fullscreenPage;
+    @FXML
+    private AnchorPane previousPurchasesRoot;
+    @FXML
+    private AnchorPane fullscreenPage;
 
 
-    @FXML private ListView searchList;
-    @FXML private TextField searchBar;
-    @FXML private ScrollPane searchPane;
-
-
+    @FXML
+    private ListView searchList;
+    @FXML
+    private TextField searchBar;
+    @FXML
+    private ScrollPane searchPane;
 
 
     private List<Product> productList = new ArrayList<>();
@@ -73,11 +77,10 @@ public class Controller implements Initializable{
             @Override
             public void changed(ObservableValue<? extends Boolean> observable, Boolean oldValue, Boolean newValue) {
 
-                if(newValue){
+                if (newValue) {
                     //focusgained - do nothing
                     openSearchList();
-                }
-                else{
+                } else {
 
                     closeSearchList();
                 }
@@ -91,8 +94,6 @@ public class Controller implements Initializable{
             searchList.getItems().addAll(searchResults);
 
         });
-
-
 
 
         updateMainGrid();
@@ -111,20 +112,23 @@ public class Controller implements Initializable{
     }
 
 
-    @FXML private void openSearchList(){
+    @FXML
+    private void openSearchList() {
         //searchList.getItems().clear();
         searchPane.toFront();
 
         //
     }
 
-    @FXML private void closeSearchList(){
+    @FXML
+    private void closeSearchList() {
         searchPane.toBack();
 
         //dataHandler.findProducts(searchBar.getText())
     }
 
-    @FXML private void search(){
+    @FXML
+    private void search() {
         System.out.println("lolol");
         //searchList.getSelectionModel().getSelectedItem().toString()
 
@@ -145,36 +149,121 @@ public class Controller implements Initializable{
     public void clearShoppingCart() {
         shoppingCartFlowPane.getChildren().clear();
         dataHandler.getShoppingCart().clear();
+        for(Node node : mainGrid.getChildren()) {
+            Card card = (Card)node;
+            if(card.getAmountControl().isVisible()) {
+                card.getAmountControl().setVisible(false);
+                card.getAddButton().setVisible(true);
+                card.getAmountField().setText("1 st");
+            }
+        }
     }
 
-    protected void setAmount() {}//TODO: fix this
 
-    protected void removeItem(CartItem cartItem) {
-        shoppingCartFlowPane.getChildren().remove(cartItem);
-        dataHandler.getShoppingCart().getItems().remove(cartItem.getShoppingItem());
-        cartItem.getCard().getAmountControl().setVisible(false);
-        cartItem.getCard().getAddButton().setVisible(true);
+    //CARDS & CARTITEMS
+
+    protected void decAmount(Card card) { //Needs card as argument
+        card.getCartItem().getShoppingItem().setAmount(card.getCartItem().getShoppingItem().getAmount() - 1);
+        if(card.getCartItem().getShoppingItem().getAmount() < 1) {
+            card.getCartItem().getShoppingItem().setAmount(1);
+            removeItem(card);
+        }
+        card.getAmountField().setText(((int) card.getCartItem().getShoppingItem().getAmount() + " st"));
+        card.getCartItem().getAmountField().setText((int) card.getCartItem().getShoppingItem().getAmount() + " st");
+        updatePrice(card.getCartItem().getCartItemTotalPrice(), card.getCartItem().getShoppingItem());
+    }
+
+
+    protected void incAmount(Card card) { //doesn't need everything that card has
+        card.getCartItem().getShoppingItem().setAmount(card.getCartItem().getShoppingItem().getAmount() + 1);
+        if(card.getCartItem().getShoppingItem().getAmount() < 1) { //Maybe redundant
+            card.getCartItem().getShoppingItem().setAmount(1);
+        }
+        card.getAmountField().setText(((int) card.getCartItem().getShoppingItem().getAmount() + " st"));
+        card.getCartItem().getAmountField().setText((int) card.getCartItem().getShoppingItem().getAmount() + " st");
+        updatePrice(card.getCartItem().getCartItemTotalPrice(), card.getCartItem().getShoppingItem());
+    }
+
+
+    protected void setAmount(Card card, boolean readCard) {
+        if(readCard) {
+            updateAmounts(card, readAmount(card.getCartItem().getShoppingItem(), card.getAmountField()));
+        } else {
+            updateAmounts(card, readAmount(card.getCartItem().getShoppingItem(), card.getCartItem().getAmountField()));
+
+        }
+        updatePrice(card.getCartItem().getCartItemTotalPrice(), card.getCartItem().getShoppingItem());
+    }
+
+    private String readAmount(ShoppingItem shoppingItem, TextField amountField) {//Invalid input doesn't exist with this method.
+
+        try {
+            shoppingItem.setAmount(Integer.parseInt(amountField.getText())); //throws NumberFormatException if String contains non-digits
+        } catch (NumberFormatException e) {
+            StringBuilder stringBuilder = new StringBuilder();
+            for (char c : amountField.getText().toCharArray()) { //Isolates digits
+                if (Character.isDigit(c)) {
+                    stringBuilder.append(c);
+                }
+            }
+            String digitString = stringBuilder.toString();
+            if (!digitString.isEmpty()) { //if the string is empty (contained no digits), reset amount
+                shoppingItem.setAmount(Integer.parseInt(digitString));
+            } else {
+                shoppingItem.setAmount(shoppingItem.getAmount());
+            }
+        }
+        if (shoppingItem.getAmount() <= 0) {
+            return null; //TODO: DANGEROUS TO SET A STRING TO NULL? May fix this in future.
+        }
+        return ((int) shoppingItem.getAmount()) + " st";
+    }
+
+    private void updateAmounts(Card card, String updateString) {
+        try {
+            if((updateString.equals(null)));
+        } catch (NullPointerException e) {
+            removeItem(card);
+            return;
+        }
+        card.getCartItem().getAmountField().setText(updateString); // updates cart field
+        card.getAmountField().setText(updateString); // updates card field
+    }
+
+    private void updatePrice(Label cartItemTotalPrice, ShoppingItem shoppingItem) {
+        cartItemTotalPrice.setText(shoppingItem.getTotal() + " kr"); //updates price
+
+    }
+
+
+    protected void removeItem(Card card) {
+        shoppingCartFlowPane.getChildren().remove(card.getCartItem());
+        dataHandler.getShoppingCart().getItems().remove(card.getCartItem().getShoppingItem());
+        card.getAmountControl().setVisible(false);
+        card.getAddButton().setVisible(true);
+        card.getAmountField().setText("1 st");
     }
 
     public void addProductToCart(Card productCard) {//TODO: implement separate method for the duplicate check
-        Boolean isDuplicate = false;
-        for(ShoppingItem si : dataHandler.getShoppingCart().getItems()) {
-            if(si.getProduct().equals(productCard.getProduct())) {
+        boolean isDuplicate = false;
+        for (ShoppingItem si : dataHandler.getShoppingCart().getItems()) {
+            if (si.getProduct().equals(productCard.getProduct())) {
                 isDuplicate = true;
                 break;
             }
         }
-        if(!isDuplicate) {//If not duplicate, add to cart
+        if (!isDuplicate) {//If not duplicate, add to cart
             ShoppingItem item = new ShoppingItem(productCard.getProduct());
-            CartItem cartItem = new CartItem(item, this, productCard);
             dataHandler.getShoppingCart().addItem(item);
+
+            CartItem cartItem = new CartItem(item, this, productCard);
+            productCard.setCartItem(cartItem);
             shoppingCartFlowPane.getChildren().add(cartItem);
+
             productCard.getAmountControl().setVisible(true);
             productCard.getAddButton().setVisible(false);
         }
     }
-
-
 
 
     //GET IMAGES
@@ -195,12 +284,12 @@ public class Controller implements Initializable{
     }
 
     @FXML
-    public void openPreviousPurchases() throws IOException{
+    public void openPreviousPurchases() throws IOException {
         //ResourceBundle bundle = java.util.ResourceBundle.getBundle("designprojekt/resources/Imat");
         //FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("earlierOrders.fxml"));
 
         previousPurchasesRoot.getChildren().clear();
-        EarlierOrdersPage earlierOrdersPage = new EarlierOrdersPage( this);
+        EarlierOrdersPage earlierOrdersPage = new EarlierOrdersPage(this);
         previousPurchasesRoot.getChildren().addAll(earlierOrdersPage);
 
         homePage.toFront();
@@ -209,32 +298,33 @@ public class Controller implements Initializable{
     }
 
     @FXML
-    public void closePreviousPurchases(){
+    public void closePreviousPurchases() {
 
         previousPurchasesRoot.toBack();
 
     }
 
     @FXML
-    public void openCustomerServicePage(){
+    public void openCustomerServicePage() {
         previousPurchasesRoot.getChildren().clear();
-        CustomerServicePage customerServicePage = new CustomerServicePage( this);
+        CustomerServicePage customerServicePage = new CustomerServicePage(this);
         previousPurchasesRoot.getChildren().addAll(customerServicePage);
 
         homePage.toFront();
         previousPurchasesRoot.toFront();
 
     }
+
     @FXML
-    public void closeCustomerServicePage(){
+    public void closeCustomerServicePage() {
         previousPurchasesRoot.toBack();
 
     }
 
     @FXML
-    public void openCheckoutPage(){
+    public void openCheckoutPage() {
         fullscreenPage.getChildren().clear();
-        Checkout checkout = new Checkout( this);
+        Checkout checkout = new Checkout(this);
         fullscreenPage.getChildren().addAll(checkout);
 
         homePage.toFront();
@@ -243,14 +333,19 @@ public class Controller implements Initializable{
     }
 
     @FXML
-    public void closeCheckoutPage(){
+    public void closeCheckoutPage() {
         fullscreenPage.toBack();
 
     }
 
     @FXML
-    public void goHome(){
+    public void goHome() {
         homePage.toFront();
+    }
+
+    public void selectText(TextField textField) {
+        textField.selectAll();
+
     }
 
 
