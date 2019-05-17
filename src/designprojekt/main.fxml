@@ -163,7 +163,7 @@
                         <String fx:value="cart" />
                      </styleClass>
                   </VBox>
-                  <Button layoutX="12.0" layoutY="72.0" minWidth="-Infinity" mnemonicParsing="false" onAction="#openCheckoutPage" prefHeight="63.0" prefWidth="259.0" style="-fx-background-color: -fx-second4;" styleClass="h4" text="Gå till kassan -&gt;" textFill="WHITE" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="12.0" AnchorPane.rightAnchor="12.0">
+                  <Button layoutX="12.0" layoutY="72.0" minWidth="-Infinity" mnemonicParsing="false" onAction="#openCheckoutPage" prefHeight="63.0" prefWidth="259.0" style="-fx-background-color: -fx-niceGreen;" styleClass="h4" text="Gå till kassan -&gt;" textFill="WHITE" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="12.0" AnchorPane.rightAnchor="12.0">
                      <cursor>
                         <Cursor fx:constant="HAND" />
                      </cursor></Button>
@@ -238,7 +238,7 @@
                                                 <Font name="System Bold" size="41.0" />
                                              </font>
                                           </Label>
-                                          <Label alignment="TOP_CENTER" contentDisplay="CENTER" layoutX="61.0" layoutY="84.0" nodeOrientation="LEFT_TO_RIGHT" prefHeight="109.0" prefWidth="460.0" style="-fx-text-fill: -fx-second3;" styleClass="p3" text="Här hittar du allt du behöver för att laga mat." textAlignment="CENTER" textFill="WHITE" wrapText="true" AnchorPane.leftAnchor="61.0" AnchorPane.rightAnchor="61.0" AnchorPane.topAnchor="84.0">
+                                          <Label alignment="TOP_CENTER" contentDisplay="CENTER" layoutX="61.0" layoutY="84.0" nodeOrientation="LEFT_TO_RIGHT" prefHeight="109.0" prefWidth="460.0" style="-fx-text-fill: #000000;" styleClass="p3" text="Här hittar du allt du behöver för att laga mat." textAlignment="CENTER" textFill="WHITE" wrapText="true" AnchorPane.leftAnchor="61.0" AnchorPane.rightAnchor="61.0" AnchorPane.topAnchor="84.0">
                                              <font>
                                                 <Font name="System Bold" size="41.0" />
                                              </font>
