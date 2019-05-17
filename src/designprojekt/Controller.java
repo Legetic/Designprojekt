@@ -7,9 +7,12 @@ import javafx.fxml.Initializable;
 import javafx.scene.Node;
 import javafx.scene.control.*;
 import javafx.scene.image.Image;
+import javafx.scene.input.KeyCode;
+import javafx.scene.input.KeyEvent;
 import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.BorderPane;
 import javafx.scene.layout.FlowPane;
+import javafx.scene.layout.VBox;
 import se.chalmers.cse.dat216.project.*;
 
 
@@ -48,12 +51,14 @@ public class Controller implements Initializable {
     private AnchorPane fullscreenPage;
 
 
+
     @FXML
     private ListView searchList;
     @FXML
     private TextField searchBar;
     @FXML
     private ScrollPane searchPane;
+
 
 
     private List<Product> productList = new ArrayList<>();
@@ -71,8 +76,34 @@ public class Controller implements Initializable {
             cardMap.put(item.getName(), productCard);
         }
 
+        searchBar.addEventFilter(KeyEvent.KEY_PRESSED, ( KeyEvent event ) ->  {
+            if(event.getCode() == KeyCode.DOWN) {
+                searchList.requestFocus();
+                searchList.getFocusModel().focusNext();
+                //searchList.getSelectionModel().selectNext();
+            }
+            if(event.getCode() == KeyCode.UP) {
+                searchList.getSelectionModel().selectPrevious();
+            }
+
+            });
 
         searchBar.focusedProperty().addListener(new ChangeListener<Boolean>() {
+
+            @Override
+            public void changed(ObservableValue<? extends Boolean> observable, Boolean oldValue, Boolean newValue) {
+
+                if (newValue) {
+                    //focusgained - do nothing
+                    openSearchList();
+                } else {
+
+                    closeSearchList();
+                }
+
+            }
+        });
+        searchList.focusedProperty().addListener(new ChangeListener<Boolean>() {
 
             @Override
             public void changed(ObservableValue<? extends Boolean> observable, Boolean oldValue, Boolean newValue) {
@@ -116,6 +147,7 @@ public class Controller implements Initializable {
     private void openSearchList() {
         //searchList.getItems().clear();
         searchPane.toFront();
+        searchPane.setVisible(true);
 
         //
     }
@@ -123,6 +155,7 @@ public class Controller implements Initializable {
     @FXML
     private void closeSearchList() {
         searchPane.toBack();
+        searchPane.setVisible(false);
 
         //dataHandler.findProducts(searchBar.getText())
     }
