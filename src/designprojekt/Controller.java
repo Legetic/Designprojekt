@@ -95,7 +95,7 @@ public class Controller implements Initializable {
 
                 if (newValue) {
                     //focusgained - do nothing
-                    openSearchList();
+                    //openSearchList();
                 } else {
 
                     closeSearchList();
@@ -120,6 +120,9 @@ public class Controller implements Initializable {
         });
 
         searchBar.textProperty().addListener((observable, oldValue, newValue) -> {
+
+                openSearchList();
+
             List<Product> searchResults = dataHandler.findProducts(searchBar.getText());
             searchList.getItems().clear();
             searchList.getItems().addAll(searchResults);
