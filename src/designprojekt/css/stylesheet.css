@@ -34,8 +34,8 @@ Frukt  https://unsplash.com/photos/atzWFItRHy8
 
     /*#2C31F6*/
     -fx-base1:#19466B;
-    -fx-base2:#61B3F8;
-    -fx-base3:#8FC9F9;
+    -fx-base2:#8FC9F9;
+    -fx-base3:#61B3F8;
     -fx-base4:#3599EB;
 
     -fx-second1: #FA7268;
@@ -44,7 +44,7 @@ Frukt  https://unsplash.com/photos/atzWFItRHy8
     -fx-second4: #FA7268;
 
 
-
+/*
     -fx-altBase1:#FFF6DE;
     -fx-altBase2:#FFF1CD;
     -fx-altBase3:#FFE196;
@@ -53,7 +53,7 @@ Frukt  https://unsplash.com/photos/atzWFItRHy8
     -fx-alt2base2:#FFD7CD;
     -fx-alt2base3:#FFAA96;
     -fx-alt2base4:#FF8366;
-
+*/
     -fx-niceWhite:white;
     -fx-niceGray:#EDF3F7;
     -fx-niceGreen:#3BBB43;
@@ -112,6 +112,13 @@ https://blog.marvelapp.com/body-text-small/
     -fx-font-size: 18pt;
     -fx-cursor: hand;
 }
+.list-view{
+
+    -fx-font-family: "Segoe UI", sans-serif;
+    -fx-font-size: 18pt;
+    -fx-cursor: hand;
+
+}
 
 .combo-box{
 
@@ -127,15 +134,15 @@ https://blog.marvelapp.com/body-text-small/
 
 .list-cell:filled:selected:focused, .list-cell:filled:selected {
     /* 3:, 4: */
-    -fx-background-color: linear-gradient(#333 0%, #777 25%, #aaa 75%, #eee 100%);
+    -fx-background-color: -fx-base4;
     -fx-text-fill: white; /* 5 */
 }
 .list-cell { -fx-text-fill: black; /* 5 */ }
 .list-cell:odd { -fx-background-color: white; /* 1 */ }
-.list-cell:even { -fx-background-color: #8f8; /* for information */ }
+.list-cell:even { -fx-background-color: white; /* for information */ }
 .list-cell:filled:hover {
-    -fx-background-color: #00f; /* 2 */
-    -fx-text-fill: white; /* 5 */
+    -fx-background-color: -fx-niceGray; /* 2 */
+    -fx-text-fill: black; /* 5 */
 }
 
 
@@ -144,15 +151,18 @@ https://blog.marvelapp.com/body-text-small/
     -fx-background-color: transparent;
 
     -fx-border-width: 0 0 1 0;
-    -fx-border-color: -fx-base3;
+    -fx-border-color: -fx-base2;
+
+    -fx-text-fill: white;
 }
 
 .browseButton:hover{
-    -fx-background-color: -fx-altBase2;
+    -fx-background-color: -fx-base4;
 }
 
 .browseButton:pressed{
     -fx-background-color: -fx-niceGray;
+    -fx-text-fill: -fx-base1;
 }
 
 .conclusion{
@@ -201,17 +211,14 @@ https://blog.marvelapp.com/body-text-small/
 
 
 .centerStage{
-
+    -fx-background-color: -fx-niceGray;
 }
 .browseMenu{
-    -fx-background-color: -fx-niceGray;
-
+    -fx-background-color: -fx-base1;
     /*-fx-background-color: -fx-base2;*/
-
 }
 .topBar{
     -fx-background-color: -fx-niceGray;
-
 
 }
 .cart{

@@ -18,9 +18,9 @@
          <children>
             <VBox alignment="TOP_CENTER" prefHeight="441.0" prefWidth="204.0">
                <children>
-                  <HBox alignment="CENTER" prefHeight="232.0" prefWidth="273.0">
+                  <HBox alignment="CENTER" prefHeight="189.0" prefWidth="445.0">
                      <children>
-                        <ImageView fx:id="cardImage" fitHeight="232.0" fitWidth="266.0" pickOnBounds="true" preserveRatio="true">
+                        <ImageView fx:id="cardImage" fitHeight="232.0" fitWidth="239.0" pickOnBounds="true" preserveRatio="true">
                            <image>
                               <Image url="@resources/placeholder.png" />
                            </image>
@@ -67,7 +67,7 @@
                                           <Font name="System Bold" size="16.0" />
                                        </font>
                                     </Button>
-                                    <TextField fx:id="amountTextField" onAction="#setAmount" onMouseClicked="#selectText" prefHeight="50.0" prefWidth="100.0" text="1 st" HBox.hgrow="NEVER" />
+                                    <TextField fx:id="amountTextField" alignment="CENTER" onAction="#setAmount" onMouseClicked="#selectText" prefHeight="50.0" prefWidth="100.0" text="1 st" HBox.hgrow="NEVER" />
                                     <Button mnemonicParsing="false" onAction="#incAmount" prefHeight="50.0" prefWidth="50.0" text="+" HBox.hgrow="NEVER">
                                        <font>
                                           <Font name="System Bold" size="16.0" />
@@ -99,11 +99,11 @@
          </children>
       </HBox>
       <Circle fill="#6cd1fd" layoutX="229.0" layoutY="55.0" opacity="0.9" radius="48.0" stroke="BLACK" strokeType="INSIDE" strokeWidth="0.0" style="-fx-fill: -fx-base2;" AnchorPane.rightAnchor="19.0" AnchorPane.topAnchor="7.0" />
-      <Label fx:id="cardPrice" alignment="CENTER" layoutX="184.0" layoutY="32.0" prefHeight="37.0" prefWidth="96.0" style="-fx-text-fill: -fx-altBase1;" styleClass="h4" text="1" wrapText="true" AnchorPane.leftAnchor="184.0" AnchorPane.rightAnchor="22.0" AnchorPane.topAnchor="32.0">
+      <Label fx:id="cardPrice" alignment="CENTER" layoutX="184.0" layoutY="32.0" prefHeight="37.0" prefWidth="96.0" style="-fx-text-fill: white;" styleClass="h4" text="1" wrapText="true" AnchorPane.leftAnchor="184.0" AnchorPane.rightAnchor="22.0" AnchorPane.topAnchor="32.0">
          <font>
             <Font size="35.0" />
          </font>
       </Label>
-      <Label layoutX="217.0" layoutY="66.0" style="-fx-text-fill: -fx-altBase1;" text="Kr" />
+      <Label layoutX="217.0" layoutY="66.0" style="-fx-text-fill: white;" text="Kr" />
    </children>
 </fx:root>
