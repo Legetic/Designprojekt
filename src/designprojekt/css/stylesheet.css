@@ -112,6 +112,9 @@ https://blog.marvelapp.com/body-text-small/
     -fx-font-size: 18pt;
     -fx-cursor: hand;
 }
+.button:pressed{
+    -fx-effect: innershadow( gaussian, rgba( 0, 0, 0, 0.15), 2, 2, 2, 2 );
+}
 .list-view{
 
     -fx-font-family: "Segoe UI", sans-serif;
@@ -132,11 +135,21 @@ https://blog.marvelapp.com/body-text-small/
 }
 
 
+
 .list-cell:filled:selected:focused, .list-cell:filled:selected {
     /* 3:, 4: */
     -fx-background-color: -fx-base4;
     -fx-text-fill: white; /* 5 */
 }
+.combo-box .list-cell:selected:focused, .combo-box .list-cell:filled:selected{
+    -fx-background-color: white;
+    -fx-text-fill: -fx-base4; /* 5 */
+}
+
+.combo-box .arrow {
+    -fx-background-color: -fx-base4;
+}
+
 .list-cell { -fx-text-fill: black; /* 5 */ }
 .list-cell:odd { -fx-background-color: white; /* 1 */ }
 .list-cell:even { -fx-background-color: white; /* for information */ }
@@ -151,7 +164,7 @@ https://blog.marvelapp.com/body-text-small/
     -fx-background-color: transparent;
 
     -fx-border-width: 0 0 1 0;
-    -fx-border-color: -fx-base2;
+    -fx-border-color: -fx-base4;
 
     -fx-text-fill: white;
 }
@@ -196,7 +209,7 @@ https://blog.marvelapp.com/body-text-small/
 }
 
 .h3{
-    -fx-font-size: 30pt;
+    -fx-font-size: 26pt;
     -fx-font-weight: bold;
     /*-fx-text-fill: rgba(0,0,0,0.75);*/
 }

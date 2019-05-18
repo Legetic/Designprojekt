@@ -175,11 +175,11 @@
                            </image>
                         </ImageView>
                      </graphic></Button>
-                  <Button fx:id="emptyButton" alignment="CENTER" contentDisplay="RIGHT" layoutX="185.0" mnemonicParsing="false" onAction="#clearShoppingCart" prefHeight="54.0" prefWidth="133.0" style="-fx-background-color: -fx-base4; -fx-text-fill: white;" styleClass="h4" text="Töm" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+                  <Button fx:id="emptyButton" alignment="CENTER" contentDisplay="RIGHT" layoutX="185.0" mnemonicParsing="false" onAction="#clearShoppingCart" prefHeight="54.0" prefWidth="133.0" style="-fx-background-color: transparent; -fx-text-fill: -fx-base4; -fx-border-color: -fx-base4; -fx-border-width: 1 1 1 1;" styleClass="h4" text="Töm" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
                      <graphic>
                         <ImageView fitHeight="31.0" fitWidth="32.0" pickOnBounds="true" preserveRatio="true">
                            <image>
-                              <Image url="@resources/icons/White/waste_96px.png" />
+                              <Image url="@resources/icons/MainBlue/waste_96px.png" />
                            </image>
                         </ImageView>
                      </graphic></Button>
@@ -201,7 +201,7 @@
                                  <children>
                                     <Button alignment="TOP_LEFT" mnemonicParsing="false" prefHeight="31.0" prefWidth="312.0" styleClass="browseButton" text="Favoritvaror" />
                                     <Button alignment="TOP_LEFT" mnemonicParsing="false" prefHeight="31.0" prefWidth="312.0" styleClass="browseButton" text="Nånting till" />
-                                    <Label alignment="BOTTOM_LEFT" minHeight="-Infinity" prefHeight="74.0" prefWidth="208.0" style="-fx-text-fill: white;" styleClass="h4" text="Sortiment" VBox.vgrow="NEVER">
+                                    <Label alignment="BOTTOM_LEFT" minHeight="-Infinity" prefHeight="74.0" prefWidth="208.0" style="-fx-text-fill: white;" styleClass="h3" text="Sortiment" VBox.vgrow="NEVER">
                                        <font>
                                           <Font size="23.0" />
                                        </font>
@@ -251,12 +251,12 @@
                                  <children>
                                     <AnchorPane minHeight="197.0" prefHeight="328.0" prefWidth="621.0" style="-fx-background-size: cover; -fx-background-position: center; -fx-background-color: -fx-niceWhite;">
                                        <children>
-                                          <Label alignment="CENTER" contentDisplay="CENTER" layoutY="14.0" prefHeight="71.0" prefWidth="626.0" style="-fx-text-fill: -fx-base1;" styleClass="h1" text="Välkommen!" textFill="WHITE" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="14.0">
+                                          <Label alignment="CENTER" contentDisplay="CENTER" layoutY="18.0" prefHeight="71.0" prefWidth="626.0" style="-fx-text-fill: -fx-base1;" styleClass="h1" text="Välkommen!" textFill="WHITE" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="18.0">
                                              <font>
                                                 <Font name="System Bold" size="41.0" />
                                              </font>
                                           </Label>
-                                          <Label alignment="TOP_CENTER" contentDisplay="CENTER" layoutX="61.0" layoutY="94.0" nodeOrientation="LEFT_TO_RIGHT" prefHeight="109.0" prefWidth="460.0" style="-fx-text-fill: -fx-base1;" styleClass="p3" text="Här hittar du allt du behöver för att laga mat." textAlignment="CENTER" textFill="WHITE" wrapText="true" AnchorPane.leftAnchor="61.0" AnchorPane.rightAnchor="61.0" AnchorPane.topAnchor="94.0">
+                                          <Label alignment="TOP_CENTER" contentDisplay="CENTER" layoutX="61.0" layoutY="98.0" nodeOrientation="LEFT_TO_RIGHT" prefHeight="85.0" prefWidth="374.0" style="-fx-text-fill: -fx-base1;" styleClass="p3" text="Här hittar du allt du behöver för att laga mat." textAlignment="CENTER" textFill="WHITE" wrapText="true" AnchorPane.leftAnchor="61.0" AnchorPane.rightAnchor="61.0" AnchorPane.topAnchor="98.0">
                                              <font>
                                                 <Font name="System Bold" size="41.0" />
                                              </font>
