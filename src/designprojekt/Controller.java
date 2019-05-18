@@ -17,9 +17,12 @@ import se.chalmers.cse.dat216.project.*;
 
 
 import java.io.IOException;
+import java.lang.reflect.Array;
 import java.net.URL;
 import java.util.*;
 import java.util.List;
+
+import static se.chalmers.cse.dat216.project.ProductCategory.POD;
 
 public class Controller implements Initializable {
 
@@ -44,6 +47,8 @@ public class Controller implements Initializable {
     private Button addButton;
     @FXML
     private FlowPane shoppingCartFlowPane;
+    @FXML
+    private ComboBox sortList;
 
     @FXML
     private AnchorPane previousPurchasesRoot;
@@ -61,7 +66,7 @@ public class Controller implements Initializable {
 
 
 
-    private List<Product> productList = new ArrayList<>();
+    //private List<Product> productList = new ArrayList<>();
     private List<ShoppingItem> cartList = new ArrayList<>();
 
     private Map<String, Card> cardMap = new HashMap<String, Card>();
@@ -86,7 +91,22 @@ public class Controller implements Initializable {
                 searchList.getSelectionModel().selectPrevious();
             }
 
+            if(event.getCode() == KeyCode.ENTER) {
+                search();
+                closeSearchList();
+
+            }
+
             });
+        searchList.addEventFilter(KeyEvent.KEY_PRESSED, ( KeyEvent event ) ->  {
+
+            if(event.getCode() == KeyCode.ENTER) {
+                search();
+                closeSearchList();
+
+            }
+
+        });
 
         searchBar.focusedProperty().addListener(new ChangeListener<Boolean>() {
 
@@ -121,7 +141,7 @@ public class Controller implements Initializable {
 
         searchBar.textProperty().addListener((observable, oldValue, newValue) -> {
 
-                openSearchList();
+            openSearchList();
 
             List<Product> searchResults = dataHandler.findProducts(searchBar.getText());
             searchList.getItems().clear();
@@ -130,13 +150,14 @@ public class Controller implements Initializable {
         });
 
 
-        updateMainGrid();
+        sortList.getItems().addAll("Ingen Sortering","Lägsta pris", "Högsta Pris");
+
+        updateMainGrid(imatBackendController.getProducts());
     }
 
-    private void updateMainGrid() {
+    private void updateMainGrid(List<Product> productList) {
 
         mainGrid.getChildren().clear();
-        productList = imatBackendController.getProducts();
         for (Product r : productList) {
             Card productCard = cardMap.get(r.getName());
             mainGrid.getChildren().add(productCard);
@@ -144,6 +165,7 @@ public class Controller implements Initializable {
         }
 
     }
+
 
 
     @FXML
@@ -165,7 +187,33 @@ public class Controller implements Initializable {
 
     @FXML
     private void search() {
-        System.out.println("lolol");
+        List<Product> searchResult = new ArrayList<>();
+        String searchString = "";
+        if(searchList.getSelectionModel().getSelectedItem() == null){
+            searchString = searchBar.getText();
+           searchResult = dataHandler.findProducts(searchString);
+
+        }else{
+            searchString = searchList.getSelectionModel().getSelectedItem().toString();
+            int startIndex = 0;
+            for (int i = 0; i < searchString.length(); i++){
+                char c = searchString.charAt(i);
+                if(Character.isLetter(c)){
+                    startIndex = i;
+                    break;
+                }
+            }
+
+            searchResult = dataHandler.findProducts(searchString.substring(startIndex));
+
+        }
+        if(searchString == "") {
+            updateMainGrid(imatBackendController.getProducts());
+        }else if(searchResult.size() == 0){
+            //INGA SÖKRESULTAT
+        }else{
+            updateMainGrid(searchResult);
+        }
         //searchList.getSelectionModel().getSelectedItem().toString()
 
     }
@@ -382,7 +430,71 @@ public class Controller implements Initializable {
 
     public void selectText(TextField textField) {
         textField.selectAll();
+    }
 
+    @FXML public void showPOD(){
+        updateMainGrid(imatBackendController.getProducts(ProductCategory.POD));
+    }
+    @FXML public void showBREAD(){
+        updateMainGrid(imatBackendController.getProducts(ProductCategory.BREAD));
+    }
+    @FXML public void showBERRY(){
+        updateMainGrid(imatBackendController.getProducts(ProductCategory.BERRY));
+    }
+    @FXML public void showCITRUS(){
+        updateMainGrid(imatBackendController.getProducts(ProductCategory.CITRUS_FRUIT));
+    }
+    @FXML public void showHOT_DRINKS(){
+        updateMainGrid(imatBackendController.getProducts(ProductCategory.HOT_DRINKS));
+    }
+    @FXML public void showCOLD_DRINKS(){
+        updateMainGrid(imatBackendController.getProducts(ProductCategory.COLD_DRINKS));
+    }
+    @FXML public void showEXOTIC(){
+        updateMainGrid(imatBackendController.getProducts(ProductCategory.EXOTIC_FRUIT));
+    }
+    @FXML public void showFISH(){
+        updateMainGrid(imatBackendController.getProducts(ProductCategory.FISH));
+    }
+    @FXML public void showVEGETABLE_FRUIT(){
+        updateMainGrid(imatBackendController.getProducts(ProductCategory.VEGETABLE_FRUIT));
+    }
+    @FXML public void showCABBAGE(){
+        updateMainGrid(imatBackendController.getProducts(ProductCategory.CABBAGE));
+    }
+    @FXML public void showMEAT(){ //meat and fish????!!!
+        updateMainGrid(imatBackendController.getProducts(ProductCategory.MEAT));
+    }
+    @FXML public void showDAIRIES(){
+        updateMainGrid(imatBackendController.getProducts(ProductCategory.DAIRIES));
+    }
+    @FXML public void showMELONS(){
+        updateMainGrid(imatBackendController.getProducts(ProductCategory.MELONS));
+    }
+
+    @FXML public void showFLOUR_SUGAR_SALT(){
+        updateMainGrid(imatBackendController.getProducts(ProductCategory.FLOUR_SUGAR_SALT));
+    }
+    @FXML public void showNUTS_AND_SEEDS(){
+        updateMainGrid(imatBackendController.getProducts(ProductCategory.NUTS_AND_SEEDS));
+    }
+    @FXML public void showPASTA(){
+        updateMainGrid(imatBackendController.getProducts(ProductCategory.PASTA));
+    }
+    @FXML public void showPOTATO_RICE(){ // and pasta???!!
+        updateMainGrid(imatBackendController.getProducts(ProductCategory.POTATO_RICE));
+    }
+    @FXML public void showROOT_VEGETABLE(){
+        updateMainGrid(imatBackendController.getProducts(ProductCategory.VEGETABLE_FRUIT));
+    }
+    @FXML public void showFRUIT(){
+        updateMainGrid(imatBackendController.getProducts(ProductCategory.FRUIT));
+    }
+    @FXML public void showSWEET(){
+        updateMainGrid(imatBackendController.getProducts(ProductCategory.SWEET));
+    }
+    @FXML public void showHERB(){
+        updateMainGrid(imatBackendController.getProducts(ProductCategory.HERB));
     }
 
 
