@@ -166,7 +166,7 @@ https://blog.marvelapp.com/body-text-small/
     -fx-border-width: 0 0 1 0;
     -fx-border-color: -fx-base4;
 
-    -fx-text-fill: white;
+    -fx-text-fill: -fx-base1;
 }
 
 .browseButton:hover{
@@ -227,7 +227,7 @@ https://blog.marvelapp.com/body-text-small/
     -fx-background-color: -fx-niceGray;
 }
 .browseMenu{
-    -fx-background-color: -fx-base1;
+    -fx-background-color: -fx-niceGray;
     /*-fx-background-color: -fx-base2;*/
 }
 .topBar{

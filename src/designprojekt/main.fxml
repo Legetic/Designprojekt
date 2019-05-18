@@ -182,7 +182,8 @@
                               <Image url="@resources/icons/MainBlue/waste_96px.png" />
                            </image>
                         </ImageView>
-                     </graphic></Button>
+                     </graphic>
+                  </Button>
                </children>
                <styleClass>
                   <String fx:value="oneColor" />
@@ -201,7 +202,7 @@
                                  <children>
                                     <Button alignment="TOP_LEFT" mnemonicParsing="false" prefHeight="31.0" prefWidth="312.0" styleClass="browseButton" text="Favoritvaror" />
                                     <Button alignment="TOP_LEFT" mnemonicParsing="false" prefHeight="31.0" prefWidth="312.0" styleClass="browseButton" text="Nånting till" />
-                                    <Label alignment="BOTTOM_LEFT" minHeight="-Infinity" prefHeight="74.0" prefWidth="208.0" style="-fx-text-fill: white;" styleClass="h3" text="Sortiment" VBox.vgrow="NEVER">
+                                    <Label alignment="BOTTOM_LEFT" minHeight="-Infinity" prefHeight="63.0" prefWidth="204.0" style="-fx-text-fill: -fx-base1;" styleClass="h3" text="Sortiment" VBox.vgrow="NEVER">
                                        <font>
                                           <Font size="23.0" />
                                        </font>
@@ -236,7 +237,7 @@
                   </ScrollPane>
                </children>
                <effect>
-                  <InnerShadow color="#0e2d4580" height="49.76" offsetY="10.0" radius="11.94" width="0.0" />
+                  <InnerShadow color="#0078cf1e" height="12.44" offsetY="10.0" radius="2.61" width="0.0" />
                </effect>
             </AnchorPane>
          </left>
@@ -249,14 +250,15 @@
                            <children>
                               <VBox alignment="TOP_CENTER" prefHeight="649.0" prefWidth="579.0" style="-fx-background-color: transparent;" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
                                  <children>
-                                    <AnchorPane minHeight="197.0" prefHeight="328.0" prefWidth="621.0" style="-fx-background-size: cover; -fx-background-position: center; -fx-background-color: -fx-niceWhite;">
+                                    <AnchorPane minHeight="197.0" prefHeight="278.0" prefWidth="496.0" style="-fx-background-size: cover; -fx-background-image: url(&quot;https://images.unsplash.com/photo-1505935428862-770b6f24f629?ixlib=rb-1.2.1&amp;ixid=eyJhcHBfaWQiOjEyMDd9&amp;auto=format&amp;fit=crop&amp;w=1347&amp;q=80&quot;); -fx-background-position: center; -fx-background-color: -fx-niceWhite;" VBox.vgrow="ALWAYS">
                                        <children>
-                                          <Label alignment="CENTER" contentDisplay="CENTER" layoutY="18.0" prefHeight="71.0" prefWidth="626.0" style="-fx-text-fill: -fx-base1;" styleClass="h1" text="Välkommen!" textFill="WHITE" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="18.0">
+                                          <AnchorPane minHeight="197.0" opacity="0.5" prefHeight="200.0" prefWidth="477.0" style="-fx-background-color: -fx-base1;" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0" />
+                                          <Label alignment="CENTER" contentDisplay="CENTER" layoutY="18.0" prefHeight="71.0" prefWidth="626.0" style="-fx-text-fill: white;" styleClass="h1" text="Välkommen!" textFill="WHITE" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="18.0">
                                              <font>
                                                 <Font name="System Bold" size="41.0" />
                                              </font>
                                           </Label>
-                                          <Label alignment="TOP_CENTER" contentDisplay="CENTER" layoutX="61.0" layoutY="98.0" nodeOrientation="LEFT_TO_RIGHT" prefHeight="85.0" prefWidth="374.0" style="-fx-text-fill: -fx-base1;" styleClass="p3" text="Här hittar du allt du behöver för att laga mat." textAlignment="CENTER" textFill="WHITE" wrapText="true" AnchorPane.leftAnchor="61.0" AnchorPane.rightAnchor="61.0" AnchorPane.topAnchor="98.0">
+                                          <Label alignment="TOP_CENTER" contentDisplay="CENTER" layoutX="61.0" layoutY="98.0" nodeOrientation="LEFT_TO_RIGHT" prefHeight="85.0" prefWidth="374.0" style="-fx-text-fill: white;" styleClass="p3" text="Här hittar du allt du behöver för att laga mat." textAlignment="CENTER" textFill="WHITE" wrapText="true" AnchorPane.leftAnchor="61.0" AnchorPane.rightAnchor="61.0" AnchorPane.topAnchor="98.0">
                                              <font>
                                                 <Font name="System Bold" size="41.0" />
                                              </font>
@@ -268,8 +270,8 @@
                                           <Insets />
                                        </VBox.margin>
                                        <children>
-                                          <Label layoutX="54.0" layoutY="18.0" prefHeight="37.0" prefWidth="155.0" style="-fx-text-fill: -fx-base1;" styleClass="h4" text="Sortera Efter:" AnchorPane.rightAnchor="287.0" AnchorPane.topAnchor="18.0" />
-                                          <ComboBox layoutX="228.0" layoutY="13.0" prefHeight="47.0" prefWidth="268.0" promptText="Ingen Sortering" style="-fx-background-color: transparent; -fx-border-color: -fx-base4;" AnchorPane.rightAnchor="11.0" AnchorPane.topAnchor="12.0" />
+                                          <Label layoutX="73.0" layoutY="16.0" prefHeight="37.0" prefWidth="155.0" style="-fx-text-fill: -fx-base1;" styleClass="h4" text="Sortera Efter:" AnchorPane.rightAnchor="268.0" AnchorPane.topAnchor="16.0" />
+                                          <ComboBox layoutX="214.0" layoutY="11.0" prefHeight="47.0" prefWidth="254.0" promptText="Ingen Sortering" style="-fx-background-color: transparent; -fx-border-color: -fx-base4;" AnchorPane.rightAnchor="14.0" AnchorPane.topAnchor="10.0" />
                                        </children>
                                     </AnchorPane>
                                     <FlowPane fx:id="mainGrid" alignment="TOP_CENTER" hgap="10.0" prefHeight="503.0" prefWidth="553.0" vgap="10.0" VBox.vgrow="NEVER">
