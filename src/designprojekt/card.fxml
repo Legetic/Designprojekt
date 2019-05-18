@@ -20,7 +20,7 @@
                <children>
                   <HBox alignment="CENTER" prefHeight="189.0" prefWidth="445.0">
                      <children>
-                        <ImageView fx:id="cardImage" fitHeight="232.0" fitWidth="239.0" pickOnBounds="true" preserveRatio="true">
+                        <ImageView fx:id="cardImage" fitHeight="239.0" fitWidth="239.0" pickOnBounds="true" preserveRatio="true">
                            <image>
                               <Image url="@resources/placeholder.png" />
                            </image>
