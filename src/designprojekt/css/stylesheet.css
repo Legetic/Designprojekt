@@ -158,6 +158,17 @@ https://blog.marvelapp.com/body-text-small/
     -fx-text-fill: black; /* 5 */
 }
 
+.ghostButton{
+    -fx-background-color: transparent;
+    -fx-text-fill: -fx-base4;
+    -fx-border-color: -fx-base4;
+    -fx-border-width: 1 1 1 1;
+}
+.ghostButton:hover{
+    -fx-background-color: -fx-base4;
+    -fx-text-fill: white;
+    -fx-border-width: 0px;
+}
 
 .browseButton{
     -fx-padding: 10 0 10 20;

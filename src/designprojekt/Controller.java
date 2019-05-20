@@ -7,6 +7,7 @@ import javafx.fxml.Initializable;
 import javafx.scene.Node;
 import javafx.scene.control.*;
 import javafx.scene.image.Image;
+import javafx.scene.image.ImageView;
 import javafx.scene.input.KeyCode;
 import javafx.scene.input.KeyEvent;
 import javafx.scene.layout.AnchorPane;
@@ -45,6 +46,10 @@ public class Controller implements Initializable {
     private Button startPage_recentBuy_btn;
     @FXML
     private Button addButton;
+    @FXML
+    private Button emptyButton;
+    @FXML
+    private ImageView emptyIcon;
     @FXML
     private FlowPane shoppingCartFlowPane;
     @FXML
@@ -147,6 +152,18 @@ public class Controller implements Initializable {
             searchList.getItems().clear();
             searchList.getItems().addAll(searchResults);
 
+        });
+
+        emptyButton.hoverProperty().addListener(new ChangeListener<Boolean>() {
+
+            @Override
+            public void changed(ObservableValue<? extends Boolean> observable, Boolean oldValue, Boolean newValue) {
+                if(newValue){
+                    //emptyIcon.setImage(new Image(getClass().getClassLoader().getResourceAsStream("/icons/White/waste_96px.png")));
+                }else{
+                    //emptyIcon.setImage(new Image(getClass().getClassLoader().getResourceAsStream("resources/icons/MainBlue/waste_96px.png")));
+                }
+            }
         });
 
 

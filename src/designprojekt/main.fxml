@@ -69,14 +69,14 @@
                <children>
                   <Button alignment="BASELINE_LEFT" layoutX="-1.0" layoutY="1.0" mnemonicParsing="false" onAction="#goHome" prefHeight="95.0" prefWidth="216.0" style="-fx-background-color: transparent;" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.topAnchor="0.0">
                      <graphic>
-                        <Label alignment="CENTER" prefHeight="71.0" prefWidth="192.0" styleClass="logo" text="iMAT" textFill="#ff8366">
+                        <Label alignment="CENTER" prefHeight="71.0" prefWidth="192.0" style="-fx-background-radius: 5px;" styleClass="logo" text="iMAT" textFill="#ff8366">
                            <font>
                               <Font name="System Bold" size="38.0" />
                            </font>
                         </Label>
                      </graphic></Button>
-                  <TextField fx:id="searchBar" layoutX="216.0" layoutY="24.0" prefHeight="47.0" prefWidth="438.0" promptText="Sök bland tusentals varor..." AnchorPane.leftAnchor="216.0" AnchorPane.rightAnchor="419.0" AnchorPane.topAnchor="24.0" />
-                  <Button layoutX="652.0" layoutY="24.0" mnemonicParsing="false" onAction="#search" prefHeight="0.0" prefWidth="76.0" style="-fx-background-color: white; -fx-border-color: rgba(0,0,0,0.2); -fx-text-fill: -fx-base4; -fx-font-weight: bold;" styleClass="p4" text="Sök" AnchorPane.rightAnchor="345.0" AnchorPane.topAnchor="24.0">
+                  <TextField fx:id="searchBar" layoutX="216.0" layoutY="24.0" prefHeight="47.0" prefWidth="438.0" promptText="Sök bland tusentals varor..." style="-fx-background-radius: 5 0 0 5;" AnchorPane.leftAnchor="216.0" AnchorPane.rightAnchor="419.0" AnchorPane.topAnchor="24.0" />
+                  <Button layoutX="652.0" layoutY="24.0" mnemonicParsing="false" onAction="#search" prefHeight="0.0" prefWidth="76.0" style="-fx-background-color: white; -fx-border-color: rgba(0,0,0,0.2); -fx-text-fill: -fx-base4; -fx-font-weight: bold; -fx-border-radius: 0 5 5 0;" styleClass="p4" text="Sök" AnchorPane.rightAnchor="345.0" AnchorPane.topAnchor="24.0">
                      <cursor>
                         <Cursor fx:constant="HAND" />
                      </cursor></Button>
@@ -116,20 +116,26 @@
                <children>
                   <VBox alignment="TOP_CENTER" layoutX="-5.0" layoutY="2.0" prefHeight="625.0" prefWidth="288.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
                      <children>
-                        <Label alignment="BOTTOM_CENTER" graphicTextGap="10.0" prefHeight="122.0" prefWidth="283.0" style="-fx-text-fill: -fx-base1;" styleClass="h3" text="Varukorg" VBox.vgrow="NEVER">
+                        <Button fx:id="emptyButton" alignment="CENTER" contentDisplay="RIGHT" mnemonicParsing="false" onAction="#clearShoppingCart" prefHeight="49.0" prefWidth="443.0" style="-fx-border-radius: 0 0 10 10;" text="Töm">
+                           <graphic>
+                              <ImageView fx:id="emptyIcon" fitHeight="31.0" fitWidth="32.0" pickOnBounds="true" preserveRatio="true">
+                                 <image>
+                                    <Image url="@resources/icons/MainBlue/waste_96px.png" />
+                                 </image>
+                              </ImageView>
+                           </graphic>
+                           <styleClass>
+                              <String fx:value="h4" />
+                              <String fx:value="ghostButton" />
+                           </styleClass>
+                        </Button>
+                        <Label alignment="BOTTOM_CENTER" graphicTextGap="10.0" prefHeight="60.0" prefWidth="283.0" style="-fx-text-fill: -fx-base1;" styleClass="h3" text="Varukorg" VBox.vgrow="NEVER">
                            <font>
                               <Font size="32.0" />
                            </font>
                            <VBox.margin>
                               <Insets top="10.0" />
                            </VBox.margin>
-                           <graphic>
-                              <ImageView fitHeight="42.0" fitWidth="43.0" pickOnBounds="true" preserveRatio="true">
-                                 <image>
-                                    <Image url="@resources/icons/DarkBlue/shopping_cart_96px.png" />
-                                 </image>
-                              </ImageView>
-                           </graphic>
                         </Label>
                         <AnchorPane prefHeight="351.0" prefWidth="283.0" VBox.vgrow="ALWAYS">
                            <children>
@@ -175,15 +181,6 @@
                            </image>
                         </ImageView>
                      </graphic></Button>
-                  <Button fx:id="emptyButton" alignment="CENTER" contentDisplay="RIGHT" layoutX="185.0" mnemonicParsing="false" onAction="#clearShoppingCart" prefHeight="54.0" prefWidth="133.0" style="-fx-background-color: transparent; -fx-text-fill: -fx-base4; -fx-border-color: -fx-base4; -fx-border-width: 1 1 1 1;" styleClass="h4" text="Töm" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
-                     <graphic>
-                        <ImageView fitHeight="31.0" fitWidth="32.0" pickOnBounds="true" preserveRatio="true">
-                           <image>
-                              <Image url="@resources/icons/MainBlue/waste_96px.png" />
-                           </image>
-                        </ImageView>
-                     </graphic>
-                  </Button>
                </children>
                <styleClass>
                   <String fx:value="oneColor" />
@@ -271,7 +268,7 @@
                                        </VBox.margin>
                                        <children>
                                           <Label layoutX="73.0" layoutY="16.0" prefHeight="37.0" prefWidth="155.0" style="-fx-text-fill: -fx-base1;" styleClass="h4" text="Sortera Efter:" AnchorPane.rightAnchor="268.0" AnchorPane.topAnchor="16.0" />
-                                          <ComboBox fx:id="sortList" layoutX="214.0" layoutY="11.0" prefHeight="47.0" prefWidth="254.0" promptText="Ingen Sortering" style="-fx-background-color: transparent; -fx-border-color: -fx-base4;" AnchorPane.rightAnchor="14.0" AnchorPane.topAnchor="10.0" />
+                                          <ComboBox fx:id="sortList" layoutX="214.0" layoutY="11.0" prefHeight="47.0" prefWidth="254.0" promptText="Ingen Sortering" style="-fx-background-color: transparent; -fx-border-color: -fx-base4; -fx-border-radius: 0 5 5 0;" AnchorPane.rightAnchor="14.0" AnchorPane.topAnchor="10.0" />
                                        </children>
                                     </AnchorPane>
                                     <FlowPane fx:id="mainGrid" alignment="TOP_CENTER" hgap="10.0" prefHeight="503.0" prefWidth="553.0" vgap="10.0" VBox.vgrow="NEVER">
