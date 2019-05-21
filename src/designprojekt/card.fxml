@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
 <?import javafx.geometry.Insets?>
+<?import javafx.geometry.Rectangle2D?>
 <?import javafx.scene.control.Button?>
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.control.TextField?>
@@ -12,80 +13,90 @@
 <?import javafx.scene.shape.Circle?>
 <?import javafx.scene.text.Font?>
 
-<fx:root id="Card" prefHeight="427.0" prefWidth="296.0" stylesheets="@css/stylesheet.css" type="AnchorPane" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1">
+<fx:root id="Card" prefHeight="167.0" prefWidth="290.0" stylesheets="@css/stylesheet.css" type="AnchorPane" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1">
    <children>
-      <HBox alignment="CENTER" layoutX="20.0" layoutY="10.0" prefHeight="451.0" prefWidth="260.0" style="-fx-background-color: white;" AnchorPane.bottomAnchor="1.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+      <HBox alignment="CENTER" layoutX="20.0" layoutY="10.0" prefHeight="442.0" prefWidth="285.0" style="-fx-background-color: white;" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
          <children>
-            <VBox alignment="TOP_CENTER" prefHeight="441.0" prefWidth="204.0">
+            <VBox alignment="TOP_CENTER" prefHeight="388.0" prefWidth="280.0">
                <children>
                   <HBox alignment="CENTER" prefHeight="189.0" prefWidth="445.0">
                      <children>
-                        <ImageView fx:id="cardImage" fitHeight="239.0" fitWidth="239.0" pickOnBounds="true" preserveRatio="true">
+                        <ImageView fx:id="cardImage" fitHeight="263.0" fitWidth="265.0" pickOnBounds="true" preserveRatio="true" HBox.hgrow="NEVER">
                            <image>
                               <Image url="@resources/placeholder.png" />
                            </image>
-                        </ImageView>
-                     </children>
-                     <VBox.margin>
-                        <Insets top="20.0" />
-                     </VBox.margin>
-                  </HBox>
-                  <VBox prefHeight="244.0" prefWidth="230.0">
-                     <children>
-                        <Label fx:id="cardName" prefHeight="20.0" prefWidth="230.0" styleClass="h4" text="Name, 300g, scan, whatever" wrapText="true">
-                           <font>
-                              <Font size="20.0" />
-                           </font>
-                           <VBox.margin>
-                              <Insets />
-                           </VBox.margin>
-                        </Label>
-                        <Label fx:id="cardName1" prefHeight="23.0" prefWidth="251.0" styleClass="p4" text="Jfr. pris 31,25 kr/kg" textFill="#6b6b6b" wrapText="true">
-                           <font>
-                              <Font size="18.0" />
-                           </font>
-                           <VBox.margin>
+                           <HBox.margin>
                               <Insets top="10.0" />
-                           </VBox.margin>
-                        </Label>
+                           </HBox.margin>
+                           <viewport>
+                              <Rectangle2D />
+                           </viewport>
+                        </ImageView>
                      </children>
                      <VBox.margin>
                         <Insets />
                      </VBox.margin>
-                     <padding>
-                        <Insets bottom="10.0" top="10.0" />
-                     </padding>
-                  </VBox>
-                  <VBox alignment="BOTTOM_CENTER" prefHeight="2.0" prefWidth="232.0">
+                  </HBox>
+                  <VBox alignment="CENTER" fillWidth="false" prefHeight="138.0" prefWidth="248.0">
                      <children>
-                        <AnchorPane prefHeight="104.0" prefWidth="232.0" VBox.vgrow="NEVER">
+                        <VBox prefHeight="93.0" prefWidth="241.0">
                            <children>
-                              <HBox fx:id="amountControl" alignment="CENTER" layoutX="51.0" layoutY="2.0" prefHeight="0.0" prefWidth="200.0" visible="false" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
-                                 <children>
-                                    <Button mnemonicParsing="false" onAction="#decAmount" prefHeight="50.0" prefWidth="50.0" style="-fx-background-color: -fx-niceGray;" text="-" HBox.hgrow="NEVER">
-                                       <font>
-                                          <Font name="System Bold" size="16.0" />
-                                       </font>
-                                    </Button>
-                                    <TextField fx:id="amountTextField" alignment="CENTER" onAction="#setAmount" onMouseClicked="#selectText" prefHeight="50.0" prefWidth="100.0" text="1 st" HBox.hgrow="NEVER" />
-                                    <Button mnemonicParsing="false" onAction="#incAmount" prefHeight="50.0" prefWidth="50.0" style="-fx-background-color: -fx-second4;" text="+" HBox.hgrow="NEVER">
-                                       <font>
-                                          <Font name="System Bold" size="16.0" />
-                                       </font>
-                                    </Button>
-                                 </children>
-                              </HBox>
-                              <HBox fx:id="addButton" alignment="CENTER" layoutY="-33.0" prefHeight="79.0" prefWidth="232.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
-                                 <children>
-                                    <Button mnemonicParsing="false" onAction="#addToCart" prefHeight="45.0" prefWidth="120.0" style="-fx-background-color: -fx-second4;" text="Lägg till" textFill="WHITE" HBox.hgrow="NEVER">
-                                       <font>
-                                          <Font name="System Bold" size="16.0" />
-                                       </font>
-                                    </Button>
-                                 </children>
-                              </HBox>
+                              <Label fx:id="cardName" prefHeight="20.0" prefWidth="230.0" styleClass="h4" text="Name, 300g, scan, whatever" wrapText="true">
+                                 <font>
+                                    <Font size="20.0" />
+                                 </font>
+                                 <VBox.margin>
+                                    <Insets />
+                                 </VBox.margin>
+                              </Label>
+                              <Label fx:id="cardName1" prefHeight="29.0" prefWidth="202.0" styleClass="p4" text="Jfr. pris 31,25 kr/kg" textFill="#6b6b6b" wrapText="true">
+                                 <font>
+                                    <Font size="18.0" />
+                                 </font>
+                                 <VBox.margin>
+                                    <Insets top="10.0" />
+                                 </VBox.margin>
+                              </Label>
                            </children>
-                        </AnchorPane>
+                           <VBox.margin>
+                              <Insets />
+                           </VBox.margin>
+                           <padding>
+                              <Insets bottom="10.0" top="10.0" />
+                           </padding>
+                        </VBox>
+                        <VBox alignment="BOTTOM_CENTER" prefHeight="45.0" prefWidth="190.0">
+                           <children>
+                              <AnchorPane prefHeight="45.0" prefWidth="218.0" VBox.vgrow="NEVER">
+                                 <children>
+                                    <HBox fx:id="amountControl" alignment="CENTER" layoutX="51.0" layoutY="2.0" prefHeight="45.0" prefWidth="175.0" visible="false" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+                                       <children>
+                                          <Button mnemonicParsing="false" onAction="#decAmount" prefHeight="45.0" prefWidth="55.0" style="-fx-background-color: -fx-niceGray;" text="-" HBox.hgrow="NEVER">
+                                             <font>
+                                                <Font name="System Bold" size="16.0" />
+                                             </font>
+                                          </Button>
+                                          <TextField fx:id="amountTextField" alignment="CENTER" onAction="#setAmount" onMouseClicked="#selectText" prefHeight="45.0" prefWidth="79.0" text="1 st" HBox.hgrow="NEVER" />
+                                          <Button mnemonicParsing="false" onAction="#incAmount" prefHeight="45.0" prefWidth="55.0" style="-fx-background-color: -fx-second4; -fx-text-fill: white;" text="+" HBox.hgrow="NEVER">
+                                             <font>
+                                                <Font name="System Bold" size="16.0" />
+                                             </font>
+                                          </Button>
+                                       </children>
+                                    </HBox>
+                                    <HBox fx:id="addButton" alignment="CENTER" layoutY="-33.0" prefHeight="79.0" prefWidth="232.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+                                       <children>
+                                          <Button mnemonicParsing="false" onAction="#addToCart" prefHeight="45.0" prefWidth="120.0" style="-fx-background-color: -fx-base4;" text="Lägg till" textFill="WHITE" HBox.hgrow="NEVER">
+                                             <font>
+                                                <Font name="System Bold" size="16.0" />
+                                             </font>
+                                          </Button>
+                                       </children>
+                                    </HBox>
+                                 </children>
+                              </AnchorPane>
+                           </children>
+                        </VBox>
                      </children>
                   </VBox>
                </children>
@@ -98,12 +109,12 @@
             </VBox>
          </children>
       </HBox>
-      <Circle fill="#6cd1fd" layoutX="229.0" layoutY="55.0" opacity="0.9" radius="48.0" stroke="BLACK" strokeType="INSIDE" strokeWidth="0.0" style="-fx-fill: -fx-base3;" AnchorPane.rightAnchor="19.0" AnchorPane.topAnchor="7.0" />
-      <Label fx:id="cardPrice" alignment="CENTER" layoutX="184.0" layoutY="32.0" prefHeight="37.0" prefWidth="96.0" style="-fx-text-fill: white;" styleClass="h4" text="1" wrapText="true" AnchorPane.leftAnchor="184.0" AnchorPane.rightAnchor="22.0" AnchorPane.topAnchor="32.0">
+      <Circle fill="#6cd1fd" layoutX="237.0" layoutY="47.0" opacity="0.9" radius="48.0" stroke="BLACK" strokeType="INSIDE" strokeWidth="0.0" style="-fx-fill: -fx-niceGray;" AnchorPane.rightAnchor="5.0" AnchorPane.topAnchor="5.0" />
+      <Label fx:id="cardPrice" alignment="CENTER" layoutX="194.0" layoutY="28.0" prefHeight="37.0" prefWidth="85.0" style="-fx-text-fill: -fx-base4;" styleClass="h4" text="1" wrapText="true" AnchorPane.leftAnchor="194.0" AnchorPane.rightAnchor="11.0" AnchorPane.topAnchor="28.0">
          <font>
             <Font size="35.0" />
          </font>
       </Label>
-      <Label layoutX="217.0" layoutY="66.0" style="-fx-text-fill: white;" text="Kr" />
+      <Label layoutX="227.0" layoutY="62.0" style="-fx-text-fill: -fx-base3;" text="Kr" />
    </children>
 </fx:root>

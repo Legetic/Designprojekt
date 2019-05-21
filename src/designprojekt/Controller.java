@@ -14,6 +14,10 @@ import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.BorderPane;
 import javafx.scene.layout.FlowPane;
 import javafx.scene.layout.VBox;
+import javafx.scene.paint.Color;
+import javafx.scene.text.Text;
+import javafx.scene.text.TextFlow;
+import javafx.util.Callback;
 import se.chalmers.cse.dat216.project.*;
 
 
@@ -29,6 +33,11 @@ public class Controller implements Initializable {
 
     ImatBackendController imatBackendController = new ImatBackendController();
     private IMatDataHandler dataHandler = IMatDataHandler.getInstance();
+
+    private Button previousSelectedCategoryButton;
+
+    @FXML
+    private VBox categoryList;
 
     @FXML
     private AnchorPane startMenu;
@@ -46,10 +55,14 @@ public class Controller implements Initializable {
     private Button startPage_recentBuy_btn;
     @FXML
     private Button addButton;
+
     @FXML
     private Button emptyButton;
     @FXML
     private ImageView emptyIcon;
+    @FXML
+    private AnchorPane emptyPrompt;
+
     @FXML
     private FlowPane shoppingCartFlowPane;
     @FXML
@@ -148,28 +161,103 @@ public class Controller implements Initializable {
 
             openSearchList();
 
+
             List<Product> searchResults = dataHandler.findProducts(searchBar.getText());
+
             searchList.getItems().clear();
+
+            /*for(Product p : searchResults){
+                int searchStringStart = p.getName().indexOf(searchBar.getText());
+                int searchStringEnd = p.getName().indexOf(searchBar.getText()) + searchBar.getText().length();
+
+                Text text1 = new Text(p.getName().substring(0,searchStringStart ));
+                text1.setFill(Color.web("19466B"));
+                Text text2 = new Text(p.getName().substring(searchStringStart,searchStringEnd ));
+                text2.setFill(Color.web("3599EB"));
+                Text text3 = new Text(p.getName().substring(searchStringEnd));
+                text3.setFill(Color.web("19466B"));
+
+                TextFlow textFlow = new TextFlow(text1, text2, text3);
+
+                searchList.getItems().addAll(textFlow);
+            }*/
             searchList.getItems().addAll(searchResults);
 
         });
 
-        emptyButton.hoverProperty().addListener(new ChangeListener<Boolean>() {
 
+
+
+
+
+        sortList.getItems().addAll("Visa alla","Lägsta pris", "Högsta Pris");
+        sortList.getSelectionModel().select("Visa alla");
+        sortList.getSelectionModel().selectedItemProperty().addListener(new ChangeListener<String>() {
             @Override
-            public void changed(ObservableValue<? extends Boolean> observable, Boolean oldValue, Boolean newValue) {
-                if(newValue){
-                    //emptyIcon.setImage(new Image(getClass().getClassLoader().getResourceAsStream("/icons/White/waste_96px.png")));
-                }else{
-                    //emptyIcon.setImage(new Image(getClass().getClassLoader().getResourceAsStream("resources/icons/MainBlue/waste_96px.png")));
-                }
+            public void changed(ObservableValue<? extends String> observable, String oldValue, String newValue) {
+
             }
         });
 
-
-        sortList.getItems().addAll("Ingen Sortering","Lägsta pris", "Högsta Pris");
-
+        populateSortComboBox();
         updateMainGrid(imatBackendController.getProducts());
+    }
+
+    private void populateSortComboBox() {
+        Callback<ListView<String>, ListCell<String>> cellFactory = new Callback<ListView<String>, ListCell<String>>() {
+
+            @Override
+            public ListCell<String> call(ListView<String> p) {
+
+                return new ListCell<String>() {
+
+                    @Override
+                    protected void updateItem(String item, boolean empty) {
+                        super.updateItem(item, empty);
+
+                        setText(item);
+
+                        if (item == null || empty) {
+                            setGraphic(null);
+                        } else {
+                            Image icon = null;
+                            String iconPath;
+                            try {
+
+                                switch (item) {
+
+                                    case "Visa alla":
+                                        iconPath = "Designprojekt/resources/icons/MainBlue/sorting_arrows_32px.png";
+                                        icon = new Image(getClass().getClassLoader().getResourceAsStream(iconPath));
+                                        break;
+                                    case "Lägsta pris":
+                                        iconPath = "Designprojekt/resources/icons/MainBlue/generic_sorting_2_32px.png";
+                                        icon = new Image(getClass().getClassLoader().getResourceAsStream(iconPath));
+                                        break;
+                                    case "Högsta Pris":
+                                        iconPath = "Designprojekt/resources/icons/MainBlue/generic_sorting_32px.png";
+                                        icon = new Image(getClass().getClassLoader().getResourceAsStream(iconPath));
+                                        break;
+                                    default:
+                                        break;
+                                }
+                            } catch (NullPointerException ex) {
+                                System.out.println("pop");
+
+                                //This should never happen in this lab but could load a default image in case of a NullPointer
+                            }
+                            ImageView iconImageView = new ImageView(icon);
+                            iconImageView.setFitHeight(22);
+                            iconImageView.setPreserveRatio(true);
+                            setGraphic(iconImageView);
+                        }
+                    }
+                };
+            }
+        };
+
+        sortList.setButtonCell(cellFactory.call(null));
+        sortList.setCellFactory(cellFactory);
     }
 
     private void updateMainGrid(List<Product> productList) {
@@ -258,6 +346,7 @@ public class Controller implements Initializable {
                 card.getAmountField().setText("1 st");
             }
         }
+        closeEmptyPrompt();
     }
 
 
@@ -437,6 +526,19 @@ public class Controller implements Initializable {
     @FXML
     public void closeCheckoutPage() {
         fullscreenPage.toBack();
+
+    }
+
+    @FXML
+    public void openEmptyPrompt(){
+        emptyPrompt.toFront();
+        emptyButton.getStyleClass().add("activeEmptyButton");
+    }
+
+    @FXML
+    public void closeEmptyPrompt(){
+        emptyPrompt.toBack();
+        emptyButton.getStyleClass().remove("activeEmptyButton");
 
     }
 
