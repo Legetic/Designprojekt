@@ -421,7 +421,8 @@ public class Controller implements Initializable {
     }
 
     private void updatePrice(Label cartItemTotalPrice, ShoppingItem shoppingItem) {
-        cartItemTotalPrice.setText(shoppingItem.getTotal() + " kr"); //updates price
+        double totalPrice = Math.round(shoppingItem.getTotal()*100.0)/100.0; //rounds off price because of previous bug
+        cartItemTotalPrice.setText(totalPrice + " kr"); //updates price
 
     }
 
