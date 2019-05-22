@@ -1,6 +1,10 @@
 package designprojekt;
 
 import javafx.scene.image.Image;
+import se.chalmers.cse.dat216.project.IMatDataHandler;
+import se.chalmers.cse.dat216.project.Order;
+import se.chalmers.cse.dat216.project.Product;
+import se.chalmers.cse.dat216.project.ProductCategory;
 import se.chalmers.cse.dat216.project.*;
 
 import java.util.ArrayList;
@@ -34,5 +38,9 @@ public class ImatBackendController {
 
 
 
+
+    public List<Order> getOrders(){
+        return dataHandler.getOrders();
+    }
 
 }
