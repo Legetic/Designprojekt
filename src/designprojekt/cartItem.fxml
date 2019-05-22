@@ -9,18 +9,18 @@
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.text.Font?>
 
-<fx:root maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="112.0" prefWidth="310.0" stylesheets="@css/stylesheet.css" type="AnchorPane" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1">
+<fx:root maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="101.0" prefWidth="310.0" stylesheets="@css/stylesheet.css" type="AnchorPane" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1">
    <children>
-      <TextField fx:id="cartItemAmount" alignment="CENTER" layoutX="58.0" layoutY="51.0" onAction="#setAmount" onMouseClicked="#selectText" prefHeight="45.0" prefWidth="76.0" text="1 st" AnchorPane.bottomAnchor="16.0" AnchorPane.leftAnchor="58.0" />
+      <TextField fx:id="cartItemAmount" alignment="CENTER" layoutX="58.0" layoutY="51.0" onAction="#setAmount" onMouseClicked="#selectText" prefHeight="45.0" prefWidth="76.0" text="1 st" AnchorPane.bottomAnchor="12.0" AnchorPane.leftAnchor="58.0" />
       <Label fx:id="cartItemTotalPrice" layoutX="228.0" layoutY="74.0" style="-fx-font-weight: bold;" text="300,00" AnchorPane.bottomAnchor="9.0" AnchorPane.rightAnchor="6.0">
          <font>
             <Font name="System Bold" size="15.0" />
          </font>
       </Label>
-      <Label fx:id="cartItemPrice" layoutX="226.0" layoutY="45.0" text="Á 30,00" AnchorPane.bottomAnchor="38.0" AnchorPane.leftAnchor="226.0" />
-      <Button layoutX="9.0" layoutY="51.0" mnemonicParsing="false" onAction="#decAmount" prefHeight="45.0" prefWidth="49.0" style="-fx-background-color: -fx-niceGray;" text="-" AnchorPane.bottomAnchor="16.0" AnchorPane.leftAnchor="9.0" />
-      <Button layoutX="134.0" layoutY="51.0" mnemonicParsing="false" onAction="#incAmount" prefHeight="45.0" prefWidth="49.0" style="-fx-background-color: -fx-second4; -fx-text-fill: white;" text="+" AnchorPane.bottomAnchor="16.0" AnchorPane.leftAnchor="134.0" />
-      <Button fx:id="removeBtn" graphicTextGap="0.0" layoutX="266.0" mnemonicParsing="false" onAction="#removeItem" prefHeight="41.0" prefWidth="41.0" style="-fx-background-color: transparent;" textAlignment="CENTER" wrapText="true" AnchorPane.rightAnchor="3.0" AnchorPane.topAnchor="0.0">
+      <Label fx:id="cartItemPrice" layoutX="226.0" layoutY="35.4" text="Á 30,00" AnchorPane.bottomAnchor="36.0" AnchorPane.rightAnchor="4.800000000000011" />
+      <Button layoutX="9.0" layoutY="51.0" mnemonicParsing="false" onAction="#decAmount" prefHeight="45.0" prefWidth="49.0" style="-fx-background-color: -fx-niceGray;" text="-" AnchorPane.bottomAnchor="12.0" AnchorPane.leftAnchor="9.0" />
+      <Button layoutX="134.0" layoutY="54.4" mnemonicParsing="false" onAction="#incAmount" prefHeight="45.0" prefWidth="49.0" style="-fx-background-color: -fx-second4; -fx-text-fill: white;" text="+" AnchorPane.bottomAnchor="12.0" AnchorPane.leftAnchor="134.0" />
+      <Button fx:id="removeBtn" graphicTextGap="0.0" layoutX="269.4" layoutY="-1.0" mnemonicParsing="false" onAction="#removeItem" prefHeight="41.0" prefWidth="41.0" style="-fx-background-color: transparent;" textAlignment="CENTER" wrapText="true" AnchorPane.rightAnchor="-1.0" AnchorPane.topAnchor="-1.0">
          <graphic>
             <ImageView fitHeight="36.0" fitWidth="50.0" pickOnBounds="true" preserveRatio="true">
                <image>
@@ -31,6 +31,6 @@
          <padding>
             <Insets bottom="-10.0" left="-10.0" right="-10.0" top="-10.0" />
          </padding></Button>
-      <Label fx:id="cartItemName" alignment="TOP_LEFT" layoutX="7.0" layoutY="8.0" prefHeight="29.0" prefWidth="253.0" text="Falukorv, 300g, Scan" AnchorPane.leftAnchor="7.0" AnchorPane.rightAnchor="50.0" AnchorPane.topAnchor="8.0" />
+      <Label fx:id="cartItemName" alignment="TOP_LEFT" layoutX="8.0" layoutY="7.0" prefHeight="29.0" prefWidth="253.0" text="Falukorv, 300g, Scan" AnchorPane.leftAnchor="8.0" AnchorPane.rightAnchor="50.0" AnchorPane.topAnchor="7.0" />
    </children>
 </fx:root>
