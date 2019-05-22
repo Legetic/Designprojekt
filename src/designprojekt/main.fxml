@@ -242,7 +242,7 @@
                                     <Button alignment="TOP_LEFT" mnemonicParsing="false" onAction="#showVEGETABLE_FRUIT" prefHeight="31.0" prefWidth="312.0" styleClass="browseButton" text="Frukt &amp; Grönt" />
                                     <Button alignment="TOP_LEFT" mnemonicParsing="false" onAction="#showDAIRIES" prefHeight="31.0" prefWidth="221.0" styleClass="browseButton" text="Mejeriprodukter" />
                                     <Button fx:id="meatCategory" alignment="TOP_LEFT" mnemonicParsing="false" onAction="#showMEAT" prefHeight="31.0" prefWidth="312.0" styleClass="browseButton" text="Kött &amp; Fisk" />
-                                    <Button alignment="TOP_LEFT" mnemonicParsing="false" onAction="#showPOTATO_RICE" prefHeight="35.0" prefWidth="222.0" styleClass="browseButton" text="Potatis, Ris &amp; Pasta" />
+                                    <Button alignment="TOP_LEFT" mnemonicParsing="false" onAction="#showPASTA" prefHeight="35.0" prefWidth="222.0" styleClass="browseButton" text="Potatis, Ris &amp; Pasta" />
                                     <Button alignment="TOP_LEFT" mnemonicParsing="false" prefHeight="35.0" prefWidth="222.0" styleClass="browseButton" text="Skafferi" />
                                     <Button alignment="TOP_LEFT" mnemonicParsing="false" prefHeight="31.0" prefWidth="312.0" styleClass="browseButton" text="Dryck" />
                                     <Button alignment="TOP_LEFT" mnemonicParsing="false" prefHeight="31.0" prefWidth="221.0" styleClass="browseButton" text="Sötsaker" />
