@@ -82,6 +82,8 @@ public class Controller implements Initializable {
     @FXML
     private ScrollPane searchPane;
 
+    List<Product> productsShown;
+    List<Product> unsortedList;
 
 
     Checkout checkout;
@@ -190,19 +192,32 @@ public class Controller implements Initializable {
 
 
 
-
-
-        sortList.getItems().addAll("Visa alla","Lägsta pris", "Högsta Pris");
-        sortList.getSelectionModel().select("Visa alla");
+        sortList.getItems().addAll("Ingen Sortering","Lägsta Pris", "Högsta Pris");
+        sortList.getSelectionModel().select("Ingen Sortering");
         sortList.getSelectionModel().selectedItemProperty().addListener(new ChangeListener<String>() {
             @Override
             public void changed(ObservableValue<? extends String> observable, String oldValue, String newValue) {
+                switch (newValue){
+                    case "Ingen Sortering":
+                        updateMainGrid(unsortedList);
+                        break;
+                    case "Högsta Pris":
+                        Collections.sort(productsShown, new highestPriceComparator());
+                        updateMainGrid(productsShown);
+                        break;
+                    case "Lägsta Pris":
+                        Collections.sort(productsShown, new lowestPriceComparator());
+                        updateMainGrid(productsShown);
+                        break;
 
+                }
             }
         });
 
         populateSortComboBox();
         updateMainGrid(imatBackendController.getProducts());
+        unsortedList = imatBackendController.getProducts();
+
     }
 
     private void populateSortComboBox() {
@@ -228,11 +243,11 @@ public class Controller implements Initializable {
 
                                 switch (item) {
 
-                                    case "Visa alla":
+                                    case "Ingen Sortering":
                                         iconPath = "Designprojekt/resources/icons/MainBlue/sorting_arrows_32px.png";
                                         icon = new Image(getClass().getClassLoader().getResourceAsStream(iconPath));
                                         break;
-                                    case "Lägsta pris":
+                                    case "Lägsta Pris":
                                         iconPath = "Designprojekt/resources/icons/MainBlue/generic_sorting_2_32px.png";
                                         icon = new Image(getClass().getClassLoader().getResourceAsStream(iconPath));
                                         break;
@@ -262,8 +277,22 @@ public class Controller implements Initializable {
         sortList.setCellFactory(cellFactory);
     }
 
-    private void updateMainGrid(List<Product> productList) {
 
+    class lowestPriceComparator implements Comparator<Product> {
+        public int compare(Product p1, Product p2) {
+            return (((int)(p1.getPrice() * 100)) - ((int)(p2.getPrice() * 100))) / 100;
+        }
+    }
+
+    class highestPriceComparator implements Comparator<Product> {
+        public int compare(Product p1, Product p2) {
+            return (((int)(p2.getPrice() * 100)) - ((int)(p1.getPrice() * 100))) / 100;
+        }
+    }
+
+
+    private void updateMainGrid(List<Product> productList) {
+        productsShown = productList;
         mainGrid.getChildren().clear();
         for (Product r : productList) {
             Card productCard = cardMap.get(r.getName());
@@ -320,6 +349,8 @@ public class Controller implements Initializable {
             //INGA SÖKRESULTAT
         }else{
             updateMainGrid(searchResult);
+            unsortedList = searchResult;
+
         }
         //searchList.getSelectionModel().getSelectedItem().toString()
 
