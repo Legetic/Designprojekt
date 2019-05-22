@@ -143,8 +143,8 @@
          <children>
             <AnchorPane layoutX="117.0" layoutY="116.0" prefHeight="374.0" prefWidth="428.0" styleClass="checkout-boxes">
                <children>
-                  <TextField fx:id="cardBackgroundTextField" layoutX="10.0" layoutY="14.0" prefHeight="124.0" prefWidth="190.0" styleClass="checkoutCard" />
-                  <TextField fx:id="fakturaBackgroundTextField" layoutX="220.0" layoutY="14.0" prefHeight="124.0" prefWidth="190.0" styleClass="checkoutCard" />
+                  <AnchorPane fx:id="cardBackgroundAnchorPane" layoutX="14.0" layoutY="13.0" prefHeight="124.0" prefWidth="190.0" style="-fx-background-color: -fx-niceGray;" />
+                  <AnchorPane fx:id="fakturaBackgroundAnchorPane" layoutX="213.0" layoutY="13.0" prefHeight="124.0" prefWidth="190.0" style="-fx-background-color: -fx-niceGray;" />
                   <RadioButton fx:id="cardRadioButton" layoutX="47.0" layoutY="57.0" mnemonicParsing="false" styleClass="p4" text="Kort" />
                   <RadioButton fx:id="fakturaRadioButton" layoutX="244.0" layoutY="57.0" mnemonicParsing="false" styleClass="p4" text="Faktura" />
                   <AnchorPane fx:id="cardInfoAnchorPane" layoutX="10.0" layoutY="145.0" prefHeight="220.0" prefWidth="400.0" style="-fx-background-color: -fx-checkoutBox;">
