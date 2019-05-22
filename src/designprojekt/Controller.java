@@ -486,6 +486,7 @@ public class Controller implements Initializable {
         homePage.toFront();
         previousPurchasesRoot.toFront();
 
+
     }
 
     @FXML

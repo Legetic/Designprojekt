@@ -43,6 +43,10 @@ Frukt  https://unsplash.com/photos/atzWFItRHy8
     -fx-second3: #FA7268;
     -fx-second4: #FA7268;
 
+    -fx-niceWhite:white;
+    -fx-niceGray:#EDF3F7;
+    -fx-niceGreen:#3BBB43;
+    -fx-niceRed:#E00F00;
 
 /*
     -fx-altBase1:#FFF6DE;
@@ -53,14 +57,7 @@ Frukt  https://unsplash.com/photos/atzWFItRHy8
     -fx-alt2base2:#FFD7CD;
     -fx-alt2base3:#FFAA96;
     -fx-alt2base4:#FF8366;
-*/
-    -fx-niceWhite:white;
-    -fx-niceGray:#EDF3F7;
-    -fx-niceGreen:#3BBB43;
-    -fx-niceRed:#E00F00;
 
-
-/*
     -fx-base1:#DEF4FD;
     -fx-base2:#D0F1FF;
     -fx-base3:#9AE1FF;

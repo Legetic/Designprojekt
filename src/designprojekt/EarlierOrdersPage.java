@@ -4,8 +4,10 @@ import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
 import javafx.scene.control.Label;
+import javafx.scene.control.RadioButton;
 import javafx.scene.image.ImageView;
 import javafx.scene.layout.AnchorPane;
+import javafx.scene.layout.FlowPane;
 import se.chalmers.cse.dat216.project.Product;
 import se.chalmers.cse.dat216.project.ShoppingItem;
 
@@ -15,6 +17,14 @@ import java.util.ResourceBundle;
 
 public class EarlierOrdersPage extends AnchorPane {
     private Controller parentController;
+    @FXML
+    private AnchorPane previousPurchaseAnchorPane;
+    @FXML
+    private FlowPane flowPanePreviousPurchases;
+    @FXML
+    private RadioButton radioButtonBackPreviousPurchases;
+    @FXML
+    private FlowPane flowPanePreviousPurchasesDetails;
 
     public EarlierOrdersPage(Controller parentController){
         FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("earlierOrders.fxml"));
@@ -36,10 +46,18 @@ public class EarlierOrdersPage extends AnchorPane {
 
     }
 
+//getOrders.
+
+
+
     @FXML
     public void closeWindow() throws IOException{
         parentController.closePreviousPurchases();
 
     }
+
+
+
+    //getOrders();
 
 }
