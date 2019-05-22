@@ -2,6 +2,7 @@ package designprojekt;
 
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
+import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.image.ImageView;
 import javafx.scene.layout.AnchorPane;
@@ -13,10 +14,18 @@ import java.io.IOException;
 public class PreviousPurchase extends AnchorPane {
     private Controller parentController;
     private Order order;
+    private EarlierOrdersPage earliersOrdersPage;
+
+    @FXML
+    private Label previousPurchaseDate;
+    @FXML
+    private Label previousPurchasePrice;
+    @FXML
+    private Button AddPreviousPurchaseToCartButton;
 
 
-    public PreviousPurchase(Order order, Controller parentController){
-        FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("card.fxml"));
+    public PreviousPurchase(Order order, EarlierOrdersPage earliersOrdersPage){
+        FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("previousPurchase.fxml"));
         fxmlLoader.setRoot(this);
         fxmlLoader.setController(this);
 
@@ -27,9 +36,12 @@ public class PreviousPurchase extends AnchorPane {
         }
 
         this.order = order;
-        this.parentController = parentController;
+        this.earliersOrdersPage = earliersOrdersPage;
+        this.parentController = earliersOrdersPage.getParentController();
 
+    }
 
-
+    public void showShoppingItems(){
+        earliersOrdersPage.showPreviousPurchaseDetail(order);
     }
 }
