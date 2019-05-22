@@ -64,7 +64,7 @@ public class Controller implements Initializable {
     private AnchorPane emptyPrompt;
 
     @FXML
-    private FlowPane shoppingCartFlowPane;
+    public FlowPane shoppingCartFlowPane;
     @FXML
     private ComboBox sortList;
 
@@ -83,6 +83,8 @@ public class Controller implements Initializable {
     private ScrollPane searchPane;
 
 
+
+    Checkout checkout;
 
     //private List<Product> productList = new ArrayList<>();
     private List<ShoppingItem> cartList = new ArrayList<>();
@@ -428,6 +430,11 @@ public class Controller implements Initializable {
 
     protected void removeItem(Card card) {
         shoppingCartFlowPane.getChildren().remove(card.getCartItem());
+        if(checkout != null){
+            if(!checkout.itemsCheckoutFlowpane.getChildren().isEmpty()){
+                checkout.itemsCheckoutFlowpane.getChildren().remove(card.getCartItem());
+            }
+        }
         dataHandler.getShoppingCart().getItems().remove(card.getCartItem().getShoppingItem());
         card.getAmountControl().setVisible(false);
         card.getAddButton().setVisible(true);
@@ -515,7 +522,7 @@ public class Controller implements Initializable {
     @FXML
     public void openCheckoutPage() {
         fullscreenPage.getChildren().clear();
-        Checkout checkout = new Checkout(this);
+        checkout = new Checkout(this);
         fullscreenPage.getChildren().addAll(checkout);
 
         homePage.toFront();
@@ -545,6 +552,12 @@ public class Controller implements Initializable {
     @FXML
     public void goHome() {
         homePage.toFront();
+
+        if(checkout != null){
+            if(!checkout.itemsCheckoutFlowpane.getChildren().isEmpty()){
+                shoppingCartFlowPane.getChildren().addAll(checkout.itemsCheckoutFlowpane.getChildren());
+            }
+        }
     }
 
     public void selectText(TextField textField) {
