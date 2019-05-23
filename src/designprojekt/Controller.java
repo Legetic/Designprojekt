@@ -2,6 +2,7 @@ package designprojekt;
 
 import javafx.beans.value.ChangeListener;
 import javafx.beans.value.ObservableValue;
+import javafx.collections.ListChangeListener;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.Node;
@@ -69,6 +70,8 @@ public class Controller implements Initializable {
     public FlowPane shoppingCartFlowPane;
     @FXML
     private ComboBox sortList;
+    @FXML
+    private Label shoppingCartEmptyLabel;
 
     @FXML
     private AnchorPane previousPurchasesRoot;
@@ -191,7 +194,16 @@ public class Controller implements Initializable {
 
         });
 
-
+        shoppingCartFlowPane.getChildren().addListener(new ListChangeListener<Node>() { // if shoppingCart is empty, show "Shopping Cart Is Empty" text
+            @Override
+            public void onChanged(Change<? extends Node> change) {
+                if(shoppingCartFlowPane.getChildren().isEmpty()) {
+                    shoppingCartEmptyLabel.setVisible(true);
+                } else {
+                    shoppingCartEmptyLabel.setVisible(false);
+                }
+            }
+        });
 
 
         sortList.getItems().addAll("Ingen Sortering", "Lägsta Pris", "Högsta Pris");
@@ -216,6 +228,8 @@ public class Controller implements Initializable {
                 }
             }
         });
+
+
 
         populateSortComboBox();
         updateMainGrid(imatBackendController.getProducts());
