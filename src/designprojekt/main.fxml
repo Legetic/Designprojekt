@@ -227,7 +227,7 @@
                               </GridPane>
                            </children>
                         </AnchorPane>
-                        <Button contentDisplay="RIGHT" minWidth="-Infinity" mnemonicParsing="false" onAction="#openCheckoutPage" prefHeight="63.0" prefWidth="371.0" style="-fx-background-color: -fx-second4; -fx-background-radius: 5 5 0 0;" styleClass="h4" text="Gå till kassan" textFill="WHITE" VBox.vgrow="NEVER">
+                        <Button fx:id="goToCheckoutButton" contentDisplay="RIGHT" minWidth="-Infinity" mnemonicParsing="false" onAction="#openCheckoutPage" prefHeight="63.0" prefWidth="371.0" style="-fx-background-color: -fx-second4; -fx-background-radius: 5 5 0 0;" styleClass="h4" text="Gå till kassan" textFill="WHITE" VBox.vgrow="NEVER">
                            <cursor>
                               <Cursor fx:constant="HAND" />
                            </cursor>

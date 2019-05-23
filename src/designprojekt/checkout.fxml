@@ -18,11 +18,17 @@
 <?import javafx.scene.shape.Rectangle?>
 <?import javafx.scene.text.Font?>
 
-<fx:root fx:id="checkoutPage" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="751.0" prefWidth="1111.0" styleClass="oneColor" stylesheets="@css/stylesheet.css" type="AnchorPane" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1">
+<fx:root fx:id="checkoutPage" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="751.0" prefWidth="1111.0" styleClass="oneColor" stylesheets="@css/stylesheet.css" type="AnchorPane" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1">
    <children>
       <AnchorPane fx:id="orderFinishedPanel" layoutX="-115.0" layoutY="-86.0" prefHeight="200.0" prefWidth="200.0" styleClass="oneColor" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
          <children>
-            <Label layoutX="290.0" layoutY="321.0" prefHeight="110.0" prefWidth="532.0" styleClass="h1" text="Tack för ditt köp!" AnchorPane.bottomAnchor="320.0" AnchorPane.leftAnchor="290.0" AnchorPane.rightAnchor="289.0" AnchorPane.topAnchor="321.0" />
+            <Label alignment="CENTER" layoutX="290.0" layoutY="321.0" prefHeight="110.0" prefWidth="532.0" styleClass="h1" text="Tack för ditt köp!" AnchorPane.bottomAnchor="360.0" AnchorPane.leftAnchor="290.0" AnchorPane.rightAnchor="289.0" AnchorPane.topAnchor="280.0" />
+            <Button fx:id="returnToStoreButton" layoutX="17.0" layoutY="10.0" maxHeight="70.0" maxWidth="100.0" minHeight="70.0" minWidth="100.0" mnemonicParsing="false" onAction="#closeWindow" prefHeight="70.0" prefWidth="100.0" text="Återgå till affären" AnchorPane.bottomAnchor="213.0" AnchorPane.leftAnchor="380.0" AnchorPane.rightAnchor="380.0" AnchorPane.topAnchor="450.0">
+               <styleClass>
+                  <String fx:value="p3" />
+                  <String fx:value="ghostButton" />
+               </styleClass>
+            </Button>
          </children>
       </AnchorPane>
       <BorderPane prefHeight="200.0" prefWidth="200.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">

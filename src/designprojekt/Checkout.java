@@ -138,8 +138,9 @@ public class Checkout extends AnchorPane {
     private AnchorPane orderFinishedPanel;
 
     private int state = 0;
-    private CreditCard creditCard ;
+    private CreditCard creditCard;
     private Customer customer;
+    private boolean orderComplete = false;
 
     List<TextField> userFields = new ArrayList<TextField>();
     List<TextField> deliveryFields = new ArrayList<TextField>();
@@ -147,7 +148,7 @@ public class Checkout extends AnchorPane {
     List<TextField> paymentFakturaFields = new ArrayList<TextField>();
 
 
-    public Checkout(Controller parentController){
+    public Checkout(Controller parentController) {
         FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("checkout.fxml"));
         fxmlLoader.setRoot(this);
         fxmlLoader.setController(this);
@@ -162,8 +163,8 @@ public class Checkout extends AnchorPane {
         creditCard = parentController.imatBackendController.getCreditCard();
         customer = parentController.imatBackendController.getCustomer();
         //set size 100%
-        setBottomAnchor(this,0.0);
-        setTopAnchor(this,0.0);
+        setBottomAnchor(this, 0.0);
+        setTopAnchor(this, 0.0);
         setRightAnchor(this, 0.0);
         setLeftAnchor(this, 0.0);
 
@@ -186,10 +187,10 @@ public class Checkout extends AnchorPane {
 
                 if (paymentMethod.getSelectedToggle() != null) {
                     RadioButton selected = (RadioButton) paymentMethod.getSelectedToggle();
-                    if(selected == cardRadioButton){
+                    if (selected == cardRadioButton) {
                         cardInfoAnchorPane.setVisible(true);
                         fakturaInfoAnchorPane.setVisible(false);
-                    }else{
+                    } else {
                         cardInfoAnchorPane.setVisible(false);
                         fakturaInfoAnchorPane.setVisible(true);
                     }
@@ -225,17 +226,17 @@ public class Checkout extends AnchorPane {
         paymentFakturaFields.add(nameFakturaTextField);
         paymentFakturaFields.add(stadFakturaTextField);
 
-        for(TextField t : userFields){
+        for (TextField t : userFields) {
             t.textProperty().addListener((observable, oldValue, newValue) -> {
                 t.getStyleClass().remove("inputFieldError");
             });
         }
-        for(TextField t : deliveryFields){
+        for (TextField t : deliveryFields) {
             t.textProperty().addListener((observable, oldValue, newValue) -> {
                 t.getStyleClass().remove("inputFieldError");
             });
         }
-        for(TextField t : paymentFakturaFields){
+        for (TextField t : paymentFakturaFields) {
             t.textProperty().addListener((observable, oldValue, newValue) -> {
                 t.getStyleClass().remove("inputFieldError");
             });
@@ -258,7 +259,7 @@ public class Checkout extends AnchorPane {
 
     }
 
-    private void loadUserPage(){
+    private void loadUserPage() {
         firstNameTextField.setText(customer.getFirstName());
         lastNameTextField.setText(customer.getLastName());
         phonenumberTextField.setText(customer.getPhoneNumber());
@@ -267,14 +268,16 @@ public class Checkout extends AnchorPane {
         postCodeTextField.setText(customer.getPostCode());
         postAddressTextField.setText(customer.getPostAddress());
     }
-    private void loadDeliveryPage(){
+
+    private void loadDeliveryPage() {
         firstNameDeliveryTextField.setText(customer.getFirstName());
         lastNameDeliveryTextField.setText(customer.getLastName());
         adressDeliveryTextField.setText(customer.getAddress());
         postCodeDeliveryTextField.setText(customer.getPostCode());
         cityDeliveryTextField.setText(customer.getPostAddress());
     }
-    private void loadPaymentPage(){
+
+    private void loadPaymentPage() {
         cardOwnerTextField.setText(creditCard.getHoldersName());
         cardNumberTextField.setText(creditCard.getCardNumber());
         monthTextField.setText(creditCard.getValidMonth() + "");
@@ -291,25 +294,28 @@ public class Checkout extends AnchorPane {
 
 
     @FXML
-    public void closeWindow() throws IOException{
+    public void closeWindow() throws IOException {
         parentController.shoppingCartFlowPane.getChildren().addAll(itemsCheckoutFlowpane.getChildren());
         parentController.closeCheckoutPage();
-
+        if (orderComplete) {
+            parentController.clearShoppingCart();
+        }
+        parentController.updateShoppingCart();
     }
 
     @FXML
-    public void nextCheckoutPage(){
+    public void nextCheckoutPage() {
         saveInfo();
-        switch (state){
+        switch (state) {
             case 0:
                 openUserPage();
 
                 break;
             case 1:
-                if(isUserComplete()) {
+                if (isUserComplete()) {
                     errorMessage.setVisible(false);
                     openDeliveryPage();
-                }else{
+                } else {
                     errorMessage.setVisible(true);
                     checkUserErrors();
                 }
@@ -317,44 +323,46 @@ public class Checkout extends AnchorPane {
 
                 break;
             case 2:
-                if(isDeliveryComplete()) {
+                if (isDeliveryComplete()) {
                     errorMessage.setVisible(false);
                     openPaymentPage();
-                }else{
+                } else {
                     errorMessage.setVisible(true);
                     checkDeliveryErrors();
                 }
                 //System.out.println("HEJ PÅ DIG igen");
                 break;
             case 3:
-               // if(parentController.imatBackendController.isCustomerComplete()){
-                if(isPaymentComplete() && parentController.imatBackendController.isCustomerComplete()) {
+                // if(parentController.imatBackendController.isCustomerComplete()){
+                if (isPaymentComplete() && parentController.imatBackendController.isCustomerComplete()) {
                     errorMessage.setVisible(false);
 
                     parentController.imatBackendController.placeOrder();
 
                     orderFinishedPanel.toFront();
-                    backFromCheckoutButton.toFront();
-                }else{
+                    backFromCheckoutButton.toFront(); //TODO: Behövs denna?
+                    orderComplete = true;
+                } else {
                     errorMessage.setVisible(true);
                     checkPaymentErrors();
                 }
-               // }
+                // }
                 //System.out.println("HEJ PÅ DIG igen");
                 break;
 
         }
 
     }
-    private void updateSequenceMap(){
 
-        for(Node n : sequenceMapParts){
+    private void updateSequenceMap() {
+
+        for (Node n : sequenceMapParts) {
             n.getStyleClass().remove("activeIndicator");
             n.getStyleClass().remove("activeIndicatorLine");
             n.getStyleClass().remove("activeIndicatorText");
         }
 
-        switch (state){
+        switch (state) {
             case 0:
                 firstStepIndicator.getStyleClass().add("activeIndicator");
                 firstStepLabel.getStyleClass().add("activeIndicatorText");
@@ -381,17 +389,17 @@ public class Checkout extends AnchorPane {
         }
     }
 
-    private boolean isPaymentComplete(){
+    private boolean isPaymentComplete() {
         boolean isComplete = true;
-        if(cardRadioButton.isSelected()){
-            for(TextField t : paymentCardFields){
-                if(t.getText().equals("")){
+        if (cardRadioButton.isSelected()) {
+            for (TextField t : paymentCardFields) {
+                if (t.getText().equals("")) {
                     isComplete = false;
                 }
             }
-        }else{
-            for(TextField t : paymentFakturaFields){
-                if(t.getText().equals("")){
+        } else {
+            for (TextField t : paymentFakturaFields) {
+                if (t.getText().equals("")) {
                     isComplete = false;
                 }
             }
@@ -399,27 +407,28 @@ public class Checkout extends AnchorPane {
 
         return isComplete;
     }
-    private boolean isDeliveryComplete(){
+
+    private boolean isDeliveryComplete() {
         boolean isComplete = true;
-        for(TextField t : deliveryFields){
-            if(t.getText().equals("")){
+        for (TextField t : deliveryFields) {
+            if (t.getText().equals("")) {
                 isComplete = false;
             }
         }
         return isComplete;
     }
 
-    private boolean isUserComplete(){
+    private boolean isUserComplete() {
         boolean isComplete = true;
-        for(TextField t : userFields){
-            if(t.getText().equals("")){
+        for (TextField t : userFields) {
+            if (t.getText().equals("")) {
                 isComplete = false;
             }
         }
         return isComplete;
     }
 
-    private void checkUserErrors(){
+    private void checkUserErrors() {
 
         for (TextField t : userFields) {
             t.getStyleClass().remove("inputFieldError");
@@ -430,10 +439,11 @@ public class Checkout extends AnchorPane {
             }
         }
     }
-    private void checkPaymentErrors(){
+
+    private void checkPaymentErrors() {
 
 
-        if(cardRadioButton.isSelected()) {
+        if (cardRadioButton.isSelected()) {
 
             for (TextField t : paymentCardFields) {
                 t.getStyleClass().remove("inputFieldError");
@@ -443,7 +453,7 @@ public class Checkout extends AnchorPane {
 
                 }
             }
-        }else{
+        } else {
 
             for (TextField t : paymentFakturaFields) {
                 t.getStyleClass().remove("inputFieldError");
@@ -458,7 +468,8 @@ public class Checkout extends AnchorPane {
 
 
     }
-    private void checkDeliveryErrors(){
+
+    private void checkDeliveryErrors() {
 
         for (TextField t : deliveryFields) {
             t.getStyleClass().remove("inputFieldError");
@@ -472,7 +483,7 @@ public class Checkout extends AnchorPane {
     }
 
 
-    private void openPaymentPage(){
+    private void openPaymentPage() {
         state = 3;
         loadPaymentPage();
         updateSequenceMap();
@@ -480,7 +491,8 @@ public class Checkout extends AnchorPane {
         nextButton.setText("Slutför");
 
     }
-    private void openDeliveryPage(){
+
+    private void openDeliveryPage() {
         state = 2;
         loadDeliveryPage();
         updateSequenceMap();
@@ -489,7 +501,8 @@ public class Checkout extends AnchorPane {
 
 
     }
-    private void openUserPage(){
+
+    private void openUserPage() {
         state = 1;
         loadUserPage();
         updateSequenceMap();
@@ -498,8 +511,8 @@ public class Checkout extends AnchorPane {
 
     }
 
-    private void saveInfo(){
-        switch (state){
+    private void saveInfo() {
+        switch (state) {
             case 0:
                 //finns inget att spara
                 break;
@@ -520,21 +533,19 @@ public class Checkout extends AnchorPane {
                 break;
             case 3:
 
-                    creditCard.setCardNumber(cardNumberTextField.getText());
-                    creditCard.setHoldersName(cardOwnerTextField.getText());
-                    creditCard.setValidMonth(Integer.valueOf(monthTextField.getText()));
-                    creditCard.setValidYear(Integer.valueOf(yearTextField.getText()));
-                    creditCard.setVerificationCode(Integer.valueOf(cvcTextField.getText()));
+                creditCard.setCardNumber(cardNumberTextField.getText());
+                creditCard.setHoldersName(cardOwnerTextField.getText());
+                creditCard.setValidMonth(Integer.valueOf(monthTextField.getText()));
+                creditCard.setValidYear(Integer.valueOf(yearTextField.getText()));
+                creditCard.setVerificationCode(Integer.valueOf(cvcTextField.getText()));
 
-                    //kan inte spara fakturan
+                //kan inte spara fakturan
 
                 break;
 
 
         }
     }
-
-
 
 
 }
