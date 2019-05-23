@@ -225,6 +225,7 @@ public class Checkout extends AnchorPane {
         paymentFakturaFields.add(postCodeFakturaTextField);
         paymentFakturaFields.add(nameFakturaTextField);
         paymentFakturaFields.add(stadFakturaTextField);
+        paymentFakturaFields.add(personalNumberTextField);
 
         for (TextField t : userFields) {
             t.textProperty().addListener((observable, oldValue, newValue) -> {
