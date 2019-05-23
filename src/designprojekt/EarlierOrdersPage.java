@@ -19,12 +19,14 @@ import java.util.ResourceBundle;
 
 public class EarlierOrdersPage extends AnchorPane {
     private Controller parentController;
+    private Order openedOrder;
     @FXML
     private AnchorPane previousPurchaseAnchorPane;
     @FXML
     private FlowPane flowPanePreviousPurchases;
     @FXML
     private FlowPane flowPanePreviousPurchasesDetails;
+
 
     public EarlierOrdersPage(Controller parentController) {
         FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("earlierOrders.fxml"));
@@ -52,6 +54,7 @@ public class EarlierOrdersPage extends AnchorPane {
     }
 
     public void showPreviousPurchaseDetail(Order order){
+        openedOrder = order;
         flowPanePreviousPurchasesDetails.getChildren().clear();
         for (ShoppingItem si : order.getItems()) {
             itemPreviousPurchase itprev = new itemPreviousPurchase(si,parentController);
@@ -64,8 +67,13 @@ public class EarlierOrdersPage extends AnchorPane {
     }
 
 
-
-
+    public void addOrderToCart(){
+        if(openedOrder !=null){
+            for(ShoppingItem item : openedOrder.getItems()){
+                parentController.addProductFromOrderToCart(item);
+            }
+        }
+    }
 
     @FXML
     public void closeWindow() throws IOException{
