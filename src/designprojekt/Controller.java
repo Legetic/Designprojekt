@@ -503,6 +503,7 @@ public class Controller implements Initializable {
         if (totalPrice == 0.0) {
             totalPriceLabel.setText("0 kr");
         } else {
+            totalPrice = Math.round(totalPrice*100.0)/100.0;
             totalPriceLabel.setText(totalPrice + " kr");
         }
     }
