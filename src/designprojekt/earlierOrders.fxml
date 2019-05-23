@@ -7,32 +7,32 @@
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.layout.FlowPane?>
 
-<fx:root fx:id="previousPurchaseAnchorPane" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="663.0" prefWidth="946.0" stylesheets="@css/stylesheet.css" type="AnchorPane" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1">
+<fx:root fx:id="previousPurchaseAnchorPane" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="663.0" prefWidth="946.0" styleClass="oneColor" stylesheets="@css/stylesheet.css" type="AnchorPane" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1">
    <children>
-      <SplitPane dividerPositions="0.663563829787234" layoutX="-2.0" prefHeight="486.0" prefWidth="754.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+      <SplitPane dividerPositions="0.663563829787234" layoutX="-2.0" prefHeight="486.0" prefWidth="754.0" styleClass="oneColor" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
         <items>
-          <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="160.0" prefWidth="100.0">
+          <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="160.0" prefWidth="100.0" styleClass="oneColor">
                <children>
-                  <ScrollPane layoutY="142.0" prefHeight="477.0" prefWidth="623.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0">
+                  <ScrollPane layoutY="142.0" prefHeight="477.0" prefWidth="623.0" styleClass="oneColor" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0">
                     <content>
-                      <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="478.0" prefWidth="622.0">
+                      <AnchorPane minHeight="0.0" minWidth="0.0" styleClass="oneColor">
                            <children>
-                              <FlowPane fx:id="flowPanePreviousPurchases" prefHeight="76.0" prefWidth="482.0" AnchorPane.bottomAnchor="271.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="12.0" />
+                              <FlowPane fx:id="flowPanePreviousPurchases" layoutX="6.0" prefHeight="76.0" prefWidth="623.0" AnchorPane.bottomAnchor="402.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" />
                            </children>
                         </AnchorPane>
                     </content>
                   </ScrollPane>
-                  <Label alignment="CENTER" layoutY="73.0" prefHeight="43.0" prefWidth="623.0" styleClass="h1" text="Tidigare köp" textAlignment="CENTER" />
-                  <Button fx:id="radioButtonBackPreviousPurchases" layoutX="14.0" layoutY="14.0" mnemonicParsing="false" onAction="#closeWindow" prefHeight="65.0" prefWidth="142.0" style="-fx-background-color: -fx-second4; -fx-text-fill: -fx-niceWhite;" text="Tillbaka" />
+                  <Label alignment="CENTER" layoutY="97.0" prefHeight="43.0" prefWidth="623.0" styleClass="h2" text="Tidigare köp" textAlignment="CENTER" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" />
+                  <Button layoutX="14.0" layoutY="14.0" mnemonicParsing="false" onAction="#closeWindow" prefHeight="52.0" prefWidth="143.0" style="-fx-background-color: -fx-second4; -fx-text-fill: -fx-niceWhite;" text="Tillbaka" />
                </children>
             </AnchorPane>
-          <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="160.0" prefWidth="100.0">
+          <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="160.0" prefWidth="100.0" styleClass="oneColor">
                <children>
-                  <ScrollPane prefHeight="486.0" prefWidth="250.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+                  <ScrollPane prefHeight="486.0" prefWidth="250.0" styleClass="oneColor" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
                     <content>
-                      <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="662.0" prefWidth="315.0">
+                      <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="662.0" prefWidth="315.0" styleClass="oneColor">
                            <children>
-                              <FlowPane fx:id="flowPanePreviousPurchasesDetails" layoutX="-3.0" prefHeight="84.0" prefWidth="238.0" AnchorPane.bottomAnchor="402.0" AnchorPane.leftAnchor="-3.0" AnchorPane.rightAnchor="19.0" AnchorPane.topAnchor="0.0" />
+                              <FlowPane fx:id="flowPanePreviousPurchasesDetails" layoutX="-3.0" prefHeight="77.0" prefWidth="315.0" AnchorPane.bottomAnchor="585.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0" />
                            </children>
                         </AnchorPane>
                     </content>

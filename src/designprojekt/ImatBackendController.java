@@ -34,11 +34,6 @@ public class ImatBackendController {
         return dataHandler.placeOrder(clearShoppingCart);
     }
 
-
-
-
-
-
     public List<Order> getOrders(){
         return dataHandler.getOrders();
     }
