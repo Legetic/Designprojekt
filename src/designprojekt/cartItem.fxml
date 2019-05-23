@@ -9,7 +9,7 @@
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.text.Font?>
 
-<fx:root maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="101.0" prefWidth="310.0" stylesheets="@css/stylesheet.css" type="AnchorPane" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1">
+<fx:root id="CartItem" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="101.0" prefWidth="310.0" stylesheets="@css/stylesheet.css" type="AnchorPane" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1">
    <children>
       <TextField fx:id="cartItemAmount" alignment="CENTER" layoutX="58.0" layoutY="51.0" onAction="#setAmount" onMouseClicked="#selectText" prefHeight="45.0" prefWidth="76.0" styleClass="amount-text-field" text="1 st" AnchorPane.bottomAnchor="12.0" AnchorPane.leftAnchor="58.0" />
       <Label fx:id="cartItemTotalPrice" layoutX="228.0" layoutY="74.0" style="-fx-font-weight: bold;" text="300,00" AnchorPane.bottomAnchor="9.0" AnchorPane.rightAnchor="6.0">
