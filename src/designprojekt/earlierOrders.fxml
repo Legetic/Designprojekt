@@ -17,7 +17,7 @@
                     <content>
                       <AnchorPane minHeight="0.0" minWidth="0.0" styleClass="oneColor">
                            <children>
-                              <FlowPane fx:id="flowPanePreviousPurchases" layoutX="6.0" prefHeight="76.0" prefWidth="482.0" AnchorPane.bottomAnchor="402.4" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" />
+                              <FlowPane fx:id="flowPanePreviousPurchases" layoutX="6.0" prefHeight="76.0" prefWidth="623.0" AnchorPane.bottomAnchor="402.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" />
                            </children>
                         </AnchorPane>
                     </content>
