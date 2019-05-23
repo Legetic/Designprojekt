@@ -574,6 +574,7 @@ public class Controller implements Initializable {
         for (ShoppingItem si : dataHandler.getShoppingCart().getItems()) {
             if (si.getProduct().equals(productCard.getProduct())) {
                 isDuplicate = true;
+                incAmount(productCard);
                 break;
             }
         }
