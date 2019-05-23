@@ -243,10 +243,11 @@ public class Controller implements Initializable {
         if (shoppingCartFlowPane.getChildren().isEmpty()) {
             shoppingCartEmptyLabel.setVisible(true);
             goToCheckoutButton.setDisable(true);
+            emptyButton.setDisable(true);
         } else {
             shoppingCartEmptyLabel.setVisible(false);
             goToCheckoutButton.setDisable(false);
-
+            emptyButton.setDisable(false);
         }
     }
 
