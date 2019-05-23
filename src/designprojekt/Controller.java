@@ -88,7 +88,6 @@ public class Controller implements Initializable {
     private ScrollPane searchPane;
 
     List<Product> productsShown;
-    List<Product> unsortedList;
 
 
     Checkout checkout;
@@ -214,7 +213,8 @@ public class Controller implements Initializable {
             public void changed(ObservableValue<? extends String> observable, String oldValue, String newValue) {
                 switch (newValue){
                     case "Ingen Sortering":
-                        updateMainGrid(unsortedList);
+                        Collections.sort(productsShown, new idComparator());
+                        updateMainGrid(productsShown);
                         break;
                     case "Högsta Pris":
                         Collections.sort(productsShown, new highestPriceComparator());
@@ -233,9 +233,9 @@ public class Controller implements Initializable {
 
         populateSortComboBox();
         updateMainGrid(imatBackendController.getProducts());
+        Collections.sort(productsShown, new idComparator());
         updateShoppingCart();
 
-        unsortedList = imatBackendController.getProducts();
 
     }
 
@@ -307,6 +307,11 @@ public class Controller implements Initializable {
     class highestPriceComparator implements Comparator<Product> {
         public int compare(Product p1, Product p2) {
             return (((int)(p2.getPrice() * 100)) - ((int)(p1.getPrice() * 100))) / 100;
+        }
+    }
+    class idComparator implements Comparator<Product> {
+        public int compare(Product p1, Product p2) {
+            return p1.getProductId() - p2.getProductId();
         }
     }
 
