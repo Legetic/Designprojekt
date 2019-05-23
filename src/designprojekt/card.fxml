@@ -13,7 +13,7 @@
 <?import javafx.scene.shape.Circle?>
 <?import javafx.scene.text.Font?>
 
-<fx:root id="Card" prefHeight="167.0" prefWidth="290.0" stylesheets="@css/stylesheet.css" type="AnchorPane" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1">
+<fx:root id="Card" prefHeight="167.0" prefWidth="290.0" stylesheets="@css/stylesheet.css" type="AnchorPane" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1">
    <children>
       <HBox alignment="CENTER" layoutX="20.0" layoutY="10.0" prefHeight="442.0" prefWidth="285.0" style="-fx-background-color: white;" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
          <children>
@@ -76,7 +76,7 @@
                                                 <Font name="System Bold" size="16.0" />
                                              </font>
                                           </Button>
-                                          <TextField fx:id="amountTextField" alignment="CENTER" onAction="#setAmount" onMouseClicked="#selectText" prefHeight="45.0" prefWidth="79.0" text="1 st" HBox.hgrow="NEVER" />
+                                          <TextField fx:id="amountTextField" alignment="CENTER" onAction="#setAmount" onMouseClicked="#selectText" prefHeight="45.0" prefWidth="79.0" styleClass="amount-text-field" text="1 st" HBox.hgrow="NEVER" />
                                           <Button mnemonicParsing="false" onAction="#incAmount" prefHeight="45.0" prefWidth="55.0" style="-fx-background-color: -fx-second4; -fx-text-fill: white;" text="+" HBox.hgrow="NEVER">
                                              <font>
                                                 <Font name="System Bold" size="16.0" />

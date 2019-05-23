@@ -2,6 +2,7 @@ package designprojekt;
 
 import javafx.beans.value.ChangeListener;
 import javafx.beans.value.ObservableValue;
+import javafx.collections.ListChangeListener;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.Node;
@@ -43,6 +44,8 @@ public class Controller implements Initializable {
     private AnchorPane startMenu;
     @FXML
     private BorderPane homePage;
+    @FXML
+    private Label totalPriceLabel;
 
 
     @FXML
@@ -67,6 +70,8 @@ public class Controller implements Initializable {
     public FlowPane shoppingCartFlowPane;
     @FXML
     private ComboBox sortList;
+    @FXML
+    private Label shoppingCartEmptyLabel;
 
     @FXML
     private AnchorPane previousPurchasesRoot;
@@ -83,9 +88,11 @@ public class Controller implements Initializable {
     private ScrollPane searchPane;
 
     List<Product> productsShown;
+    List<Product> unsortedList;
 
 
     Checkout checkout;
+    private double totalPrice = 0;
 
     //private List<Product> productList = new ArrayList<>();
     private List<ShoppingItem> cartList = new ArrayList<>();
@@ -188,7 +195,16 @@ public class Controller implements Initializable {
 
         });
 
-
+        shoppingCartFlowPane.getChildren().addListener(new ListChangeListener<Node>() { // if shoppingCart is empty, show "Shopping Cart Is Empty" text
+            @Override
+            public void onChanged(Change<? extends Node> change) {
+                if(shoppingCartFlowPane.getChildren().isEmpty()) {
+                    shoppingCartEmptyLabel.setVisible(true);
+                } else {
+                    shoppingCartEmptyLabel.setVisible(false);
+                }
+            }
+        });
 
 
         sortList.getItems().addAll("Ingen Sortering","Lägsta Pris", "Högsta Pris");
@@ -198,8 +214,7 @@ public class Controller implements Initializable {
             public void changed(ObservableValue<? extends String> observable, String oldValue, String newValue) {
                 switch (newValue){
                     case "Ingen Sortering":
-                        Collections.sort(productsShown, new numberComparator());
-                        updateMainGrid(productsShown);
+                        updateMainGrid(unsortedList);
                         break;
                     case "Högsta Pris":
                         Collections.sort(productsShown, new highestPriceComparator());
@@ -214,11 +229,16 @@ public class Controller implements Initializable {
             }
         });
 
+
+
         populateSortComboBox();
         updateMainGrid(imatBackendController.getProducts());
+        updateShoppingCart();
 
+        unsortedList = imatBackendController.getProducts();
 
     }
+
 
     private void populateSortComboBox() {
         Callback<ListView<String>, ListCell<String>> cellFactory = new Callback<ListView<String>, ListCell<String>>() {
@@ -290,11 +310,6 @@ public class Controller implements Initializable {
         }
     }
 
-    class numberComparator implements Comparator<Product> {
-        public int compare(Product p1, Product p2) {
-            return p1.getProductId() - p2.getProductId();
-        }
-    }
 
     private void updateMainGrid(List<Product> productList) {
         productsShown = productList;
@@ -363,28 +378,34 @@ public class Controller implements Initializable {
 
 
     //SHOPPING CART
-    private void updateShoppingCart() {//TODO: MAKE USE OF CARDS INSTEAD OF CARTITEMS!
+    private void updateShoppingCart() {
         shoppingCartFlowPane.getChildren().clear();
         cartList = dataHandler.getShoppingCart().getItems();
         for (ShoppingItem s : cartList) {
-            //CartItem cartItem = new CartItem(s, this);
-            //shoppingCartFlowPane.getChildren().add(cartItem);
+            CartItem cartItem = new CartItem(s, this, cardMap.get(s.getProduct().getName()));
+            cardMap.get(s.getProduct().getName()).setCartItem(cartItem);
+            cardMap.get(s.getProduct().getName()).getAmountField().setText("" + (int)s.getAmount());
+            cardMap.get(s.getProduct().getName()).setAmount();
 
+            cardMap.get(s.getProduct().getName()).getAmountControl().setVisible(true);
+            cardMap.get(s.getProduct().getName()).getAddButton().setVisible(false);
+            shoppingCartFlowPane.getChildren().add(cartItem);
         }
     }
 
     public void clearShoppingCart() {
         shoppingCartFlowPane.getChildren().clear();
         dataHandler.getShoppingCart().clear();
-        for(Node node : mainGrid.getChildren()) {
-            Card card = (Card)node;
-            if(card.getAmountControl().isVisible()) {
+        for (Node node : mainGrid.getChildren()) {
+            Card card = (Card) node;
+            if (card.getAmountControl().isVisible()) {
                 card.getAmountControl().setVisible(false);
                 card.getAddButton().setVisible(true);
                 card.getAmountField().setText("1 st");
             }
         }
         closeEmptyPrompt();
+        updateTotalLabel();
     }
 
 
@@ -461,7 +482,30 @@ public class Controller implements Initializable {
     private void updatePrice(Label cartItemTotalPrice, ShoppingItem shoppingItem) {
         double totalPrice = Math.round(shoppingItem.getTotal()*100.0)/100.0; //rounds off price because of previous bug
         cartItemTotalPrice.setText(totalPrice + " kr"); //updates price
+        totalPriceLabel.setText(totalPrice + "kr");
+        updateTotalLabel();
 
+    }
+
+    private void updateTotalLabel() {
+        totalPrice = 0.0;
+        for (Node node : shoppingCartFlowPane.getChildren()) {
+            CartItem cartItem = (CartItem) node;
+            StringBuilder stringBuilder = new StringBuilder();
+            for (char c : cartItem.getCartItemTotalPrice().getText().toCharArray()) { //Isolates digits & '.'
+                if (Character.isDigit(c) || c == '.') {
+                    stringBuilder.append(c);
+                }
+            }
+            String price = stringBuilder.toString();
+            totalPrice += Double.parseDouble(price);
+        }
+        if (totalPrice == 0.0) {
+            totalPriceLabel.setText("0 kr");
+        } else {
+            totalPrice = Math.round(totalPrice*100.0)/100.0;
+            totalPriceLabel.setText(totalPrice + " kr");
+        }
     }
 
 
@@ -488,6 +532,44 @@ public class Controller implements Initializable {
         }
         if (!isDuplicate) {//If not duplicate, add to cart
             ShoppingItem item = new ShoppingItem(productCard.getProduct());
+            dataHandler.getShoppingCart().addItem(item);
+
+            CartItem cartItem = new CartItem(item, this, productCard);
+            productCard.setCartItem(cartItem);
+            shoppingCartFlowPane.getChildren().add(cartItem);
+
+            productCard.getAmountControl().setVisible(true);
+            productCard.getAmountField().requestFocus();
+            productCard.getAddButton().setVisible(false);
+        }
+        updateTotalLabel();
+    }
+
+    /*private void addingTheCardToCart(Card productCard){
+        ShoppingItem item = new ShoppingItem(productCard.getProduct());
+        dataHandler.getShoppingCart().addItem(item);
+
+        CartItem cartItem = new CartItem(item, this, productCard);
+        productCard.setCartItem(cartItem);
+        shoppingCartFlowPane.getChildren().add(cartItem);
+
+        productCard.getAmountControl().setVisible(true);
+        productCard.getAmountField().requestFocus();
+        productCard.getAddButton().setVisible(false);
+    }*/
+
+
+
+    public void addProductFromOrderToCart(ShoppingItem item) {//TODO: implement separate method for the duplicate check
+        Card productCard = cardMap.get(item.getProduct().getName());
+        boolean isDuplicate = false;
+        for (ShoppingItem si : dataHandler.getShoppingCart().getItems()) {
+            if (si.getProduct().equals(productCard.getProduct())) {
+                isDuplicate = true;
+                break;
+            }
+        }
+        if (!isDuplicate) {//If not duplicate, add to cart
             dataHandler.getShoppingCart().addItem(item);
 
             CartItem cartItem = new CartItem(item, this, productCard);
