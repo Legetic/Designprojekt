@@ -496,6 +496,29 @@ public class Controller implements Initializable {
     }
 
 
+    public void addProductFromOrderToCart(ShoppingItem item) {//TODO: implement separate method for the duplicate check
+        Card productCard = cardMap.get(item.getProduct().getName());
+        boolean isDuplicate = false;
+        for (ShoppingItem si : dataHandler.getShoppingCart().getItems()) {
+            if (si.getProduct().equals(productCard.getProduct())) {
+                isDuplicate = true;
+                break;
+            }
+        }
+        if (!isDuplicate) {//If not duplicate, add to cart
+            dataHandler.getShoppingCart().addItem(item);
+
+            CartItem cartItem = new CartItem(item, this, productCard);
+            productCard.setCartItem(cartItem);
+            shoppingCartFlowPane.getChildren().add(cartItem);
+
+            productCard.getAmountControl().setVisible(true);
+            productCard.getAmountField().requestFocus();
+            productCard.getAddButton().setVisible(false);
+        }
+    }
+
+
     //GET IMAGES
 
     public Image getProductImage(Product product) {

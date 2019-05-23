@@ -6,20 +6,23 @@
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.text.Font?>
 
-<fx:root maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="78.0" prefWidth="408.0" stylesheets="@css/stylesheet.css" type="AnchorPane" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1">
+<fx:root maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="78.0" prefWidth="415.0" stylesheets="@css/stylesheet.css" type="AnchorPane" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1">
    <children>
-      <Label fx:id="cartItemTotalPrice" layoutX="326.0" layoutY="38.4" style="-fx-font-weight: bold;" text="300,00" AnchorPane.bottomAnchor="10.0" AnchorPane.rightAnchor="6.0" AnchorPane.topAnchor="40.0">
+      <Label fx:id="itemTotalPricePreviousPurchaseLabel" layoutX="292.0" layoutY="40.0" style="-fx-font-weight: bold;" text="300,00" AnchorPane.bottomAnchor="9.0" AnchorPane.rightAnchor="47.0" AnchorPane.topAnchor="40.0">
          <font>
             <Font name="System Bold" size="15.0" />
          </font>
       </Label>
-      <Label fx:id="cartItemPrice" layoutX="319.8" layoutY="9.0" text="Á 30,00" AnchorPane.bottomAnchor="39.4" AnchorPane.rightAnchor="9.0" />
-      <Label fx:id="cartItemName" alignment="TOP_LEFT" layoutX="88.0" layoutY="10.0" prefHeight="30.0" prefWidth="220.0" text="Falukorv, 300g, Scan" AnchorPane.leftAnchor="88.0" AnchorPane.rightAnchor="100.0" AnchorPane.topAnchor="10.0" />
-      <Label layoutX="88.0" layoutY="40.0" text="2 st" AnchorPane.leftAnchor="88.0" AnchorPane.topAnchor="40.0" />
-      <ImageView fx:id="ImageView" fitHeight="65.0" fitWidth="79.0" layoutX="8.0" layoutY="7.0" pickOnBounds="true" preserveRatio="true">
+      <Label fx:id="itemPricePreviousPurchaseLabel" layoutX="292.0" layoutY="10.0" text="30,00" AnchorPane.bottomAnchor="38.4" AnchorPane.rightAnchor="65.39999999999998" />
+      <Label fx:id="itemPreviousPurchaseLabel" alignment="TOP_LEFT" layoutX="80.0" layoutY="9.0" prefHeight="30.0" prefWidth="190.0" text="Falukorv, 300g, Scan" AnchorPane.leftAnchor="80.0" AnchorPane.rightAnchor="145.0" AnchorPane.topAnchor="9.0" />
+      <Label fx:id="itemAmountPreviousPurchaseLabel" layoutX="80.0" layoutY="40.0" text="2" AnchorPane.leftAnchor="80.0" AnchorPane.topAnchor="40.0" />
+      <ImageView fx:id="detailPreviousPurchaseImageView" fitHeight="65.0" fitWidth="79.0" layoutX="4.0" layoutY="7.0" pickOnBounds="true" preserveRatio="true">
          <image>
             <Image url="@resources/placeholder.png" />
          </image>
       </ImageView>
+      <Label layoutX="116.0" layoutY="40.0" text="st" AnchorPane.leftAnchor="116.0" AnchorPane.topAnchor="40.0" />
+      <Label layoutX="377.0" layoutY="41.0" style="-fx-font-weight: bold;" text="kr" AnchorPane.rightAnchor="14.800000000000011" />
+      <Label layoutX="376.0" layoutY="10.0" text="kr" AnchorPane.rightAnchor="18.19999999999999" />
    </children>
 </fx:root>
