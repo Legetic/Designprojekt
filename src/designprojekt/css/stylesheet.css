@@ -140,6 +140,9 @@ https://blog.marvelapp.com/body-text-small/
     -fx-font-size: 18pt;
 }
 
+.amount-text-field{
+	padding-left: 0px;
+}
 
 .check-box .box{
     -fx-background-color: -fx-niceGray;
