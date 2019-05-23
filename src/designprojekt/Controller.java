@@ -503,7 +503,6 @@ public class Controller implements Initializable {
         if (totalPrice == 0.0) {
             totalPriceLabel.setText("0 kr");
         } else {
-            totalPrice = Math.round(totalPrice*100.0)/100.0;
             totalPriceLabel.setText(totalPrice + " kr");
         }
     }
@@ -560,7 +559,7 @@ public class Controller implements Initializable {
 
 
 
-    public void addProductFromOrderToCart(ShoppingItem item) {//TODO: implement separate method for the duplicate check
+    public void addProductFromOrderToCart(ShoppingItem item) { //Adds the order to the shopping cart
         Card productCard = cardMap.get(item.getProduct().getName());
         boolean isDuplicate = false;
         for (ShoppingItem si : dataHandler.getShoppingCart().getItems()) {
@@ -575,6 +574,7 @@ public class Controller implements Initializable {
             CartItem cartItem = new CartItem(item, this, productCard);
             productCard.setCartItem(cartItem);
             shoppingCartFlowPane.getChildren().add(cartItem);
+            incAmount(productCard);
 
             productCard.getAmountControl().setVisible(true);
             productCard.getAmountField().requestFocus();
