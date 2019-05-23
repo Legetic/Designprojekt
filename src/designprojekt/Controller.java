@@ -503,7 +503,7 @@ public class Controller implements Initializable {
         if (totalPrice == 0.0) {
             totalPriceLabel.setText("0 kr");
         } else {
-            totalPrice = Math.round(totalPrice*100.0)/100.0;
+            totalPrice = Math.round(totalPrice*100.0)/100.0; //rounds off cause of bug
             totalPriceLabel.setText(totalPrice + " kr");
         }
     }
@@ -520,6 +520,7 @@ public class Controller implements Initializable {
         card.getAmountControl().setVisible(false);
         card.getAddButton().setVisible(true);
         card.getAmountField().setText("1 st");
+        updateTotalLabel();
     }
 
     public void addProductToCart(Card productCard) {//TODO: implement separate method for the duplicate check
