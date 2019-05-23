@@ -214,7 +214,8 @@ public class Controller implements Initializable {
             public void changed(ObservableValue<? extends String> observable, String oldValue, String newValue) {
                 switch (newValue){
                     case "Ingen Sortering":
-                        updateMainGrid(unsortedList);
+                        Collections.sort(productsShown, new idComparator());
+                        updateMainGrid(productsShown);
                         break;
                     case "Högsta Pris":
                         Collections.sort(productsShown, new highestPriceComparator());
@@ -233,6 +234,7 @@ public class Controller implements Initializable {
 
         populateSortComboBox();
         updateMainGrid(imatBackendController.getProducts());
+        Collections.sort(productsShown, new idComparator());
         updateShoppingCart();
 
         unsortedList = imatBackendController.getProducts();
@@ -307,6 +309,11 @@ public class Controller implements Initializable {
     class highestPriceComparator implements Comparator<Product> {
         public int compare(Product p1, Product p2) {
             return (((int)(p2.getPrice() * 100)) - ((int)(p1.getPrice() * 100))) / 100;
+        }
+    }
+    class idComparator implements Comparator<Product> {
+        public int compare(Product p1, Product p2) {
+            return p1.getProductId() - p2.getProductId();
         }
     }
 
@@ -503,6 +510,7 @@ public class Controller implements Initializable {
         if (totalPrice == 0.0) {
             totalPriceLabel.setText("0 kr");
         } else {
+            totalPrice = Math.round(totalPrice*100.0)/100.0;
             totalPriceLabel.setText(totalPrice + " kr");
         }
     }
@@ -519,6 +527,7 @@ public class Controller implements Initializable {
         card.getAmountControl().setVisible(false);
         card.getAddButton().setVisible(true);
         card.getAmountField().setText("1 st");
+        updateTotalLabel();
     }
 
     public void addProductToCart(Card productCard) {//TODO: implement separate method for the duplicate check
@@ -559,7 +568,7 @@ public class Controller implements Initializable {
 
 
 
-    public void addProductFromOrderToCart(ShoppingItem item) { //Adds the order to the shopping cart
+    public void addProductFromOrderToCart(ShoppingItem item) {//TODO: implement separate method for the duplicate check
         Card productCard = cardMap.get(item.getProduct().getName());
         boolean isDuplicate = false;
         for (ShoppingItem si : dataHandler.getShoppingCart().getItems()) {
@@ -574,7 +583,6 @@ public class Controller implements Initializable {
             CartItem cartItem = new CartItem(item, this, productCard);
             productCard.setCartItem(cartItem);
             shoppingCartFlowPane.getChildren().add(cartItem);
-            incAmount(productCard);
 
             productCard.getAmountControl().setVisible(true);
             productCard.getAmountField().requestFocus();

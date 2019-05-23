@@ -84,7 +84,7 @@ Frukt  https://unsplash.com/photos/atzWFItRHy8
 /*Icon made by https://www.flaticon.com/authors/chanut from www.flaticon.com */
 /*Paste this attribution on the final work so the authorship is known (for instance, in the acknowledgements chapter of a book)*/
 
-/*Deisgnat för en 1920 x 1080 cm laptopskärm med 40cm diagonal vilket ger en ppi på 140, vi sänker detta något till 120ppi för att få bättre marginal på resultatet*/
+/*Deisgnat för en 1920 x 1080 pixlars laptopskärm med 40cm diagonal vilket ger en ppi på 140, vi sänker detta något till 120ppi för att få bättre marginal på resultatet*/
 /*Segoe UI valdes då det är den font som används till vanliga Microsoft-applikationer såsom Skype.
 Ytterligare har fonten en medelstor till stor x-height på 0.5 (ratio) (https://www.fonts.com/content/learning/fontology/level-1/type-anatomy/x-height) (http://jkorpela.fi/x-height.html),
 Om vi antar att användaren sitter runt än 40 cm ifrån skärmen kan vi beräkna läsbarheten (https://www.imarc.com/blog/best-font-size-for-any-device).
@@ -241,6 +241,30 @@ https://blog.marvelapp.com/body-text-small/
     -fx-border-color: #e0E0E0;
     -fx-border-radius: 4;
     -fx-border-width: 1;
+}
+
+.inputFieldError{
+    -fx-border-color: -fx-second4;
+    -fx-border-width: 2px;
+
+}
+.indicator{
+
+}
+.indicatorText{
+
+}
+.indicatorLine{
+
+ }
+.activeIndicator{
+-fx-fill: red;
+}
+.activeIndicatorLine{
+-fx-fill: red
+}
+.activeIndicatorText{
+-fx-text-fill: -fx-base4;
 }
 
 .checkoutCard{

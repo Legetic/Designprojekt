@@ -5,14 +5,19 @@ import javafx.beans.value.ObservableValue;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
+import javafx.scene.Node;
 import javafx.scene.control.*;
 import javafx.scene.image.ImageView;
 import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.FlowPane;
+import javafx.scene.shape.Circle;
+import javafx.scene.shape.Rectangle;
+import org.w3c.dom.Text;
 import se.chalmers.cse.dat216.project.*;
 
 import java.io.IOException;
 import java.net.URL;
+import java.util.ArrayList;
 import java.util.List;
 import java.util.ResourceBundle;
 
@@ -93,9 +98,41 @@ public class Checkout extends AnchorPane {
     private TextField stadFakturaTextField;
 
     @FXML
+    private Circle firstStepIndicator;
+    @FXML
+    private Circle secondStepIndicator;
+    @FXML
+    private Circle thirdStepIndicator;
+    @FXML
+    private Circle fourthStepIndicator;
+    @FXML
+    private Rectangle secondStepLine;
+    @FXML
+    private Rectangle thirdStepLine;
+    @FXML
+    private Rectangle fourthStepLine;
+    @FXML
+    private Label firstStepLabel;
+    @FXML
+    private Label secondStepLabel;
+    @FXML
+    private Label thirdStepLabel;
+    @FXML
+    private Label fourthStepLabel;
+
+    List<Node> sequenceMapParts = new ArrayList<>();
+
+
+    @FXML
     private Button nextButton;
     @FXML
     private Button backFromCheckoutButton;
+    @FXML
+    private Label checkoutTotal;
+    @FXML
+    private Label checkoutAmount;
+    @FXML
+    private Label errorMessage;
 
     @FXML
     private AnchorPane orderFinishedPanel;
@@ -103,6 +140,11 @@ public class Checkout extends AnchorPane {
     private int state = 0;
     private CreditCard creditCard ;
     private Customer customer;
+
+    List<TextField> userFields = new ArrayList<TextField>();
+    List<TextField> deliveryFields = new ArrayList<TextField>();
+    List<TextField> paymentCardFields = new ArrayList<TextField>();
+    List<TextField> paymentFakturaFields = new ArrayList<TextField>();
 
 
     public Checkout(Controller parentController){
@@ -125,6 +167,9 @@ public class Checkout extends AnchorPane {
         setRightAnchor(this, 0.0);
         setLeftAnchor(this, 0.0);
 
+
+        checkoutTotal.setText(parentController.imatBackendController.getShoppingCart().getTotal() + " kr");
+        checkoutAmount.setText(parentController.imatBackendController.getShoppingCart().getItems().size() + " st");
 
         loadUserPage();
         loadDeliveryPage();
@@ -155,6 +200,63 @@ public class Checkout extends AnchorPane {
         itemsCheckoutFlowpane.getChildren().clear();
         itemsCheckoutFlowpane.getChildren().addAll(parentController.shoppingCartFlowPane.getChildren());
 
+
+        userFields.add(lastNameTextField);
+        userFields.add(firstNameTextField);
+        userFields.add(phonenumberTextField);
+        userFields.add(mailTextField);
+        userFields.add(adressTextField);
+        userFields.add(postCodeTextField);
+        userFields.add(postAddressTextField);
+
+        deliveryFields.add(postCodeDeliveryTextField);
+        deliveryFields.add(cityDeliveryTextField);
+        deliveryFields.add(adressDeliveryTextField);
+        deliveryFields.add(firstNameDeliveryTextField);
+        deliveryFields.add(lastNameDeliveryTextField);
+
+        paymentCardFields.add(cardOwnerTextField);
+        paymentCardFields.add(cardNumberTextField);
+        paymentCardFields.add(monthTextField);
+        paymentCardFields.add(yearTextField);
+
+        paymentFakturaFields.add(adressFakturaTextField);
+        paymentFakturaFields.add(postCodeFakturaTextField);
+        paymentFakturaFields.add(nameFakturaTextField);
+        paymentFakturaFields.add(stadFakturaTextField);
+        paymentFakturaFields.add(personalNumberTextField);
+
+        for(TextField t : userFields){
+            t.textProperty().addListener((observable, oldValue, newValue) -> {
+                t.getStyleClass().remove("inputFieldError");
+            });
+        }
+        for(TextField t : deliveryFields){
+            t.textProperty().addListener((observable, oldValue, newValue) -> {
+                t.getStyleClass().remove("inputFieldError");
+            });
+        }
+        for(TextField t : paymentFakturaFields){
+            t.textProperty().addListener((observable, oldValue, newValue) -> {
+                t.getStyleClass().remove("inputFieldError");
+            });
+        }
+
+
+        sequenceMapParts.add(firstStepIndicator);
+        sequenceMapParts.add(secondStepIndicator);
+        sequenceMapParts.add(thirdStepIndicator);
+        sequenceMapParts.add(fourthStepIndicator);
+        sequenceMapParts.add(secondStepLine);
+        sequenceMapParts.add(thirdStepLine);
+        sequenceMapParts.add(fourthStepLine);
+        sequenceMapParts.add(firstStepLabel);
+        sequenceMapParts.add(secondStepLabel);
+        sequenceMapParts.add(thirdStepLabel);
+        sequenceMapParts.add(fourthStepLabel);
+
+        updateSequenceMap();
+
     }
 
     private void loadUserPage(){
@@ -182,7 +284,7 @@ public class Checkout extends AnchorPane {
 
 
         nameFakturaTextField.setText(customer.getFirstName() + " " + customer.getLastName());
-        adressTextField.setText(customer.getAddress());
+        adressFakturaTextField.setText(customer.getAddress());
         postCodeFakturaTextField.setText(customer.getPostCode());
         stadFakturaTextField.setText(customer.getPostAddress());
         //fakturan kan ej sparas
@@ -205,32 +307,176 @@ public class Checkout extends AnchorPane {
 
                 break;
             case 1:
-                if(parentController.imatBackendController.isCustomerComplete()) {
+                if(isUserComplete()) {
+                    errorMessage.setVisible(false);
                     openDeliveryPage();
+                }else{
+                    errorMessage.setVisible(true);
+                    checkUserErrors();
                 }
                 //System.out.println("HEJ PÅ DIG");
 
                 break;
             case 2:
-                openPaymentPage();
+                if(isDeliveryComplete()) {
+                    errorMessage.setVisible(false);
+                    openPaymentPage();
+                }else{
+                    errorMessage.setVisible(true);
+                    checkDeliveryErrors();
+                }
                 //System.out.println("HEJ PÅ DIG igen");
                 break;
             case 3:
-                if(parentController.imatBackendController.isCustomerComplete()){
+               // if(parentController.imatBackendController.isCustomerComplete()){
+                if(isPaymentComplete() && parentController.imatBackendController.isCustomerComplete()) {
+                    errorMessage.setVisible(false);
+
                     parentController.imatBackendController.placeOrder();
 
                     orderFinishedPanel.toFront();
                     backFromCheckoutButton.toFront();
+                }else{
+                    errorMessage.setVisible(true);
+                    checkPaymentErrors();
                 }
+               // }
                 //System.out.println("HEJ PÅ DIG igen");
                 break;
 
         }
 
     }
+    private void updateSequenceMap(){
+
+        for(Node n : sequenceMapParts){
+            n.getStyleClass().remove("activeIndicator");
+            n.getStyleClass().remove("activeIndicatorLine");
+            n.getStyleClass().remove("activeIndicatorText");
+        }
+
+        switch (state){
+            case 0:
+                firstStepIndicator.getStyleClass().add("activeIndicator");
+                firstStepLabel.getStyleClass().add("activeIndicatorText");
+                break;
+            case 1:
+                secondStepIndicator.getStyleClass().add("activeIndicator");
+                secondStepLabel.getStyleClass().add("activeIndicatorText");
+                secondStepLine.getStyleClass().add("activeIndicatorLine");
+
+                break;
+            case 2:
+                thirdStepIndicator.getStyleClass().add("activeIndicator");
+                thirdStepLabel.getStyleClass().add("activeIndicatorText");
+                secondStepLine.getStyleClass().add("activeIndicatorLine");
+                thirdStepLine.getStyleClass().add("activeIndicatorLine");
+                break;
+            case 3:
+                fourthStepIndicator.getStyleClass().add("activeIndicator");
+                fourthStepLabel.getStyleClass().add("activeIndicatorText");
+                fourthStepLine.getStyleClass().add("activeIndicatorLine");
+                thirdStepLine.getStyleClass().add("activeIndicatorLine");
+                secondStepLine.getStyleClass().add("activeIndicatorLine");
+                break;
+        }
+    }
+
+    private boolean isPaymentComplete(){
+        boolean isComplete = true;
+        if(cardRadioButton.isSelected()){
+            for(TextField t : paymentCardFields){
+                if(t.getText().equals("")){
+                    isComplete = false;
+                }
+            }
+        }else{
+            for(TextField t : paymentFakturaFields){
+                if(t.getText().equals("")){
+                    isComplete = false;
+                }
+            }
+        }
+
+        return isComplete;
+    }
+    private boolean isDeliveryComplete(){
+        boolean isComplete = true;
+        for(TextField t : deliveryFields){
+            if(t.getText().equals("")){
+                isComplete = false;
+            }
+        }
+        return isComplete;
+    }
+
+    private boolean isUserComplete(){
+        boolean isComplete = true;
+        for(TextField t : userFields){
+            if(t.getText().equals("")){
+                isComplete = false;
+            }
+        }
+        return isComplete;
+    }
+
+    private void checkUserErrors(){
+
+        for (TextField t : userFields) {
+            t.getStyleClass().remove("inputFieldError");
+            if (t.getText().equals("")) {
+                t.getStyleClass().add("inputFieldError");
+                t.setPromptText("Fältet får ej vara tomt");
+
+            }
+        }
+    }
+    private void checkPaymentErrors(){
+
+
+        if(cardRadioButton.isSelected()) {
+
+            for (TextField t : paymentCardFields) {
+                t.getStyleClass().remove("inputFieldError");
+                if (t.getText().equals("")) {
+                    t.getStyleClass().add("inputFieldError");
+                    t.setPromptText("Fältet får ej vara tomt");
+
+                }
+            }
+        }else{
+
+            for (TextField t : paymentFakturaFields) {
+                t.getStyleClass().remove("inputFieldError");
+                if (t.getText().equals("")) {
+                    t.getStyleClass().add("inputFieldError");
+                    t.setPromptText("Fältet får ej vara tomt");
+
+                }
+            }
+
+        }
+
+
+    }
+    private void checkDeliveryErrors(){
+
+        for (TextField t : deliveryFields) {
+            t.getStyleClass().remove("inputFieldError");
+
+            if (t.getText().equals("")) {
+                t.getStyleClass().add("inputFieldError");
+                t.setPromptText("Fältet får ej vara tomt");
+
+            }
+        }
+    }
+
+
     private void openPaymentPage(){
         state = 3;
         loadPaymentPage();
+        updateSequenceMap();
         paymentAnchorPane.toFront();
         nextButton.setText("Slutför");
 
@@ -238,6 +484,7 @@ public class Checkout extends AnchorPane {
     private void openDeliveryPage(){
         state = 2;
         loadDeliveryPage();
+        updateSequenceMap();
         deliveryAnchorPane.toFront();
         nextButton.setText("Fortsätt");
 
@@ -246,6 +493,7 @@ public class Checkout extends AnchorPane {
     private void openUserPage(){
         state = 1;
         loadUserPage();
+        updateSequenceMap();
         userAnchorPane.toFront();
         nextButton.setText("Fortsätt");
 
