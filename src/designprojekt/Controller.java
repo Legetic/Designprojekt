@@ -43,6 +43,8 @@ public class Controller implements Initializable {
     private AnchorPane startMenu;
     @FXML
     private BorderPane homePage;
+    @FXML
+    private Label totalPriceLabel;
 
 
     @FXML
@@ -86,6 +88,7 @@ public class Controller implements Initializable {
 
 
     Checkout checkout;
+    private double totalPrice = 0;
 
     //private List<Product> productList = new ArrayList<>();
     private List<ShoppingItem> cartList = new ArrayList<>();
@@ -191,7 +194,7 @@ public class Controller implements Initializable {
 
 
 
-        sortList.getItems().addAll("Ingen Sortering","Lägsta Pris", "Högsta Pris");
+        sortList.getItems().addAll("Ingen Sortering", "Lägsta Pris", "Högsta Pris");
         sortList.getSelectionModel().select("Ingen Sortering");
         sortList.getSelectionModel().selectedItemProperty().addListener(new ChangeListener<String>() {
             @Override
@@ -219,6 +222,7 @@ public class Controller implements Initializable {
 
 
     }
+
 
     private void populateSortComboBox() {
         Callback<ListView<String>, ListCell<String>> cellFactory = new Callback<ListView<String>, ListCell<String>>() {
@@ -385,6 +389,7 @@ public class Controller implements Initializable {
             }
         }
         closeEmptyPrompt();
+        updateTotalLabel();
     }
 
 
@@ -461,7 +466,25 @@ public class Controller implements Initializable {
     private void updatePrice(Label cartItemTotalPrice, ShoppingItem shoppingItem) {
         double totalPrice = Math.round(shoppingItem.getTotal()*100.0)/100.0; //rounds off price because of previous bug
         cartItemTotalPrice.setText(totalPrice + " kr"); //updates price
+        totalPriceLabel.setText(totalPrice + "kr");
+        updateTotalLabel();
 
+    }
+
+    private void updateTotalLabel() {
+        totalPrice = 0;
+        for(Node node : shoppingCartFlowPane.getChildren()) {
+            CartItem cartItem = (CartItem) node;
+            StringBuilder stringBuilder = new StringBuilder();
+            for (char c : cartItem.getCartItemTotalPrice().getText().toCharArray()) { //Isolates digits & '.'
+                if (Character.isDigit(c) || c == '.') {
+                    stringBuilder.append(c);
+                }
+            }
+            String price = stringBuilder.toString();
+            totalPrice += Double.parseDouble(price);
+        }
+        totalPriceLabel.setText(totalPrice + " kr");
     }
 
 
@@ -498,6 +521,7 @@ public class Controller implements Initializable {
             productCard.getAmountField().requestFocus();
             productCard.getAddButton().setVisible(false);
         }
+        updateTotalLabel();
     }
 
 
