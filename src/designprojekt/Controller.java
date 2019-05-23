@@ -215,6 +215,7 @@ public class Controller implements Initializable {
         });
 
         populateSortComboBox();
+       // updateShoppingCart();
         updateMainGrid(imatBackendController.getProducts());
         unsortedList = imatBackendController.getProducts();
 
@@ -361,7 +362,11 @@ public class Controller implements Initializable {
     private void updateShoppingCart() {//TODO: MAKE USE OF CARDS INSTEAD OF CARTITEMS!
         shoppingCartFlowPane.getChildren().clear();
         cartList = dataHandler.getShoppingCart().getItems();
+
         for (ShoppingItem s : cartList) {
+            System.out.println(s.getProduct().getName());
+            Card productCard = cardMap.get(s.getProduct().getName());
+           // addingTheCardToCart(productCard);
             //CartItem cartItem = new CartItem(s, this);
             //shoppingCartFlowPane.getChildren().add(cartItem);
 
@@ -494,6 +499,20 @@ public class Controller implements Initializable {
             productCard.getAddButton().setVisible(false);
         }
     }
+
+    private void addingTheCardToCart(Card productCard){
+        ShoppingItem item = new ShoppingItem(productCard.getProduct());
+        dataHandler.getShoppingCart().addItem(item);
+
+        CartItem cartItem = new CartItem(item, this, productCard);
+        productCard.setCartItem(cartItem);
+        shoppingCartFlowPane.getChildren().add(cartItem);
+
+        productCard.getAmountControl().setVisible(true);
+        productCard.getAmountField().requestFocus();
+        productCard.getAddButton().setVisible(false);
+    }
+
 
 
     public void addProductFromOrderToCart(ShoppingItem item) {//TODO: implement separate method for the duplicate check

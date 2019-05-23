@@ -42,7 +42,7 @@ public class itemPreviousPurchase extends AnchorPane {
 
         detailPreviousPurchaseImageView.setImage(this.parentController.getProductImage(shoppingItem.getProduct()));
         itemPreviousPurchaseLabel.setText(shoppingItem.getProduct().getName());
-        itemAmountPreviousPurchaseLabel.setText(shoppingItem.getAmount() * 100 /100 + "");
+        itemAmountPreviousPurchaseLabel.setText((int)shoppingItem.getAmount() + "");
         itemPricePreviousPurchaseLabel.setText(shoppingItem.getProduct().getPrice() + "");
         itemTotalPricePreviousPurchaseLabel.setText(shoppingItem.getTotal() + "");
     }

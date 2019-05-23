@@ -14,14 +14,14 @@
          </font>
       </Label>
       <Label fx:id="itemPricePreviousPurchaseLabel" layoutX="292.0" layoutY="10.0" text="30,00" AnchorPane.bottomAnchor="38.4" AnchorPane.rightAnchor="65.39999999999998" />
-      <Label fx:id="itemPreviousPurchaseLabel" alignment="TOP_LEFT" layoutX="80.0" layoutY="9.0" prefHeight="30.0" prefWidth="190.0" text="Falukorv, 300g, Scan" AnchorPane.leftAnchor="80.0" AnchorPane.rightAnchor="145.0" AnchorPane.topAnchor="9.0" />
-      <Label fx:id="itemAmountPreviousPurchaseLabel" layoutX="80.0" layoutY="40.0" text="2" AnchorPane.leftAnchor="80.0" AnchorPane.topAnchor="40.0" />
+      <Label fx:id="itemPreviousPurchaseLabel" alignment="TOP_LEFT" layoutX="93.0" layoutY="9.0" prefHeight="30.0" prefWidth="190.0" text="Falukorv, 300g, Scan" AnchorPane.leftAnchor="93.0" AnchorPane.rightAnchor="132.0" AnchorPane.topAnchor="9.0" />
+      <Label fx:id="itemAmountPreviousPurchaseLabel" layoutX="174.0" layoutY="40.0" text="2" AnchorPane.leftAnchor="174.0" AnchorPane.topAnchor="40.0" />
       <ImageView fx:id="detailPreviousPurchaseImageView" fitHeight="65.0" fitWidth="79.0" layoutX="4.0" layoutY="7.0" pickOnBounds="true" preserveRatio="true">
          <image>
             <Image url="@resources/placeholder.png" />
          </image>
       </ImageView>
-      <Label layoutX="116.0" layoutY="40.0" text="st" AnchorPane.leftAnchor="116.0" AnchorPane.topAnchor="40.0" />
+      <Label layoutX="93.0" layoutY="40.0" text="Antal:" AnchorPane.leftAnchor="93.0" AnchorPane.topAnchor="40.0" />
       <Label layoutX="377.0" layoutY="41.0" style="-fx-font-weight: bold;" text="kr" AnchorPane.rightAnchor="14.800000000000011" />
       <Label layoutX="376.0" layoutY="10.0" text="kr" AnchorPane.rightAnchor="18.19999999999999" />
    </children>
