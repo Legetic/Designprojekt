@@ -91,7 +91,6 @@ public class Controller implements Initializable {
 
 
     private List<Product> productsShown;
-    private List<Product> unsortedList;
 
 
     private Checkout checkout;
@@ -586,6 +585,7 @@ public class Controller implements Initializable {
         for (ShoppingItem si : dataHandler.getShoppingCart().getItems()) {
             if (si.getProduct().equals(productCard.getProduct())) {
                 isDuplicate = true;
+                incAmount(productCard);
                 break;
             }
         }
