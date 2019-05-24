@@ -470,18 +470,18 @@ public class Controller implements Initializable {
         } catch (NumberFormatException e) {
             StringBuilder stringBuilder = new StringBuilder();
             for (char c : amountField.getText().toCharArray()) { //Isolates digits
-                if (Character.isDigit(c)) {
+                if (Character.isDigit(c) || c == '.') {
                     stringBuilder.append(c);
                 }
             }
             String digitString = stringBuilder.toString();
             if (!digitString.isEmpty()) { //if the string is empty (contained no digits), reset amount
-                shoppingItem.setAmount(Integer.parseInt(digitString));
+                shoppingItem.setAmount(Double.parseDouble(digitString) + 0.5);
             } else {
                 shoppingItem.setAmount(shoppingItem.getAmount());
             }
         }
-        if (shoppingItem.getAmount() <= 0) {
+        if (shoppingItem.getAmount() < 1) {
             return null; //TODO: DANGEROUS TO SET A STRING TO NULL? May fix this in future.
         }
         return ((int) shoppingItem.getAmount()) + " st";
