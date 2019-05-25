@@ -3,6 +3,7 @@ package designprojekt;
 import javafx.beans.value.ChangeListener;
 import javafx.beans.value.ObservableValue;
 import javafx.collections.ListChangeListener;
+import javafx.event.EventHandler;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.Node;
@@ -11,6 +12,7 @@ import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.scene.input.KeyCode;
 import javafx.scene.input.KeyEvent;
+import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.BorderPane;
 import javafx.scene.layout.FlowPane;
@@ -53,7 +55,7 @@ public class Controller implements Initializable {
     @FXML
     private FlowPane mainGrid;
     @FXML
-    private ImageView mainGridCategoryImage;
+    private AnchorPane mainGridCategoryImage;
     @FXML
     private Button startPage_exit_btn;
     @FXML
@@ -89,6 +91,13 @@ public class Controller implements Initializable {
     private TextField searchBar;
     @FXML
     private ScrollPane searchPane;
+
+    private Button currentCategoryButton;
+
+    @FXML
+    private Label featureHeader;
+    @FXML
+    private Label featureText;
 
 
     private List<Product> productsShown;
@@ -172,17 +181,17 @@ public class Controller implements Initializable {
 
         searchBar.textProperty().addListener((observable, oldValue, newValue) -> {
 
-            openSearchList();
+            if(searchBar.getText() != "") {
+                openSearchList();
 
+                List<String> searchResults = new ArrayList<String>();
+                for (Product product : dataHandler.findProducts(searchBar.getText())) {
+                    searchResults.add(product.getName());
+                }
 
-            List<String> searchResults = new ArrayList<String>();
-            for(Product product : dataHandler.findProducts(searchBar.getText())) {
-                searchResults.add(product.getName());
-            }
+                //dataHandler.findProducts(searchBar.getText());
 
-            //dataHandler.findProducts(searchBar.getText());
-
-            searchList.getItems().clear();
+                searchList.getItems().clear();
 
             /*for(Product p : searchResults){
                 int searchStringStart = p.getName().indexOf(searchBar.getText());
@@ -199,7 +208,11 @@ public class Controller implements Initializable {
 
                 searchList.getItems().addAll(textFlow);
             }*/
-            searchList.getItems().addAll(searchResults);
+                searchList.getItems().addAll(searchResults);
+            }else{
+                searchList.getItems().clear();
+                closeSearchList();
+            }
 
         });
 
@@ -235,12 +248,78 @@ public class Controller implements Initializable {
         });
 
 
+        for(Node d : categoryList.getChildren()){
+            if(d instanceof Button){
+                d.setOnMouseClicked(ev -> {
+                    //System.out.println(((Button) d).getText());
+                    if(currentCategoryButton != null) {
+                        currentCategoryButton.getStyleClass().remove("currentCategory");
+                    }
+                    currentCategoryButton = (Button) d;
+                    currentCategoryButton.getStyleClass().add("currentCategory");
+                    changeFeature(((Button) d).getText());
+
+                });
+            }
+        }
+
+
+        changeFeature("Alla Produkter");
         populateSortComboBox();
         updateMainGrid(imatBackendController.getProducts());
         Collections.sort(productsShown, new idComparator());
         updateShoppingCart();
 
 
+    }
+
+    private void changeFeature(String category){
+        String imagePath = "";
+        String headerText = "";
+        String description = "";
+        switch (category){
+            case "Alla Produkter":
+                imagePath = "Designprojekt/resources/categoryPictures/StartPage.jpg";
+                headerText = "Välkommen!";
+                description = "Här hittar du allt du behöver för att laga mat.";
+
+                break;
+            case "Baljväxter":
+                    imagePath = "Designprojekt/resources/categoryPictures/Pod.jpg";
+                    headerText = "Baljväxter";
+                    description = "Allt från bönor till ärtor.";
+
+                break;
+            case "Bröd":
+                imagePath = "Designprojekt/resources/categoryPictures/Bread.jpg";
+                headerText = "Bröd";
+                description = "Nybakat var det här!";
+
+                break;
+            case "Bär":
+                imagePath = "Designprojekt/resources/categoryPictures/berry.jpg";
+                headerText = "Bär";
+                description = "Små och söta.";
+
+                break;
+            case "Citrus Frukter":
+                imagePath = "Designprojekt/resources/categoryPictures/Citrus.jpg";
+                headerText = "Citrus Frukter";
+                description = "Allt det där sura.";
+
+                break;
+
+
+
+        }
+        setFeature(imagePath, headerText, description);
+    }
+    private void setFeature(String imagePath, String headerText, String description){
+
+        mainGridCategoryImage.setStyle("-fx-background-image: url('" + imagePath + "'); " +
+                "-fx-background-position: center; " + "-fx-background-size: cover");
+        featureHeader.setText(headerText);
+        featureText.setText(description);
     }
 
     private void checkCart() {
@@ -367,8 +446,12 @@ public class Controller implements Initializable {
         List<Product> searchResult = new ArrayList<>();
         String searchString = "";
         if (searchList.getSelectionModel().getSelectedItem() == null) {
-            searchString = searchBar.getText();
-            searchResult = dataHandler.findProducts(searchString);
+            if(searchBar.getText() != "") {
+                searchString = searchBar.getText();
+                searchResult = dataHandler.findProducts(searchString);
+            }else{
+                searchResult = imatBackendController.getProducts();
+            }
 
         } else {
             searchString = searchList.getSelectionModel().getSelectedItem().toString();
@@ -708,6 +791,8 @@ public class Controller implements Initializable {
         textField.selectAll();
     }
 
+
+
     @FXML
     public void showPOD() {
         updateMainGrid(imatBackendController.getProducts(ProductCategory.POD));
@@ -811,6 +896,10 @@ public class Controller implements Initializable {
     @FXML
     public void showHERB() {
         updateMainGrid(imatBackendController.getProducts(ProductCategory.HERB));
+    }
+    @FXML
+    public void showAll() {
+        updateMainGrid(imatBackendController.getProducts());
     }
 
 

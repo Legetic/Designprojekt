@@ -22,6 +22,8 @@ public class Card extends AnchorPane {
     private Label cardPrice;
     @FXML
     private Label cardName;
+    @FXML
+    private Label cardCompPrice;
 
 
     @FXML
@@ -50,6 +52,7 @@ public class Card extends AnchorPane {
         cardImage.setImage(this.parentController.getProductImage(product));
         cardName.setText(product.getName());
         cardPrice.setText(product.getPrice() + "");
+        cardCompPrice.setText(product.getUnit());
 
         amountTextField.focusedProperty().addListener((ov, oldV, newV) -> { //executes setAmount() on lost focus
             if (!newV) {
