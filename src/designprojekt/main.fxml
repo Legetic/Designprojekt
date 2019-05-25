@@ -203,10 +203,10 @@
                                     <String fx:value="cart" />
                                  </styleClass>
                               </Label>
-                              <GridPane AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0">
+                              <GridPane AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="10.0" AnchorPane.rightAnchor="0.0">
                                 <columnConstraints>
-                                  <ColumnConstraints hgrow="SOMETIMES" maxWidth="255.0" minWidth="10.0" prefWidth="100.0" />
-                                  <ColumnConstraints hgrow="SOMETIMES" maxWidth="287.0" minWidth="10.0" prefWidth="271.0" />
+                                  <ColumnConstraints hgrow="SOMETIMES" maxWidth="255.0" minWidth="10.0" prefWidth="106.0" />
+                                  <ColumnConstraints hgrow="SOMETIMES" maxWidth="287.0" minWidth="10.0" prefWidth="255.0" />
                                 </columnConstraints>
                                 <rowConstraints>
                                   <RowConstraints minHeight="10.0" prefHeight="50.0" vgrow="SOMETIMES" />
@@ -253,16 +253,14 @@
             </AnchorPane>
          </right>
          <left>
-            <AnchorPane prefHeight="579.0" prefWidth="215.0" BorderPane.alignment="CENTER">
+            <AnchorPane prefHeight="501.0" prefWidth="211.0" BorderPane.alignment="CENTER">
                <children>
-                  <ScrollPane fitToHeight="true" fitToWidth="true" hbarPolicy="NEVER" prefHeight="646.0" prefWidth="215.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+                  <ScrollPane fitToHeight="true" fitToWidth="true" hbarPolicy="NEVER" prefHeight="501.0" prefWidth="236.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
                      <content>
                         <AnchorPane prefHeight="546.0" prefWidth="213.0">
                            <children>
-                              <VBox fx:id="categoryList" prefHeight="494.0" prefWidth="204.0" AnchorPane.leftAnchor="-4.0" AnchorPane.rightAnchor="-4.0" AnchorPane.topAnchor="0.0">
+                              <VBox fx:id="categoryList" prefHeight="494.0" prefWidth="234.0" AnchorPane.leftAnchor="-4.0" AnchorPane.rightAnchor="-4.0" AnchorPane.topAnchor="0.0">
                                  <children>
-                                    <Button alignment="TOP_LEFT" mnemonicParsing="false" prefHeight="31.0" prefWidth="312.0" styleClass="browseButton" text="Favoritvaror" />
-                                    <Button alignment="TOP_LEFT" mnemonicParsing="false" prefHeight="31.0" prefWidth="312.0" styleClass="browseButton" text="Nånting till" />
                                     <Label alignment="BOTTOM_LEFT" minHeight="-Infinity" prefHeight="63.0" prefWidth="204.0" style="-fx-text-fill: -fx-base1;" styleClass="h3" text="Sortiment" VBox.vgrow="NEVER">
                                        <font>
                                           <Font size="23.0" />
@@ -274,14 +272,27 @@
                                           <Insets />
                                        </VBox.margin>
                                     </Label>
-                                    <Button alignment="TOP_LEFT" mnemonicParsing="false" onAction="#showVEGETABLE_FRUIT" prefHeight="31.0" prefWidth="312.0" styleClass="browseButton" text="Frukt &amp; Grönt" />
-                                    <Button alignment="TOP_LEFT" mnemonicParsing="false" onAction="#showDAIRIES" prefHeight="31.0" prefWidth="221.0" styleClass="browseButton" text="Mejeriprodukter" />
-                                    <Button fx:id="meatCategory" alignment="TOP_LEFT" mnemonicParsing="false" onAction="#showMEAT" prefHeight="31.0" prefWidth="312.0" styleClass="browseButton" text="Kött &amp; Fisk" />
-                                    <Button alignment="TOP_LEFT" mnemonicParsing="false" onAction="#showPASTA" prefHeight="35.0" prefWidth="222.0" styleClass="browseButton" text="Potatis, Ris &amp; Pasta" />
-                                    <Button alignment="TOP_LEFT" mnemonicParsing="false" prefHeight="35.0" prefWidth="222.0" styleClass="browseButton" text="Skafferi" />
-                                    <Button alignment="TOP_LEFT" mnemonicParsing="false" prefHeight="31.0" prefWidth="312.0" styleClass="browseButton" text="Dryck" />
-                                    <Button alignment="TOP_LEFT" mnemonicParsing="false" prefHeight="31.0" prefWidth="221.0" styleClass="browseButton" text="Sötsaker" />
-                                    <Button alignment="TOP_LEFT" mnemonicParsing="false" prefHeight="31.0" prefWidth="221.0" styleClass="browseButton" text="Örtkryddor" />
+                                    <Button alignment="TOP_LEFT" mnemonicParsing="false" onAction="#showPOD" prefHeight="31.0" prefWidth="300.0" styleClass="browseButton" text="Baljväxter" />
+                                    <Button alignment="TOP_LEFT" mnemonicParsing="false" onAction="#showBREAD" prefHeight="31.0" prefWidth="300.0" styleClass="browseButton" text="Bröd" />
+                                    <Button fx:id="meatCategory" alignment="TOP_LEFT" mnemonicParsing="false" onAction="#showBERRY" prefHeight="31.0" prefWidth="300.0" styleClass="browseButton" text="Bär" />
+                                    <Button alignment="TOP_LEFT" mnemonicParsing="false" onAction="#showCITRUS" prefHeight="50.0" prefWidth="300.0" styleClass="browseButton" text="Citrus Frukter" />
+                                    <Button alignment="TOP_LEFT" mnemonicParsing="false" onAction="#showHOT_DRINKS" prefHeight="50.0" prefWidth="300.0" styleClass="browseButton" text="Varma Drycker" />
+                                    <Button alignment="TOP_LEFT" mnemonicParsing="false" onAction="#showCOLD_DRINKS" prefHeight="31.0" prefWidth="300.0" styleClass="browseButton" text="Kalla Drycker" />
+                                    <Button alignment="TOP_LEFT" mnemonicParsing="false" onAction="#showEXOTIC" prefHeight="31.0" prefWidth="300.0" styleClass="browseButton" text="Exotisk Frukt" />
+                                    <Button alignment="TOP_LEFT" mnemonicParsing="false" onAction="#showFISH" prefHeight="31.0" prefWidth="300.0" styleClass="browseButton" text="Fisk" />
+                                    <Button alignment="TOP_LEFT" mnemonicParsing="false" onAction="#showVEGETABLE_FRUIT" prefHeight="31.0" prefWidth="300.0" styleClass="browseButton" text="Frukt &amp; Grönt" />
+                                    <Button alignment="TOP_LEFT" mnemonicParsing="false" onAction="#showCABBAGE" prefHeight="31.0" prefWidth="300.0" styleClass="browseButton" text="Kål" />
+                                    <Button alignment="TOP_LEFT" mnemonicParsing="false" onAction="#showMEAT" prefHeight="31.0" prefWidth="300.0" styleClass="browseButton" text="Kött" />
+                                    <Button alignment="TOP_LEFT" mnemonicParsing="false" onAction="#showDAIRIES" prefHeight="31.0" prefWidth="300.0" styleClass="browseButton" text="Mjölkprodukter" />
+                                    <Button alignment="TOP_LEFT" mnemonicParsing="false" onAction="#showMELONS" prefHeight="31.0" prefWidth="300.0" styleClass="browseButton" text="Meloner" />
+                                    <Button alignment="TOP_LEFT" maxHeight="62.0" maxWidth="300.0" minHeight="79.0" mnemonicParsing="false" onAction="#showFLOUR_SUGAR_SALT" prefHeight="79.0" prefWidth="204.0" styleClass="browseButton" text="Mjöl, Socker &amp; Salt" wrapText="true" />
+                                    <Button alignment="TOP_LEFT" mnemonicParsing="false" onAction="#showNUTS_AND_SEEDS" prefHeight="31.0" prefWidth="300.0" styleClass="browseButton" text="Nötter &amp; Frön" />
+                                    <Button alignment="TOP_LEFT" mnemonicParsing="false" onAction="#showPASTA" prefHeight="31.0" prefWidth="300.0" styleClass="browseButton" text="Pasta" />
+                                    <Button alignment="TOP_LEFT" mnemonicParsing="false" onAction="#showPOTATO_RICE" prefHeight="31.0" prefWidth="300.0" styleClass="browseButton" text="Potatis &amp; Ris" />
+                                    <Button alignment="TOP_LEFT" mnemonicParsing="false" onAction="#showROOT_VEGETABLE" prefHeight="31.0" prefWidth="300.0" styleClass="browseButton" text="Rotfrukter" />
+                                    <Button alignment="TOP_LEFT" mnemonicParsing="false" onAction="#showFRUIT" prefHeight="31.0" prefWidth="300.0" styleClass="browseButton" text="Frukt" />
+                                    <Button alignment="TOP_LEFT" mnemonicParsing="false" onAction="#showSWEET" prefHeight="31.0" prefWidth="300.0" styleClass="browseButton" text="Sötsaker" />
+                                    <Button alignment="TOP_LEFT" mnemonicParsing="false" onAction="#showHERB" prefHeight="31.0" prefWidth="300.0" styleClass="browseButton" text="Örter" />
                                  </children>
                               </VBox>
                            </children>
