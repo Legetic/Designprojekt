@@ -81,7 +81,6 @@ public class Controller implements Initializable {
     private AnchorPane fullscreenPage;
 
 
-
     @FXML
     private ListView searchList;
     @FXML
@@ -111,26 +110,26 @@ public class Controller implements Initializable {
             cardMap.put(item.getName(), productCard);
         }
 
-        searchBar.addEventFilter(KeyEvent.KEY_PRESSED, ( KeyEvent event ) ->  {
-            if(event.getCode() == KeyCode.DOWN) {
+        searchBar.addEventFilter(KeyEvent.KEY_PRESSED, (KeyEvent event) -> {
+            if (event.getCode() == KeyCode.DOWN) {
                 searchList.requestFocus();
                 searchList.getFocusModel().focusNext();
                 //searchList.getSelectionModel().selectNext();
             }
-            if(event.getCode() == KeyCode.UP) {
+            if (event.getCode() == KeyCode.UP) {
                 searchList.getSelectionModel().selectPrevious();
             }
 
-            if(event.getCode() == KeyCode.ENTER) {
+            if (event.getCode() == KeyCode.ENTER) {
                 search();
                 closeSearchList();
 
             }
 
-            });
-        searchList.addEventFilter(KeyEvent.KEY_PRESSED, ( KeyEvent event ) ->  {
+        });
+        searchList.addEventFilter(KeyEvent.KEY_PRESSED, (KeyEvent event) -> {
 
-            if(event.getCode() == KeyCode.ENTER) {
+            if (event.getCode() == KeyCode.ENTER) {
                 search();
                 closeSearchList();
 
@@ -174,7 +173,12 @@ public class Controller implements Initializable {
             openSearchList();
 
 
-            List<Product> searchResults = dataHandler.findProducts(searchBar.getText());
+            List<String> searchResults = new ArrayList<String>();
+            for(Product product : dataHandler.findProducts(searchBar.getText())) {
+                searchResults.add(product.getName());
+            }
+
+            //dataHandler.findProducts(searchBar.getText());
 
             searchList.getItems().clear();
 
@@ -205,12 +209,12 @@ public class Controller implements Initializable {
         });
 
 
-        sortList.getItems().addAll("Ingen Sortering","Lägsta Pris", "Högsta Pris");
+        sortList.getItems().addAll("Ingen Sortering", "Lägsta Pris", "Högsta Pris");
         sortList.getSelectionModel().select("Ingen Sortering");
         sortList.getSelectionModel().selectedItemProperty().addListener(new ChangeListener<String>() {
             @Override
             public void changed(ObservableValue<? extends String> observable, String oldValue, String newValue) {
-                switch (newValue){
+                switch (newValue) {
                     case "Ingen Sortering":
                         Collections.sort(productsShown, new idComparator());
                         updateMainGrid(productsShown);
@@ -227,7 +231,6 @@ public class Controller implements Initializable {
                 }
             }
         });
-
 
 
         populateSortComboBox();
@@ -311,15 +314,16 @@ public class Controller implements Initializable {
 
     class lowestPriceComparator implements Comparator<Product> {
         public int compare(Product p1, Product p2) {
-            return (((int)(p1.getPrice() * 100)) - ((int)(p2.getPrice() * 100))) / 100;
+            return (((int) (p1.getPrice() * 100)) - ((int) (p2.getPrice() * 100))) / 100;
         }
     }
 
     class highestPriceComparator implements Comparator<Product> {
         public int compare(Product p1, Product p2) {
-            return (((int)(p2.getPrice() * 100)) - ((int)(p1.getPrice() * 100))) / 100;
+            return (((int) (p2.getPrice() * 100)) - ((int) (p1.getPrice() * 100))) / 100;
         }
     }
+
     class idComparator implements Comparator<Product> {
         public int compare(Product p1, Product p2) {
             return p1.getProductId() - p2.getProductId();
@@ -337,7 +341,6 @@ public class Controller implements Initializable {
         }
 
     }
-
 
 
     @FXML
@@ -361,16 +364,16 @@ public class Controller implements Initializable {
     private void search() {
         List<Product> searchResult = new ArrayList<>();
         String searchString = "";
-        if(searchList.getSelectionModel().getSelectedItem() == null){
+        if (searchList.getSelectionModel().getSelectedItem() == null) {
             searchString = searchBar.getText();
-           searchResult = dataHandler.findProducts(searchString);
+            searchResult = dataHandler.findProducts(searchString);
 
-        }else{
+        } else {
             searchString = searchList.getSelectionModel().getSelectedItem().toString();
             int startIndex = 0;
-            for (int i = 0; i < searchString.length(); i++){
+            for (int i = 0; i < searchString.length(); i++) {
                 char c = searchString.charAt(i);
-                if(Character.isLetter(c)){
+                if (Character.isLetter(c)) {
                     startIndex = i;
                     break;
                 }
@@ -379,11 +382,11 @@ public class Controller implements Initializable {
             searchResult = dataHandler.findProducts(searchString.substring(startIndex));
 
         }
-        if(searchString == "") {
+        if (searchString == "") {
             updateMainGrid(imatBackendController.getProducts());
-        }else if(searchResult.size() == 0){
+        } else if (searchResult.size() == 0) {
             //INGA SÖKRESULTAT
-        }else{
+        } else {
             updateMainGrid(searchResult);
 
 
@@ -400,7 +403,7 @@ public class Controller implements Initializable {
         for (ShoppingItem s : cartList) {
             CartItem cartItem = new CartItem(s, this, cardMap.get(s.getProduct().getName()));
             cardMap.get(s.getProduct().getName()).setCartItem(cartItem);
-            cardMap.get(s.getProduct().getName()).getAmountField().setText("" + (int)s.getAmount());
+            cardMap.get(s.getProduct().getName()).getAmountField().setText("" + (int) s.getAmount());
             cardMap.get(s.getProduct().getName()).setAmount();
 
             cardMap.get(s.getProduct().getName()).getAmountControl().setVisible(true);
@@ -431,7 +434,7 @@ public class Controller implements Initializable {
 
     protected void decAmount(Card card) { //Needs card as argument
         card.getCartItem().getShoppingItem().setAmount(card.getCartItem().getShoppingItem().getAmount() - 1);
-        if(card.getCartItem().getShoppingItem().getAmount() < 1) {
+        if (card.getCartItem().getShoppingItem().getAmount() < 1) {
             card.getCartItem().getShoppingItem().setAmount(1);
             removeItem(card);
         }
@@ -443,7 +446,7 @@ public class Controller implements Initializable {
 
     protected void incAmount(Card card) { //doesn't need everything that card has
         card.getCartItem().getShoppingItem().setAmount(card.getCartItem().getShoppingItem().getAmount() + 1);
-        if(card.getCartItem().getShoppingItem().getAmount() < 1) { //Maybe redundant
+        if (card.getCartItem().getShoppingItem().getAmount() < 1) { //Maybe redundant
             card.getCartItem().getShoppingItem().setAmount(1);
         }
         card.getAmountField().setText(((int) card.getCartItem().getShoppingItem().getAmount() + " st"));
@@ -453,7 +456,7 @@ public class Controller implements Initializable {
 
 
     protected void setAmount(Card card, boolean readCard) {
-        if(readCard) {
+        if (readCard) {
             updateAmounts(card, readAmount(card.getCartItem().getShoppingItem(), card.getAmountField()));
         } else {
             updateAmounts(card, readAmount(card.getCartItem().getShoppingItem(), card.getCartItem().getAmountField()));
@@ -488,7 +491,7 @@ public class Controller implements Initializable {
 
     private void updateAmounts(Card card, String updateString) {
         try {
-            if((updateString.equals(null)));
+            if ((updateString.equals(null))) ;
         } catch (NullPointerException e) {
             removeItem(card);
             return;
@@ -498,7 +501,7 @@ public class Controller implements Initializable {
     }
 
     private void updatePrice(Label cartItemTotalPrice, ShoppingItem shoppingItem) {
-        double totalPrice = Math.round(shoppingItem.getTotal()*100.0)/100.0; //rounds off price because of previous bug
+        double totalPrice = Math.round(shoppingItem.getTotal() * 100.0) / 100.0; //rounds off price because of previous bug
         cartItemTotalPrice.setText(totalPrice + " kr"); //updates price
         totalPriceLabel.setText(totalPrice + "kr");
         updateTotalLabel();
@@ -521,7 +524,7 @@ public class Controller implements Initializable {
         if (totalPrice == 0.0) {
             totalPriceLabel.setText("0 kr");
         } else {
-            totalPrice = Math.round(totalPrice*100.0)/100.0; //rounds off cause of bug
+            totalPrice = Math.round(totalPrice * 100.0) / 100.0; //rounds off cause of bug
             totalPriceLabel.setText(totalPrice + " kr");
         }
     }
@@ -529,8 +532,8 @@ public class Controller implements Initializable {
 
     protected void removeItem(Card card) {
         shoppingCartFlowPane.getChildren().remove(card.getCartItem());
-        if(checkout != null){
-            if(!checkout.itemsCheckoutFlowpane.getChildren().isEmpty()){
+        if (checkout != null) {
+            if (!checkout.itemsCheckoutFlowpane.getChildren().isEmpty()) {
                 checkout.itemsCheckoutFlowpane.getChildren().remove(card.getCartItem());
             }
         }
@@ -576,7 +579,6 @@ public class Controller implements Initializable {
         productCard.getAmountField().requestFocus();
         productCard.getAddButton().setVisible(false);
     }*/
-
 
 
     public void addProductFromOrderToCart(ShoppingItem item) {//TODO: implement separate method for the duplicate check
@@ -677,13 +679,13 @@ public class Controller implements Initializable {
     }
 
     @FXML
-    public void openEmptyPrompt(){
+    public void openEmptyPrompt() {
         emptyPrompt.toFront();
         emptyButton.getStyleClass().add("activeEmptyButton");
     }
 
     @FXML
-    public void closeEmptyPrompt(){
+    public void closeEmptyPrompt() {
         emptyPrompt.toBack();
         emptyButton.getStyleClass().remove("activeEmptyButton");
 
@@ -693,8 +695,8 @@ public class Controller implements Initializable {
     public void goHome() {
         homePage.toFront();
 
-        if(checkout != null){
-            if(!checkout.itemsCheckoutFlowpane.getChildren().isEmpty()){
+        if (checkout != null) {
+            if (!checkout.itemsCheckoutFlowpane.getChildren().isEmpty()) {
                 shoppingCartFlowPane.getChildren().addAll(checkout.itemsCheckoutFlowpane.getChildren());
             }
         }
@@ -704,68 +706,108 @@ public class Controller implements Initializable {
         textField.selectAll();
     }
 
-    @FXML public void showPOD(){
+    @FXML
+    public void showPOD() {
         updateMainGrid(imatBackendController.getProducts(ProductCategory.POD));
     }
-    @FXML public void showBREAD(){
+
+    @FXML
+    public void showBREAD() {
         updateMainGrid(imatBackendController.getProducts(ProductCategory.BREAD));
     }
-    @FXML public void showBERRY(){
+
+    @FXML
+    public void showBERRY() {
         updateMainGrid(imatBackendController.getProducts(ProductCategory.BERRY));
     }
-    @FXML public void showCITRUS(){
+
+    @FXML
+    public void showCITRUS() {
         updateMainGrid(imatBackendController.getProducts(ProductCategory.CITRUS_FRUIT));
     }
-    @FXML public void showHOT_DRINKS(){
+
+    @FXML
+    public void showHOT_DRINKS() {
         updateMainGrid(imatBackendController.getProducts(ProductCategory.HOT_DRINKS));
     }
-    @FXML public void showCOLD_DRINKS(){
+
+    @FXML
+    public void showCOLD_DRINKS() {
         updateMainGrid(imatBackendController.getProducts(ProductCategory.COLD_DRINKS));
     }
-    @FXML public void showEXOTIC(){
+
+    @FXML
+    public void showEXOTIC() {
         updateMainGrid(imatBackendController.getProducts(ProductCategory.EXOTIC_FRUIT));
     }
-    @FXML public void showFISH(){
+
+    @FXML
+    public void showFISH() {
         updateMainGrid(imatBackendController.getProducts(ProductCategory.FISH));
     }
-    @FXML public void showVEGETABLE_FRUIT(){
+
+    @FXML
+    public void showVEGETABLE_FRUIT() {
         updateMainGrid(imatBackendController.getProducts(ProductCategory.VEGETABLE_FRUIT));
     }
-    @FXML public void showCABBAGE(){
+
+    @FXML
+    public void showCABBAGE() {
         updateMainGrid(imatBackendController.getProducts(ProductCategory.CABBAGE));
     }
-    @FXML public void showMEAT(){ //meat and fish????!!!
+
+    @FXML
+    public void showMEAT() { //meat and fish????!!!
         updateMainGrid(imatBackendController.getProducts(ProductCategory.MEAT));
     }
-    @FXML public void showDAIRIES(){
+
+    @FXML
+    public void showDAIRIES() {
         updateMainGrid(imatBackendController.getProducts(ProductCategory.DAIRIES));
     }
-    @FXML public void showMELONS(){
+
+    @FXML
+    public void showMELONS() {
         updateMainGrid(imatBackendController.getProducts(ProductCategory.MELONS));
     }
 
-    @FXML public void showFLOUR_SUGAR_SALT(){
+    @FXML
+    public void showFLOUR_SUGAR_SALT() {
         updateMainGrid(imatBackendController.getProducts(ProductCategory.FLOUR_SUGAR_SALT));
     }
-    @FXML public void showNUTS_AND_SEEDS(){
+
+    @FXML
+    public void showNUTS_AND_SEEDS() {
         updateMainGrid(imatBackendController.getProducts(ProductCategory.NUTS_AND_SEEDS));
     }
-    @FXML public void showPASTA(){
+
+    @FXML
+    public void showPASTA() {
         updateMainGrid(imatBackendController.getProducts(ProductCategory.PASTA));
     }
-    @FXML public void showPOTATO_RICE(){ // and pasta???!!
+
+    @FXML
+    public void showPOTATO_RICE() { // and pasta???!!
         updateMainGrid(imatBackendController.getProducts(ProductCategory.POTATO_RICE));
     }
-    @FXML public void showROOT_VEGETABLE(){
+
+    @FXML
+    public void showROOT_VEGETABLE() {
         updateMainGrid(imatBackendController.getProducts(ProductCategory.VEGETABLE_FRUIT));
     }
-    @FXML public void showFRUIT(){
+
+    @FXML
+    public void showFRUIT() {
         updateMainGrid(imatBackendController.getProducts(ProductCategory.FRUIT));
     }
-    @FXML public void showSWEET(){
+
+    @FXML
+    public void showSWEET() {
         updateMainGrid(imatBackendController.getProducts(ProductCategory.SWEET));
     }
-    @FXML public void showHERB(){
+
+    @FXML
+    public void showHERB() {
         updateMainGrid(imatBackendController.getProducts(ProductCategory.HERB));
     }
 
