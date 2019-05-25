@@ -480,7 +480,7 @@ public class Controller implements Initializable {
             }
             String digitString = stringBuilder.toString();
             if (!digitString.isEmpty()) { //if the string is empty (contained no digits), reset amount
-                shoppingItem.setAmount(Double.parseDouble(digitString) + 0.5);
+                shoppingItem.setAmount((int)(Double.parseDouble(digitString) + 0.5));
             } else {
                 shoppingItem.setAmount(shoppingItem.getAmount());
             }
