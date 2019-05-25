@@ -53,6 +53,8 @@ public class Controller implements Initializable {
     @FXML
     private FlowPane mainGrid;
     @FXML
+    private ImageView mainGridCategoryImage;
+    @FXML
     private Button startPage_exit_btn;
     @FXML
     private Button startPage_home_btn;

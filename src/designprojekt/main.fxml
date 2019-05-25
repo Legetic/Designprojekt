@@ -324,7 +324,10 @@
                                  <children>
                                     <AnchorPane minHeight="197.0" prefHeight="278.0" prefWidth="496.0" style="-fx-background-size: cover; -fx-background-image: url(&quot;https://images.unsplash.com/photo-1505935428862-770b6f24f629?ixlib=rb-1.2.1&amp;ixid=eyJhcHBfaWQiOjEyMDd9&amp;auto=format&amp;fit=crop&amp;w=1347&amp;q=80&quot;); -fx-background-position: center; -fx-background-color: -fx-niceWhite;" VBox.vgrow="ALWAYS">
                                        <children>
-                                          <AnchorPane minHeight="197.0" opacity="0.5" prefHeight="200.0" prefWidth="477.0" style="-fx-background-color: -fx-base1;" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0" />
+                                          <AnchorPane minHeight="197.0" opacity="0.5" prefHeight="200.0" prefWidth="477.0" style="-fx-background-color: -fx-base1;" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+                                             <children>
+                                                <ImageView fx:id="mainGridCategoryImage" fitHeight="150.0" fitWidth="200.0" pickOnBounds="true" preserveRatio="true" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0" />
+                                             </children></AnchorPane>
                                           <Label alignment="CENTER" contentDisplay="CENTER" layoutY="18.0" prefHeight="71.0" prefWidth="626.0" style="-fx-text-fill: white;" styleClass="h1" text="Välkommen!" textFill="WHITE" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="18.0">
                                              <font>
                                                 <Font name="System Bold" size="41.0" />
