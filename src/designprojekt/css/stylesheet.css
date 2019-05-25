@@ -224,19 +224,24 @@ https://blog.marvelapp.com/body-text-small/
 
 }
 .indicator{
-
+-fx-fill: transparent;
+    -fx-stroke: -fx-base2;
+    -fx-stroke-width: 2px;
 }
 .indicatorText{
+    -fx-text-fill: -fx-nicerGray;
 
 }
 .indicatorLine{
+    -fx-fill: -fx-nicerGray;
+    -fx-stroke-width: 0;
 
  }
 .activeIndicator{
--fx-fill: red;
+-fx-fill: -fx-base4;
 }
 .activeIndicatorLine{
--fx-fill: red
+-fx-fill: -fx-base3;
 }
 .activeIndicatorText{
 -fx-text-fill: -fx-base4;

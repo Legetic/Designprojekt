@@ -7,17 +7,17 @@
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.layout.FlowPane?>
 
-<fx:root maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="709.0" prefWidth="1026.0" stylesheets="@css/stylesheet.css" type="AnchorPane" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1">
+<fx:root maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="709.0" prefWidth="1026.0" styleClass="oneColor" stylesheets="@css/stylesheet.css" type="AnchorPane" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1">
    <children>
-      <SplitPane dividerPositions="0.615234375" layoutX="-2.0" prefHeight="486.0" prefWidth="754.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+      <SplitPane dividerPositions="0.615234375" layoutX="-2.0" prefHeight="486.0" prefWidth="754.0" styleClass="oneColor" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
         <items>
           <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="160.0" prefWidth="100.0">
                <children>
                   <Label alignment="CENTER" layoutY="85.0" prefHeight="66.0" prefWidth="504.0" styleClass="h1" text="Tidigare köp" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" />
-                  <Button fx:id="backButtonFromPreviousPurchases" layoutX="14.0" layoutY="14.0" mnemonicParsing="false" onAction="#closeWindow" prefHeight="56.0" prefWidth="135.0" style="-fx-background-color: -fx-niceRed;" text="Tillbaka" />
-                  <ScrollPane fitToWidth="true" layoutY="285.0" prefHeight="522.0" prefWidth="652.0" vbarPolicy="ALWAYS" AnchorPane.bottomAnchor="-2.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0">
+                  <Button fx:id="backButtonFromPreviousPurchases" layoutX="14.0" layoutY="14.0" mnemonicParsing="false" onAction="#closeWindow" prefHeight="56.0" prefWidth="135.0" styleClass="ghostButton" text="Tillbaka" AnchorPane.leftAnchor="14.0" AnchorPane.topAnchor="14.0" />
+                  <ScrollPane fitToWidth="true" layoutY="285.0" prefHeight="522.0" prefWidth="652.0" styleClass="oneColor" vbarPolicy="ALWAYS" AnchorPane.bottomAnchor="-2.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0">
                     <content>
-                      <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="541.0" prefWidth="565.0">
+                      <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="541.0" prefWidth="565.0" styleClass="oneColor">
                            <children>
                               <FlowPane fx:id="flowPanePreviousPurchases" layoutX="2.0" layoutY="2.0" pickOnBounds="false" prefHeight="108.0" prefWidth="612.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0" />
                            </children>
@@ -28,16 +28,16 @@
             </AnchorPane>
           <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="640.0" prefWidth="326.0">
                <children>
-                  <ScrollPane fitToWidth="true" prefHeight="600.0" prefWidth="367.0" vbarPolicy="ALWAYS" AnchorPane.bottomAnchor="108.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+                  <ScrollPane fitToWidth="true" prefHeight="600.0" prefWidth="367.0" styleClass="oneColor" vbarPolicy="ALWAYS" AnchorPane.bottomAnchor="108.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
                     <content>
-                      <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="598.0" prefWidth="352.0">
+                      <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="598.0" prefWidth="352.0" styleClass="oneColor">
                            <children>
                               <FlowPane fx:id="flowPanePreviousPurchasesDetails" prefHeight="108.0" prefWidth="352.0" AnchorPane.bottomAnchor="490.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0" />
                            </children>
                         </AnchorPane>
                     </content>
                   </ScrollPane>
-                  <Button fx:id="AddPreviousPurchaseToCartButton" layoutX="14.0" layoutY="517.0" mnemonicParsing="false" onMouseClicked="#addOrderToCart" prefHeight="108.0" prefWidth="290.0" style="-fx-background-color: -fx-niceGreen;" styleClass="h3" text="Lägga till i varukorg" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" />
+                  <Button fx:id="AddPreviousPurchaseToCartButton" layoutX="100.0" layoutY="622.0" mnemonicParsing="false" onMouseClicked="#addOrderToCart" prefHeight="60.0" prefWidth="191.0" style="-fx-background-color: -fx-base4; -fx-text-fill: white;" styleClass="h4" text="Lägg till" AnchorPane.bottomAnchor="25.0" AnchorPane.leftAnchor="100.0" AnchorPane.rightAnchor="99.0" />
                </children>
             </AnchorPane>
         </items>
