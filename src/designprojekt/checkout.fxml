@@ -40,7 +40,14 @@
                   <Label fx:id="checkoutTotal" layoutX="68.0" layoutY="605.0" styleClass="h3" text="0 kr" AnchorPane.bottomAnchor="103.0" AnchorPane.leftAnchor="68.0" />
                   <Label alignment="BOTTOM_LEFT" layoutX="5.0" layoutY="579.0" prefHeight="30.0" prefWidth="180.0" styleClass="p4" text="Antal: " AnchorPane.bottomAnchor="142.0" AnchorPane.leftAnchor="5.0" />
                   <Label fx:id="checkoutAmount" layoutX="75.0" layoutY="580.0" styleClass="p4" text="0 st" AnchorPane.bottomAnchor="142.0" AnchorPane.leftAnchor="75.0" />
-                  <Label fx:id="errorMessage" style="-fx-text-fill: red;" text="Fyll i alla fält!" visible="false" AnchorPane.bottomAnchor="300.0" AnchorPane.rightAnchor="80.0" />
+                  <Label fx:id="errorMessage" alignment="CENTER" contentDisplay="TOP" layoutY="363.0" style="-fx-text-fill: red;" text="Fyll i alla fält!" visible="false" AnchorPane.bottomAnchor="190.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0">
+                     <graphic>
+                        <ImageView fitHeight="70.0" fitWidth="70.0" pickOnBounds="true" preserveRatio="true">
+                           <image>
+                              <Image url="@resources/icons/error_96px.png" />
+                           </image>
+                        </ImageView>
+                     </graphic></Label>
                </children>
             </AnchorPane>
          </right>
