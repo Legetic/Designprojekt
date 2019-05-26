@@ -126,6 +126,8 @@ public class Checkout extends AnchorPane {
     @FXML
     private Button nextButton;
     @FXML
+    private Button previousButton;
+    @FXML
     private Button backFromCheckoutButton;
     @FXML
     private Label checkoutTotal;
@@ -310,7 +312,6 @@ public class Checkout extends AnchorPane {
         switch (state) {
             case 0:
                 openUserPage();
-
                 break;
             case 1:
                 if (isUserComplete()) {
@@ -347,6 +348,45 @@ public class Checkout extends AnchorPane {
                     errorMessage.setVisible(true);
                     checkPaymentErrors();
                 }
+                // }
+                //System.out.println("HEJ PÅ DIG igen");
+                break;
+
+        }
+
+        previousButton.setDisable(false);
+
+    }
+
+    @FXML
+    public void previousCheckoutPage() {
+        saveInfo();
+        switch (state) {
+            case 0:
+
+
+                break;
+            case 1:
+
+                openCartPage();
+                errorMessage.setVisible(false);
+                checkDeliveryErrors();
+                //System.out.println("HEJ PÅ DIG");
+                previousButton.setDisable(true);
+
+                break;
+            case 2:
+                openUserPage();
+                errorMessage.setVisible(false);
+                checkDeliveryErrors();
+
+                //System.out.println("HEJ PÅ DIG igen");
+                break;
+            case 3:
+                // if(parentController.imatBackendController.isCustomerComplete()){
+                openDeliveryPage();
+                errorMessage.setVisible(false);
+                checkDeliveryErrors();
                 // }
                 //System.out.println("HEJ PÅ DIG igen");
                 break;
@@ -501,6 +541,13 @@ public class Checkout extends AnchorPane {
         nextButton.setText("Fortsätt");
 
 
+    }
+
+    private void openCartPage(){
+        state = 0;
+        updateSequenceMap();
+        varukorgAnchorPane.toFront();
+        nextButton.setText("Fortsätt");
     }
 
     private void openUserPage() {
