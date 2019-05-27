@@ -1,9 +1,12 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
+<?import javafx.geometry.Insets?>
 <?import javafx.scene.control.Button?>
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.control.ScrollPane?>
 <?import javafx.scene.control.SplitPane?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.layout.FlowPane?>
 
@@ -13,7 +16,18 @@
         <items>
           <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="160.0" prefWidth="100.0">
                <children>
-                  <Label alignment="CENTER" layoutY="85.0" prefHeight="66.0" prefWidth="504.0" styleClass="h1" text="Tidigare köp" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" />
+                  <Label alignment="BOTTOM_CENTER" graphicTextGap="10.0" layoutX="1.0" layoutY="86.0" prefHeight="100.0" prefWidth="627.0" style="-fx-text-fill: -fx-base1;" styleClass="h2" text="Tidigare köp">
+                     <graphic>
+                        <ImageView fitHeight="70.0" fitWidth="70.0" pickOnBounds="true" preserveRatio="true">
+                           <image>
+                              <Image url="@resources/icons/DarkBlue/time_machine_96px.png" />
+                           </image>
+                        </ImageView>
+                     </graphic>
+                     <padding>
+                        <Insets top="30.0" />
+                     </padding>
+                  </Label>
                   <Button fx:id="backButtonFromPreviousPurchases" layoutX="14.0" layoutY="14.0" mnemonicParsing="false" onAction="#closeWindow" prefHeight="56.0" prefWidth="135.0" styleClass="ghostButton" text="Tillbaka" AnchorPane.leftAnchor="14.0" AnchorPane.topAnchor="14.0" />
                   <ScrollPane fitToHeight="true" fitToWidth="true" hbarPolicy="NEVER" layoutY="285.0" prefHeight="522.0" prefWidth="652.0" styleClass="oneColor" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0">
                     <content>
