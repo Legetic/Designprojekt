@@ -30,7 +30,7 @@
                <children>
                   <ScrollPane fitToHeight="true" fitToWidth="true" hbarPolicy="NEVER" prefHeight="600.0" prefWidth="367.0" styleClass="oneColor" AnchorPane.bottomAnchor="108.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
                     <content>
-                      <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="598.0" prefWidth="352.0" styleClass="oneColor">
+                      <AnchorPane prefHeight="598.0" prefWidth="352.0" styleClass="oneColor">
                            <children>
                               <FlowPane fx:id="flowPanePreviousPurchasesDetails" prefHeight="108.0" prefWidth="352.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0" />
                            </children>
