@@ -558,12 +558,11 @@ public class Checkout extends AnchorPane {
         }
         if (totalPrice == 0.0) {
             totalPriceLabel.setText("0 kr");
+            parentController.closeCheckoutPage(); //TODO: don't know how closeWindow() works.... SO this works insteeed.
         } else {
             totalPrice = Math.round(totalPrice * 100.0) / 100.0; //rounds off cause of bug
             totalPriceLabel.setText(totalPrice + " kr");
         }
-        /*double totalPrice = Math.round(parentController.imatBackendController.getShoppingCart().getTotal() * 100.0) / 100.0; //rounds off price because of previous bug
-        totalPriceLabel.setText(totalPrice + " kr"); //updates price*/
     }
 
 

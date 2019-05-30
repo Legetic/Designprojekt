@@ -800,6 +800,7 @@ public class Controller implements Initializable {
                 shoppingCartFlowPane.getChildren().addAll(checkout.itemsCheckoutFlowpane.getChildren());
             }
         }
+        updateShoppingCart();
     }
 
     public void selectText(TextField textField) {
