@@ -18,7 +18,6 @@ public class Imat extends Application {
     public void start(Stage stage) throws Exception {
 
         ResourceBundle bundle = java.util.ResourceBundle.getBundle("designprojekt/resources/Imat");
-
         Parent root = FXMLLoader.load(getClass().getResource("main.fxml"), bundle);
         Dimension screenSize = Toolkit.getDefaultToolkit().getScreenSize();
         Scene scene = new Scene(root, screenSize.getWidth() * 0.75, screenSize.getHeight() * 0.75);
@@ -43,6 +42,7 @@ public class Imat extends Application {
         Runtime.getRuntime().addShutdownHook(new Thread(new Runnable() {
             public void run() {
                 IMatDataHandler.getInstance().shutDown();
+
             }
         }));
     }

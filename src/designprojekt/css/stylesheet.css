@@ -219,7 +219,7 @@ https://blog.marvelapp.com/body-text-small/
 }
 
 .inputFieldError{
-    -fx-border-color: -fx-second4;
+    -fx-border-color: red;
     -fx-border-width: 2px;
 
 }
