@@ -731,6 +731,7 @@ public class Controller implements Initializable {
 
         homePage.toFront();
         previousPurchasesRoot.toFront();
+        earlierOrdersPage.getChooseOrderLabel().setVisible(true);
         updateShoppingCart();
 
 
@@ -890,7 +891,7 @@ public class Controller implements Initializable {
     }
 
     @FXML
-    public void showPOTATO_RICE() { // and pasta???!!
+    public void showPOTATO_RICE() { // and pasta???!! NEJ.
         updateMainGrid(imatBackendController.getProducts(ProductCategory.POTATO_RICE));
     }
 

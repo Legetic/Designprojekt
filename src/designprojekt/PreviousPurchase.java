@@ -44,6 +44,7 @@ public class PreviousPurchase extends AnchorPane {
 
     public void showShoppingItems() {
         earliersOrdersPage.showPreviousPurchaseDetail(order);
+        earliersOrdersPage.getChooseOrderLabel().setVisible(false);
     }
 
     private double getPrice() {

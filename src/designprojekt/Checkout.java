@@ -571,29 +571,22 @@ public class Checkout extends AnchorPane {
 
 
         if (cardRadioButton.isSelected()) {
-
             for (TextField t : paymentCardFields) {
                 t.getStyleClass().remove("inputFieldError");
                 if (t.getText().equals("")) {
                     t.getStyleClass().add("inputFieldError");
                     t.setPromptText("Fältet får ej vara tomt");
-
                 }
             }
         } else {
-
             for (TextField t : paymentFakturaFields) {
                 t.getStyleClass().remove("inputFieldError");
                 if (t.getText().equals("")) {
                     t.getStyleClass().add("inputFieldError");
                     t.setPromptText("Fältet får ej vara tomt");
-
                 }
             }
-
         }
-
-
     }
 
     private void checkDeliveryErrors() {

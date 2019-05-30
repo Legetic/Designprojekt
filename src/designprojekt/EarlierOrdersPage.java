@@ -4,6 +4,7 @@ import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Node;
 import javafx.scene.control.Button;
+import javafx.scene.control.Label;
 import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.FlowPane;
 import se.chalmers.cse.dat216.project.Order;
@@ -22,6 +23,10 @@ public class EarlierOrdersPage extends AnchorPane {
     private FlowPane flowPanePreviousPurchases;
     @FXML
     private FlowPane flowPanePreviousPurchasesDetails;
+
+
+    @FXML
+    private Label chooseOrderLabel;
 
     private AnchorPane currentCategoryPane;
 
@@ -92,6 +97,9 @@ public class EarlierOrdersPage extends AnchorPane {
         parentController.closePreviousPurchases();
     }
 
+    public Label getChooseOrderLabel() {
+        return chooseOrderLabel;
+    }
 
 
 }

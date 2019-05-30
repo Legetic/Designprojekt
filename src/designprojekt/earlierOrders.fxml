@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
+<?import java.lang.String?>
 <?import javafx.geometry.Insets?>
 <?import javafx.scene.control.Button?>
 <?import javafx.scene.control.Label?>
@@ -9,6 +10,7 @@
 <?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.layout.FlowPane?>
+<?import javafx.scene.text.Font?>
 
 <fx:root maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="709.0" prefWidth="1026.0" styleClass="oneColor" stylesheets="@css/stylesheet.css" type="AnchorPane" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1">
    <children>
@@ -47,11 +49,24 @@
                       <AnchorPane prefHeight="598.0" prefWidth="352.0" styleClass="oneColor">
                            <children>
                               <FlowPane fx:id="flowPanePreviousPurchasesDetails" prefHeight="108.0" prefWidth="352.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0" />
+                              <Label fx:id="chooseOrderLabel" alignment="CENTER" graphicTextGap="10.0" layoutX="9.0" layoutY="142.0" prefHeight="60.0" prefWidth="368.0" style="-fx-text-fill: -fx-base1;" text="Välj order för att se dess innehåll" textAlignment="CENTER" wrapText="true" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="135.0">
+                                 <font>
+                                    <Font size="32.0" />
+                                 </font>
+                                 <styleClass>
+                                    <String fx:value="h4" />
+                                    <String fx:value="oneColor" />
+                                    <String fx:value="cart" />
+                                 </styleClass>
+                                 <padding>
+                                    <Insets left="60.0" right="60.0" />
+                                 </padding>
+                              </Label>
                            </children>
                         </AnchorPane>
                     </content>
                   </ScrollPane>
-                  <Button fx:id="AddPreviousPurchaseToCartButton" layoutX="100.0" layoutY="622.0" mnemonicParsing="false" onMouseClicked="#addOrderToCart" prefHeight="60.0" prefWidth="191.0" style="-fx-background-color: -fx-base4; -fx-text-fill: white;" styleClass="h4" text="Lägg till" AnchorPane.bottomAnchor="25.0" AnchorPane.leftAnchor="100.0" AnchorPane.rightAnchor="99.0" />
+                  <Button fx:id="AddPreviousPurchaseToCartButton" disable="true" layoutX="100.0" layoutY="622.0" mnemonicParsing="false" onMouseClicked="#addOrderToCart" prefHeight="60.0" prefWidth="191.0" style="-fx-background-color: -fx-base4; -fx-text-fill: white;" styleClass="h4" text="Lägg till" AnchorPane.bottomAnchor="25.0" AnchorPane.leftAnchor="100.0" AnchorPane.rightAnchor="99.0" />
                </children>
             </AnchorPane>
         </items>
