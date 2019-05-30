@@ -306,7 +306,7 @@
                                           <ComboBox fx:id="sortList" layoutX="169.0" layoutY="13.0" prefHeight="47.0" prefWidth="269.0" promptText="Ingen Sortering" style="-fx-background-color: transparent; -fx-border-color: -fx-base4; -fx-border-radius: 0 5 5 0;" AnchorPane.rightAnchor="12.0" AnchorPane.topAnchor="12.0" />
                                        </children>
                                     </AnchorPane>
-                                    <FlowPane fx:id="mainGrid" alignment="TOP_CENTER" hgap="10.0" prefHeight="91.0" prefWidth="472.0" vgap="10.0" VBox.vgrow="NEVER">
+                                    <FlowPane fx:id="mainGrid" alignment="TOP_CENTER" hgap="10.0" prefHeight="0.0" prefWidth="472.0" prefWrapLength="10.0" vgap="10.0">
                                        <VBox.margin>
                                           <Insets top="20.0" />
                                        </VBox.margin>
