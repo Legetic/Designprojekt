@@ -38,6 +38,9 @@ public class Controller implements Initializable {
     private AnchorPane startMenu;
     @FXML
     private BorderPane homePage;
+
+
+
     @FXML
     private Label totalPriceLabel;
     @FXML
@@ -600,12 +603,22 @@ public class Controller implements Initializable {
         }
         if (totalPrice == 0.0) {
             totalPriceLabel.setText("0 kr");
+            updateCheckout();
         } else {
             totalPrice = Math.round(totalPrice * 100.0) / 100.0; //rounds off cause of bug
             totalPriceLabel.setText(totalPrice + " kr");
+            updateCheckout();
         }
     }
 
+    private void updateCheckout() {
+        try {
+            checkout.updateTotalPrice();
+            checkout.updateAmount();
+        } catch (NullPointerException e) {
+            //checkout not active
+        }
+    }
 
     protected void removeItem(Card card) {
         shoppingCartFlowPane.getChildren().remove(card.getCartItem());
@@ -903,8 +916,6 @@ public class Controller implements Initializable {
     public void showAll() {
         updateMainGrid(imatBackendController.getProducts());
     }
-
-
 
 
     /*public void openStartMenu(){

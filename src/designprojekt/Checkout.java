@@ -128,7 +128,7 @@ public class Checkout extends AnchorPane {
     @FXML
     private Button backFromCheckoutButton;
     @FXML
-    private Label checkoutTotal;
+    private Label totalPriceLabel;
     @FXML
     private Label checkoutAmount;
     @FXML
@@ -170,9 +170,11 @@ public class Checkout extends AnchorPane {
         setRightAnchor(this, 0.0);
         setLeftAnchor(this, 0.0);
 
+        itemsCheckoutFlowpane.getChildren().clear();
+        itemsCheckoutFlowpane.getChildren().addAll(parentController.shoppingCartFlowPane.getChildren());
 
-        checkoutTotal.setText(parentController.imatBackendController.getShoppingCart().getTotal() + " kr");
-        checkoutAmount.setText(parentController.imatBackendController.getShoppingCart().getItems().size() + " st");
+        updateTotalPrice();
+        updateAmount();
 
         loadUserPage();
         loadDeliveryPage();
@@ -231,8 +233,6 @@ public class Checkout extends AnchorPane {
 
 
 
-        itemsCheckoutFlowpane.getChildren().clear();
-        itemsCheckoutFlowpane.getChildren().addAll(parentController.shoppingCartFlowPane.getChildren());
 
 
         userFields.add(lastNameTextField);
@@ -538,6 +538,35 @@ public class Checkout extends AnchorPane {
             }
         }
     }
+
+
+    void updateAmount() {
+        checkoutAmount.setText(itemsCheckoutFlowpane.getChildren().size() + " st");
+    }
+    void updateTotalPrice() {
+        double totalPrice = 0.0;
+        for (Node node : itemsCheckoutFlowpane.getChildren()) {
+            CartItem cartItem = (CartItem) node;
+            StringBuilder stringBuilder = new StringBuilder();
+            for (char c : cartItem.getCartItemTotalPrice().getText().toCharArray()) { //Isolates digits & '.'
+                if (Character.isDigit(c) || c == '.') {
+                    stringBuilder.append(c);
+                }
+            }
+            String price = stringBuilder.toString();
+            totalPrice += Double.parseDouble(price);
+        }
+        if (totalPrice == 0.0) {
+            totalPriceLabel.setText("0 kr");
+        } else {
+            totalPrice = Math.round(totalPrice * 100.0) / 100.0; //rounds off cause of bug
+            totalPriceLabel.setText(totalPrice + " kr");
+        }
+        /*double totalPrice = Math.round(parentController.imatBackendController.getShoppingCart().getTotal() * 100.0) / 100.0; //rounds off price because of previous bug
+        totalPriceLabel.setText(totalPrice + " kr"); //updates price*/
+    }
+
+
 
     private void checkPaymentErrors() {
 
