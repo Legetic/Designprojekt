@@ -15,11 +15,9 @@ import javafx.scene.shape.Rectangle;
 import org.w3c.dom.Text;
 import se.chalmers.cse.dat216.project.*;
 
-import java.io.IOException;
+import java.io.*;
 import java.net.URL;
-import java.util.ArrayList;
-import java.util.List;
-import java.util.ResourceBundle;
+import java.util.*;
 
 public class Checkout extends AnchorPane {
 
@@ -143,6 +141,8 @@ public class Checkout extends AnchorPane {
     private CreditCard creditCard;
     private Customer customer;
     private boolean orderComplete = false;
+    private static String method = "Card";
+
 
     List<TextField> userFields = new ArrayList<TextField>();
     List<TextField> deliveryFields = new ArrayList<TextField>();
@@ -178,27 +178,58 @@ public class Checkout extends AnchorPane {
         loadDeliveryPage();
         loadPaymentPage();
 
+
         ToggleGroup paymentMethod = new ToggleGroup();
         cardRadioButton.setToggleGroup(paymentMethod);
         fakturaRadioButton.setToggleGroup(paymentMethod);
         cardRadioButton.setSelected(true);
+
+//what to be selected at first
+
+        try {
+            FileInputStream reader=new FileInputStream("config.properties");
+            Properties p = new Properties();
+            p.load(reader);
+            reader.close();
+
+            //System.out.println(p.getProperty("paymentMethod"));
+
+            if( p.getProperty("paymentMethod").equals("Card")){
+                cardRadioButton.setSelected(true);
+                cardInfoAnchorPane.setVisible(true);
+                fakturaInfoAnchorPane.setVisible(false);
+            }else{
+                fakturaRadioButton.setSelected(true);
+                cardInfoAnchorPane.setVisible(false);
+                fakturaInfoAnchorPane.setVisible(true);
+            }
+            //System.out.println(p.getProperty("paymentMethod"));
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+
+
         paymentMethod.selectedToggleProperty().addListener(new ChangeListener<Toggle>() {
 
             @Override
             public void changed(ObservableValue<? extends Toggle> observable, Toggle oldValue, Toggle newValue) {
-
                 if (paymentMethod.getSelectedToggle() != null) {
                     RadioButton selected = (RadioButton) paymentMethod.getSelectedToggle();
                     if (selected == cardRadioButton) {
+                        method = "Card";
                         cardInfoAnchorPane.setVisible(true);
                         fakturaInfoAnchorPane.setVisible(false);
                     } else {
+                        method = "Faktura";
                         cardInfoAnchorPane.setVisible(false);
                         fakturaInfoAnchorPane.setVisible(true);
                     }
+                    savePrefs();
                 }
             }
         });
+
+
 
         itemsCheckoutFlowpane.getChildren().clear();
         itemsCheckoutFlowpane.getChildren().addAll(parentController.shoppingCartFlowPane.getChildren());
@@ -260,6 +291,33 @@ public class Checkout extends AnchorPane {
 
         updateSequenceMap();
 
+    }
+
+    private void savePrefs(){
+
+
+        try {
+
+            FileInputStream reader=new FileInputStream("config.properties");
+            Properties p = new Properties();
+            p.load(reader);
+            p.setProperty("paymentMethod",method);
+            reader.close();
+
+            FileOutputStream fos = new FileOutputStream("config.properties");
+            p.store(fos, "Writing properties to a file");
+            fos.close();
+
+
+            //System.out.println(p.getProperty("paymentMethod"));
+
+
+
+
+            //System.out.println(p.getProperty("paymentMethod"));
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
     }
 
     private void loadUserPage() {

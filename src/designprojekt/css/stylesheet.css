@@ -197,13 +197,25 @@ https://blog.marvelapp.com/body-text-small/
     -fx-background-color: -fx-base4;
     -fx-text-fill: white;
 }
+.browseButton:hover .label{
+    -fx-text-fill: white;
+}
 
 .browseButton:pressed{
     -fx-background-color: -fx-niceGray;
     -fx-text-fill: -fx-base1;
 }
+.browseButton:pressed .label{
+    -fx-text-fill: -fx-base1;
+}
+
+
+.browseButton:pressed{
+    -fx-effect: innershadow( gaussian, rgba( 0, 0, 0, 0.15), 2, 2, 2, 2 );
+}
+
 .currentCategory{
-    -fx-background-color: -fx-nicerGray;
+    -fx-background-color: -fx-niceGray;
     -fx-text-fill: -fx-base1;
 }
 
@@ -219,7 +231,7 @@ https://blog.marvelapp.com/body-text-small/
 }
 
 .inputFieldError{
-    -fx-border-color: -fx-second4;
+    -fx-border-color: red;
     -fx-border-width: 2px;
 
 }

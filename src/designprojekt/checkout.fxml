@@ -60,7 +60,7 @@
                         <String fx:value="ghostButton" />
                      </styleClass>
                   </Button>
-                  <Button fx:id="previousButton" alignment="CENTER" disable="true" layoutY="669.0" mnemonicParsing="false" onAction="#previousCheckoutPage" prefHeight="90.0" prefWidth="220.0" style="-fx-background-color: -fx-base4; -fx-text-fill: white;" styleClass="h3" text="Föregående" AnchorPane.bottomAnchor="-8.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" />
+                  <Button fx:id="previousButton" alignment="CENTER" disable="true" layoutY="661.0" mnemonicParsing="false" onAction="#previousCheckoutPage" prefHeight="90.0" prefWidth="220.0" style="-fx-background-color: -fx-base4; -fx-text-fill: white;" styleClass="h3" text="Föregående" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" />
                </children></AnchorPane>
          </left>
          <center>
@@ -71,19 +71,19 @@
                         <HBox alignment="CENTER" prefHeight="15.0" prefWidth="781.0">
                            <children>
                               <Circle fx:id="firstStepIndicator" fill="DODGERBLUE" radius="15.0" stroke="WHITE" strokeType="INSIDE" styleClass="indicator" />
-                              <Rectangle fx:id="secondStepLine" arcHeight="5.0" arcWidth="5.0" fill="DODGERBLUE" height="3.0" stroke="BLACK" strokeType="INSIDE" styleClass="indicatorLine" width="150.0">
+                              <Rectangle fx:id="secondStepLine" arcHeight="5.0" arcWidth="5.0" fill="DODGERBLUE" height="3.0" stroke="BLACK" strokeType="INSIDE" styleClass="indicatorLine" width="130.0">
                                  <HBox.margin>
                                     <Insets left="5.0" right="5.0" />
                                  </HBox.margin>
                               </Rectangle>
                               <Circle fx:id="secondStepIndicator" fill="DODGERBLUE" radius="15.0" stroke="WHITE" strokeType="INSIDE" styleClass="indicator" />
-                              <Rectangle fx:id="thirdStepLine" arcHeight="5.0" arcWidth="5.0" fill="DODGERBLUE" height="3.0" stroke="BLACK" strokeType="INSIDE" styleClass="indicatorLine" width="150.0">
+                              <Rectangle fx:id="thirdStepLine" arcHeight="5.0" arcWidth="5.0" fill="DODGERBLUE" height="3.0" stroke="BLACK" strokeType="INSIDE" styleClass="indicatorLine" width="130.0">
                                  <HBox.margin>
                                     <Insets left="5.0" right="5.0" />
                                  </HBox.margin>
                               </Rectangle>
                               <Circle fx:id="thirdStepIndicator" fill="DODGERBLUE" radius="15.0" stroke="WHITE" strokeType="INSIDE" styleClass="indicator" />
-                              <Rectangle fx:id="fourthStepLine" arcHeight="5.0" arcWidth="5.0" fill="DODGERBLUE" height="3.0" stroke="BLACK" strokeType="INSIDE" styleClass="indicatorLine" width="150.0">
+                              <Rectangle fx:id="fourthStepLine" arcHeight="5.0" arcWidth="5.0" fill="DODGERBLUE" height="3.0" stroke="BLACK" strokeType="INSIDE" styleClass="indicatorLine" width="130.0">
                                  <HBox.margin>
                                     <Insets left="5.0" right="5.0" />
                                  </HBox.margin>
@@ -100,8 +100,11 @@
                            </children>
                         </HBox>
                      </children>
+                     <VBox.margin>
+                        <Insets top="14.0" />
+                     </VBox.margin>
                   </VBox>
-                  <AnchorPane prefHeight="200.0" prefWidth="200.0" styleClass="oneColor">
+                  <AnchorPane prefHeight="712.0" prefWidth="631.0" styleClass="oneColor" VBox.vgrow="ALWAYS">
                      <children>
                         <AnchorPane fx:id="userAnchorPane" prefHeight="680.0" prefWidth="701.0" styleClass="oneColor" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
                            <children>
@@ -121,88 +124,92 @@
                                                 <Insets top="30.0" />
                                              </padding>
                                           </Label>
-                                          <AnchorPane prefHeight="374.0" prefWidth="390.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="100.0">
-                                             <children>
-                                                <VBox layoutX="39.0" layoutY="68.0" prefHeight="374.0" prefWidth="469.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+                                          <ScrollPane fitToHeight="true" fitToWidth="true" hbarPolicy="NEVER" layoutY="100.0" styleClass="oneColor" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="100.0">
+                                             <content>
+                                                <AnchorPane prefHeight="374.0" prefWidth="390.0" styleClass="oneColor">
                                                    <children>
-                                                      <HBox alignment="BOTTOM_LEFT" prefHeight="0.0" prefWidth="390.0">
+                                                      <VBox layoutX="39.0" layoutY="68.0" prefHeight="374.0" prefWidth="469.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
                                                          <children>
-                                                            <AnchorPane prefHeight="39.0" prefWidth="250.0" HBox.hgrow="ALWAYS">
+                                                            <HBox alignment="BOTTOM_LEFT" prefHeight="0.0" prefWidth="390.0">
                                                                <children>
-                                                                  <Label prefHeight="29.0" prefWidth="187.0" text="Förnamn">
-                                                                     <padding>
-                                                                        <Insets top="10.0" />
-                                                                     </padding>
-                                                                  </Label>
+                                                                  <AnchorPane prefHeight="39.0" prefWidth="250.0" HBox.hgrow="ALWAYS">
+                                                                     <children>
+                                                                        <Label prefHeight="29.0" prefWidth="187.0" text="Förnamn">
+                                                                           <padding>
+                                                                              <Insets top="10.0" />
+                                                                           </padding>
+                                                                        </Label>
+                                                                     </children>
+                                                                  </AnchorPane>
+                                                                  <AnchorPane prefHeight="39.0" prefWidth="268.0" HBox.hgrow="ALWAYS">
+                                                                     <children>
+                                                                        <Label text="Efternamn">
+                                                                           <padding>
+                                                                              <Insets top="10.0" />
+                                                                           </padding>
+                                                                        </Label>
+                                                                     </children>
+                                                                  </AnchorPane>
                                                                </children>
-                                                            </AnchorPane>
-                                                            <AnchorPane prefHeight="39.0" prefWidth="268.0" HBox.hgrow="ALWAYS">
+                                                            </HBox>
+                                                            <HBox prefHeight="52.0" prefWidth="390.0">
                                                                <children>
-                                                                  <Label text="Efternamn">
-                                                                     <padding>
-                                                                        <Insets top="10.0" />
-                                                                     </padding>
-                                                                  </Label>
+                                                                  <TextField fx:id="firstNameTextField" prefHeight="52.0" prefWidth="188.0" promptText="Anders" HBox.hgrow="ALWAYS" />
+                                                                  <TextField fx:id="lastNameTextField" prefHeight="52.0" prefWidth="206.0" promptText="Andersson" HBox.hgrow="ALWAYS" />
                                                                </children>
-                                                            </AnchorPane>
-                                                         </children>
-                                                      </HBox>
-                                                      <HBox prefHeight="52.0" prefWidth="390.0">
-                                                         <children>
-                                                            <TextField fx:id="firstNameTextField" prefHeight="52.0" prefWidth="188.0" promptText="Anders" HBox.hgrow="ALWAYS" />
-                                                            <TextField fx:id="lastNameTextField" prefHeight="52.0" prefWidth="206.0" promptText="Andersson" HBox.hgrow="ALWAYS" />
-                                                         </children>
-                                                      </HBox>
-                                                      <Label text="Telefonnummer">
-                                                         <padding>
-                                                            <Insets top="10.0" />
-                                                         </padding>
-                                                      </Label>
-                                                      <TextField fx:id="phonenumberTextField" prefHeight="54.0" prefWidth="394.0" promptText="070-1234567" />
-                                                      <Label text="E-mail">
-                                                         <padding>
-                                                            <Insets top="10.0" />
-                                                         </padding>
-                                                      </Label>
-                                                      <TextField fx:id="mailTextField" prefHeight="51.0" prefWidth="390.0" promptText="AndersA@gmail.com" />
-                                                      <Label text="Address">
-                                                         <padding>
-                                                            <Insets top="10.0" />
-                                                         </padding>
-                                                      </Label>
-                                                      <TextField fx:id="adressTextField" prefHeight="56.0" prefWidth="390.0" promptText="Gatgatan 1" />
-                                                      <HBox alignment="BOTTOM_LEFT" prefHeight="0.0" prefWidth="390.0">
-                                                         <children>
-                                                            <AnchorPane prefHeight="39.0" prefWidth="255.0" HBox.hgrow="ALWAYS">
+                                                            </HBox>
+                                                            <Label text="Telefonnummer">
+                                                               <padding>
+                                                                  <Insets top="10.0" />
+                                                               </padding>
+                                                            </Label>
+                                                            <TextField fx:id="phonenumberTextField" prefHeight="54.0" prefWidth="394.0" promptText="070-1234567" />
+                                                            <Label text="E-mail">
+                                                               <padding>
+                                                                  <Insets top="10.0" />
+                                                               </padding>
+                                                            </Label>
+                                                            <TextField fx:id="mailTextField" prefHeight="51.0" prefWidth="390.0" promptText="AndersA@gmail.com" />
+                                                            <Label text="Address">
+                                                               <padding>
+                                                                  <Insets top="10.0" />
+                                                               </padding>
+                                                            </Label>
+                                                            <TextField fx:id="adressTextField" prefHeight="56.0" prefWidth="390.0" promptText="Gatgatan 1" />
+                                                            <HBox alignment="BOTTOM_LEFT" prefHeight="0.0" prefWidth="390.0">
                                                                <children>
-                                                                  <Label prefHeight="29.0" prefWidth="187.0" text="Postkod">
-                                                                     <padding>
-                                                                        <Insets top="10.0" />
-                                                                     </padding>
-                                                                  </Label>
+                                                                  <AnchorPane prefHeight="39.0" prefWidth="255.0" HBox.hgrow="ALWAYS">
+                                                                     <children>
+                                                                        <Label prefHeight="29.0" prefWidth="187.0" text="Postkod">
+                                                                           <padding>
+                                                                              <Insets top="10.0" />
+                                                                           </padding>
+                                                                        </Label>
+                                                                     </children>
+                                                                  </AnchorPane>
+                                                                  <AnchorPane prefHeight="39.0" prefWidth="285.0" HBox.hgrow="ALWAYS">
+                                                                     <children>
+                                                                        <Label text="Stad">
+                                                                           <padding>
+                                                                              <Insets top="10.0" />
+                                                                           </padding>
+                                                                        </Label>
+                                                                     </children>
+                                                                  </AnchorPane>
                                                                </children>
-                                                            </AnchorPane>
-                                                            <AnchorPane prefHeight="39.0" prefWidth="285.0" HBox.hgrow="ALWAYS">
+                                                            </HBox>
+                                                            <HBox prefHeight="52.0" prefWidth="390.0">
                                                                <children>
-                                                                  <Label text="Stad">
-                                                                     <padding>
-                                                                        <Insets top="10.0" />
-                                                                     </padding>
-                                                                  </Label>
+                                                                  <TextField fx:id="postCodeTextField" prefHeight="50.0" prefWidth="182.0" promptText="12345" HBox.hgrow="ALWAYS" />
+                                                                  <TextField fx:id="postAddressTextField" prefHeight="50.0" prefWidth="211.0" promptText="Stockholm" HBox.hgrow="ALWAYS" />
                                                                </children>
-                                                            </AnchorPane>
+                                                            </HBox>
                                                          </children>
-                                                      </HBox>
-                                                      <HBox prefHeight="52.0" prefWidth="390.0">
-                                                         <children>
-                                                            <TextField fx:id="postCodeTextField" prefHeight="50.0" prefWidth="182.0" promptText="12345" HBox.hgrow="ALWAYS" />
-                                                            <TextField fx:id="postAddressTextField" prefHeight="50.0" prefWidth="211.0" promptText="Stockholm" HBox.hgrow="ALWAYS" />
-                                                         </children>
-                                                      </HBox>
+                                                      </VBox>
                                                    </children>
-                                                </VBox>
-                                             </children>
-                                          </AnchorPane>
+                                                </AnchorPane>
+                                             </content>
+                                          </ScrollPane>
                                        </children>
                                     </AnchorPane>
                                  </children>
@@ -215,134 +222,138 @@
                                  <children>
                                     <AnchorPane prefHeight="630.0" prefWidth="526.0">
                                        <children>
-                                          <AnchorPane prefHeight="374.0" prefWidth="515.0" styleClass="checkout-boxes" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="100.0">
-                                             <children>
-                                                <HBox alignment="CENTER" layoutX="2.0" layoutY="2.0" prefHeight="134.0" prefWidth="615.0" spacing="10.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+                                          <ScrollPane fitToHeight="true" fitToWidth="true" hbarPolicy="NEVER" layoutY="100.0" styleClass="oneColor" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="100.0">
+                                             <content>
+                                                <AnchorPane prefHeight="374.0" prefWidth="515.0" styleClass="checkout-boxes">
                                                    <children>
-                                                      <AnchorPane fx:id="cardBackgroundAnchorPane" prefHeight="124.0" prefWidth="190.0" style="-fx-background-color: -fx-niceGray;">
+                                                      <HBox alignment="CENTER" layoutX="2.0" layoutY="2.0" prefHeight="134.0" prefWidth="615.0" spacing="10.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
                                                          <children>
-                                                            <RadioButton fx:id="cardRadioButton" layoutX="52.0" layoutY="45.0" mnemonicParsing="false" styleClass="p4" text="Kort" />
+                                                            <AnchorPane fx:id="cardBackgroundAnchorPane" prefHeight="124.0" prefWidth="190.0" style="-fx-background-color: -fx-niceGray;">
+                                                               <children>
+                                                                  <RadioButton fx:id="cardRadioButton" layoutX="52.0" layoutY="45.0" mnemonicParsing="false" styleClass="p4" text="Kort" />
+                                                               </children>
+                                                            </AnchorPane>
+                                                            <AnchorPane fx:id="fakturaBackgroundAnchorPane" prefHeight="124.0" prefWidth="190.0" style="-fx-background-color: -fx-niceGray;">
+                                                               <children>
+                                                                  <RadioButton fx:id="fakturaRadioButton" layoutX="35.0" layoutY="45.0" mnemonicParsing="false" styleClass="p4" text="Faktura" />
+                                                               </children>
+                                                            </AnchorPane>
+                                                         </children>
+                                                      </HBox>
+                                                      <AnchorPane fx:id="cardInfoAnchorPane" layoutX="10.0" layoutY="145.0" prefHeight="180.0" prefWidth="400.0" style="-fx-background-color: -fx-checkoutBox;" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="145.0">
+                                                         <children>
+                                                            <VBox layoutX="12.0" layoutY="14.0" prefHeight="194.0" prefWidth="379.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+                                                               <children>
+                                                                  <Label text="Kortinnehavare">
+                                                                     <padding>
+                                                                        <Insets top="10.0" />
+                                                                     </padding>
+                                                                  </Label>
+                                                                  <TextField fx:id="cardOwnerTextField" prefHeight="58.0" prefWidth="182.0" promptText="Anders Andersson" />
+                                                                  <Label text="Kortnummer">
+                                                                     <padding>
+                                                                        <Insets top="10.0" />
+                                                                     </padding>
+                                                                  </Label>
+                                                                  <TextField fx:id="cardNumberTextField" prefHeight="62.0" prefWidth="358.0" promptText="1234 4567 8910" />
+                                                                  <HBox prefHeight="64.0" prefWidth="379.0">
+                                                                     <children>
+                                                                        <AnchorPane prefHeight="39.0" prefWidth="282.0" HBox.hgrow="ALWAYS">
+                                                                           <children>
+                                                                              <Label prefHeight="29.0" prefWidth="180.0" text="Månad" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0">
+                                                                                 <padding>
+                                                                                    <Insets top="10.0" />
+                                                                                 </padding>
+                                                                              </Label>
+                                                                           </children>
+                                                                        </AnchorPane>
+                                                                        <AnchorPane prefHeight="17.0" prefWidth="308.0" HBox.hgrow="ALWAYS">
+                                                                           <children>
+                                                                              <Label layoutX="2.0" layoutY="11.0" prefHeight="29.0" prefWidth="38.0" text="År" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" />
+                                                                           </children>
+                                                                        </AnchorPane>
+                                                                     </children>
+                                                                     <padding>
+                                                                        <Insets top="10.0" />
+                                                                     </padding>
+                                                                  </HBox>
+                                                                  <HBox prefHeight="64.0" prefWidth="379.0">
+                                                                     <children>
+                                                                        <TextField fx:id="monthTextField" prefHeight="54.0" prefWidth="194.0" promptText="01" HBox.hgrow="ALWAYS" />
+                                                                        <TextField fx:id="yearTextField" prefHeight="54.0" prefWidth="218.0" promptText="25" HBox.hgrow="ALWAYS" />
+                                                                     </children>
+                                                                  </HBox>
+                                                                  <Label text="CVC/CVV">
+                                                                     <padding>
+                                                                        <Insets top="10.0" />
+                                                                     </padding>
+                                                                  </Label>
+                                                                  <TextField fx:id="cvcTextField" prefHeight="58.0" prefWidth="208.0" promptText="123" />
+                                                               </children>
+                                                            </VBox>
                                                          </children>
                                                       </AnchorPane>
-                                                      <AnchorPane fx:id="fakturaBackgroundAnchorPane" prefHeight="124.0" prefWidth="190.0" style="-fx-background-color: -fx-niceGray;">
+                                                      <AnchorPane fx:id="fakturaInfoAnchorPane" layoutX="11.0" layoutY="152.0" prefHeight="220.0" prefWidth="400.0" style="-fx-background-color: -fx-checkoutBox;" visible="false" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="145.0">
                                                          <children>
-                                                            <RadioButton fx:id="fakturaRadioButton" layoutX="35.0" layoutY="45.0" mnemonicParsing="false" styleClass="p4" text="Faktura" />
+                                                            <VBox layoutY="2.0" prefHeight="213.0" prefWidth="400.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+                                                               <children>
+                                                                  <Label text="Namn">
+                                                                     <padding>
+                                                                        <Insets top="10.0" />
+                                                                     </padding>
+                                                                  </Label>
+                                                                  <TextField fx:id="nameFakturaTextField" prefHeight="65.0" prefWidth="199.0" promptText="Anders Andersson" />
+                                                                  <Label text="Personnummer">
+                                                                     <padding>
+                                                                        <Insets top="10.0" />
+                                                                     </padding>
+                                                                  </Label>
+                                                                  <TextField fx:id="personalNumberTextField" prefHeight="78.0" prefWidth="400.0" promptText="123456-7890" />
+                                                                  <Label text="Fakturaaddress">
+                                                                     <padding>
+                                                                        <Insets top="10.0" />
+                                                                     </padding>
+                                                                  </Label>
+                                                                  <TextField fx:id="adressFakturaTextField" prefHeight="52.0" prefWidth="200.0" promptText="Gatgatan 2" />
+                                                                  <HBox prefHeight="100.0" prefWidth="200.0">
+                                                                     <children>
+                                                                        <AnchorPane prefHeight="33.0" prefWidth="262.0" HBox.hgrow="ALWAYS">
+                                                                           <children>
+                                                                              <Label text="Postkod">
+                                                                                 <padding>
+                                                                                    <Insets top="10.0" />
+                                                                                 </padding>
+                                                                              </Label>
+                                                                           </children>
+                                                                        </AnchorPane>
+                                                                        <AnchorPane prefHeight="33.0" prefWidth="261.0" HBox.hgrow="ALWAYS">
+                                                                           <children>
+                                                                              <Label text="Ort">
+                                                                                 <padding>
+                                                                                    <Insets top="10.0" />
+                                                                                 </padding>
+                                                                              </Label>
+                                                                           </children>
+                                                                        </AnchorPane>
+                                                                     </children>
+                                                                  </HBox>
+                                                                  <HBox prefHeight="100.0" prefWidth="200.0">
+                                                                     <children>
+                                                                        <TextField fx:id="postCodeFakturaTextField" prefHeight="52.0" prefWidth="200.0" promptText="12345" HBox.hgrow="ALWAYS" />
+                                                                        <TextField fx:id="stadFakturaTextField" prefHeight="52.0" prefWidth="200.0" promptText="Stockholm" HBox.hgrow="ALWAYS" />
+                                                                     </children>
+                                                                  </HBox>
+                                                               </children>
+                                                            </VBox>
                                                          </children>
                                                       </AnchorPane>
                                                    </children>
-                                                </HBox>
-                                                <AnchorPane fx:id="cardInfoAnchorPane" layoutX="10.0" layoutY="145.0" prefHeight="180.0" prefWidth="400.0" style="-fx-background-color: -fx-checkoutBox;" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="145.0">
-                                                   <children>
-                                                      <VBox layoutX="12.0" layoutY="14.0" prefHeight="194.0" prefWidth="379.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
-                                                         <children>
-                                                            <Label text="Kortinnehavare">
-                                                               <padding>
-                                                                  <Insets top="10.0" />
-                                                               </padding>
-                                                            </Label>
-                                                            <TextField fx:id="cardOwnerTextField" prefHeight="58.0" prefWidth="182.0" promptText="Anders Andersson" />
-                                                            <Label text="Kortnummer">
-                                                               <padding>
-                                                                  <Insets top="10.0" />
-                                                               </padding>
-                                                            </Label>
-                                                            <TextField fx:id="cardNumberTextField" prefHeight="62.0" prefWidth="358.0" promptText="1234 4567 8910" />
-                                                            <HBox prefHeight="64.0" prefWidth="379.0">
-                                                               <children>
-                                                                  <AnchorPane prefHeight="39.0" prefWidth="282.0" HBox.hgrow="ALWAYS">
-                                                                     <children>
-                                                                        <Label prefHeight="29.0" prefWidth="180.0" text="Månad" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0">
-                                                                           <padding>
-                                                                              <Insets top="10.0" />
-                                                                           </padding>
-                                                                        </Label>
-                                                                     </children>
-                                                                  </AnchorPane>
-                                                                  <AnchorPane prefHeight="17.0" prefWidth="308.0" HBox.hgrow="ALWAYS">
-                                                                     <children>
-                                                                        <Label layoutX="2.0" layoutY="11.0" prefHeight="29.0" prefWidth="38.0" text="År" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" />
-                                                                     </children>
-                                                                  </AnchorPane>
-                                                               </children>
-                                                               <padding>
-                                                                  <Insets top="10.0" />
-                                                               </padding>
-                                                            </HBox>
-                                                            <HBox prefHeight="64.0" prefWidth="379.0">
-                                                               <children>
-                                                                  <TextField fx:id="monthTextField" prefHeight="54.0" prefWidth="194.0" promptText="01" HBox.hgrow="ALWAYS" />
-                                                                  <TextField fx:id="yearTextField" prefHeight="54.0" prefWidth="218.0" promptText="25" HBox.hgrow="ALWAYS" />
-                                                               </children>
-                                                            </HBox>
-                                                            <Label text="CVC/CVV">
-                                                               <padding>
-                                                                  <Insets top="10.0" />
-                                                               </padding>
-                                                            </Label>
-                                                            <TextField fx:id="cvcTextField" prefHeight="58.0" prefWidth="208.0" promptText="123" />
-                                                         </children>
-                                                      </VBox>
-                                                   </children>
+                                                   <padding>
+                                                      <Insets bottom="10.0" left="20.0" right="20.0" top="10.0" />
+                                                   </padding>
                                                 </AnchorPane>
-                                                <AnchorPane fx:id="fakturaInfoAnchorPane" layoutX="11.0" layoutY="152.0" prefHeight="220.0" prefWidth="400.0" style="-fx-background-color: -fx-checkoutBox;" visible="false" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="145.0">
-                                                   <children>
-                                                      <VBox layoutY="2.0" prefHeight="213.0" prefWidth="400.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
-                                                         <children>
-                                                            <Label text="Namn">
-                                                               <padding>
-                                                                  <Insets top="10.0" />
-                                                               </padding>
-                                                            </Label>
-                                                            <TextField fx:id="nameFakturaTextField" prefHeight="65.0" prefWidth="199.0" promptText="Anders Andersson" />
-                                                            <Label text="Personnummer">
-                                                               <padding>
-                                                                  <Insets top="10.0" />
-                                                               </padding>
-                                                            </Label>
-                                                            <TextField fx:id="personalNumberTextField" prefHeight="78.0" prefWidth="400.0" promptText="123456-7890" />
-                                                            <Label text="Fakturaaddress">
-                                                               <padding>
-                                                                  <Insets top="10.0" />
-                                                               </padding>
-                                                            </Label>
-                                                            <TextField fx:id="adressFakturaTextField" prefHeight="52.0" prefWidth="200.0" promptText="Gatgatan 2" />
-                                                            <HBox prefHeight="100.0" prefWidth="200.0">
-                                                               <children>
-                                                                  <AnchorPane prefHeight="33.0" prefWidth="262.0" HBox.hgrow="ALWAYS">
-                                                                     <children>
-                                                                        <Label text="Postkod">
-                                                                           <padding>
-                                                                              <Insets top="10.0" />
-                                                                           </padding>
-                                                                        </Label>
-                                                                     </children>
-                                                                  </AnchorPane>
-                                                                  <AnchorPane prefHeight="33.0" prefWidth="261.0" HBox.hgrow="ALWAYS">
-                                                                     <children>
-                                                                        <Label text="Ort">
-                                                                           <padding>
-                                                                              <Insets top="10.0" />
-                                                                           </padding>
-                                                                        </Label>
-                                                                     </children>
-                                                                  </AnchorPane>
-                                                               </children>
-                                                            </HBox>
-                                                            <HBox prefHeight="100.0" prefWidth="200.0">
-                                                               <children>
-                                                                  <TextField fx:id="postCodeFakturaTextField" prefHeight="52.0" prefWidth="200.0" promptText="12345" HBox.hgrow="ALWAYS" />
-                                                                  <TextField fx:id="stadFakturaTextField" prefHeight="52.0" prefWidth="200.0" promptText="Stockholm" HBox.hgrow="ALWAYS" />
-                                                               </children>
-                                                            </HBox>
-                                                         </children>
-                                                      </VBox>
-                                                   </children>
-                                                </AnchorPane>
-                                             </children>
-                                             <padding>
-                                                <Insets bottom="10.0" left="20.0" right="20.0" top="10.0" />
-                                             </padding>
-                                          </AnchorPane>
+                                             </content>
+                                          </ScrollPane>
                                           <Label alignment="BOTTOM_CENTER" style="-fx-text-fill: -fx-base1;" styleClass="h2" text="Betalningssätt" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
                                              <graphic>
                                                 <ImageView fitHeight="70.0" fitWidth="70.0" pickOnBounds="true" preserveRatio="true">
@@ -379,83 +390,87 @@
                                                 <Insets top="30.0" />
                                              </padding>
                                           </Label>
-                                          <AnchorPane prefHeight="374.0" prefWidth="390.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="100.0">
-                                             <children>
-                                                <VBox layoutX="39.0" layoutY="68.0" prefHeight="374.0" prefWidth="390.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+                                          <ScrollPane fitToHeight="true" fitToWidth="true" layoutY="100.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="100.0">
+                                             <content>
+                                                <AnchorPane prefHeight="374.0" prefWidth="390.0">
                                                    <children>
-                                                      <HBox prefHeight="0.0" prefWidth="390.0">
+                                                      <VBox layoutX="39.0" layoutY="68.0" prefHeight="374.0" prefWidth="390.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
                                                          <children>
-                                                            <AnchorPane prefHeight="39.0" prefWidth="346.0" HBox.hgrow="ALWAYS">
+                                                            <HBox prefHeight="0.0" prefWidth="390.0">
                                                                <children>
-                                                                  <Label prefHeight="29.0" prefWidth="189.0" text="Förnamn">
-                                                                     <padding>
-                                                                        <Insets top="10.0" />
-                                                                     </padding>
-                                                                  </Label>
+                                                                  <AnchorPane prefHeight="39.0" prefWidth="346.0" HBox.hgrow="ALWAYS">
+                                                                     <children>
+                                                                        <Label prefHeight="29.0" prefWidth="189.0" text="Förnamn">
+                                                                           <padding>
+                                                                              <Insets top="10.0" />
+                                                                           </padding>
+                                                                        </Label>
+                                                                     </children>
+                                                                  </AnchorPane>
+                                                                  <AnchorPane prefHeight="39.0" prefWidth="361.0" HBox.hgrow="ALWAYS">
+                                                                     <children>
+                                                                        <Label prefHeight="29.0" prefWidth="189.0" text="Efternamn">
+                                                                           <padding>
+                                                                              <Insets top="10.0" />
+                                                                           </padding>
+                                                                        </Label>
+                                                                     </children>
+                                                                  </AnchorPane>
                                                                </children>
-                                                            </AnchorPane>
-                                                            <AnchorPane prefHeight="39.0" prefWidth="361.0" HBox.hgrow="ALWAYS">
+                                                            </HBox>
+                                                            <HBox prefHeight="57.0" prefWidth="390.0">
                                                                <children>
-                                                                  <Label prefHeight="29.0" prefWidth="189.0" text="Efternamn">
-                                                                     <padding>
-                                                                        <Insets top="10.0" />
-                                                                     </padding>
-                                                                  </Label>
+                                                                  <TextField fx:id="firstNameDeliveryTextField" prefHeight="57.0" prefWidth="259.0" promptText="Anders" HBox.hgrow="ALWAYS" />
+                                                                  <TextField fx:id="lastNameDeliveryTextField" prefHeight="58.0" prefWidth="271.0" promptText="Andersson" HBox.hgrow="ALWAYS" />
                                                                </children>
-                                                            </AnchorPane>
-                                                         </children>
-                                                      </HBox>
-                                                      <HBox prefHeight="57.0" prefWidth="390.0">
-                                                         <children>
-                                                            <TextField fx:id="firstNameDeliveryTextField" prefHeight="57.0" prefWidth="259.0" promptText="Anders" HBox.hgrow="ALWAYS" />
-                                                            <TextField fx:id="lastNameDeliveryTextField" prefHeight="58.0" prefWidth="271.0" promptText="Andersson" HBox.hgrow="ALWAYS" />
-                                                         </children>
-                                                      </HBox>
-                                                      <Label text="Address">
-                                                         <padding>
-                                                            <Insets top="10.0" />
-                                                         </padding>
-                                                      </Label>
-                                                      <HBox prefHeight="53.0" prefWidth="390.0">
-                                                         <children>
-                                                            <TextField fx:id="adressDeliveryTextField" prefHeight="56.0" prefWidth="398.0" promptText="Gatgatan 1" HBox.hgrow="ALWAYS" />
-                                                         </children>
-                                                      </HBox>
-                                                      <HBox prefHeight="0.0" prefWidth="390.0">
-                                                         <children>
-                                                            <AnchorPane prefHeight="39.0" prefWidth="344.0" HBox.hgrow="ALWAYS">
+                                                            </HBox>
+                                                            <Label text="Address">
+                                                               <padding>
+                                                                  <Insets top="10.0" />
+                                                               </padding>
+                                                            </Label>
+                                                            <HBox prefHeight="53.0" prefWidth="390.0">
                                                                <children>
-                                                                  <Label prefHeight="29.0" prefWidth="189.0" text="Postkod">
-                                                                     <padding>
-                                                                        <Insets top="10.0" />
-                                                                     </padding>
-                                                                  </Label>
+                                                                  <TextField fx:id="adressDeliveryTextField" prefHeight="56.0" prefWidth="398.0" promptText="Gatgatan 1" HBox.hgrow="ALWAYS" />
                                                                </children>
-                                                            </AnchorPane>
-                                                            <AnchorPane prefHeight="39.0" prefWidth="356.0" HBox.hgrow="ALWAYS">
+                                                            </HBox>
+                                                            <HBox prefHeight="0.0" prefWidth="390.0">
                                                                <children>
-                                                                  <Label prefHeight="29.0" prefWidth="189.0" text="Stad">
-                                                                     <padding>
-                                                                        <Insets top="10.0" />
-                                                                     </padding>
-                                                                  </Label>
+                                                                  <AnchorPane prefHeight="39.0" prefWidth="344.0" HBox.hgrow="ALWAYS">
+                                                                     <children>
+                                                                        <Label prefHeight="29.0" prefWidth="189.0" text="Postkod">
+                                                                           <padding>
+                                                                              <Insets top="10.0" />
+                                                                           </padding>
+                                                                        </Label>
+                                                                     </children>
+                                                                  </AnchorPane>
+                                                                  <AnchorPane prefHeight="39.0" prefWidth="356.0" HBox.hgrow="ALWAYS">
+                                                                     <children>
+                                                                        <Label prefHeight="29.0" prefWidth="189.0" text="Stad">
+                                                                           <padding>
+                                                                              <Insets top="10.0" />
+                                                                           </padding>
+                                                                        </Label>
+                                                                     </children>
+                                                                  </AnchorPane>
                                                                </children>
-                                                            </AnchorPane>
+                                                            </HBox>
+                                                            <HBox prefHeight="52.0" prefWidth="390.0">
+                                                               <children>
+                                                                  <TextField fx:id="postCodeDeliveryTextField" prefHeight="50.0" prefWidth="200.0" promptText="12345" HBox.hgrow="ALWAYS" />
+                                                                  <TextField fx:id="cityDeliveryTextField" prefHeight="50.0" prefWidth="214.0" promptText="Stockholm" HBox.hgrow="ALWAYS" />
+                                                               </children>
+                                                            </HBox>
                                                          </children>
-                                                      </HBox>
-                                                      <HBox prefHeight="52.0" prefWidth="390.0">
-                                                         <children>
-                                                            <TextField fx:id="postCodeDeliveryTextField" prefHeight="50.0" prefWidth="200.0" promptText="12345" HBox.hgrow="ALWAYS" />
-                                                            <TextField fx:id="cityDeliveryTextField" prefHeight="50.0" prefWidth="214.0" promptText="Stockholm" HBox.hgrow="ALWAYS" />
-                                                         </children>
-                                                      </HBox>
+                                                      </VBox>
                                                    </children>
-                                                </VBox>
-                                             </children>
-                                             <padding>
-                                                <Insets bottom="10.0" left="20.0" right="20.0" top="10.0" />
-                                             </padding>
-                                          </AnchorPane>
+                                                   <padding>
+                                                      <Insets bottom="10.0" left="20.0" right="20.0" top="10.0" />
+                                                   </padding>
+                                                </AnchorPane>
+                                             </content>
+                                          </ScrollPane>
                                        </children>
                                     </AnchorPane>
                                  </children>
@@ -488,26 +503,19 @@
                                                       <Insets top="30.0" />
                                                    </padding>
                                                 </Label>
-                                                <AnchorPane prefHeight="472.0" prefWidth="490.0" VBox.vgrow="ALWAYS">
-                                                   <children>
-                                                      <ScrollPane fitToHeight="true" fitToWidth="true" hbarPolicy="NEVER" prefHeight="474.0" prefWidth="490.0" styleClass="oneColor" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
-                                                         <content>
-                                                            <AnchorPane prefHeight="175.0" prefWidth="264.0" styleClass="oneColor">
-                                                               <children>
-                                                                  <FlowPane fx:id="itemsCheckoutFlowpane" alignment="TOP_CENTER" layoutY="8.0" prefHeight="124.0" prefWidth="488.0" vgap="10.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
-                                                                     <padding>
-                                                                        <Insets top="10.0" />
-                                                                     </padding>
-                                                                  </FlowPane>
-                                                               </children>
-                                                            </AnchorPane>
-                                                         </content>
-                                                         <opaqueInsets>
-                                                            <Insets />
-                                                         </opaqueInsets>
-                                                      </ScrollPane>
-                                                   </children>
-                                                </AnchorPane>
+                                                <ScrollPane fitToHeight="true" fitToWidth="true" hbarPolicy="NEVER" styleClass="oneColor" VBox.vgrow="ALWAYS">
+                                                   <content>
+                                                      <AnchorPane prefHeight="472.0" prefWidth="490.0" styleClass="oneColor">
+                                                         <children>
+                                                            <FlowPane fx:id="itemsCheckoutFlowpane" alignment="TOP_CENTER" prefHeight="124.0" prefWidth="488.0" vgap="10.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+                                                               <padding>
+                                                                  <Insets top="10.0" />
+                                                               </padding>
+                                                            </FlowPane>
+                                                         </children>
+                                                      </AnchorPane>
+                                                   </content>
+                                                </ScrollPane>
                                              </children>
                                           </VBox>
                                        </children>
