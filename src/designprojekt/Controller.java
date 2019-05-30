@@ -955,7 +955,6 @@ public class Controller implements Initializable {
     }
 
     @FXML
-    public void showPOTATO_RICE() { // and pasta???!! NEJ.
     public void showPOTATO_RICE() { // and pasta???!!
         displayAmount = 20;
         updateMainGrid(imatBackendController.getProducts(ProductCategory.POTATO_RICE));
