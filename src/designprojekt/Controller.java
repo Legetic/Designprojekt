@@ -360,7 +360,7 @@ public class Controller implements Initializable {
             case "Meloner":
                 imagePath = "Designprojekt/resources/categoryPictures/melons.jpg";
                 headerText = "Meloner";
-                description = "En på melonen";
+                description = "En på melonen!";
 
                 break;
             case "Örter":
