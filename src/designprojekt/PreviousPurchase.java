@@ -22,7 +22,7 @@ public class PreviousPurchase extends AnchorPane {
     @FXML
     private Label previousPurchasePrice;
 
-    public PreviousPurchase(Order order, EarlierOrdersPage earliersOrdersPage){
+    public PreviousPurchase(Order order, EarlierOrdersPage earliersOrdersPage) {
         FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("previousPurchase.fxml"));
         fxmlLoader.setRoot(this);
         fxmlLoader.setController(this);
@@ -37,21 +37,21 @@ public class PreviousPurchase extends AnchorPane {
         this.earliersOrdersPage = earliersOrdersPage;
         this.parentController = earliersOrdersPage.getParentController();
 
-        previousPurchasePrice.setText(getPrice());
+        previousPurchasePrice.setText(getPrice() + "");
         previousPurchaseDate.setText(order.getDate() + "");
 
     }
 
-    public void showShoppingItems(){
+    public void showShoppingItems() {
         earliersOrdersPage.showPreviousPurchaseDetail(order);
     }
 
-    private String getPrice(){
-        Double totalPrice = 0.0;
-        for(ShoppingItem item : order.getItems()){
-            totalPrice=+ item.getTotal();
+    private double getPrice() {
+        double totalPrice = 0.0;
+        for (ShoppingItem si : order.getItems()) {
+            totalPrice += si.getTotal();
         }
-        return (totalPrice + "");
+        return totalPrice;
     }
 
 
