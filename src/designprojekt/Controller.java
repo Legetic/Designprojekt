@@ -766,6 +766,7 @@ public class Controller implements Initializable {
         homePage.toFront();
         previousPurchasesRoot.toFront();
         earlierOrdersPage.getChooseOrderLabel().setVisible(true);
+        earlierOrdersPage.getAddPreviousPurchaseToCartButton().setDisable(true);
         updateShoppingCart();
 
 

@@ -24,6 +24,8 @@ public class EarlierOrdersPage extends AnchorPane {
     @FXML
     private FlowPane flowPanePreviousPurchasesDetails;
 
+    @FXML
+    private Button AddPreviousPurchaseToCartButton;
 
     @FXML
     private Label chooseOrderLabel;
@@ -80,6 +82,10 @@ public class EarlierOrdersPage extends AnchorPane {
 
     public Controller getParentController(){
         return parentController;
+    }
+
+    public Button getAddPreviousPurchaseToCartButton() {
+        return AddPreviousPurchaseToCartButton;
     }
 
 
