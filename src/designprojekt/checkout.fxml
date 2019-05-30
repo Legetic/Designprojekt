@@ -232,7 +232,7 @@
                                                    <children>
                                                       <HBox alignment="CENTER" layoutX="2.0" layoutY="2.0" prefHeight="134.0" prefWidth="615.0" spacing="10.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
                                                          <children>
-                                                            <AnchorPane fx:id="cardBackgroundAnchorPane" onMouseClicked="#selectCard" prefHeight="124.0" prefWidth="190.0">
+                                                            <AnchorPane fx:id="cardBackgroundAnchorPane" onMouseClicked="#selectCard" prefHeight="124.0" prefWidth="190.0" styleClass="inactiveRadio">
                                                                <children>
                                                                   <RadioButton fx:id="cardRadioButton" layoutX="52.0" layoutY="45.0" mnemonicParsing="false" styleClass="p4" text="Kort" />
                                                                </children>
@@ -240,7 +240,7 @@
                                                                   <Cursor fx:constant="HAND" />
                                                                </cursor>
                                                             </AnchorPane>
-                                                            <AnchorPane fx:id="fakturaBackgroundAnchorPane" onMouseClicked="#selectFaktura" prefHeight="124.0" prefWidth="190.0">
+                                                            <AnchorPane fx:id="fakturaBackgroundAnchorPane" onMouseClicked="#selectFaktura" prefHeight="124.0" prefWidth="190.0" styleClass="inactiveRadio">
                                                                <children>
                                                                   <RadioButton fx:id="fakturaRadioButton" layoutX="35.0" layoutY="45.0" mnemonicParsing="false" styleClass="p4" text="Faktura" />
                                                                </children>
