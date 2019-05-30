@@ -216,9 +216,12 @@ https://blog.marvelapp.com/body-text-small/
 
 .currentCategory{
     -fx-background-color: -fx-niceGray;
-    -fx-text-fill: -fx-base1;
+    -fx-text-fill: -fx-base4;
 }
 
+.currentCategory .label{
+    -fx-text-fill: -fx-base4;
+}
 .conclusion{
     -fx-background-color: #ffffff
 }

@@ -2,6 +2,8 @@ package designprojekt;
 
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
+import javafx.scene.Node;
+import javafx.scene.control.Button;
 import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.FlowPane;
 import se.chalmers.cse.dat216.project.Order;
@@ -21,6 +23,7 @@ public class EarlierOrdersPage extends AnchorPane {
     @FXML
     private FlowPane flowPanePreviousPurchasesDetails;
 
+    private AnchorPane currentCategoryPane;
 
     public EarlierOrdersPage(Controller parentController) {
         FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("earlierOrders.fxml"));
@@ -44,6 +47,20 @@ public class EarlierOrdersPage extends AnchorPane {
         for (Order r : parentController.imatBackendController.getOrders()) {
             PreviousPurchase prev = new PreviousPurchase(r, this);
             flowPanePreviousPurchases.getChildren().add(prev);
+        }
+
+        for(Node d : flowPanePreviousPurchases.getChildren()){
+            if(d instanceof AnchorPane){
+                d.setOnMouseReleased(ev -> {
+                    //System.out.println(((Button) d).getText());
+                    if(currentCategoryPane != null) {
+                        currentCategoryPane.getStyleClass().remove("currentCategory");
+                    }
+                    currentCategoryPane = (AnchorPane) d;
+                    currentCategoryPane.getStyleClass().add("currentCategory");
+
+                });
+            }
         }
     }
 
