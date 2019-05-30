@@ -830,7 +830,7 @@ public class Controller implements Initializable {
     public void goHome() {
         homePage.toFront();
         updateShoppingCart();
-        updateCart();
+        //updateCart();
     }
 
     public void updateCart(){
