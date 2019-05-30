@@ -419,7 +419,7 @@ public class Controller implements Initializable {
     private void updateMainGrid(List<Product> productList) {
         productsShown = productList;
         mainGrid.getChildren().clear();
-
+        showMoreButton.setVisible(true);
 
         if(displayAmount > productList.size()){
             displayAmount = productList.size();
@@ -829,7 +829,6 @@ public class Controller implements Initializable {
     public void goHome() {
         homePage.toFront();
         updateShoppingCart();
-
         updateCart();
     }
 
@@ -860,112 +859,136 @@ public class Controller implements Initializable {
 
     @FXML
     public void showPOD() {
+        displayAmount = 20;
         updateMainGrid(imatBackendController.getProducts(ProductCategory.POD));
     }
 
     @FXML
     public void showBREAD() {
+        displayAmount = 20;
         updateMainGrid(imatBackendController.getProducts(ProductCategory.BREAD));
     }
 
     @FXML
     public void showBERRY() {
+        displayAmount = 20;
         updateMainGrid(imatBackendController.getProducts(ProductCategory.BERRY));
     }
 
     @FXML
     public void showCITRUS() {
+        displayAmount = 20;
         updateMainGrid(imatBackendController.getProducts(ProductCategory.CITRUS_FRUIT));
     }
 
     @FXML
     public void showHOT_DRINKS() {
+        displayAmount = 20;
         updateMainGrid(imatBackendController.getProducts(ProductCategory.HOT_DRINKS));
     }
 
     @FXML
     public void showCOLD_DRINKS() {
+        displayAmount = 20;
         updateMainGrid(imatBackendController.getProducts(ProductCategory.COLD_DRINKS));
     }
 
     @FXML
     public void showEXOTIC() {
+        displayAmount = 20;
         updateMainGrid(imatBackendController.getProducts(ProductCategory.EXOTIC_FRUIT));
     }
 
     @FXML
     public void showFISH() {
+        displayAmount = 20;
         updateMainGrid(imatBackendController.getProducts(ProductCategory.FISH));
     }
 
     @FXML
     public void showVEGETABLE_FRUIT() {
+        displayAmount = 20;
         updateMainGrid(imatBackendController.getProducts(ProductCategory.VEGETABLE_FRUIT));
     }
 
     @FXML
     public void showCABBAGE() {
+        displayAmount = 20;
         updateMainGrid(imatBackendController.getProducts(ProductCategory.CABBAGE));
     }
 
     @FXML
     public void showMEAT() { //meat and fish????!!!
+        displayAmount = 20;
         updateMainGrid(imatBackendController.getProducts(ProductCategory.MEAT));
     }
 
     @FXML
     public void showDAIRIES() {
+        displayAmount = 20;
         updateMainGrid(imatBackendController.getProducts(ProductCategory.DAIRIES));
     }
 
     @FXML
     public void showMELONS() {
+        displayAmount = 20;
         updateMainGrid(imatBackendController.getProducts(ProductCategory.MELONS));
     }
 
     @FXML
     public void showFLOUR_SUGAR_SALT() {
+        displayAmount = 20;
         updateMainGrid(imatBackendController.getProducts(ProductCategory.FLOUR_SUGAR_SALT));
     }
 
     @FXML
     public void showNUTS_AND_SEEDS() {
+        displayAmount = 20;
         updateMainGrid(imatBackendController.getProducts(ProductCategory.NUTS_AND_SEEDS));
     }
 
     @FXML
     public void showPASTA() {
+        displayAmount = 20;
         updateMainGrid(imatBackendController.getProducts(ProductCategory.PASTA));
     }
 
     @FXML
     public void showPOTATO_RICE() { // and pasta???!!
+        displayAmount = 20;
         updateMainGrid(imatBackendController.getProducts(ProductCategory.POTATO_RICE));
     }
 
     @FXML
     public void showROOT_VEGETABLE() {
+        displayAmount = 20;
         updateMainGrid(imatBackendController.getProducts(ProductCategory.VEGETABLE_FRUIT));
     }
 
     @FXML
     public void showFRUIT() {
+        displayAmount = 20;
         updateMainGrid(imatBackendController.getProducts(ProductCategory.FRUIT));
     }
 
     @FXML
     public void showSWEET() {
+        displayAmount = 20;
         updateMainGrid(imatBackendController.getProducts(ProductCategory.SWEET));
     }
 
     @FXML
     public void showHERB() {
+        displayAmount = 20;
         updateMainGrid(imatBackendController.getProducts(ProductCategory.HERB));
     }
     @FXML
     public void showAll() {
+        displayAmount = 20;
         updateMainGrid(imatBackendController.getProducts());
     }
+
+
 
 
     /*public void openStartMenu(){
