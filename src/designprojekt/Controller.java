@@ -15,14 +15,20 @@ import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.BorderPane;
 import javafx.scene.layout.FlowPane;
 import javafx.scene.layout.VBox;
+import javafx.scene.paint.Color;
+import javafx.scene.text.Text;
+import javafx.scene.text.TextFlow;
 import javafx.util.Callback;
 import se.chalmers.cse.dat216.project.*;
 
 
 import java.io.IOException;
+import java.lang.reflect.Array;
 import java.net.URL;
 import java.util.*;
 import java.util.List;
+
+import static se.chalmers.cse.dat216.project.ProductCategory.POD;
 
 public class Controller implements Initializable {
 
@@ -38,9 +44,6 @@ public class Controller implements Initializable {
     private AnchorPane startMenu;
     @FXML
     private BorderPane homePage;
-
-
-
     @FXML
     private Label totalPriceLabel;
     @FXML
@@ -312,8 +315,109 @@ public class Controller implements Initializable {
                 description = "Allt det där sura.";
 
                 break;
+            case "Mjölkprodukter":
+                imagePath = "Designprojekt/resources/categoryPictures/milk.jpg";
+                headerText = "Mjölkprodukter";
+                description = "Ett glas om dagen!";
 
+                break;
+            case "Grönsaker":
+                imagePath = "Designprojekt/resources/categoryPictures/vegetables.jpg";
+                headerText = "Grönsaker";
+                description = "Grönt och gott!";
 
+                break;
+            case "Kött":
+                imagePath = "Designprojekt/resources/categoryPictures/meat.jpg";
+                headerText = "Kött";
+                description = "Inga veganer här!";
+
+                break;
+            case "Kalla Drycker":
+                imagePath = "Designprojekt/resources/categoryPictures/coldDrinks.jpg";
+                headerText = "Kalla Drycker";
+                description = "Kallt och läskande!";
+
+                break;
+            case "Varma Drycker":
+                imagePath = "Designprojekt/resources/categoryPictures/hotdrinks.jpg";
+                headerText = "Varma Drycker";
+                description = "Kom in och värm dig!";
+
+                break;
+            case "Exotisk Frukt":
+                imagePath = "Designprojekt/resources/categoryPictures/exotic.jpg";
+                headerText = "Exotisk Frukt";
+                description = "Upptäck de okända!";
+
+                break;
+            case "Kål":
+                imagePath = "Designprojekt/resources/categoryPictures/cole.jpg";
+                headerText = "Kål";
+                description = "Detta kommer inte ta kål på dig!";
+
+                break;
+            case "Meloner":
+                imagePath = "Designprojekt/resources/categoryPictures/melons.jpg";
+                headerText = "Meloner";
+                description = "En på melonen";
+
+                break;
+            case "Örter":
+                imagePath = "Designprojekt/resources/categoryPictures/herbs.jpg";
+                headerText = "Örter";
+                description = "Krydda till vardagen";
+
+                break;
+            case "Skafferi":
+                imagePath = "Designprojekt/resources/categoryPictures/sugar.jpg";
+                headerText = "Skafferi";
+                description = "Allt för ditt bakande";
+
+                break;
+            case "Nötter & Frön":
+                imagePath = "Designprojekt/resources/categoryPictures/nuts.jpg";
+                headerText = "Nötter & Frön";
+                description = "Varning: kan innehålla nötter!";
+
+                break;
+            case "Sötsaker":
+                imagePath = "Designprojekt/resources/categoryPictures/candy.jpg";
+                headerText = "Sötsaker";
+                description = "Söt som dig";
+
+                break;
+            case "Frukt":
+                imagePath = "Designprojekt/resources/categoryPictures/fruit.jpg";
+                headerText = "Frukt";
+                description = "Frukt är naturens godis";
+
+                break;
+            case "Fisk":
+                imagePath = "Designprojekt/resources/categoryPictures/fish.jpg";
+                headerText = "Fisk";
+                description = "Direkt från sjön";
+
+                break;
+            case "Pasta":
+                imagePath = "Designprojekt/resources/categoryPictures/pasta.jpg";
+                headerText = "Pasta";
+                description = "Pasta la vista baby!";
+
+                break;
+            case "Potatis & Ris":
+                imagePath = "Designprojekt/resources/categoryPictures/potatoes.jpg";
+                headerText = "Potatis & Ris";
+                description = "Glöm inte dina kolhydrater!";
+
+                break;
+
+            case "Rotfrukter":
+                imagePath = "Designprojekt/resources/categoryPictures/root.jpg";
+                headerText = "Rotfrukter";
+                description = "Låt oss inte utrotas!";
+
+            break;
 
         }
         setFeature(imagePath, headerText, description);
@@ -709,18 +813,13 @@ public class Controller implements Initializable {
         Card productCard = cardMap.get(item.getProduct().getName());
         boolean isDuplicate = false;
         for (ShoppingItem si : dataHandler.getShoppingCart().getItems()) {
-            if (si.getProduct().equals(productCard.getProduct())) { //If item exists in cart, add amount of item to cart
+            if (si.getProduct().equals(productCard.getProduct())) {
                 isDuplicate = true;
-
-                System.out.println("si amount: " + si.getAmount());
-                System.out.println("item amount: " + item.getAmount());
-                System.out.println("card amount: " + productCard.getCartItem().getShoppingItem().getAmount());
-                si.setAmount(item.getAmount() + si.getAmount());
-
+                //incAmount(productCard); //Varför e denna här?
                 break;
             }
         }
-        if (!isDuplicate) {//If not duplicate, add item to cart
+        if (!isDuplicate) {//If not duplicate, add to cart
             dataHandler.getShoppingCart().addItem(item);
 
             CartItem cartItem = new CartItem(item, this, productCard);
@@ -786,7 +885,6 @@ public class Controller implements Initializable {
 
         homePage.toFront();
         previousPurchasesRoot.toFront();
-        updateShoppingCart();
 
     }
 
