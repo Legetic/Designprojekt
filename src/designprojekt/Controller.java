@@ -672,7 +672,7 @@ public class Controller implements Initializable {
         for (ShoppingItem si : dataHandler.getShoppingCart().getItems()) {
             if (si.getProduct().equals(productCard.getProduct())) {
                 isDuplicate = true;
-                incAmount(productCard);
+                //incAmount(productCard); //Varför e denna här?
                 break;
             }
         }
@@ -686,7 +686,10 @@ public class Controller implements Initializable {
             productCard.getAmountControl().setVisible(true);
             productCard.getAmountField().requestFocus();
             productCard.getAddButton().setVisible(false);
+
+            updateShoppingCart();
         }
+        updateTotalLabel();
     }
 
 
