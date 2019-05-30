@@ -1,0 +1,369 @@
+@font-face {
+    src: url("../resources/fonts/Montserrat-Regular.ttf") ;
+
+}
+@font-face {
+    src: url("../resources/fonts/Roboto-Regular.ttf") ;
+
+}
+@font-face {
+    /*src: url("../resources/icons/Flaticon.ttf") ;*/
+
+}
+/*
+Bakelser https://unsplash.com/photos/ZkgWJ4BfgsE
+Frukt  https://unsplash.com/photos/atzWFItRHy8
+
+*/
+
+
+*{
+    /*Denn är nice med vit text: #77BCFC*/
+    /*https://99designs.com/logo-design/psychology-of-color
+    #008DB9
+    #3599EB
+
+    #FA7268 - årets färg
+
+   light blue and purple #D7F0F5 with #08197E
+
+    Call to action - https://www.convertize.com/call-to-action-button/
+    https://www.resene.co.nz/homeown/use_colr/colours-for-living.htm - ELDERS AND COLOR
+
+    */
+
+    /*#2C31F6*/
+    -fx-base1:#19466B;
+    -fx-base2:#8FC9F9;
+    -fx-base3:#61B3F8;
+    -fx-base4:#3599EB;
+
+    -fx-second1: #FA7268;
+    -fx-second2: #FA7268;
+    -fx-second3: #FA7268;
+    -fx-second4: #FA7268;
+
+    -fx-niceWhite:white;
+    -fx-niceGray:#EDF3F7;
+	-fx-nicerGray:#CAD1D5;
+
+
+
+}
+/*Icon made by https://www.flaticon.com/authors/chanut from www.flaticon.com */
+/*Paste this attribution on the final work so the authorship is known (for instance, in the acknowledgements chapter of a book)*/
+
+/*Deisgnat för en 1920 x 1080 pixlars laptopskärm med 40cm diagonal vilket ger en ppi på 140, vi sänker detta något till 120ppi för att få bättre marginal på resultatet*/
+/*Segoe UI valdes då det är den font som används till vanliga Microsoft-applikationer såsom Skype.
+Ytterligare har fonten en medelstor till stor x-height på 0.5 (ratio) (https://www.fonts.com/content/learning/fontology/level-1/type-anatomy/x-height) (http://jkorpela.fi/x-height.html),
+Om vi antar att användaren sitter runt än 40 cm ifrån skärmen kan vi beräkna läsbarheten (https://www.imarc.com/blog/best-font-size-for-any-device).
+Med tanke på programmets målgrupp, äldre användare som kan använda program som skype och facebook, siktar vi ändå på en balans
+mellan att fånga de äldre med sämre syn utan att ta upp onödigt stor plats, detta leder os till en strävan efter
+en upplevt x-höjd på 0.35 för gränssnittets minsta text. Slutligen innebär detta att gränssnittets minsta font ligger
+på 18pt (points). Ha i åtanke att fontens läsbarhet också påverkas av dess kontrast till bakgrunden, vilket
+ytterligare talar för att en stor font är viktig.
+
+
+https://blog.marvelapp.com/body-text-small/
+*/
+.label{
+    -fx-font-family: "Segoe UI", sans-serif;
+    -fx-font-size: 18pt;
+    /*-fx-font-family: 'Roboto', sans-serif;*/
+    /*-fx-font-family: 'Montserrat', sans-serif;*/
+    /*-fx-text-fill: red;*/
+}
+
+.button{
+    -fx-font-family: "Segoe UI", sans-serif;
+    -fx-font-size: 18pt;
+    -fx-cursor: hand;
+}
+
+.button:hover{
+    -fx-effect: innershadow( gaussian, rgba( 255, 255, 255, 0.10), 100, 1, 0, 0 );
+}
+.button:pressed{
+    -fx-effect: innershadow( gaussian, rgba( 0, 0, 0, 0.15), 2, 2, 2, 2 );
+}
+.list-view{
+
+    -fx-font-family: "Segoe UI", sans-serif;
+    -fx-font-size: 18pt;
+    -fx-cursor: hand;
+
+}
+
+.check-box{
+    -fx-font-family: "Segoe UI", sans-serif;
+    -fx-font-size: 18pt;
+}
+
+.combo-box{
+
+    -fx-font-family: "Segoe UI", sans-serif;
+    -fx-font-size: 18pt;
+}
+
+.text-field{
+    -fx-font-family: "Segoe UI", sans-serif;
+    -fx-font-size: 18pt;
+}
+
+.amount-text-field{
+	padding-left: 0px;
+}
+
+.check-box .box{
+    -fx-background-color: -fx-niceGray;
+    -fx-border-width: 1px;
+    -fx-border-color: -fx-base2;
+}
+.check-box:selected .mark {
+    -fx-background-color: white;
+}
+.check-box:selected .box {
+    -fx-background-color: -fx-base4;
+
+}
+
+
+.list-cell:filled:selected:focused, .list-cell:filled:selected {
+    /* 3:, 4: */
+    -fx-background-color: -fx-base4;
+    -fx-text-fill: white; /* 5 */
+}
+.combo-box .list-cell:selected:focused, .combo-box .list-cell:filled:selected{
+    -fx-background-color: white;
+    -fx-text-fill: -fx-base4; /* 5 */
+}
+
+.combo-box .arrow {
+    -fx-background-color: -fx-base4;
+}
+
+.list-cell { -fx-text-fill: -fx-base1; /* 5 */ }
+.list-cell:odd { -fx-background-color: white; /* 1 */ }
+.list-cell:even { -fx-background-color: white; /* for information */ }
+.list-cell:filled:hover {
+    -fx-background-color: -fx-niceGray; /* 2 */
+    -fx-text-fill: -fx-base1; /* 5 */
+}
+.searchText{
+-fx-text-fill: red;
+}
+.searchHighlight{
+    -fx-text-fill: red;
+
+}
+
+.ghostButton{
+    -fx-background-color: transparent;
+    -fx-text-fill: -fx-base4;
+    -fx-border-color: -fx-base4;
+    -fx-border-width: 1 1 1 1;
+}
+
+.activeEmptyButton, .ghostButton:hover{
+    -fx-background-color: -fx-base4;
+    -fx-text-fill: white;
+    -fx-border-width: 0px;
+}
+.emptyButton{
+    -fx-graphic: url("../resources/icons/MainBlue/waste_32px.png");
+
+}
+.emptyButton:hover{
+    -fx-graphic: url("../resources/icons/White/waste_32px.png");
+
+}
+.activeEmptyButton{
+    -fx-graphic: url("../resources/icons/White/waste_32px.png");
+}
+
+.browseButton{
+    -fx-padding: 10 0 10 20;
+    -fx-background-color: transparent;
+
+    -fx-border-width: 0 0 1 0;
+    -fx-border-color: -fx-base4;
+
+    -fx-text-fill: -fx-base1;
+}
+
+.browseButton:hover{
+    -fx-background-color: -fx-base4;
+    -fx-text-fill: white;
+}
+.browseButton:hover .label{
+    -fx-text-fill: white;
+}
+
+.browseButton:pressed{
+    -fx-background-color: -fx-niceGray;
+    -fx-text-fill: -fx-base1;
+}
+.browseButton:pressed .label{
+    -fx-text-fill: -fx-base1;
+}
+
+
+.browseButton:pressed{
+    -fx-effect: innershadow( gaussian, rgba( 0, 0, 0, 0.15), 2, 2, 2, 2 );
+}
+
+.currentCategory{
+    -fx-background-color: -fx-niceGray;
+    -fx-text-fill: -fx-base4;
+}
+
+.currentCategory .label{
+    -fx-text-fill: -fx-base4;
+}
+.conclusion{
+    -fx-background-color: #ffffff
+}
+
+.checkout-boxes{
+    -fx-background-color: -fx-checkoutBox;
+    -fx-border-color: #e0E0E0;
+    -fx-border-radius: 4;
+    -fx-border-width: 1;
+}
+
+.inputFieldError{
+    -fx-border-color: red;
+    -fx-border-width: 2px;
+
+}
+.indicator{
+-fx-fill: transparent;
+    -fx-stroke: -fx-base2;
+    -fx-stroke-width: 2px;
+}
+.indicatorText{
+    -fx-text-fill: -fx-nicerGray;
+
+}
+.indicatorLine{
+    -fx-fill: -fx-nicerGray;
+    -fx-stroke-width: 0;
+
+ }
+.activeIndicator{
+-fx-fill: -fx-base4;
+}
+.activeIndicatorLine{
+-fx-fill: -fx-base3;
+}
+.activeIndicatorText{
+-fx-text-fill: -fx-base4;
+}
+
+.checkoutCard{
+    -fx-background-color: #f0f0f0;
+    -fx-border-color: #e0E0E0;
+}
+
+.h1{
+    /*Only applied here for performance reasons*/
+    -fx-font-smoothing-type: gray;
+
+    -fx-font-size: 50pt;
+    -fx-font-weight: bold;
+    /*-fx-text-fill: rgba(0,0,0,0.75);*/
+}
+.h2{
+    -fx-font-smoothing-type: gray;
+
+    -fx-font-size: 40pt;
+    -fx-font-weight: bold;
+    /*-fx-text-fill: rgba(0,0,0,0.75);*/
+}
+
+.h3{
+    -fx-font-smoothing-type: gray;
+
+    -fx-font-size: 26pt;
+    -fx-font-weight: bold;
+    /*-fx-text-fill: rgba(0,0,0,0.75);*/
+}
+.h4{
+    -fx-font-size: 18pt;
+    -fx-font-weight: bold;
+    /*-fx-text-fill: rgba(0,0,0,0.75);*/
+}
+.oneColor{
+    -fx-background-color: -fx-niceWhite;
+}
+
+
+.centerStage{
+    -fx-background-color: -fx-niceGray;
+}
+.browseMenu{
+    -fx-background-color: -fx-niceWhite;
+    /*-fx-background-color: -fx-base2;*/
+}
+.topBar{
+    -fx-background-color: -fx-niceGray;
+
+}
+.cart{
+
+}
+
+.p1{
+    -fx-font-size: 30pt;
+}
+
+.p2{
+    -fx-font-size: 26pt;
+}
+
+.p3{
+    -fx-font-size: 22pt;
+}
+
+.p4{
+    -fx-font-size: 18pt;
+}
+
+.colorTextBlack{
+    -fx-text-fill: #000000
+}
+
+#Card{
+    -fx-border-width: 0 1 1 0;
+    -fx-border-color: rgba(0,0,0,0.1);
+
+}
+#CartItem{
+	-fx-border-style: dotted;
+	-fx-border-color: -fx-nicerGray;
+	    -fx-border-width: 0px 0px 1px 0px;
+}
+.logo{
+    -fx-text-fill: white;
+    -fx-font-size: 38pt;
+    -fx-font-weight: bold;
+
+    -fx-background-color: -fx-base4;
+    /*-fx-border-width: 5 5 5 5;
+    -fx-border-color: linear-gradient(to right, -fx-base3, -fx-base4);
+    -fx-label-padding: 0 5 0 5;*/
+
+}
+.bigLogo{
+    -fx-text-fill: white;
+    -fx-font-size: 90pt;
+    -fx-font-weight: bold;
+
+    -fx-background-color: -fx-base4;
+
+}
+
+.highlightColor{
+    -fx-background-color: #e6e6e6;
+    -fx-border-color: #a6a6a6;
+}

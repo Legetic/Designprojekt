@@ -1,0 +1,413 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import java.lang.String?>
+<?import javafx.geometry.Insets?>
+<?import javafx.geometry.Rectangle2D?>
+<?import javafx.scene.Cursor?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.CheckBox?>
+<?import javafx.scene.control.ComboBox?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.ListView?>
+<?import javafx.scene.control.ScrollPane?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.effect.InnerShadow?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.BorderPane?>
+<?import javafx.scene.layout.FlowPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Font?>
+<?import javafx.scene.text.TextFlow?>
+
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" prefHeight="596.0" prefWidth="1073.0" styleClass="body" stylesheets="@css/stylesheet.css" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="designprojekt.Controller">
+   <children>
+      <AnchorPane fx:id="fullscreenPage" layoutY="95.0" prefHeight="501.0" prefWidth="1073.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="95.0" />
+      <AnchorPane fx:id="previousPurchasesRoot" layoutX="-12.0" layoutY="95.0" prefHeight="501.0" prefWidth="701.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="372.0" AnchorPane.topAnchor="95.0" />
+      <ScrollPane fx:id="searchPane" fitToHeight="true" fitToWidth="true" focusTraversable="false" hbarPolicy="NEVER" layoutX="215.0" layoutY="70.0" prefHeight="200.0" prefWidth="407.0" visible="false" AnchorPane.leftAnchor="215.0" AnchorPane.rightAnchor="451.0" AnchorPane.topAnchor="70.0">
+        <content>
+          <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="200.0" prefWidth="200.0">
+               <children>
+                  <ListView fx:id="searchList" onMouseClicked="#search" prefHeight="200.0" prefWidth="427.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0" />
+               </children>
+            </AnchorPane>
+        </content>
+      </ScrollPane>
+      <BorderPane fx:id="homePage" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+         <top>
+            <AnchorPane maxHeight="95.0" minHeight="50.0" prefHeight="95.0" prefWidth="1166.0" BorderPane.alignment="CENTER">
+               <children>
+                  <Button alignment="BASELINE_LEFT" layoutX="-1.0" layoutY="1.0" mnemonicParsing="false" onAction="#goHome" prefHeight="95.0" prefWidth="216.0" style="-fx-background-color: transparent;" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.topAnchor="0.0">
+                     <graphic>
+                        <Label alignment="CENTER" prefHeight="71.0" prefWidth="192.0" style="-fx-background-radius: 5px;" styleClass="logo" text="iMAT" textFill="#ff8366">
+                           <font>
+                              <Font name="System Bold" size="38.0" />
+                           </font>
+                        </Label>
+                     </graphic></Button>
+                  <TextField fx:id="searchBar" layoutX="216.0" layoutY="24.0" prefHeight="47.0" prefWidth="406.0" promptText="Sök bland tusentals varor..." style="-fx-background-radius: 5 0 0 5;" AnchorPane.leftAnchor="216.0" AnchorPane.rightAnchor="451.0" AnchorPane.topAnchor="24.0" />
+                  <Button layoutX="626.0" layoutY="24.0" mnemonicParsing="false" onAction="#search" prefHeight="0.0" prefWidth="76.0" style="-fx-background-color: white; -fx-border-color: rgba(0,0,0,0.2); -fx-text-fill: -fx-base4; -fx-font-weight: bold; -fx-border-radius: 0 5 5 0;" styleClass="p4" text="Sök" AnchorPane.rightAnchor="371.0" AnchorPane.topAnchor="24.0">
+                     <cursor>
+                        <Cursor fx:constant="HAND" />
+                     </cursor></Button>
+                  <Button alignment="CENTER" contentDisplay="TOP" layoutX="749.0" layoutY="1.0" minHeight="-Infinity" minWidth="-Infinity" mnemonicParsing="false" onAction="#openPreviousPurchases" prefHeight="95.0" prefWidth="150.0" style="-fx-font-weight: bold; -fx-text-fill: -fx-base1; -fx-background-color: transparent;" text="Tidigare Köp" AnchorPane.bottomAnchor="-1.0" AnchorPane.rightAnchor="174.0" AnchorPane.topAnchor="1.0">
+                     <graphic>
+                        <ImageView fitHeight="30.0" fitWidth="35.0" pickOnBounds="true" preserveRatio="true">
+                           <image>
+                              <Image url="@resources/icons/MainBlue/time_machine_96px.png" />
+                           </image>
+                        </ImageView>
+                     </graphic>
+                     <padding>
+                        <Insets left="-10.0" right="-10.0" />
+                     </padding>
+                  </Button>
+                  <Button contentDisplay="TOP" layoutX="912.0" minHeight="-Infinity" minWidth="-Infinity" mnemonicParsing="false" onAction="#openCustomerServicePage" prefHeight="95.0" prefWidth="150.0" style="-fx-background-color: transparent; -fx-text-fill: -fx-base1; -fx-font-weight: bold;" text="Kundservice" AnchorPane.bottomAnchor="0.0" AnchorPane.rightAnchor="11.0" AnchorPane.topAnchor="0.0">
+                     <graphic>
+                        <ImageView fitHeight="30.0" fitWidth="32.0" pickOnBounds="true" preserveRatio="true">
+                           <image>
+                              <Image url="@resources/icons/MainBlue/online_support_96px.png" />
+                           </image>
+                        </ImageView>
+                     </graphic>
+                     <padding>
+                        <Insets left="-10.0" right="-10.0" />
+                     </padding>
+                  </Button>
+               </children>
+               <styleClass>
+                  <String fx:value="oneColor" />
+                  <String fx:value="topBar" />
+               </styleClass>
+            </AnchorPane>
+         </top>
+         <right>
+            <AnchorPane prefHeight="549.0" prefWidth="343.0" BorderPane.alignment="TOP_RIGHT">
+               <children>
+                  <VBox alignment="TOP_CENTER" layoutX="-5.0" layoutY="2.0" prefHeight="625.0" prefWidth="288.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+                     <children>
+                        <Button fx:id="emptyButton" alignment="CENTER" contentDisplay="RIGHT" maxHeight="-Infinity" mnemonicParsing="false" onAction="#openEmptyPrompt" prefHeight="60.0" prefWidth="371.0" style="-fx-border-radius: 0 0 5 5;" text="Töm varukorgen">
+                           <graphic>
+                              <ImageView fx:id="emptyIcon" fitHeight="31.0" fitWidth="64.0" pickOnBounds="true" preserveRatio="true">
+                                 <image>
+                                    <Image url="@resources/icons/MainBlue/waste_96px.png" />
+                                 </image>
+                                 <viewport>
+                                    <Rectangle2D />
+                                 </viewport>
+                              </ImageView>
+                           </graphic>
+                           <styleClass>
+                              <String fx:value="h4" />
+                              <String fx:value="ghostButton" />
+                              <String fx:value="emptyButton" />
+                           </styleClass>
+                        </Button>
+                        <AnchorPane prefHeight="82.0" prefWidth="371.0">
+                           <children>
+                              <AnchorPane fx:id="emptyPrompt" prefHeight="200.0" prefWidth="200.0" style="-fx-background-color: -fx-base4;" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+                                 <children>
+                                    <Button layoutX="239.0" layoutY="19.0" mnemonicParsing="false" onAction="#clearShoppingCart" prefHeight="45.0" prefWidth="54.0" style="-fx-background-color: -fx-niceWhite; -fx-text-fill: -fx-base4;" styleClass="h4" text="Ja" AnchorPane.rightAnchor="78.0">
+                                       <padding>
+                                          <Insets left="-1.0" right="-1.0" />
+                                       </padding>
+                                    </Button>
+                                    <Button layoutX="297.0" layoutY="19.0" mnemonicParsing="false" onAction="#closeEmptyPrompt" prefHeight="45.0" prefWidth="60.0" style="-fx-background-color: -fx-second4; -fx-text-fill: white;" styleClass="h4" text="Nej" AnchorPane.rightAnchor="14.0">
+                                       <padding>
+                                          <Insets left="-5.0" right="-5.0" />
+                                       </padding>
+                                    </Button>
+                                    <Label layoutX="13.0" prefHeight="82.0" prefWidth="204.0" style="-fx-text-fill: white;" styleClass="p4" text="Vill du tömma hela Varukorgen?" wrapText="true" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="13.0" AnchorPane.rightAnchor="154.0" AnchorPane.topAnchor="0.0" />
+                                 </children>
+                              </AnchorPane>
+                              <Label alignment="CENTER" graphicTextGap="10.0" prefHeight="60.0" prefWidth="371.0" style="-fx-text-fill: -fx-base1;" text="Varukorg" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+                                 <font>
+                                    <Font size="32.0" />
+                                 </font>
+                                 <styleClass>
+                                    <String fx:value="h3" />
+                                    <String fx:value="oneColor" />
+                                    <String fx:value="cart" />
+                                 </styleClass>
+                              </Label>
+                           </children>
+                        </AnchorPane>
+                        <AnchorPane prefHeight="289.0" prefWidth="371.0" VBox.vgrow="ALWAYS">
+                           <children>
+                              <ScrollPane fitToHeight="true" fitToWidth="true" hbarPolicy="NEVER" prefHeight="337.0" prefWidth="283.0" AnchorPane.bottomAnchor="60.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+                                 <content>
+                                    <AnchorPane prefHeight="228.0" prefWidth="369.0">
+                                       <children>
+                                          <FlowPane fx:id="shoppingCartFlowPane" alignment="TOP_CENTER" prefHeight="164.0" prefWidth="281.0" vgap="10.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0" />
+                                       </children>
+                                       <styleClass>
+                                          <String fx:value="oneColor" />
+                                          <String fx:value="cart" />
+                                       </styleClass>
+                                       <padding>
+                                          <Insets top="10.0" />
+                                       </padding>
+                                    </AnchorPane>
+                                 </content>
+                                 <opaqueInsets>
+                                    <Insets />
+                                 </opaqueInsets>
+                                 <styleClass>
+                                    <String fx:value="oneColor" />
+                                    <String fx:value="cart" />
+                                 </styleClass>
+                              </ScrollPane>
+                              <Label fx:id="shoppingCartEmptyLabel" alignment="CENTER" graphicTextGap="10.0" prefHeight="60.0" prefWidth="371.0" style="-fx-text-fill: -fx-base1;" text="Varukorgen är tom!">
+                                 <font>
+                                    <Font size="32.0" />
+                                 </font>
+                                 <styleClass>
+                                    <String fx:value="p4" />
+                                    <String fx:value="oneColor" />
+                                    <String fx:value="cart" />
+                                 </styleClass>
+                              </Label>
+                              <AnchorPane prefHeight="54.0" prefWidth="371.0" style="-fx-border-color: -fx-nicerGray; -fx-border-width: 1 0 0 0;" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0">
+                                 <children>
+                                    <Label graphicTextGap="10.0" layoutY="7.0" prefHeight="43.0" prefWidth="155.0" style="-fx-text-fill: -fx-base1;" text="Total:" AnchorPane.bottomAnchor="6.0" AnchorPane.leftAnchor="10.0">
+                                       <font>
+                                          <Font size="32.0" />
+                                       </font>
+                                       <styleClass>
+                                          <String fx:value="p4" />
+                                          <String fx:value="oneColor" />
+                                          <String fx:value="cart" />
+                                       </styleClass>
+                                    </Label>
+                                    <Label fx:id="totalPriceLabel" layoutX="313.0" layoutY="13.0" styleClass="h4" text="0 kr" AnchorPane.bottomAnchor="12.0" AnchorPane.rightAnchor="10.0" />
+                                 </children>
+                              </AnchorPane>
+                           </children>
+                        </AnchorPane>
+                        <Button fx:id="goToCheckoutButton" contentDisplay="RIGHT" minWidth="-Infinity" mnemonicParsing="false" onAction="#openCheckoutPage" prefHeight="60.0" prefWidth="371.0" style="-fx-background-color: -fx-second4; -fx-background-radius: 5 5 0 0;" styleClass="h4" text="Gå till kassan" textFill="WHITE" VBox.vgrow="NEVER">
+                           <cursor>
+                              <Cursor fx:constant="HAND" />
+                           </cursor>
+                           <graphic>
+                              <ImageView fitHeight="31.0" fitWidth="45.0" pickOnBounds="true" preserveRatio="true">
+                                 <image>
+                                    <Image url="@resources/icons/White/checkout_96px.png" />
+                                 </image>
+                              </ImageView>
+                           </graphic>
+                        </Button>
+                     </children>
+                     <styleClass>
+                        <String fx:value="oneColor" />
+                        <String fx:value="cart" />
+                     </styleClass>
+                  </VBox>
+               </children>
+               <styleClass>
+                  <String fx:value="oneColor" />
+                  <String fx:value="cart" />
+               </styleClass>
+            </AnchorPane>
+         </right>
+         <left>
+            <AnchorPane prefHeight="501.0" prefWidth="211.0" BorderPane.alignment="CENTER">
+               <children>
+                  <ScrollPane fitToHeight="true" fitToWidth="true" hbarPolicy="NEVER" prefHeight="501.0" prefWidth="236.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+                     <content>
+                        <AnchorPane prefHeight="546.0" prefWidth="213.0">
+                           <children>
+                              <VBox fx:id="categoryList" prefHeight="494.0" prefWidth="234.0" AnchorPane.leftAnchor="-4.0" AnchorPane.rightAnchor="-4.0" AnchorPane.topAnchor="0.0">
+                                 <children>
+                                    <Button alignment="TOP_LEFT" mnemonicParsing="false" onAction="#showAll" prefHeight="31.0" prefWidth="300.0" styleClass="browseButton" text="Alla Produkter" />
+                                    <Label alignment="BOTTOM_LEFT" minHeight="-Infinity" prefHeight="63.0" prefWidth="204.0" style="-fx-text-fill: -fx-base1;" styleClass="h3" text="Sortiment" VBox.vgrow="NEVER">
+                                       <font>
+                                          <Font size="23.0" />
+                                       </font>
+                                       <padding>
+                                          <Insets left="20.0" />
+                                       </padding>
+                                       <VBox.margin>
+                                          <Insets />
+                                       </VBox.margin>
+                                    </Label>
+                                    <Button alignment="TOP_LEFT" mnemonicParsing="false" onAction="#showDAIRIES" prefHeight="31.0" prefWidth="300.0" styleClass="browseButton" text="Mjölkprodukter" />
+                                    <Button alignment="TOP_LEFT" mnemonicParsing="false" onAction="#showMEAT" prefHeight="31.0" prefWidth="300.0" styleClass="browseButton" text="Kött" />
+                                    <Button alignment="TOP_LEFT" mnemonicParsing="false" onAction="#showFISH" prefHeight="31.0" prefWidth="300.0" styleClass="browseButton" text="Fisk" />
+                                    <Button alignment="TOP_LEFT" mnemonicParsing="false" onAction="#showVEGETABLE_FRUIT" prefHeight="31.0" prefWidth="300.0" styleClass="browseButton" text="Grönsaker" />
+                                    <Button alignment="TOP_LEFT" mnemonicParsing="false" onAction="#showFRUIT" prefHeight="31.0" prefWidth="300.0" styleClass="browseButton" text="Frukt" />
+                                    <Button fx:id="meatCategory" alignment="TOP_LEFT" mnemonicParsing="false" onAction="#showBERRY" prefHeight="31.0" prefWidth="300.0" styleClass="browseButton" text="Bär" />
+                                    <Button alignment="TOP_LEFT" mnemonicParsing="false" onAction="#showEXOTIC" prefHeight="31.0" prefWidth="300.0" styleClass="browseButton" text="Exotisk Frukt" />
+                                    <Button alignment="TOP_LEFT" mnemonicParsing="false" onAction="#showCITRUS" prefHeight="50.0" prefWidth="300.0" styleClass="browseButton" text="Citrusfrukter" />
+                                    <Button alignment="TOP_LEFT" mnemonicParsing="false" onAction="#showMELONS" prefHeight="31.0" prefWidth="300.0" styleClass="browseButton" text="Meloner" />
+                                    <Button alignment="TOP_LEFT" mnemonicParsing="false" onAction="#showPOD" prefHeight="31.0" prefWidth="300.0" styleClass="browseButton" text="Baljväxter" />
+                                    <Button alignment="TOP_LEFT" mnemonicParsing="false" onAction="#showCABBAGE" prefHeight="31.0" prefWidth="300.0" styleClass="browseButton" text="Kål" />
+                                    <Button alignment="TOP_LEFT" mnemonicParsing="false" onAction="#showROOT_VEGETABLE" prefHeight="31.0" prefWidth="300.0" styleClass="browseButton" text="Rotfrukter" />
+                                    <Button alignment="TOP_LEFT" mnemonicParsing="false" onAction="#showBREAD" prefHeight="31.0" prefWidth="300.0" styleClass="browseButton" text="Bröd" />
+                                    <Button alignment="TOP_LEFT" mnemonicParsing="false" onAction="#showPASTA" prefHeight="31.0" prefWidth="300.0" styleClass="browseButton" text="Pasta" />
+                                    <Button alignment="TOP_LEFT" mnemonicParsing="false" onAction="#showPOTATO_RICE" prefHeight="31.0" prefWidth="300.0" styleClass="browseButton" text="Potatis &amp; Ris" />
+                                    <Button alignment="TOP_LEFT" mnemonicParsing="false" onAction="#showHOT_DRINKS" prefHeight="50.0" prefWidth="300.0" styleClass="browseButton" text="Varma Drycker" />
+                                    <Button alignment="TOP_LEFT" mnemonicParsing="false" onAction="#showCOLD_DRINKS" prefHeight="31.0" prefWidth="300.0" styleClass="browseButton" text="Kalla Drycker" />
+                                    <Button alignment="TOP_LEFT" maxHeight="62.0" maxWidth="300.0" minHeight="79.0" mnemonicParsing="false" onAction="#showFLOUR_SUGAR_SALT" prefHeight="79.0" prefWidth="204.0" styleClass="browseButton" text="Skafferi" wrapText="true" />
+                                    <Button alignment="TOP_LEFT" mnemonicParsing="false" onAction="#showSWEET" prefHeight="31.0" prefWidth="300.0" styleClass="browseButton" text="Sötsaker" />
+                                    <Button alignment="TOP_LEFT" mnemonicParsing="false" onAction="#showNUTS_AND_SEEDS" prefHeight="31.0" prefWidth="300.0" styleClass="browseButton" text="Nötter &amp; Frön" />
+                                    <Button alignment="TOP_LEFT" mnemonicParsing="false" onAction="#showHERB" prefHeight="31.0" prefWidth="300.0" styleClass="browseButton" text="Örter" />
+                                 </children>
+                              </VBox>
+                           </children>
+                           <styleClass>
+                              <String fx:value="oneColor" />
+                              <String fx:value="browseMenu" />
+                           </styleClass>
+                        </AnchorPane>
+                     </content>
+                     <styleClass>
+                        <String fx:value="oneColor" />
+                        <String fx:value="browseMenu" />
+                     </styleClass>
+                  </ScrollPane>
+               </children>
+               <effect>
+                  <InnerShadow color="#0078cf1e" height="12.44" offsetY="10.0" radius="2.61" width="0.0" />
+               </effect>
+            </AnchorPane>
+         </left>
+         <center>
+            <AnchorPane prefHeight="200.0" prefWidth="200.0" BorderPane.alignment="CENTER">
+               <children>
+                  <ScrollPane fx:id="Varor" fitToHeight="true" fitToWidth="true" hbarPolicy="NEVER" prefHeight="640.0" prefWidth="596.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+                     <content>
+                        <AnchorPane prefHeight="484.0" prefWidth="595.0">
+                           <children>
+                              <VBox alignment="TOP_CENTER" prefHeight="649.0" prefWidth="579.0" style="-fx-background-color: transparent;" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+                                 <children>
+                                    <AnchorPane fx:id="mainGridCategoryImage" minHeight="200.0" prefHeight="203.0" prefWidth="472.0" style="-fx-background-size: cover; -fx-background-image: url(&quot;https://images.unsplash.com/photo-1505935428862-770b6f24f629?ixlib=rb-1.2.1&amp;ixid=eyJhcHBfaWQiOjEyMDd9&amp;auto=format&amp;fit=crop&amp;w=1347&amp;q=80&quot;); -fx-background-position: center; -fx-background-color: -fx-niceWhite;">
+                                       <children>
+                                          <AnchorPane minHeight="197.0" opacity="0.3" prefHeight="200.0" prefWidth="472.0" style="-fx-background-color: -fx-base1;" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0" />
+                                          <Label fx:id="featureHeader" alignment="CENTER" contentDisplay="CENTER" layoutY="18.0" prefHeight="71.0" prefWidth="626.0" style="-fx-text-fill: white;" styleClass="h1" text="Välkommen!" textFill="WHITE" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="18.0">
+                                             <font>
+                                                <Font name="System Bold" size="41.0" />
+                                             </font>
+                                          </Label>
+                                          <Label fx:id="featureText" alignment="TOP_CENTER" contentDisplay="CENTER" layoutX="61.0" layoutY="98.0" nodeOrientation="LEFT_TO_RIGHT" prefHeight="85.0" prefWidth="374.0" style="-fx-text-fill: white;" styleClass="p3" text="Här hittar du allt du behöver för att laga mat." textAlignment="CENTER" textFill="WHITE" wrapText="true" AnchorPane.leftAnchor="61.0" AnchorPane.rightAnchor="61.0" AnchorPane.topAnchor="98.0">
+                                             <font>
+                                                <Font name="System Bold" size="41.0" />
+                                             </font>
+                                          </Label>
+                                       </children>
+                                    </AnchorPane>
+                                    <AnchorPane minHeight="68.0" prefHeight="68.0" prefWidth="456.0" style="-fx-border-width: 1 0 1 0; -fx-border-color: -fx-niceGray; -fx-background-color: -fx-niceWhite;" VBox.vgrow="NEVER">
+                                       <VBox.margin>
+                                          <Insets />
+                                       </VBox.margin>
+                                       <children>
+                                          <Label layoutX="36.0" layoutY="18.0" prefHeight="37.0" prefWidth="155.0" style="-fx-text-fill: -fx-base1;" styleClass="h4" text="Sortera Efter:" AnchorPane.rightAnchor="281.0" AnchorPane.topAnchor="18.0" />
+                                          <ComboBox fx:id="sortList" layoutX="169.0" layoutY="13.0" prefHeight="47.0" prefWidth="269.0" promptText="Ingen Sortering" style="-fx-background-color: transparent; -fx-border-color: -fx-base4; -fx-border-radius: 0 5 5 0;" AnchorPane.rightAnchor="12.0" AnchorPane.topAnchor="12.0" />
+                                       </children>
+                                    </AnchorPane>
+                                    <FlowPane fx:id="mainGrid" alignment="TOP_CENTER" hgap="10.0" prefHeight="91.0" prefWidth="472.0" vgap="10.0" VBox.vgrow="NEVER">
+                                       <VBox.margin>
+                                          <Insets top="20.0" />
+                                       </VBox.margin>
+                                    </FlowPane>
+                                    <Button fx:id="showMoreButton" mnemonicParsing="false" onAction="#showMoreProducts" styleClass="ghostButton" text="Visa Fler">
+                                       <VBox.margin>
+                                          <Insets top="20.0" />
+                                       </VBox.margin>
+                                    </Button>
+                                 </children>
+                              </VBox>
+                           </children>
+                           <styleClass>
+                              <String fx:value="oneColor" />
+                              <String fx:value="centerStage" />
+                           </styleClass>
+                        </AnchorPane>
+                     </content>
+                     <styleClass>
+                        <String fx:value="oneColor" />
+                        <String fx:value="centerStage" />
+                     </styleClass>
+                  </ScrollPane>
+               </children>
+            </AnchorPane>
+         </center>
+      </BorderPane>
+      <AnchorPane fx:id="startMenu" prefHeight="200.0" prefWidth="200.0" style="-fx-background-image: url(&quot;resources/startPage/28.png&quot;); -fx-background-color: white; -fx-background-size: contain; -fx-background-repeat: no-repeat; -fx-background-position: center;" visible="false" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+         <children>
+            <VBox alignment="CENTER" fillWidth="false" prefHeight="680.0" prefWidth="1080.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+               <children>
+                  <Label text="iMat">
+                     <styleClass>
+                        <String fx:value="logo" />
+                        <String fx:value="bigLogo" />
+                     </styleClass>
+                  </Label>
+                  <TextFlow prefHeight="29.0" prefWidth="474.0">
+                     <children>
+                        <Label style="-fx-text-fill: -fx-base4;" styleClass="h2" text="•">
+                           <padding>
+                              <Insets bottom="-10.0" top="-20.0" />
+                           </padding>
+                        </Label>
+                        <Label text="Lägg till dina önskade varor i Varukorgen" textAlignment="CENTER">
+                           <padding>
+                              <Insets top="40.0" />
+                           </padding>
+                        </Label>
+                     </children>
+                     <VBox.margin>
+                        <Insets right="100.0" />
+                     </VBox.margin>
+                  </TextFlow>
+                  <TextFlow prefHeight="29.0" prefWidth="474.0">
+                     <children>
+                        <Label style="-fx-text-fill: -fx-base4;" styleClass="h2" text="•">
+                           <padding>
+                              <Insets bottom="-10.0" top="-20.0" />
+                           </padding>
+                        </Label>
+                        <Label text="Gå till kassan" />
+                     </children>
+                     <VBox.margin>
+                        <Insets right="100.0" />
+                     </VBox.margin>
+                  </TextFlow>
+                  <TextFlow prefHeight="0.0" prefWidth="474.0">
+                     <children>
+                        <Label alignment="BOTTOM_LEFT" contentDisplay="BOTTOM" prefHeight="0.0" prefWidth="23.0" style="-fx-text-fill: -fx-base4;" styleClass="h2" text="•">
+                           <padding>
+                              <Insets bottom="-10.0" top="-20.0" />
+                           </padding>
+                        </Label>
+                        <Label prefHeight="0.0" prefWidth="325.0" text="Följ stegen och slutför ditt köp" textAlignment="CENTER" />
+                     </children>
+                     <VBox.margin>
+                        <Insets right="100.0" />
+                     </VBox.margin>
+                  </TextFlow>
+                  <HBox alignment="CENTER" prefHeight="266.0" prefWidth="1073.0">
+                     <children>
+                        <Button fx:id="startPage_home_btn" mnemonicParsing="false" onAction="#closeStartMenu" prefHeight="150.0" prefWidth="350.0" style="-fx-background-color: -fx-Base4;" styleClass="h3" text="BÖRJA HANDLA" textFill="WHITE" wrapText="true">
+                           <font>
+                              <Font size="40.0" />
+                           </font>
+                           <HBox.margin>
+                              <Insets right="50.0" />
+                           </HBox.margin>
+                        </Button>
+                        <Button fx:id="startPage_recentBuy_btn" mnemonicParsing="false" onAction="#openPreviousPurchases" prefHeight="150.0" prefWidth="350.0" style="-fx-background-color: -fx-niceGray; -fx-text-fill: -fx-base4;" styleClass="h3" text="TIDIGARE KÖP" wrapText="true">
+                           <font>
+                              <Font size="40.0" />
+                           </font>
+                        </Button>
+                     </children>
+                  </HBox>
+               </children>
+            </VBox>
+            <CheckBox layoutX="8.0" layoutY="568.0" mnemonicParsing="false" prefHeight="34.0" prefWidth="769.0" text="Visa Inte startsidan igen" AnchorPane.bottomAnchor="20.0" AnchorPane.leftAnchor="20.0" AnchorPane.rightAnchor="284.0" />
+         </children>
+      </AnchorPane>
+   </children>
+</AnchorPane>

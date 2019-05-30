@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Font?>
+
+<fx:root maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="78.0" prefWidth="415.0" stylesheets="@css/stylesheet.css" type="AnchorPane" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1">
+   <children>
+      <Label fx:id="itemTotalPricePreviousPurchaseLabel" layoutX="292.0" layoutY="40.0" style="-fx-font-weight: bold;" text="300,00" AnchorPane.bottomAnchor="9.0" AnchorPane.rightAnchor="47.0" AnchorPane.topAnchor="40.0">
+         <font>
+            <Font name="System Bold" size="15.0" />
+         </font>
+      </Label>
+      <Label fx:id="itemPricePreviousPurchaseLabel" layoutX="292.0" layoutY="9.0" text="300,00" AnchorPane.bottomAnchor="39.4" AnchorPane.rightAnchor="52.60000000000002" />
+      <Label fx:id="itemPreviousPurchaseLabel" alignment="TOP_LEFT" layoutX="93.0" layoutY="9.0" prefHeight="30.0" prefWidth="190.0" text="Falukorv, 300g, Scan" AnchorPane.leftAnchor="93.0" AnchorPane.rightAnchor="132.0" AnchorPane.topAnchor="9.0" />
+      <Label fx:id="itemAmountPreviousPurchaseLabel" layoutX="174.0" layoutY="40.0" text="2" AnchorPane.leftAnchor="174.0" AnchorPane.topAnchor="40.0" />
+      <ImageView fx:id="detailPreviousPurchaseImageView" fitHeight="65.0" fitWidth="79.0" layoutX="4.0" layoutY="7.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@resources/placeholder.png" />
+         </image>
+      </ImageView>
+      <Label layoutX="93.0" layoutY="40.0" text="Antal:" AnchorPane.leftAnchor="93.0" AnchorPane.topAnchor="40.0" />
+      <Label layoutX="377.0" layoutY="41.0" style="-fx-font-weight: bold;" text="kr" AnchorPane.rightAnchor="14.800000000000011" />
+      <Label layoutX="376.0" layoutY="10.0" text="kr" AnchorPane.rightAnchor="18.19999999999999" />
+   </children>
+</fx:root>
