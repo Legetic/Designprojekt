@@ -2,20 +2,14 @@ package designprojekt;
 
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
-import javafx.fxml.Initializable;
-import javafx.scene.control.Button;
-import javafx.scene.control.Label;
-import javafx.scene.control.RadioButton;
-import javafx.scene.image.ImageView;
 import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.FlowPane;
 import se.chalmers.cse.dat216.project.Order;
-import se.chalmers.cse.dat216.project.Product;
 import se.chalmers.cse.dat216.project.ShoppingItem;
 
 import java.io.IOException;
-import java.net.URL;
-import java.util.ResourceBundle;
+import java.util.ArrayList;
+import java.util.List;
 
 public class EarlierOrdersPage extends AnchorPane {
     private Controller parentController;
@@ -57,7 +51,7 @@ public class EarlierOrdersPage extends AnchorPane {
         openedOrder = order;
         flowPanePreviousPurchasesDetails.getChildren().clear();
         for (ShoppingItem si : order.getItems()) {
-            itemPreviousPurchase itprev = new itemPreviousPurchase(si,parentController);
+            ItemPreviousPurchase itprev = new ItemPreviousPurchase(si,parentController);
             flowPanePreviousPurchasesDetails.getChildren().add(itprev);
         }
     }
@@ -70,7 +64,8 @@ public class EarlierOrdersPage extends AnchorPane {
     public void addOrderToCart(){
         if(openedOrder !=null){
             for(ShoppingItem item : openedOrder.getItems()){
-                parentController.addProductFromOrderToCart(item);
+                ShoppingItem duplicateItem = new ShoppingItem(item.getProduct(), item.getAmount()); // defensive copy of ShoppingItem in Order (to avoid changing Order amount)
+                parentController.addProductFromOrderToCart(duplicateItem);
             }
         }
     }
