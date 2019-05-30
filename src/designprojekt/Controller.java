@@ -91,8 +91,11 @@ public class Controller implements Initializable {
     @FXML
     private Label featureText;
 
+    @FXML
+    private Button showMoreButton;
 
     private List<Product> productsShown;
+    int displayAmount = 20;
 
 
     private Checkout checkout;
@@ -173,7 +176,7 @@ public class Controller implements Initializable {
 
         searchBar.textProperty().addListener((observable, oldValue, newValue) -> {
 
-            if(searchBar.getText() != "") {
+            if(!searchBar.getText().equals("")) {
                 openSearchList();
 
                 List<String> searchResults = new ArrayList<String>();
@@ -205,6 +208,12 @@ public class Controller implements Initializable {
                 searchList.getItems().clear();
                 closeSearchList();
             }
+
+            if(dataHandler.findProducts(searchBar.getText()).isEmpty()){
+                searchList.getItems().clear();
+                closeSearchList();
+            }
+
 
         });
 
@@ -294,9 +303,9 @@ public class Controller implements Initializable {
                 description = "Små och söta.";
 
                 break;
-            case "Citrus Frukter":
+            case "Citrusfrukter":
                 imagePath = "Designprojekt/resources/categoryPictures/Citrus.jpg";
-                headerText = "Citrus Frukter";
+                headerText = "Citrusfrukter";
                 description = "Allt det där sura.";
 
                 break;
@@ -407,12 +416,29 @@ public class Controller implements Initializable {
     private void updateMainGrid(List<Product> productList) {
         productsShown = productList;
         mainGrid.getChildren().clear();
-        for (Product r : productList) {
-            Card productCard = cardMap.get(r.getName());
-            mainGrid.getChildren().add(productCard);
 
+
+        if(displayAmount > productList.size()){
+            displayAmount = productList.size();
         }
 
+        for(int i = 0; i < displayAmount; i ++){
+                Product r = productList.get(i);
+                Card productCard = cardMap.get(r.getName());
+                mainGrid.getChildren().add(productCard);
+        }
+
+        if(displayAmount == productList.size()){
+            showMoreButton.setVisible(false);
+        }
+
+
+
+    }
+    @FXML
+    private void showMoreProducts(){
+        displayAmount += 20;
+        updateMainGrid(productsShown);
     }
 
 
@@ -435,10 +461,12 @@ public class Controller implements Initializable {
 
     @FXML
     private void search() {
+        displayAmount = 20;
+
         List<Product> searchResult = new ArrayList<>();
         String searchString = "";
         if (searchList.getSelectionModel().getSelectedItem() == null) {
-            if(searchBar.getText() != "") {
+            if(!searchBar.getText().equals("")) {
                 searchString = searchBar.getText();
                 searchResult = dataHandler.findProducts(searchString);
             }else{
@@ -459,15 +487,21 @@ public class Controller implements Initializable {
             searchResult = dataHandler.findProducts(searchString.substring(startIndex));
 
         }
-        if (searchString == "") {
+        if (searchString.equals("")) {
             updateMainGrid(imatBackendController.getProducts());
+            changeFeature("Alla Produkter");
         } else if (searchResult.size() == 0) {
             //INGA SÖKRESULTAT
+            setFeature("Designprojekt/resources/categoryPictures/Search.jpg", "Inga sökresultat.", "Tyvärr hittades inga produkter...");
+            updateMainGrid(new ArrayList<Product>());
+
         } else {
             updateMainGrid(searchResult);
+            setFeature("Designprojekt/resources/categoryPictures/Search.jpg", "Visar: " + searchString, "Hittade: " + searchResult.size() + " Sökresultat.");
 
 
         }
+
         //searchList.getSelectionModel().getSelectedItem().toString()
 
     }
@@ -781,10 +815,26 @@ public class Controller implements Initializable {
     @FXML
     public void goHome() {
         homePage.toFront();
+        updateShoppingCart();
 
+        updateCart();
+    }
+
+    public void updateCart(){
         if (checkout != null) {
             if (!checkout.itemsCheckoutFlowpane.getChildren().isEmpty()) {
                 shoppingCartFlowPane.getChildren().addAll(checkout.itemsCheckoutFlowpane.getChildren());
+            }
+        }
+        if(dataHandler.getShoppingCart().getItems().isEmpty()) {
+            updateShoppingCart();
+            for (Node node : mainGrid.getChildren()) {
+                Card card = (Card) node;
+                if (card.getAmountControl().isVisible()) {
+                    card.getAmountControl().setVisible(false);
+                    card.getAddButton().setVisible(true);
+                    card.getAmountField().setText("1 st");
+                }
             }
         }
     }
