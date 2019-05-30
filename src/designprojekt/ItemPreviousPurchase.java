@@ -10,7 +10,7 @@ import se.chalmers.cse.dat216.project.ShoppingItem;
 
 import java.io.IOException;
 
-public class itemPreviousPurchase extends AnchorPane {
+public class ItemPreviousPurchase extends AnchorPane {
     private Controller parentController;
     private ShoppingItem shoppingItem;
 
@@ -26,7 +26,7 @@ public class itemPreviousPurchase extends AnchorPane {
     private Label itemTotalPricePreviousPurchaseLabel;
 
 
-    public itemPreviousPurchase(ShoppingItem shoppingItem, Controller parentController){
+    public ItemPreviousPurchase(ShoppingItem shoppingItem, Controller parentController){
         FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("itemPreviousPurchase.fxml"));
         fxmlLoader.setRoot(this);
         fxmlLoader.setController(this);
@@ -44,6 +44,9 @@ public class itemPreviousPurchase extends AnchorPane {
         itemPreviousPurchaseLabel.setText(shoppingItem.getProduct().getName());
         itemAmountPreviousPurchaseLabel.setText((int)shoppingItem.getAmount() + "");
         itemPricePreviousPurchaseLabel.setText(shoppingItem.getProduct().getPrice() + "");
-        itemTotalPricePreviousPurchaseLabel.setText(shoppingItem.getTotal() + "");
+        double totalPrice = Math.round(shoppingItem.getTotal() * 100.0) / 100.0; // eliminates round off bug
+        itemTotalPricePreviousPurchaseLabel.setText(totalPrice + "");
     }
+
+
 }

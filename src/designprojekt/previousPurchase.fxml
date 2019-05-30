@@ -2,6 +2,9 @@
 
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.ColumnConstraints?>
+<?import javafx.scene.layout.GridPane?>
+<?import javafx.scene.layout.RowConstraints?>
 <?import javafx.scene.text.Font?>
 
 <fx:root fx:id="PreviousPurchaseAnchorPane" onMouseClicked="#showShoppingItems" prefHeight="81.0" prefWidth="735.0" styleClass="browseButton" stylesheets="@css/stylesheet.css" type="AnchorPane" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1">
@@ -11,12 +14,23 @@
             <Font size="30.0" />
          </font>
       </Label>
-      <Label fx:id="previousPurchasePrice" layoutX="598.0" layoutY="26.0" text="455">
-         <font>
-            <Font size="25.0" />
-         </font>
-      </Label>
       <Label layoutX="479.0" layoutY="26.0" text="Total pris:" />
-      <Label layoutX="660.0" layoutY="26.0" text="kr" />
+      <GridPane layoutX="593.0" layoutY="26.0" prefHeight="30.0" prefWidth="151.0">
+        <columnConstraints>
+          <ColumnConstraints hgrow="SOMETIMES" maxWidth="122.5" minWidth="10.0" prefWidth="72.0" />
+          <ColumnConstraints hgrow="SOMETIMES" maxWidth="112.0" minWidth="10.0" prefWidth="79.0" />
+        </columnConstraints>
+        <rowConstraints>
+          <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+        </rowConstraints>
+         <children>
+            <Label fx:id="previousPurchasePrice" prefHeight="29.0" prefWidth="78.0" text="455">
+               <font>
+                  <Font size="25.0" />
+               </font>
+            </Label>
+            <Label prefHeight="29.0" prefWidth="24.0" text="kr" GridPane.columnIndex="1" />
+         </children>
+      </GridPane>
    </children>
 </fx:root>

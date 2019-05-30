@@ -3,7 +3,6 @@ package designprojekt;
 import javafx.beans.value.ChangeListener;
 import javafx.beans.value.ObservableValue;
 import javafx.collections.ListChangeListener;
-import javafx.event.EventHandler;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.Node;
@@ -12,25 +11,18 @@ import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.scene.input.KeyCode;
 import javafx.scene.input.KeyEvent;
-import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.BorderPane;
 import javafx.scene.layout.FlowPane;
 import javafx.scene.layout.VBox;
-import javafx.scene.paint.Color;
-import javafx.scene.text.Text;
-import javafx.scene.text.TextFlow;
 import javafx.util.Callback;
 import se.chalmers.cse.dat216.project.*;
 
 
 import java.io.IOException;
-import java.lang.reflect.Array;
 import java.net.URL;
 import java.util.*;
 import java.util.List;
-
-import static se.chalmers.cse.dat216.project.ProductCategory.POD;
 
 public class Controller implements Initializable {
 
@@ -585,7 +577,7 @@ public class Controller implements Initializable {
         card.getAmountField().setText(updateString); // updates card field
     }
 
-    private void updatePrice(Label cartItemTotalPrice, ShoppingItem shoppingItem) {
+    protected void updatePrice(Label cartItemTotalPrice, ShoppingItem shoppingItem) {
         double totalPrice = Math.round(shoppingItem.getTotal() * 100.0) / 100.0; //rounds off price because of previous bug
         cartItemTotalPrice.setText(totalPrice + " kr"); //updates price
         totalPriceLabel.setText(totalPrice + "kr");
@@ -649,7 +641,7 @@ public class Controller implements Initializable {
             productCard.getAmountField().requestFocus();
             productCard.getAddButton().setVisible(false);
         }
-        updateTotalLabel();
+        updatePrice(productCard.getCartItem().getCartItemTotalPrice(), productCard.getCartItem().getShoppingItem()); // changed from updatetotalprice() (change if it fucks things up)
     }
 
     /*private void addingTheCardToCart(Card productCard){
@@ -670,13 +662,18 @@ public class Controller implements Initializable {
         Card productCard = cardMap.get(item.getProduct().getName());
         boolean isDuplicate = false;
         for (ShoppingItem si : dataHandler.getShoppingCart().getItems()) {
-            if (si.getProduct().equals(productCard.getProduct())) {
+            if (si.getProduct().equals(productCard.getProduct())) { //If item exists in cart, add amount of item to cart
                 isDuplicate = true;
-                incAmount(productCard);
+
+                System.out.println("si amount: " + si.getAmount());
+                System.out.println("item amount: " + item.getAmount());
+                System.out.println("card amount: " + productCard.getCartItem().getShoppingItem().getAmount());
+                si.setAmount(item.getAmount() + si.getAmount());
+
                 break;
             }
         }
-        if (!isDuplicate) {//If not duplicate, add to cart
+        if (!isDuplicate) {//If not duplicate, add item to cart
             dataHandler.getShoppingCart().addItem(item);
 
             CartItem cartItem = new CartItem(item, this, productCard);
@@ -686,7 +683,10 @@ public class Controller implements Initializable {
             productCard.getAmountControl().setVisible(true);
             productCard.getAmountField().requestFocus();
             productCard.getAddButton().setVisible(false);
+
         }
+        updateShoppingCart();
+        updatePrice(productCard.getCartItem().getCartItemTotalPrice(), productCard.getCartItem().getShoppingItem()); // changed from updatetotalprice() (change if it fucks things up)
     }
 
 
