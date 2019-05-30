@@ -585,7 +585,7 @@ public class Controller implements Initializable {
         card.getAmountField().setText(updateString); // updates card field
     }
 
-    private void updatePrice(Label cartItemTotalPrice, ShoppingItem shoppingItem) {
+    protected void updatePrice(Label cartItemTotalPrice, ShoppingItem shoppingItem) {
         double totalPrice = Math.round(shoppingItem.getTotal() * 100.0) / 100.0; //rounds off price because of previous bug
         cartItemTotalPrice.setText(totalPrice + " kr"); //updates price
         totalPriceLabel.setText(totalPrice + "kr");

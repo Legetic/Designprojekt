@@ -79,7 +79,7 @@ public class CartItem extends AnchorPane {
 
     @FXML
     public void updatePrice() {
-        cartItemTotalPrice.setText(shoppingItem.getTotal() + " kr");
+        parentController.updatePrice(cartItemTotalPrice, shoppingItem);
     }
 
     public Controller getParentController() {
