@@ -7,6 +7,8 @@ import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.FlowPane;
+import javafx.scene.layout.StackPane;
+import javafx.scene.layout.VBox;
 import se.chalmers.cse.dat216.project.Order;
 import se.chalmers.cse.dat216.project.ShoppingItem;
 
@@ -20,9 +22,9 @@ public class EarlierOrdersPage extends AnchorPane {
     @FXML
     private AnchorPane previousPurchaseAnchorPane;
     @FXML
-    private FlowPane flowPanePreviousPurchases;
+    private VBox flowPanePreviousPurchases;
     @FXML
-    private FlowPane flowPanePreviousPurchasesDetails;
+    private VBox flowPanePreviousPurchasesDetails;
 
     @FXML
     private Button AddPreviousPurchaseToCartButton;
@@ -69,6 +71,7 @@ public class EarlierOrdersPage extends AnchorPane {
                 });
             }
         }
+
     }
 
     public void showPreviousPurchaseDetail(Order order){

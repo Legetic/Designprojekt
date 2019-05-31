@@ -1,38 +1,37 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
+<?import javafx.geometry.Insets?>
 <?import javafx.scene.Cursor?>
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.layout.AnchorPane?>
-<?import javafx.scene.layout.ColumnConstraints?>
-<?import javafx.scene.layout.GridPane?>
-<?import javafx.scene.layout.RowConstraints?>
+<?import javafx.scene.layout.HBox?>
 <?import javafx.scene.text.Font?>
 
-<fx:root fx:id="PreviousPurchaseAnchorPane" onMouseClicked="#showShoppingItems" prefHeight="81.0" prefWidth="735.0" styleClass="browseButton" stylesheets="@css/stylesheet.css" type="AnchorPane" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1">
+<fx:root fx:id="PreviousPurchaseAnchorPane" onMouseClicked="#showShoppingItems" prefHeight="100.0" prefWidth="528.0" styleClass="browseButton" stylesheets="@css/stylesheet.css" type="AnchorPane" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1">
    <children>
-      <Label fx:id="previousPurchaseDate" layoutX="36.0" layoutY="26.0" text="2019-01-01">
+      <Label fx:id="previousPurchaseDate" layoutX="40.0" layoutY="23.0" prefHeight="79.0" prefWidth="257.0" text="2019-01-01" wrapText="true" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0">
          <font>
             <Font size="30.0" />
          </font>
       </Label>
-      <Label layoutX="479.0" layoutY="26.0" text="Total pris:" />
-      <GridPane layoutX="593.0" layoutY="26.0" prefHeight="30.0" prefWidth="151.0">
-        <columnConstraints>
-          <ColumnConstraints hgrow="SOMETIMES" maxWidth="122.5" minWidth="10.0" prefWidth="72.0" />
-          <ColumnConstraints hgrow="SOMETIMES" maxWidth="112.0" minWidth="10.0" prefWidth="79.0" />
-        </columnConstraints>
-        <rowConstraints>
-          <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
-        </rowConstraints>
+      <HBox alignment="TOP_RIGHT" layoutX="277.0" layoutY="43.0" prefHeight="29.0" prefWidth="257.0" AnchorPane.bottomAnchor="25.0" AnchorPane.leftAnchor="277.0" AnchorPane.rightAnchor="10.0">
          <children>
-            <Label fx:id="previousPurchasePrice" prefHeight="29.0" prefWidth="78.0" text="455">
+            <Label alignment="CENTER_RIGHT" prefHeight="29.0" prefWidth="106.0" text="Total pris:" HBox.hgrow="ALWAYS">
+               <HBox.margin>
+                  <Insets right="5.0" />
+               </HBox.margin>
+            </Label>
+            <Label fx:id="previousPurchasePrice" alignment="CENTER_RIGHT" minWidth="-Infinity" prefHeight="29.0" prefWidth="48.0" styleClass="h4" text="455" HBox.hgrow="NEVER">
                <font>
                   <Font size="25.0" />
                </font>
+               <HBox.margin>
+                  <Insets right="5.0" />
+               </HBox.margin>
             </Label>
-            <Label prefHeight="29.0" prefWidth="24.0" text="kr" GridPane.columnIndex="1" />
+            <Label minWidth="-Infinity" prefHeight="29.0" prefWidth="24.0" text="kr" HBox.hgrow="NEVER" />
          </children>
-      </GridPane>
+      </HBox>
    </children>
    <cursor>
       <Cursor fx:constant="HAND" />

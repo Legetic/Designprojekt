@@ -6,6 +6,7 @@ import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.image.ImageView;
 import javafx.scene.layout.AnchorPane;
+import javafx.scene.layout.VBox;
 import se.chalmers.cse.dat216.project.Order;
 import se.chalmers.cse.dat216.project.Product;
 import se.chalmers.cse.dat216.project.ShoppingItem;
@@ -36,6 +37,7 @@ public class PreviousPurchase extends AnchorPane {
         this.order = order;
         this.earliersOrdersPage = earliersOrdersPage;
         this.parentController = earliersOrdersPage.getParentController();
+
 
         previousPurchasePrice.setText(getPrice() + "");
         previousPurchaseDate.setText(order.getDate() + "");
