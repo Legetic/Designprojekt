@@ -142,6 +142,7 @@ public class Checkout extends AnchorPane {
     private Customer customer;
     private boolean orderComplete = false;
     private static String method = "Card";
+    private String personNummer = "";
 
 
     List<TextField> userFields = new ArrayList<TextField>();
@@ -176,9 +177,7 @@ public class Checkout extends AnchorPane {
         updateTotalPrice();
         updateAmount();
 
-        loadUserPage();
-        loadDeliveryPage();
-        loadPaymentPage();
+
 
 
         ToggleGroup paymentMethod = new ToggleGroup();
@@ -194,6 +193,7 @@ public class Checkout extends AnchorPane {
             p.load(reader);
             reader.close();
 
+            personNummer = p.getProperty("personNummer");
             //System.out.println(p.getProperty("paymentMethod"));
 
             if( p.getProperty("paymentMethod").equals("Card")){
@@ -206,6 +206,9 @@ public class Checkout extends AnchorPane {
             e.printStackTrace();
         }
 
+        loadUserPage();
+        loadDeliveryPage();
+        loadPaymentPage();
 
         paymentMethod.selectedToggleProperty().addListener(new ChangeListener<Toggle>() {
 
@@ -294,6 +297,7 @@ public class Checkout extends AnchorPane {
             Properties p = new Properties();
             p.load(reader);
             p.setProperty("paymentMethod",method);
+            p.setProperty("personNummer",personNummer);
             reader.close();
 
             FileOutputStream fos = new FileOutputStream("config.properties");
@@ -336,7 +340,7 @@ public class Checkout extends AnchorPane {
         monthTextField.setText(creditCard.getValidMonth() + "");
         yearTextField.setText(creditCard.getValidYear() + "");
         cvcTextField.setText(creditCard.getVerificationCode() + "");
-
+        personalNumberTextField.setText(personNummer);
 
         nameFakturaTextField.setText(customer.getFirstName() + " " + customer.getLastName());
         adressFakturaTextField.setText(customer.getAddress());
@@ -658,6 +662,8 @@ public class Checkout extends AnchorPane {
                 creditCard.setValidYear(Integer.valueOf(yearTextField.getText()));
                 creditCard.setVerificationCode(Integer.valueOf(cvcTextField.getText()));
 
+                personNummer = personalNumberTextField.getText();
+                savePrefs();
                 //kan inte spara fakturan
 
                 break;
