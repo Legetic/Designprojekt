@@ -197,13 +197,9 @@ public class Checkout extends AnchorPane {
             //System.out.println(p.getProperty("paymentMethod"));
 
             if( p.getProperty("paymentMethod").equals("Card")){
-                cardRadioButton.setSelected(true);
-                cardInfoAnchorPane.setVisible(true);
-                fakturaInfoAnchorPane.setVisible(false);
+                selectCard();
             }else{
-                fakturaRadioButton.setSelected(true);
-                cardInfoAnchorPane.setVisible(false);
-                fakturaInfoAnchorPane.setVisible(true);
+                selectFaktura();
             }
             //System.out.println(p.getProperty("paymentMethod"));
         } catch (Exception e) {
@@ -218,13 +214,9 @@ public class Checkout extends AnchorPane {
                 if (paymentMethod.getSelectedToggle() != null) {
                     RadioButton selected = (RadioButton) paymentMethod.getSelectedToggle();
                     if (selected == cardRadioButton) {
-                        method = "Card";
-                        cardInfoAnchorPane.setVisible(true);
-                        fakturaInfoAnchorPane.setVisible(false);
+                        selectCard();
                     } else {
-                        method = "Faktura";
-                        cardInfoAnchorPane.setVisible(false);
-                        fakturaInfoAnchorPane.setVisible(true);
+                        selectFaktura();
                     }
                     savePrefs();
                 }
@@ -674,5 +666,35 @@ public class Checkout extends AnchorPane {
         }
     }
 
+    @FXML
+    private void selectCard(){
+        cardRadioButton.setSelected(true);
 
+        cardBackgroundAnchorPane.getStyleClass().remove("activeRadio");
+        fakturaBackgroundAnchorPane.getStyleClass().remove("activeRadio");
+
+        cardBackgroundAnchorPane.getStyleClass().add("activeRadio");
+
+        method = "Card";
+        cardInfoAnchorPane.setVisible(true);
+        fakturaInfoAnchorPane.setVisible(false);
+
+        savePrefs();
+
+    }
+    @FXML
+    private void selectFaktura(){
+        fakturaRadioButton.setSelected(true);
+
+        cardBackgroundAnchorPane.getStyleClass().remove("activeRadio");
+        fakturaBackgroundAnchorPane.getStyleClass().remove("activeRadio");
+
+        fakturaBackgroundAnchorPane.getStyleClass().add("activeRadio");
+
+        method = "Faktura";
+        cardInfoAnchorPane.setVisible(false);
+        fakturaInfoAnchorPane.setVisible(true);
+
+        savePrefs();
+    }
 }

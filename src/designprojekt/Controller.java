@@ -101,7 +101,7 @@ public class Controller implements Initializable {
     private Button showMoreButton;
 
     private List<Product> productsShown;
-    int displayAmount = 20;
+    int displayAmount = 30;
 
 
     private Checkout checkout;
@@ -236,21 +236,7 @@ public class Controller implements Initializable {
         sortList.getSelectionModel().selectedItemProperty().addListener(new ChangeListener<String>() {
             @Override
             public void changed(ObservableValue<? extends String> observable, String oldValue, String newValue) {
-                switch (newValue) {
-                    case "Ingen Sortering":
-                        Collections.sort(productsShown, new idComparator());
-                        updateMainGrid(productsShown);
-                        break;
-                    case "Högsta Pris":
-                        Collections.sort(productsShown, new highestPriceComparator());
-                        updateMainGrid(productsShown);
-                        break;
-                    case "Lägsta Pris":
-                        Collections.sort(productsShown, new lowestPriceComparator());
-                        updateMainGrid(productsShown);
-                        break;
-
-                }
+                sort(newValue);
             }
         });
 
@@ -278,6 +264,24 @@ public class Controller implements Initializable {
         updateShoppingCart();
 
 
+    }
+
+    private void sort(String sorttype){
+        switch (sorttype) {
+            case "Ingen Sortering":
+                Collections.sort(productsShown, new idComparator());
+                updateMainGrid(productsShown);
+                break;
+            case "Högsta Pris":
+                Collections.sort(productsShown, new highestPriceComparator());
+                updateMainGrid(productsShown);
+                break;
+            case "Lägsta Pris":
+                Collections.sort(productsShown, new lowestPriceComparator());
+                updateMainGrid(productsShown);
+                break;
+
+        }
     }
 
     private void changeFeature(String category){
@@ -540,7 +544,6 @@ public class Controller implements Initializable {
         }
 
 
-
     }
     @FXML
     private void showMoreProducts(){
@@ -568,7 +571,7 @@ public class Controller implements Initializable {
 
     @FXML
     private void search() {
-        displayAmount = 20;
+        displayAmount = 30;
 
         List<Product> searchResult = new ArrayList<>();
         String searchString = "";
@@ -608,6 +611,7 @@ public class Controller implements Initializable {
 
 
         }
+        sort(sortList.getSelectionModel().getSelectedItem().toString());
 
         //searchList.getSelectionModel().getSelectedItem().toString()
 
@@ -865,6 +869,7 @@ public class Controller implements Initializable {
         homePage.toFront();
         previousPurchasesRoot.toFront();
         earlierOrdersPage.getChooseOrderLabel().setVisible(true);
+        earlierOrdersPage.getAddPreviousPurchaseToCartButton().setDisable(true);
         updateShoppingCart();
 
 
@@ -931,24 +936,7 @@ public class Controller implements Initializable {
         //updateCart();
     }
 
-    public void updateCart(){
-        if (checkout != null) {
-            if (!checkout.itemsCheckoutFlowpane.getChildren().isEmpty()) {
-                shoppingCartFlowPane.getChildren().addAll(checkout.itemsCheckoutFlowpane.getChildren());
-            }
-        }
-        if(dataHandler.getShoppingCart().getItems().isEmpty()) {
-            updateShoppingCart();
-            for (Node node : mainGrid.getChildren()) {
-                Card card = (Card) node;
-                if (card.getAmountControl().isVisible()) {
-                    card.getAmountControl().setVisible(false);
-                    card.getAddButton().setVisible(true);
-                    card.getAmountField().setText("1 st");
-                }
-            }
-        }
-    }
+
 
     public void selectText(TextField textField) {
         textField.selectAll();
@@ -958,133 +946,177 @@ public class Controller implements Initializable {
 
     @FXML
     public void showPOD() {
-        displayAmount = 20;
+        displayAmount = 30;
         updateMainGrid(imatBackendController.getProducts(ProductCategory.POD));
+        sort(sortList.getSelectionModel().getSelectedItem().toString());
+
     }
 
     @FXML
     public void showBREAD() {
-        displayAmount = 20;
+        displayAmount = 30;
         updateMainGrid(imatBackendController.getProducts(ProductCategory.BREAD));
+        sort(sortList.getSelectionModel().getSelectedItem().toString());
+
     }
 
     @FXML
     public void showBERRY() {
-        displayAmount = 20;
+        displayAmount = 30;
         updateMainGrid(imatBackendController.getProducts(ProductCategory.BERRY));
+        sort(sortList.getSelectionModel().getSelectedItem().toString());
+
     }
 
     @FXML
     public void showCITRUS() {
-        displayAmount = 20;
+        displayAmount = 30;
         updateMainGrid(imatBackendController.getProducts(ProductCategory.CITRUS_FRUIT));
+        sort(sortList.getSelectionModel().getSelectedItem().toString());
+
     }
 
     @FXML
     public void showHOT_DRINKS() {
-        displayAmount = 20;
+        displayAmount = 30;
         updateMainGrid(imatBackendController.getProducts(ProductCategory.HOT_DRINKS));
+        sort(sortList.getSelectionModel().getSelectedItem().toString());
+
     }
 
     @FXML
     public void showCOLD_DRINKS() {
-        displayAmount = 20;
+        displayAmount = 30;
         updateMainGrid(imatBackendController.getProducts(ProductCategory.COLD_DRINKS));
+        sort(sortList.getSelectionModel().getSelectedItem().toString());
+
     }
 
     @FXML
     public void showEXOTIC() {
-        displayAmount = 20;
+        displayAmount = 30;
         updateMainGrid(imatBackendController.getProducts(ProductCategory.EXOTIC_FRUIT));
+        sort(sortList.getSelectionModel().getSelectedItem().toString());
+
     }
 
     @FXML
     public void showFISH() {
-        displayAmount = 20;
+        displayAmount = 30;
         updateMainGrid(imatBackendController.getProducts(ProductCategory.FISH));
+        sort(sortList.getSelectionModel().getSelectedItem().toString());
+
     }
 
     @FXML
     public void showVEGETABLE_FRUIT() {
-        displayAmount = 20;
+        displayAmount = 30;
         updateMainGrid(imatBackendController.getProducts(ProductCategory.VEGETABLE_FRUIT));
+        sort(sortList.getSelectionModel().getSelectedItem().toString());
+
     }
 
     @FXML
     public void showCABBAGE() {
-        displayAmount = 20;
+        displayAmount = 30;
         updateMainGrid(imatBackendController.getProducts(ProductCategory.CABBAGE));
+        sort(sortList.getSelectionModel().getSelectedItem().toString());
+
     }
 
     @FXML
     public void showMEAT() { //meat and fish????!!!
-        displayAmount = 20;
+        displayAmount = 30;
         updateMainGrid(imatBackendController.getProducts(ProductCategory.MEAT));
+        sort(sortList.getSelectionModel().getSelectedItem().toString());
+
     }
 
     @FXML
     public void showDAIRIES() {
-        displayAmount = 20;
+        displayAmount = 30;
         updateMainGrid(imatBackendController.getProducts(ProductCategory.DAIRIES));
+        sort(sortList.getSelectionModel().getSelectedItem().toString());
+
     }
 
     @FXML
     public void showMELONS() {
-        displayAmount = 20;
+        displayAmount = 30;
         updateMainGrid(imatBackendController.getProducts(ProductCategory.MELONS));
+        sort(sortList.getSelectionModel().getSelectedItem().toString());
+
     }
 
     @FXML
     public void showFLOUR_SUGAR_SALT() {
-        displayAmount = 20;
+        displayAmount = 30;
         updateMainGrid(imatBackendController.getProducts(ProductCategory.FLOUR_SUGAR_SALT));
+        sort(sortList.getSelectionModel().getSelectedItem().toString());
+
     }
 
     @FXML
     public void showNUTS_AND_SEEDS() {
-        displayAmount = 20;
+        displayAmount = 30;
         updateMainGrid(imatBackendController.getProducts(ProductCategory.NUTS_AND_SEEDS));
+        sort(sortList.getSelectionModel().getSelectedItem().toString());
+
     }
 
     @FXML
     public void showPASTA() {
-        displayAmount = 20;
+        displayAmount = 30;
         updateMainGrid(imatBackendController.getProducts(ProductCategory.PASTA));
+        sort(sortList.getSelectionModel().getSelectedItem().toString());
+
     }
 
     @FXML
     public void showPOTATO_RICE() { // and pasta???!!
-        displayAmount = 20;
+        displayAmount = 30;
         updateMainGrid(imatBackendController.getProducts(ProductCategory.POTATO_RICE));
+        sort(sortList.getSelectionModel().getSelectedItem().toString());
+
     }
 
     @FXML
     public void showROOT_VEGETABLE() {
-        displayAmount = 20;
+        displayAmount = 30;
         updateMainGrid(imatBackendController.getProducts(ProductCategory.VEGETABLE_FRUIT));
+        sort(sortList.getSelectionModel().getSelectedItem().toString());
+
     }
 
     @FXML
     public void showFRUIT() {
-        displayAmount = 20;
+        displayAmount = 30;
         updateMainGrid(imatBackendController.getProducts(ProductCategory.FRUIT));
+        sort(sortList.getSelectionModel().getSelectedItem().toString());
+
     }
 
     @FXML
     public void showSWEET() {
-        displayAmount = 20;
+        displayAmount = 30;
         updateMainGrid(imatBackendController.getProducts(ProductCategory.SWEET));
+        sort(sortList.getSelectionModel().getSelectedItem().toString());
+
     }
 
     @FXML
     public void showHERB() {
-        displayAmount = 20;
+        displayAmount = 30;
         updateMainGrid(imatBackendController.getProducts(ProductCategory.HERB));
+        sort(sortList.getSelectionModel().getSelectedItem().toString());
+
     }
     @FXML
     public void showAll() {
-        displayAmount = 20;
+        displayAmount = 30;
         updateMainGrid(imatBackendController.getProducts());
+        sort(sortList.getSelectionModel().getSelectedItem().toString());
+
     }
 
 
