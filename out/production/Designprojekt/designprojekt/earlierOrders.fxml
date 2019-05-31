@@ -17,7 +17,7 @@
          <children>
           <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="709.0" prefWidth="656.0" HBox.hgrow="ALWAYS">
                <children>
-                  <Label alignment="BOTTOM_CENTER" graphicTextGap="10.0" layoutX="1.0" layoutY="86.0" prefHeight="100.0" prefWidth="627.0" style="-fx-text-fill: -fx-base1;" styleClass="h2" text="Tidigare köp" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="80.0">
+                  <Label alignment="BOTTOM_CENTER" graphicTextGap="10.0" layoutX="1.0" layoutY="120.0" prefHeight="60.0" prefWidth="658.0" style="-fx-text-fill: -fx-base1;" styleClass="h2" text="Tidigare köp" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="90.0">
                      <graphic>
                         <ImageView fitHeight="70.0" fitWidth="70.0" pickOnBounds="true" preserveRatio="true">
                            <image>
@@ -25,12 +25,9 @@
                            </image>
                         </ImageView>
                      </graphic>
-                     <padding>
-                        <Insets top="30.0" />
-                     </padding>
                   </Label>
                   <Button fx:id="backButtonFromPreviousPurchases" layoutX="14.0" layoutY="14.0" mnemonicParsing="false" onAction="#closeWindow" prefHeight="56.0" prefWidth="135.0" styleClass="ghostButton" text="Tillbaka" AnchorPane.leftAnchor="14.0" AnchorPane.topAnchor="14.0" />
-                  <ScrollPane fitToHeight="true" fitToWidth="true" hbarPolicy="NEVER" layoutY="285.0" prefHeight="522.0" prefWidth="652.0" styleClass="oneColor" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="200.0">
+                  <ScrollPane fitToHeight="true" fitToWidth="true" hbarPolicy="NEVER" layoutY="285.0" prefHeight="522.0" prefWidth="652.0" styleClass="oneColor" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="180.0">
                     <content>
                       <AnchorPane prefHeight="541.0" prefWidth="565.0" styleClass="oneColor">
                            <children>
@@ -48,7 +45,7 @@
                       <AnchorPane prefHeight="598.0" prefWidth="352.0" style="-fx-background-color: transparent;">
                            <children>
                               <VBox fx:id="flowPanePreviousPurchasesDetails" prefHeight="112.0" prefWidth="387.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0" />
-                              <Label fx:id="chooseOrderLabel" alignment="CENTER" graphicTextGap="10.0" layoutX="9.0" layoutY="142.0" prefHeight="60.0" prefWidth="368.0" style="-fx-text-fill: -fx-base1;" styleClass="h4" text="Välj order för att se dess innehåll" textAlignment="CENTER" wrapText="true" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="115.0">
+                              <Label fx:id="chooseOrderLabel" alignment="CENTER" graphicTextGap="10.0" layoutX="9.0" layoutY="142.0" prefHeight="60.0" prefWidth="368.0" style="-fx-text-fill: -fx-base1;" styleClass="h4" text="Välj order för att se dess innehåll" textAlignment="CENTER" wrapText="true" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="130.0">
                                  <font>
                                     <Font size="32.0" />
                                  </font>
