@@ -100,6 +100,8 @@ public class Controller implements Initializable {
     @FXML
     private Button showMoreButton;
 
+    private Button allProductsButton;
+
     private List<Product> productsShown;
     int displayAmount = 30;
 
@@ -243,6 +245,12 @@ public class Controller implements Initializable {
 
         for(Node d : categoryList.getChildren()){
             if(d instanceof Button){
+                if(((Button) d).getText().equals("Alla Produkter")){
+                    allProductsButton = (Button) d;
+                    currentCategoryButton = (Button) d;
+                    currentCategoryButton.getStyleClass().add("currentCategory");
+                }
+
                 d.setOnMouseClicked(ev -> {
                     //System.out.println(((Button) d).getText());
                     if(currentCategoryButton != null) {
@@ -293,6 +301,12 @@ public class Controller implements Initializable {
                 imagePath = "Designprojekt/resources/categoryPictures/StartPage.jpg";
                 headerText = "Välkommen!";
                 description = "Här hittar du allt du behöver för att laga mat.";
+                if(currentCategoryButton != null) {
+                    currentCategoryButton.getStyleClass().remove("currentCategory");
+                }
+                currentCategoryButton = allProductsButton;
+                currentCategoryButton.getStyleClass().add("currentCategory");
+
 
                 break;
             case "Baljväxter":
@@ -572,6 +586,7 @@ public class Controller implements Initializable {
     @FXML
     private void search() {
         displayAmount = 30;
+        currentCategoryButton.getStyleClass().remove("currentCategory");
 
         List<Product> searchResult = new ArrayList<>();
         String searchString = "";
