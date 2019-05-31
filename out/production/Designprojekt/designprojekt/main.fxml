@@ -306,7 +306,7 @@
                                           <ComboBox fx:id="sortList" layoutX="169.0" layoutY="13.0" prefHeight="47.0" prefWidth="269.0" promptText="Ingen Sortering" style="-fx-background-color: transparent; -fx-border-color: -fx-base4; -fx-border-radius: 0 5 5 0;" AnchorPane.rightAnchor="12.0" AnchorPane.topAnchor="12.0" />
                                        </children>
                                     </AnchorPane>
-                                    <FlowPane fx:id="mainGrid" alignment="TOP_CENTER" hgap="10.0" prefHeight="91.0" prefWidth="472.0" vgap="10.0" VBox.vgrow="NEVER">
+                                    <FlowPane fx:id="mainGrid" alignment="TOP_CENTER" hgap="10.0" prefHeight="0.0" prefWidth="472.0" prefWrapLength="10.0" vgap="10.0">
                                        <VBox.margin>
                                           <Insets top="20.0" />
                                        </VBox.margin>
@@ -334,15 +334,18 @@
             </AnchorPane>
          </center>
       </BorderPane>
-      <AnchorPane fx:id="startMenu" prefHeight="200.0" prefWidth="200.0" style="-fx-background-image: url(&quot;resources/startPage/28.png&quot;); -fx-background-color: white; -fx-background-size: contain; -fx-background-repeat: no-repeat; -fx-background-position: center;" visible="false" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+      <AnchorPane fx:id="startMenu" prefHeight="200.0" prefWidth="200.0" style="-fx-background-image: url(&quot;resources/startPage/28.png&quot;); -fx-background-color: white; -fx-background-size: contain; -fx-background-repeat: no-repeat; -fx-background-position: center;" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
          <children>
             <VBox alignment="CENTER" fillWidth="false" prefHeight="680.0" prefWidth="1080.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
                <children>
-                  <Label text="iMat">
+                  <Label style="-fx-background-radius: 5px;" text="iMAT">
                      <styleClass>
                         <String fx:value="logo" />
                         <String fx:value="bigLogo" />
                      </styleClass>
+                     <padding>
+                        <Insets bottom="10.0" left="65.0" right="65.0" top="10.0" />
+                     </padding>
                   </Label>
                   <TextFlow prefHeight="29.0" prefWidth="474.0">
                      <children>

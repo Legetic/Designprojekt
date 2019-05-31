@@ -26,6 +26,84 @@
    <children>
       <AnchorPane fx:id="fullscreenPage" layoutY="95.0" prefHeight="501.0" prefWidth="1073.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="95.0" />
       <AnchorPane fx:id="previousPurchasesRoot" layoutX="-12.0" layoutY="95.0" prefHeight="501.0" prefWidth="701.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="372.0" AnchorPane.topAnchor="95.0" />
+      <AnchorPane fx:id="startMenu" prefHeight="200.0" prefWidth="200.0" style="-fx-background-image: url(&quot;resources/startPage/28.png&quot;); -fx-background-color: white; -fx-background-size: contain; -fx-background-repeat: no-repeat; -fx-background-position: center;" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+         <children>
+            <VBox alignment="CENTER" fillWidth="false" prefHeight="680.0" prefWidth="1080.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+               <children>
+                  <Label style="-fx-background-radius: 5px;" text="iMAT">
+                     <styleClass>
+                        <String fx:value="logo" />
+                        <String fx:value="bigLogo" />
+                     </styleClass>
+                     <padding>
+                        <Insets bottom="10.0" left="65.0" right="65.0" top="10.0" />
+                     </padding>
+                  </Label>
+                  <TextFlow prefHeight="29.0" prefWidth="474.0">
+                     <children>
+                        <Label style="-fx-text-fill: -fx-base4;" styleClass="h2" text="•">
+                           <padding>
+                              <Insets bottom="-10.0" top="-20.0" />
+                           </padding>
+                        </Label>
+                        <Label text="Lägg till dina önskade varor i Varukorgen" textAlignment="CENTER">
+                           <padding>
+                              <Insets top="40.0" />
+                           </padding>
+                        </Label>
+                     </children>
+                     <VBox.margin>
+                        <Insets right="100.0" />
+                     </VBox.margin>
+                  </TextFlow>
+                  <TextFlow prefHeight="29.0" prefWidth="474.0">
+                     <children>
+                        <Label style="-fx-text-fill: -fx-base4;" styleClass="h2" text="•">
+                           <padding>
+                              <Insets bottom="-10.0" top="-20.0" />
+                           </padding>
+                        </Label>
+                        <Label text="Gå till kassan" />
+                     </children>
+                     <VBox.margin>
+                        <Insets right="100.0" />
+                     </VBox.margin>
+                  </TextFlow>
+                  <TextFlow prefHeight="0.0" prefWidth="474.0">
+                     <children>
+                        <Label alignment="BOTTOM_LEFT" contentDisplay="BOTTOM" prefHeight="0.0" prefWidth="23.0" style="-fx-text-fill: -fx-base4;" styleClass="h2" text="•">
+                           <padding>
+                              <Insets bottom="-10.0" top="-20.0" />
+                           </padding>
+                        </Label>
+                        <Label prefHeight="0.0" prefWidth="325.0" text="Följ stegen och slutför ditt köp" textAlignment="CENTER" />
+                     </children>
+                     <VBox.margin>
+                        <Insets right="100.0" />
+                     </VBox.margin>
+                  </TextFlow>
+                  <HBox alignment="CENTER" prefHeight="266.0" prefWidth="1073.0">
+                     <children>
+                        <Button fx:id="startPage_home_btn" mnemonicParsing="false" onAction="#closeStartMenu" prefHeight="150.0" prefWidth="350.0" style="-fx-background-color: -fx-Base4;" styleClass="h3" text="BÖRJA HANDLA" textFill="WHITE" wrapText="true">
+                           <font>
+                              <Font size="40.0" />
+                           </font>
+                           <HBox.margin>
+                              <Insets right="50.0" />
+                           </HBox.margin>
+                        </Button>
+                        <Button fx:id="startPage_recentBuy_btn" mnemonicParsing="false" onAction="#openPreviousPurchases" prefHeight="150.0" prefWidth="350.0" style="-fx-background-color: -fx-niceGray; -fx-text-fill: -fx-base4;" styleClass="h3" text="TIDIGARE KÖP" wrapText="true">
+                           <font>
+                              <Font size="40.0" />
+                           </font>
+                        </Button>
+                     </children>
+                  </HBox>
+               </children>
+            </VBox>
+            <CheckBox layoutX="8.0" layoutY="568.0" mnemonicParsing="false" prefHeight="34.0" prefWidth="769.0" text="Visa Inte startsidan igen" AnchorPane.bottomAnchor="20.0" AnchorPane.leftAnchor="20.0" AnchorPane.rightAnchor="284.0" />
+         </children>
+      </AnchorPane>
       <ScrollPane fx:id="searchPane" fitToHeight="true" fitToWidth="true" focusTraversable="false" hbarPolicy="NEVER" layoutX="215.0" layoutY="70.0" prefHeight="200.0" prefWidth="407.0" visible="false" AnchorPane.leftAnchor="215.0" AnchorPane.rightAnchor="451.0" AnchorPane.topAnchor="70.0">
         <content>
           <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="200.0" prefWidth="200.0">
@@ -214,7 +292,7 @@
          <left>
             <AnchorPane prefHeight="501.0" prefWidth="211.0" BorderPane.alignment="CENTER">
                <children>
-                  <ScrollPane fitToHeight="true" fitToWidth="true" hbarPolicy="NEVER" prefHeight="501.0" prefWidth="236.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+                  <ScrollPane fitToHeight="true" fitToWidth="true" hbarPolicy="NEVER" prefHeight="501.0" prefWidth="236.0" vvalue="1.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
                      <content>
                         <AnchorPane prefHeight="546.0" prefWidth="213.0">
                            <children>
@@ -249,7 +327,7 @@
                                     <Button alignment="TOP_LEFT" mnemonicParsing="false" onAction="#showPOTATO_RICE" prefHeight="31.0" prefWidth="300.0" styleClass="browseButton" text="Potatis &amp; Ris" />
                                     <Button alignment="TOP_LEFT" mnemonicParsing="false" onAction="#showHOT_DRINKS" prefHeight="50.0" prefWidth="300.0" styleClass="browseButton" text="Varma Drycker" />
                                     <Button alignment="TOP_LEFT" mnemonicParsing="false" onAction="#showCOLD_DRINKS" prefHeight="31.0" prefWidth="300.0" styleClass="browseButton" text="Kalla Drycker" />
-                                    <Button alignment="TOP_LEFT" maxHeight="62.0" maxWidth="300.0" minHeight="79.0" mnemonicParsing="false" onAction="#showFLOUR_SUGAR_SALT" prefHeight="79.0" prefWidth="204.0" styleClass="browseButton" text="Skafferi" wrapText="true" />
+                                    <Button alignment="TOP_LEFT" maxHeight="62.0" maxWidth="300.0" minHeight="50.0" mnemonicParsing="false" onAction="#showFLOUR_SUGAR_SALT" prefHeight="50.0" prefWidth="203.0" styleClass="browseButton" text="Skafferi" wrapText="true" />
                                     <Button alignment="TOP_LEFT" mnemonicParsing="false" onAction="#showSWEET" prefHeight="31.0" prefWidth="300.0" styleClass="browseButton" text="Sötsaker" />
                                     <Button alignment="TOP_LEFT" mnemonicParsing="false" onAction="#showNUTS_AND_SEEDS" prefHeight="31.0" prefWidth="300.0" styleClass="browseButton" text="Nötter &amp; Frön" />
                                     <Button alignment="TOP_LEFT" mnemonicParsing="false" onAction="#showHERB" prefHeight="31.0" prefWidth="300.0" styleClass="browseButton" text="Örter" />
@@ -334,83 +412,5 @@
             </AnchorPane>
          </center>
       </BorderPane>
-      <AnchorPane fx:id="startMenu" prefHeight="200.0" prefWidth="200.0" style="-fx-background-image: url(&quot;resources/startPage/28.png&quot;); -fx-background-color: white; -fx-background-size: contain; -fx-background-repeat: no-repeat; -fx-background-position: center;" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
-         <children>
-            <VBox alignment="CENTER" fillWidth="false" prefHeight="680.0" prefWidth="1080.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
-               <children>
-                  <Label style="-fx-background-radius: 5px;" text="iMAT">
-                     <styleClass>
-                        <String fx:value="logo" />
-                        <String fx:value="bigLogo" />
-                     </styleClass>
-                     <padding>
-                        <Insets bottom="10.0" left="65.0" right="65.0" top="10.0" />
-                     </padding>
-                  </Label>
-                  <TextFlow prefHeight="29.0" prefWidth="474.0">
-                     <children>
-                        <Label style="-fx-text-fill: -fx-base4;" styleClass="h2" text="•">
-                           <padding>
-                              <Insets bottom="-10.0" top="-20.0" />
-                           </padding>
-                        </Label>
-                        <Label text="Lägg till dina önskade varor i Varukorgen" textAlignment="CENTER">
-                           <padding>
-                              <Insets top="40.0" />
-                           </padding>
-                        </Label>
-                     </children>
-                     <VBox.margin>
-                        <Insets right="100.0" />
-                     </VBox.margin>
-                  </TextFlow>
-                  <TextFlow prefHeight="29.0" prefWidth="474.0">
-                     <children>
-                        <Label style="-fx-text-fill: -fx-base4;" styleClass="h2" text="•">
-                           <padding>
-                              <Insets bottom="-10.0" top="-20.0" />
-                           </padding>
-                        </Label>
-                        <Label text="Gå till kassan" />
-                     </children>
-                     <VBox.margin>
-                        <Insets right="100.0" />
-                     </VBox.margin>
-                  </TextFlow>
-                  <TextFlow prefHeight="0.0" prefWidth="474.0">
-                     <children>
-                        <Label alignment="BOTTOM_LEFT" contentDisplay="BOTTOM" prefHeight="0.0" prefWidth="23.0" style="-fx-text-fill: -fx-base4;" styleClass="h2" text="•">
-                           <padding>
-                              <Insets bottom="-10.0" top="-20.0" />
-                           </padding>
-                        </Label>
-                        <Label prefHeight="0.0" prefWidth="325.0" text="Följ stegen och slutför ditt köp" textAlignment="CENTER" />
-                     </children>
-                     <VBox.margin>
-                        <Insets right="100.0" />
-                     </VBox.margin>
-                  </TextFlow>
-                  <HBox alignment="CENTER" prefHeight="266.0" prefWidth="1073.0">
-                     <children>
-                        <Button fx:id="startPage_home_btn" mnemonicParsing="false" onAction="#closeStartMenu" prefHeight="150.0" prefWidth="350.0" style="-fx-background-color: -fx-Base4;" styleClass="h3" text="BÖRJA HANDLA" textFill="WHITE" wrapText="true">
-                           <font>
-                              <Font size="40.0" />
-                           </font>
-                           <HBox.margin>
-                              <Insets right="50.0" />
-                           </HBox.margin>
-                        </Button>
-                        <Button fx:id="startPage_recentBuy_btn" mnemonicParsing="false" onAction="#openPreviousPurchases" prefHeight="150.0" prefWidth="350.0" style="-fx-background-color: -fx-niceGray; -fx-text-fill: -fx-base4;" styleClass="h3" text="TIDIGARE KÖP" wrapText="true">
-                           <font>
-                              <Font size="40.0" />
-                           </font>
-                        </Button>
-                     </children>
-                  </HBox>
-               </children>
-            </VBox>
-            <CheckBox layoutX="8.0" layoutY="568.0" mnemonicParsing="false" prefHeight="34.0" prefWidth="769.0" text="Visa Inte startsidan igen" AnchorPane.bottomAnchor="20.0" AnchorPane.leftAnchor="20.0" AnchorPane.rightAnchor="284.0" />
-         </children>
-      </AnchorPane>
    </children>
 </AnchorPane>

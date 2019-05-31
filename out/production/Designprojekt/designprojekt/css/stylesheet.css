@@ -74,6 +74,7 @@ https://blog.marvelapp.com/body-text-small/
     /*-fx-text-fill: red;*/
 }
 
+
 .button{
     -fx-font-family: "Segoe UI", sans-serif;
     -fx-font-size: 18pt;
@@ -225,10 +226,39 @@ https://blog.marvelapp.com/body-text-small/
 }
 
 .checkout-boxes{
-    -fx-background-color: -fx-checkoutBox;
-    -fx-border-color: #e0E0E0;
+    -fx-background-color: -fx-niceGray;
+    -fx-border-color: -fx-nicerGray;
     -fx-border-radius: 4;
     -fx-border-width: 1;
+}
+
+.inactiveRadio {
+-fx-border-color: -fx-base4;
+    -fx-border-width: 1px;
+    -fx-border-radius: 4px;
+    -fx-font-weight: bold;
+}
+
+.activeRadio{
+    -fx-background-color: -fx-base4;
+}
+.activeRadio .radio-button{
+-fx-text-fill: white;
+}
+.radio-button{
+    -fx-font-family: "Segoe UI", sans-serif;
+    -fx-font-size: 18pt;
+}
+.radio-button .radio{
+    -fx-background-color: -fx-niceGray;
+
+}
+.radio-button:selected .radio{
+    -fx-background-color: white;
+
+}
+.radio-button:selected .dot{
+    -fx-background-color: -fx-base4;
 }
 
 .inputFieldError{
