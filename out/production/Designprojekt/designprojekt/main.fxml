@@ -22,7 +22,7 @@
 <?import javafx.scene.text.Font?>
 <?import javafx.scene.text.TextFlow?>
 
-<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" prefHeight="596.0" prefWidth="1073.0" styleClass="body" stylesheets="@css/stylesheet.css" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="designprojekt.Controller">
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" prefHeight="596.0" prefWidth="1073.0" styleClass="body" stylesheets="@css/stylesheet.css" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="designprojekt.Controller">
    <children>
       <AnchorPane fx:id="fullscreenPage" layoutY="95.0" prefHeight="501.0" prefWidth="1073.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="95.0" />
       <AnchorPane fx:id="previousPurchasesRoot" layoutX="-12.0" layoutY="95.0" prefHeight="501.0" prefWidth="701.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="372.0" AnchorPane.topAnchor="95.0" />
@@ -354,7 +354,7 @@
          <center>
             <AnchorPane prefHeight="200.0" prefWidth="200.0" BorderPane.alignment="CENTER">
                <children>
-                  <ScrollPane fitToHeight="true" fitToWidth="true" prefHeight="200.0" prefWidth="200.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+                  <ScrollPane fx:id="mainGridScrollPane" fitToHeight="true" fitToWidth="true" prefHeight="200.0" prefWidth="200.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
                      <content>
                         <VBox alignment="TOP_CENTER" prefHeight="0.0" prefWidth="489.0">
                            <children>

@@ -21,7 +21,7 @@
                   <Insets right="5.0" />
                </HBox.margin>
             </Label>
-            <Label fx:id="previousPurchasePrice" alignment="CENTER_RIGHT" minWidth="-Infinity" prefHeight="29.0" prefWidth="67.0" styleClass="h4" text="455" HBox.hgrow="ALWAYS">
+            <Label fx:id="previousPurchasePrice" alignment="CENTER_RIGHT" prefHeight="29.0" styleClass="h4" text="455">
                <font>
                   <Font size="25.0" />
                </font>
