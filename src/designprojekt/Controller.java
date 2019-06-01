@@ -833,8 +833,9 @@ public class Controller implements Initializable {
     public void addProductFromOrderToCart(ShoppingItem item) {//TODO: implement separate method for the duplicate check
         Card productCard = cardMap.get(item.getProduct().getName());
         boolean isDuplicate = false;
-        for (ShoppingItem si : dataHandler.getShoppingCart().getItems()) {
-            if (si.getProduct().equals(productCard.getProduct())) {
+        for (ShoppingItem si : dataHandler.getShoppingCart().getItems()) { //If item exists in cart, add amount of item to cart
+            if (si.getProduct().equals(productCard.getProduct())) { //
+                si.setAmount(item.getAmount() + si.getAmount());
                 isDuplicate = true;
                 break;
             }
