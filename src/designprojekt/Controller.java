@@ -561,7 +561,7 @@ public class Controller implements Initializable {
     }
     @FXML
     private void showMoreProducts(){
-        displayAmount += 20;
+        displayAmount += 21;
         updateMainGrid(productsShown);
     }
 
@@ -834,7 +834,6 @@ public class Controller implements Initializable {
         for (ShoppingItem si : dataHandler.getShoppingCart().getItems()) {
             if (si.getProduct().equals(productCard.getProduct())) {
                 isDuplicate = true;
-                //incAmount(productCard); //Varför e denna här?
                 break;
             }
         }
