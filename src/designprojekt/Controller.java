@@ -723,7 +723,7 @@ public class Controller implements Initializable {
             }
         }
         if (shoppingItem.getAmount() < 1) {
-            return null; //TODO: DANGEROUS TO SET A STRING TO NULL? May fix this in future.
+            return null;
         }
         return ((int) shoppingItem.getAmount()) + " st";
     }
@@ -793,7 +793,7 @@ public class Controller implements Initializable {
         updateTotalLabel();
     }
 
-    public void addProductToCart(Card productCard) {//TODO: implement separate method for the duplicate check
+    public void addProductToCart(Card productCard) {
         boolean isDuplicate = false;
         for (ShoppingItem si : dataHandler.getShoppingCart().getItems()) {
             if (si.getProduct().equals(productCard.getProduct())) {
@@ -830,7 +830,7 @@ public class Controller implements Initializable {
     }*/
 
 
-    public void addProductFromOrderToCart(ShoppingItem item) {//TODO: implement separate method for the duplicate check
+    public void addProductFromOrderToCart(ShoppingItem item) {
         Card productCard = cardMap.get(item.getProduct().getName());
         boolean isDuplicate = false;
         for (ShoppingItem si : dataHandler.getShoppingCart().getItems()) { //If item exists in cart, add amount of item to cart

@@ -194,14 +194,12 @@ public class Checkout extends AnchorPane {
             reader.close();
 
             personNummer = p.getProperty("personNummer");
-            //System.out.println(p.getProperty("paymentMethod"));
 
             if( p.getProperty("paymentMethod").equals("Card")){
                 selectCard();
             }else{
                 selectFaktura();
             }
-            //System.out.println(p.getProperty("paymentMethod"));
         } catch (Exception e) {
             e.printStackTrace();
         }
@@ -303,14 +301,6 @@ public class Checkout extends AnchorPane {
             FileOutputStream fos = new FileOutputStream("config.properties");
             p.store(fos, "Writing properties to a file");
             fos.close();
-
-
-            //System.out.println(p.getProperty("paymentMethod"));
-
-
-
-
-            //System.out.println(p.getProperty("paymentMethod"));
         } catch (Exception e) {
             e.printStackTrace();
         }
@@ -375,8 +365,6 @@ public class Checkout extends AnchorPane {
                     errorMessage.setVisible(true);
                     checkUserErrors();
                 }
-                //System.out.println("HEJ PÅ DIG");
-
                 break;
             case 2:
                 if (isDeliveryComplete()) {
@@ -386,24 +374,20 @@ public class Checkout extends AnchorPane {
                     errorMessage.setVisible(true);
                     checkDeliveryErrors();
                 }
-                //System.out.println("HEJ PÅ DIG igen");
                 break;
             case 3:
-                // if(parentController.imatBackendController.isCustomerComplete()){
                 if (isPaymentComplete() && parentController.imatBackendController.isCustomerComplete()) {
                     errorMessage.setVisible(false);
 
                     parentController.imatBackendController.placeOrder();
 
                     orderFinishedPanel.toFront();
-                    backFromCheckoutButton.toFront(); //TODO: Behövs denna?
+                    backFromCheckoutButton.toFront();
                     orderComplete = true;
                 } else {
                     errorMessage.setVisible(true);
                     checkPaymentErrors();
                 }
-                // }
-                //System.out.println("HEJ PÅ DIG igen");
                 break;
 
         }
@@ -425,24 +409,17 @@ public class Checkout extends AnchorPane {
                 openCartPage();
                 errorMessage.setVisible(false);
                 checkDeliveryErrors();
-                //System.out.println("HEJ PÅ DIG");
                 previousButton.setDisable(true);
-
                 break;
             case 2:
                 openUserPage();
                 errorMessage.setVisible(false);
                 checkDeliveryErrors();
-
-                //System.out.println("HEJ PÅ DIG igen");
                 break;
             case 3:
-                // if(parentController.imatBackendController.isCustomerComplete()){
                 openDeliveryPage();
                 errorMessage.setVisible(false);
                 checkDeliveryErrors();
-                // }
-                //System.out.println("HEJ PÅ DIG igen");
                 break;
 
         }
@@ -554,7 +531,7 @@ public class Checkout extends AnchorPane {
         }
         if (totalPrice == 0.0) {
             totalPriceLabel.setText("0 kr");
-            parentController.closeCheckoutPage(); //TODO: don't know how closeWindow() works.... SO this works insteeed.
+            parentController.closeCheckoutPage();
         } else {
             totalPrice = Math.round(totalPrice * 100.0) / 100.0; //rounds off cause of bug
             totalPriceLabel.setText(totalPrice + " kr");
