@@ -22,7 +22,7 @@
 <?import javafx.scene.text.Font?>
 <?import javafx.scene.text.TextFlow?>
 
-<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" prefHeight="596.0" prefWidth="1073.0" styleClass="body" stylesheets="@css/stylesheet.css" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="designprojekt.Controller">
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" prefHeight="596.0" prefWidth="1073.0" styleClass="body" stylesheets="@css/stylesheet.css" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="designprojekt.Controller">
    <children>
       <AnchorPane fx:id="fullscreenPage" layoutY="95.0" prefHeight="501.0" prefWidth="1073.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="95.0" />
       <AnchorPane fx:id="previousPurchasesRoot" layoutX="-12.0" layoutY="95.0" prefHeight="501.0" prefWidth="701.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="372.0" AnchorPane.topAnchor="95.0" />
@@ -35,6 +35,84 @@
             </AnchorPane>
         </content>
       </ScrollPane>
+      <AnchorPane fx:id="startMenu" prefHeight="200.0" prefWidth="200.0" style="-fx-background-image: url(&quot;resources/startPage/28.png&quot;); -fx-background-color: white; -fx-background-size: contain; -fx-background-repeat: no-repeat; -fx-background-position: center;" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+         <children>
+            <VBox alignment="CENTER" fillWidth="false" prefHeight="680.0" prefWidth="1080.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+               <children>
+                  <Label style="-fx-background-radius: 5px;" text="iMAT">
+                     <styleClass>
+                        <String fx:value="logo" />
+                        <String fx:value="bigLogo" />
+                     </styleClass>
+                     <padding>
+                        <Insets bottom="10.0" left="65.0" right="65.0" top="10.0" />
+                     </padding>
+                  </Label>
+                  <TextFlow prefHeight="29.0" prefWidth="474.0">
+                     <children>
+                        <Label style="-fx-text-fill: -fx-base4;" styleClass="h2" text="•">
+                           <padding>
+                              <Insets bottom="-10.0" top="-20.0" />
+                           </padding>
+                        </Label>
+                        <Label text="Lägg till dina önskade varor i Varukorgen" textAlignment="CENTER">
+                           <padding>
+                              <Insets top="40.0" />
+                           </padding>
+                        </Label>
+                     </children>
+                     <VBox.margin>
+                        <Insets right="100.0" />
+                     </VBox.margin>
+                  </TextFlow>
+                  <TextFlow prefHeight="29.0" prefWidth="474.0">
+                     <children>
+                        <Label style="-fx-text-fill: -fx-base4;" styleClass="h2" text="•">
+                           <padding>
+                              <Insets bottom="-10.0" top="-20.0" />
+                           </padding>
+                        </Label>
+                        <Label text="Gå till kassan" />
+                     </children>
+                     <VBox.margin>
+                        <Insets right="100.0" />
+                     </VBox.margin>
+                  </TextFlow>
+                  <TextFlow prefHeight="0.0" prefWidth="474.0">
+                     <children>
+                        <Label alignment="BOTTOM_LEFT" contentDisplay="BOTTOM" prefHeight="0.0" prefWidth="23.0" style="-fx-text-fill: -fx-base4;" styleClass="h2" text="•">
+                           <padding>
+                              <Insets bottom="-10.0" top="-20.0" />
+                           </padding>
+                        </Label>
+                        <Label prefHeight="0.0" prefWidth="325.0" text="Följ stegen och slutför ditt köp" textAlignment="CENTER" />
+                     </children>
+                     <VBox.margin>
+                        <Insets right="100.0" />
+                     </VBox.margin>
+                  </TextFlow>
+                  <HBox alignment="CENTER" prefHeight="266.0" prefWidth="1073.0">
+                     <children>
+                        <Button fx:id="startPage_home_btn" mnemonicParsing="false" onAction="#closeStartMenu" prefHeight="150.0" prefWidth="350.0" style="-fx-background-color: -fx-Base4;" styleClass="h3" text="BÖRJA HANDLA" textFill="WHITE" wrapText="true">
+                           <font>
+                              <Font size="40.0" />
+                           </font>
+                           <HBox.margin>
+                              <Insets right="50.0" />
+                           </HBox.margin>
+                        </Button>
+                        <Button fx:id="startPage_recentBuy_btn" mnemonicParsing="false" onAction="#openPreviousPurchases" prefHeight="150.0" prefWidth="350.0" style="-fx-background-color: -fx-niceGray; -fx-text-fill: -fx-base4;" styleClass="h3" text="TIDIGARE KÖP" wrapText="true">
+                           <font>
+                              <Font size="40.0" />
+                           </font>
+                        </Button>
+                     </children>
+                  </HBox>
+               </children>
+            </VBox>
+            <CheckBox layoutX="8.0" layoutY="568.0" mnemonicParsing="false" prefHeight="34.0" prefWidth="769.0" text="Visa Inte startsidan igen" AnchorPane.bottomAnchor="20.0" AnchorPane.leftAnchor="20.0" AnchorPane.rightAnchor="284.0" />
+         </children>
+      </AnchorPane>
       <BorderPane fx:id="homePage" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
          <top>
             <AnchorPane maxHeight="95.0" minHeight="50.0" prefHeight="95.0" prefWidth="1166.0" BorderPane.alignment="CENTER">
@@ -276,54 +354,50 @@
          <center>
             <AnchorPane prefHeight="200.0" prefWidth="200.0" BorderPane.alignment="CENTER">
                <children>
-                  <ScrollPane fx:id="Varor" fitToHeight="true" fitToWidth="true" hbarPolicy="NEVER" prefHeight="640.0" prefWidth="596.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+                  <ScrollPane fitToHeight="true" fitToWidth="true" prefHeight="200.0" prefWidth="200.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
                      <content>
-                        <AnchorPane prefHeight="484.0" prefWidth="595.0">
+                        <VBox alignment="TOP_CENTER" prefHeight="0.0" prefWidth="489.0">
                            <children>
-                              <VBox alignment="TOP_CENTER" prefHeight="649.0" prefWidth="579.0" style="-fx-background-color: transparent;" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+                              <AnchorPane fx:id="mainGridCategoryImage" minHeight="200.0" prefHeight="200.0" prefWidth="472.0" style="-fx-background-size: cover; -fx-background-image: url(&quot;https://images.unsplash.com/photo-1505935428862-770b6f24f629?ixlib=rb-1.2.1&amp;ixid=eyJhcHBfaWQiOjEyMDd9&amp;auto=format&amp;fit=crop&amp;w=1347&amp;q=80&quot;); -fx-background-position: center; -fx-background-color: -fx-niceWhite;" VBox.vgrow="NEVER">
                                  <children>
-                                    <AnchorPane fx:id="mainGridCategoryImage" minHeight="200.0" prefHeight="203.0" prefWidth="472.0" style="-fx-background-size: cover; -fx-background-image: url(&quot;https://images.unsplash.com/photo-1505935428862-770b6f24f629?ixlib=rb-1.2.1&amp;ixid=eyJhcHBfaWQiOjEyMDd9&amp;auto=format&amp;fit=crop&amp;w=1347&amp;q=80&quot;); -fx-background-position: center; -fx-background-color: -fx-niceWhite;">
-                                       <children>
-                                          <AnchorPane minHeight="197.0" opacity="0.3" prefHeight="200.0" prefWidth="472.0" style="-fx-background-color: -fx-base1;" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0" />
-                                          <Label fx:id="featureHeader" alignment="CENTER" contentDisplay="CENTER" layoutY="18.0" prefHeight="71.0" prefWidth="626.0" style="-fx-text-fill: white;" styleClass="h1" text="Välkommen!" textFill="WHITE" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="18.0">
-                                             <font>
-                                                <Font name="System Bold" size="41.0" />
-                                             </font>
-                                          </Label>
-                                          <Label fx:id="featureText" alignment="TOP_CENTER" contentDisplay="CENTER" layoutX="61.0" layoutY="98.0" nodeOrientation="LEFT_TO_RIGHT" prefHeight="85.0" prefWidth="374.0" style="-fx-text-fill: white;" styleClass="p3" text="Här hittar du allt du behöver för att laga mat." textAlignment="CENTER" textFill="WHITE" wrapText="true" AnchorPane.leftAnchor="61.0" AnchorPane.rightAnchor="61.0" AnchorPane.topAnchor="98.0">
-                                             <font>
-                                                <Font name="System Bold" size="41.0" />
-                                             </font>
-                                          </Label>
-                                       </children>
-                                    </AnchorPane>
-                                    <AnchorPane minHeight="68.0" prefHeight="68.0" prefWidth="456.0" style="-fx-border-width: 1 0 1 0; -fx-border-color: -fx-niceGray; -fx-background-color: -fx-niceWhite;" VBox.vgrow="NEVER">
-                                       <VBox.margin>
-                                          <Insets />
-                                       </VBox.margin>
-                                       <children>
-                                          <Label layoutX="36.0" layoutY="18.0" prefHeight="37.0" prefWidth="155.0" style="-fx-text-fill: -fx-base1;" styleClass="h4" text="Sortera Efter:" AnchorPane.rightAnchor="281.0" AnchorPane.topAnchor="18.0" />
-                                          <ComboBox fx:id="sortList" layoutX="169.0" layoutY="13.0" prefHeight="47.0" prefWidth="269.0" promptText="Ingen Sortering" style="-fx-background-color: transparent; -fx-border-color: -fx-base4; -fx-border-radius: 0 5 5 0;" AnchorPane.rightAnchor="12.0" AnchorPane.topAnchor="12.0" />
-                                       </children>
-                                    </AnchorPane>
-                                    <FlowPane fx:id="mainGrid" alignment="TOP_CENTER" hgap="10.0" prefHeight="0.0" prefWidth="472.0" prefWrapLength="10.0" vgap="10.0">
-                                       <VBox.margin>
-                                          <Insets top="20.0" />
-                                       </VBox.margin>
-                                    </FlowPane>
-                                    <Button fx:id="showMoreButton" mnemonicParsing="false" onAction="#showMoreProducts" styleClass="ghostButton" text="Visa Fler">
-                                       <VBox.margin>
-                                          <Insets top="20.0" />
-                                       </VBox.margin>
-                                    </Button>
+                                    <AnchorPane minHeight="197.0" opacity="0.3" prefHeight="200.0" prefWidth="472.0" style="-fx-background-color: -fx-base1;" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0" />
+                                    <Label fx:id="featureHeader" alignment="CENTER" contentDisplay="CENTER" layoutY="18.0" prefHeight="71.0" prefWidth="626.0" style="-fx-text-fill: white;" styleClass="h1" text="Välkommen!" textFill="WHITE" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="18.0">
+                                       <font>
+                                          <Font name="System Bold" size="41.0" />
+                                       </font>
+                                    </Label>
+                                    <Label fx:id="featureText" alignment="TOP_CENTER" contentDisplay="CENTER" layoutX="61.0" layoutY="98.0" nodeOrientation="LEFT_TO_RIGHT" prefHeight="85.0" prefWidth="374.0" style="-fx-text-fill: white;" styleClass="p3" text="Här hittar du allt du behöver för att laga mat." textAlignment="CENTER" textFill="WHITE" wrapText="true" AnchorPane.leftAnchor="61.0" AnchorPane.rightAnchor="61.0" AnchorPane.topAnchor="98.0">
+                                       <font>
+                                          <Font name="System Bold" size="41.0" />
+                                       </font>
+                                    </Label>
                                  </children>
-                              </VBox>
+                              </AnchorPane>
+                              <AnchorPane minHeight="68.0" prefHeight="68.0" prefWidth="456.0" style="-fx-border-width: 1 0 1 0; -fx-border-color: -fx-niceGray; -fx-background-color: -fx-niceWhite;" VBox.vgrow="NEVER">
+                                 <VBox.margin>
+                                    <Insets />
+                                 </VBox.margin>
+                                 <children>
+                                    <Label layoutX="36.0" layoutY="18.0" prefHeight="37.0" prefWidth="155.0" style="-fx-text-fill: -fx-base1;" styleClass="h4" text="Sortera Efter:" AnchorPane.rightAnchor="281.0" AnchorPane.topAnchor="18.0" />
+                                    <ComboBox fx:id="sortList" layoutX="169.0" layoutY="13.0" prefHeight="47.0" prefWidth="269.0" promptText="Ingen Sortering" style="-fx-background-color: transparent; -fx-border-color: -fx-base4; -fx-border-radius: 0 5 5 0;" AnchorPane.rightAnchor="12.0" AnchorPane.topAnchor="12.0" />
+                                 </children>
+                              </AnchorPane>
+                              <FlowPane fx:id="mainGrid" alignment="TOP_CENTER" hgap="10.0" prefHeight="0.0" prefWidth="472.0" vgap="10.0" VBox.vgrow="NEVER">
+                                 <VBox.margin>
+                                    <Insets top="20.0" />
+                                 </VBox.margin>
+                              </FlowPane>
+                              <Button fx:id="showMoreButton" mnemonicParsing="false" onAction="#showMoreProducts" prefHeight="51.0" prefWidth="123.0" styleClass="ghostButton" text="Visa Fler" VBox.vgrow="NEVER">
+                                 <VBox.margin>
+                                    <Insets bottom="20.0" top="20.0" />
+                                 </VBox.margin>
+                              </Button>
                            </children>
                            <styleClass>
                               <String fx:value="oneColor" />
                               <String fx:value="centerStage" />
                            </styleClass>
-                        </AnchorPane>
+                        </VBox>
                      </content>
                      <styleClass>
                         <String fx:value="oneColor" />
@@ -334,83 +408,5 @@
             </AnchorPane>
          </center>
       </BorderPane>
-      <AnchorPane fx:id="startMenu" prefHeight="200.0" prefWidth="200.0" style="-fx-background-image: url(&quot;resources/startPage/28.png&quot;); -fx-background-color: white; -fx-background-size: contain; -fx-background-repeat: no-repeat; -fx-background-position: center;" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
-         <children>
-            <VBox alignment="CENTER" fillWidth="false" prefHeight="680.0" prefWidth="1080.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
-               <children>
-                  <Label style="-fx-background-radius: 5px;" text="iMAT">
-                     <styleClass>
-                        <String fx:value="logo" />
-                        <String fx:value="bigLogo" />
-                     </styleClass>
-                     <padding>
-                        <Insets bottom="10.0" left="65.0" right="65.0" top="10.0" />
-                     </padding>
-                  </Label>
-                  <TextFlow prefHeight="29.0" prefWidth="474.0">
-                     <children>
-                        <Label style="-fx-text-fill: -fx-base4;" styleClass="h2" text="•">
-                           <padding>
-                              <Insets bottom="-10.0" top="-20.0" />
-                           </padding>
-                        </Label>
-                        <Label text="Lägg till dina önskade varor i Varukorgen" textAlignment="CENTER">
-                           <padding>
-                              <Insets top="40.0" />
-                           </padding>
-                        </Label>
-                     </children>
-                     <VBox.margin>
-                        <Insets right="100.0" />
-                     </VBox.margin>
-                  </TextFlow>
-                  <TextFlow prefHeight="29.0" prefWidth="474.0">
-                     <children>
-                        <Label style="-fx-text-fill: -fx-base4;" styleClass="h2" text="•">
-                           <padding>
-                              <Insets bottom="-10.0" top="-20.0" />
-                           </padding>
-                        </Label>
-                        <Label text="Gå till kassan" />
-                     </children>
-                     <VBox.margin>
-                        <Insets right="100.0" />
-                     </VBox.margin>
-                  </TextFlow>
-                  <TextFlow prefHeight="0.0" prefWidth="474.0">
-                     <children>
-                        <Label alignment="BOTTOM_LEFT" contentDisplay="BOTTOM" prefHeight="0.0" prefWidth="23.0" style="-fx-text-fill: -fx-base4;" styleClass="h2" text="•">
-                           <padding>
-                              <Insets bottom="-10.0" top="-20.0" />
-                           </padding>
-                        </Label>
-                        <Label prefHeight="0.0" prefWidth="325.0" text="Följ stegen och slutför ditt köp" textAlignment="CENTER" />
-                     </children>
-                     <VBox.margin>
-                        <Insets right="100.0" />
-                     </VBox.margin>
-                  </TextFlow>
-                  <HBox alignment="CENTER" prefHeight="266.0" prefWidth="1073.0">
-                     <children>
-                        <Button fx:id="startPage_home_btn" mnemonicParsing="false" onAction="#closeStartMenu" prefHeight="150.0" prefWidth="350.0" style="-fx-background-color: -fx-Base4;" styleClass="h3" text="BÖRJA HANDLA" textFill="WHITE" wrapText="true">
-                           <font>
-                              <Font size="40.0" />
-                           </font>
-                           <HBox.margin>
-                              <Insets right="50.0" />
-                           </HBox.margin>
-                        </Button>
-                        <Button fx:id="startPage_recentBuy_btn" mnemonicParsing="false" onAction="#openPreviousPurchases" prefHeight="150.0" prefWidth="350.0" style="-fx-background-color: -fx-niceGray; -fx-text-fill: -fx-base4;" styleClass="h3" text="TIDIGARE KÖP" wrapText="true">
-                           <font>
-                              <Font size="40.0" />
-                           </font>
-                        </Button>
-                     </children>
-                  </HBox>
-               </children>
-            </VBox>
-            <CheckBox layoutX="8.0" layoutY="568.0" mnemonicParsing="false" prefHeight="34.0" prefWidth="769.0" text="Visa Inte startsidan igen" AnchorPane.bottomAnchor="20.0" AnchorPane.leftAnchor="20.0" AnchorPane.rightAnchor="284.0" />
-         </children>
-      </AnchorPane>
    </children>
 </AnchorPane>
