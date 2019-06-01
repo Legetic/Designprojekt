@@ -55,7 +55,9 @@ public class PreviousPurchase extends AnchorPane {
         for (ShoppingItem si : order.getItems()) {
             totalPrice += si.getTotal();
         }
-        return totalPrice;
+        totalPrice = (int)(totalPrice * 100 + 0.5);
+
+        return totalPrice/100;
     }
 
 
