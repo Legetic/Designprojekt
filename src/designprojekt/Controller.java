@@ -47,6 +47,8 @@ public class Controller implements Initializable {
     @FXML
     private Label totalPriceLabel;
     @FXML
+    private ScrollPane cartScrollPane;
+    @FXML
     private Button goToCheckoutButton;
 
 
@@ -96,7 +98,6 @@ public class Controller implements Initializable {
     private Label featureHeader;
     @FXML
     private Label featureText;
-
     @FXML
     private ScrollPane mainGridScrollPane;
     @FXML
@@ -812,6 +813,7 @@ public class Controller implements Initializable {
             productCard.getAmountControl().setVisible(true);
             productCard.getAmountField().requestFocus();
             productCard.getAddButton().setVisible(false);
+            //cartScrollPane.setVvalue(1);
         }
         updatePrice(productCard.getCartItem().getCartItemTotalPrice(), productCard.getCartItem().getShoppingItem()); // changed from updatetotalprice() (change if it fucks things up)
     }
@@ -850,7 +852,7 @@ public class Controller implements Initializable {
             productCard.getAmountControl().setVisible(true);
             productCard.getAmountField().requestFocus();
             productCard.getAddButton().setVisible(false);
-
+            //cartScrollPane.setVvalue(1);
         }
         updateShoppingCart();
         updatePrice(productCard.getCartItem().getCartItemTotalPrice(), productCard.getCartItem().getShoppingItem()); // changed from updatetotalprice() (change if it fucks things up)
