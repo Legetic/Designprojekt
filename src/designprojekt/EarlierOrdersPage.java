@@ -30,6 +30,9 @@ public class EarlierOrdersPage extends AnchorPane {
     private Button AddPreviousPurchaseToCartButton;
 
     @FXML
+    private Label previousOrderTotal;
+
+    @FXML
     private Label chooseOrderLabel;
 
     private AnchorPane currentCategoryPane;
@@ -75,12 +78,19 @@ public class EarlierOrdersPage extends AnchorPane {
     }
 
     public void showPreviousPurchaseDetail(Order order){
+        double totalPrice = 0.0;
+
         openedOrder = order;
         flowPanePreviousPurchasesDetails.getChildren().clear();
         for (ShoppingItem si : order.getItems()) {
+            totalPrice += si.getTotal();
+
+
             ItemPreviousPurchase itprev = new ItemPreviousPurchase(si,parentController);
             flowPanePreviousPurchasesDetails.getChildren().add(itprev);
         }
+
+        previousOrderTotal.setText(totalPrice + " kr");
     }
 
     public Controller getParentController(){

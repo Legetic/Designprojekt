@@ -11,7 +11,7 @@
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
 
-<fx:root maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="709.0" prefWidth="1026.0" styleClass="oneColor" stylesheets="@css/stylesheet.css" type="AnchorPane" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1">
+<fx:root maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="709.0" prefWidth="1026.0" styleClass="oneColor" stylesheets="@css/stylesheet.css" type="AnchorPane" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1">
    <children>
       <HBox prefHeight="100.0" prefWidth="200.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
          <children>
@@ -40,7 +40,7 @@
             </AnchorPane>
           <AnchorPane minWidth="-Infinity" prefHeight="709.0" prefWidth="368.0" styleClass="oneColor" HBox.hgrow="NEVER">
                <children>
-                  <ScrollPane fitToHeight="true" fitToWidth="true" hbarPolicy="NEVER" prefHeight="600.0" prefWidth="367.0" style="-fx-background-color: transparent;" AnchorPane.bottomAnchor="108.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+                  <ScrollPane fitToHeight="true" fitToWidth="true" hbarPolicy="NEVER" prefHeight="564.0" prefWidth="368.0" style="-fx-background-color: transparent;" AnchorPane.bottomAnchor="145.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
                     <content>
                       <AnchorPane prefHeight="598.0" prefWidth="352.0" style="-fx-background-color: transparent;">
                            <children>
@@ -57,7 +57,13 @@
                         </AnchorPane>
                     </content>
                   </ScrollPane>
-                  <Button fx:id="AddPreviousPurchaseToCartButton" disable="true" layoutX="89.0" layoutY="625.0" mnemonicParsing="false" onMouseClicked="#addOrderToCart" prefHeight="60.0" prefWidth="191.0" style="-fx-background-color: -fx-base4; -fx-text-fill: white;" styleClass="h4" text="Lägg till" AnchorPane.bottomAnchor="24.0" />
+                  <Button fx:id="AddPreviousPurchaseToCartButton" disable="true" layoutX="89.0" layoutY="628.0" mnemonicParsing="false" onMouseClicked="#addOrderToCart" prefHeight="60.0" prefWidth="191.0" style="-fx-background-color: -fx-base4; -fx-text-fill: white;" styleClass="h4" text="Lägg till" AnchorPane.bottomAnchor="21.0" />
+                  <AnchorPane layoutY="563.0" prefHeight="49.0" prefWidth="368.0" style="-fx-border-color: -fx-nicerGray; -fx-border-width: 0 0 1 0;" AnchorPane.bottomAnchor="97.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0">
+                     <children>
+                        <Label layoutX="14.0" layoutY="10.0" text="Totalt:" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="10.0" AnchorPane.topAnchor="0.0" />
+                        <Label fx:id="previousOrderTotal" layoutX="287.0" layoutY="10.0" styleClass="h4" text="0.0 kr" AnchorPane.bottomAnchor="0.0" AnchorPane.rightAnchor="10.0" AnchorPane.topAnchor="0.0" />
+                     </children>
+                  </AnchorPane>
                </children>
             </AnchorPane>
          </children>

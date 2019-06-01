@@ -7,29 +7,36 @@
 <?import javafx.scene.layout.HBox?>
 <?import javafx.scene.text.Font?>
 
-<fx:root fx:id="PreviousPurchaseAnchorPane" onMouseClicked="#showShoppingItems" prefHeight="100.0" prefWidth="528.0" styleClass="browseButton" stylesheets="@css/stylesheet.css" type="AnchorPane" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1">
+<fx:root fx:id="PreviousPurchaseAnchorPane" onMouseClicked="#showShoppingItems" prefHeight="101.0" prefWidth="520.0" styleClass="browseButton" stylesheets="@css/stylesheet.css" type="AnchorPane" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1">
    <children>
-      <Label fx:id="previousPurchaseDate" layoutX="40.0" layoutY="23.0" minWidth="-Infinity" prefHeight="79.0" prefWidth="272.0" text="2019-01-01" wrapText="true" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="236.0">
-         <font>
-            <Font size="30.0" />
-         </font>
-      </Label>
-      <HBox alignment="TOP_RIGHT" layoutX="277.0" layoutY="43.0" prefHeight="29.0" prefWidth="257.0" AnchorPane.bottomAnchor="25.0" AnchorPane.leftAnchor="277.0" AnchorPane.rightAnchor="10.0">
+      <HBox layoutX="40.0" layoutY="20.0" minHeight="-Infinity" prefHeight="80.0" prefWidth="508.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
          <children>
-            <Label alignment="CENTER_RIGHT" prefHeight="29.0" prefWidth="106.0" text="Total pris:" HBox.hgrow="ALWAYS">
-               <HBox.margin>
-                  <Insets right="5.0" />
-               </HBox.margin>
-            </Label>
-            <Label fx:id="previousPurchasePrice" alignment="CENTER_RIGHT" prefHeight="29.0" styleClass="h4" text="455">
+            <Label fx:id="previousPurchaseDate" minWidth="190.0" prefHeight="79.0" text="2019-01-01 123" wrapText="true" HBox.hgrow="ALWAYS">
                <font>
-                  <Font size="25.0" />
+                  <Font size="30.0" />
                </font>
-               <HBox.margin>
-                  <Insets right="5.0" />
-               </HBox.margin>
             </Label>
-            <Label minWidth="-Infinity" prefHeight="29.0" prefWidth="24.0" text="kr" HBox.hgrow="NEVER" />
+            <HBox alignment="CENTER_RIGHT" minWidth="0.0" prefHeight="29.0" prefWidth="203.0" HBox.hgrow="ALWAYS">
+               <children>
+                  <Label alignment="CENTER_RIGHT" minWidth="0.0" prefHeight="29.0" prefWidth="106.0" text="Total pris:" HBox.hgrow="ALWAYS">
+                     <HBox.margin>
+                        <Insets right="5.0" />
+                     </HBox.margin>
+                  </Label>
+                  <Label fx:id="previousPurchasePrice" alignment="CENTER_RIGHT" minWidth="-Infinity" prefHeight="29.0" styleClass="h4" text="455" HBox.hgrow="NEVER">
+                     <font>
+                        <Font size="25.0" />
+                     </font>
+                     <HBox.margin>
+                        <Insets right="5.0" />
+                     </HBox.margin>
+                  </Label>
+                  <Label minWidth="-Infinity" prefHeight="29.0" prefWidth="24.0" text="kr" HBox.hgrow="NEVER" />
+               </children>
+               <padding>
+                  <Insets left="10.0" />
+               </padding>
+            </HBox>
          </children>
       </HBox>
    </children>
