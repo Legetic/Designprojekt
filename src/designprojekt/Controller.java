@@ -98,6 +98,8 @@ public class Controller implements Initializable {
     private Label featureText;
 
     @FXML
+    private ScrollPane mainGridScrollPane;
+    @FXML
     private Button showMoreButton;
 
     private Button allProductsButton;
@@ -963,7 +965,7 @@ public class Controller implements Initializable {
         displayAmount = 30;
         updateMainGrid(imatBackendController.getProducts(ProductCategory.POD));
         sort(sortList.getSelectionModel().getSelectedItem().toString());
-
+        mainGridScrollPane.setVvalue(0);
     }
 
     @FXML
@@ -971,7 +973,7 @@ public class Controller implements Initializable {
         displayAmount = 30;
         updateMainGrid(imatBackendController.getProducts(ProductCategory.BREAD));
         sort(sortList.getSelectionModel().getSelectedItem().toString());
-
+        mainGridScrollPane.setVvalue(0);
     }
 
     @FXML
@@ -979,7 +981,7 @@ public class Controller implements Initializable {
         displayAmount = 30;
         updateMainGrid(imatBackendController.getProducts(ProductCategory.BERRY));
         sort(sortList.getSelectionModel().getSelectedItem().toString());
-
+        mainGridScrollPane.setVvalue(0);
     }
 
     @FXML
@@ -987,7 +989,7 @@ public class Controller implements Initializable {
         displayAmount = 30;
         updateMainGrid(imatBackendController.getProducts(ProductCategory.CITRUS_FRUIT));
         sort(sortList.getSelectionModel().getSelectedItem().toString());
-
+        mainGridScrollPane.setVvalue(0);
     }
 
     @FXML
@@ -995,7 +997,7 @@ public class Controller implements Initializable {
         displayAmount = 30;
         updateMainGrid(imatBackendController.getProducts(ProductCategory.HOT_DRINKS));
         sort(sortList.getSelectionModel().getSelectedItem().toString());
-
+        mainGridScrollPane.setVvalue(0);
     }
 
     @FXML
@@ -1003,7 +1005,7 @@ public class Controller implements Initializable {
         displayAmount = 30;
         updateMainGrid(imatBackendController.getProducts(ProductCategory.COLD_DRINKS));
         sort(sortList.getSelectionModel().getSelectedItem().toString());
-
+        mainGridScrollPane.setVvalue(0);
     }
 
     @FXML
@@ -1011,7 +1013,7 @@ public class Controller implements Initializable {
         displayAmount = 30;
         updateMainGrid(imatBackendController.getProducts(ProductCategory.EXOTIC_FRUIT));
         sort(sortList.getSelectionModel().getSelectedItem().toString());
-
+        mainGridScrollPane.setVvalue(0);
     }
 
     @FXML
@@ -1019,7 +1021,7 @@ public class Controller implements Initializable {
         displayAmount = 30;
         updateMainGrid(imatBackendController.getProducts(ProductCategory.FISH));
         sort(sortList.getSelectionModel().getSelectedItem().toString());
-
+        mainGridScrollPane.setVvalue(0);
     }
 
     @FXML
@@ -1027,7 +1029,7 @@ public class Controller implements Initializable {
         displayAmount = 30;
         updateMainGrid(imatBackendController.getProducts(ProductCategory.VEGETABLE_FRUIT));
         sort(sortList.getSelectionModel().getSelectedItem().toString());
-
+        mainGridScrollPane.setVvalue(0);
     }
 
     @FXML
@@ -1035,7 +1037,7 @@ public class Controller implements Initializable {
         displayAmount = 30;
         updateMainGrid(imatBackendController.getProducts(ProductCategory.CABBAGE));
         sort(sortList.getSelectionModel().getSelectedItem().toString());
-
+        mainGridScrollPane.setVvalue(0);
     }
 
     @FXML
@@ -1043,7 +1045,7 @@ public class Controller implements Initializable {
         displayAmount = 30;
         updateMainGrid(imatBackendController.getProducts(ProductCategory.MEAT));
         sort(sortList.getSelectionModel().getSelectedItem().toString());
-
+        mainGridScrollPane.setVvalue(0);
     }
 
     @FXML
@@ -1051,7 +1053,7 @@ public class Controller implements Initializable {
         displayAmount = 30;
         updateMainGrid(imatBackendController.getProducts(ProductCategory.DAIRIES));
         sort(sortList.getSelectionModel().getSelectedItem().toString());
-
+        mainGridScrollPane.setVvalue(0);
     }
 
     @FXML
@@ -1059,7 +1061,7 @@ public class Controller implements Initializable {
         displayAmount = 30;
         updateMainGrid(imatBackendController.getProducts(ProductCategory.MELONS));
         sort(sortList.getSelectionModel().getSelectedItem().toString());
-
+        mainGridScrollPane.setVvalue(0);
     }
 
     @FXML
@@ -1075,7 +1077,7 @@ public class Controller implements Initializable {
         displayAmount = 30;
         updateMainGrid(imatBackendController.getProducts(ProductCategory.NUTS_AND_SEEDS));
         sort(sortList.getSelectionModel().getSelectedItem().toString());
-
+        mainGridScrollPane.setVvalue(0);
     }
 
     @FXML
@@ -1083,7 +1085,7 @@ public class Controller implements Initializable {
         displayAmount = 30;
         updateMainGrid(imatBackendController.getProducts(ProductCategory.PASTA));
         sort(sortList.getSelectionModel().getSelectedItem().toString());
-
+        mainGridScrollPane.setVvalue(0);
     }
 
     @FXML
@@ -1091,7 +1093,7 @@ public class Controller implements Initializable {
         displayAmount = 30;
         updateMainGrid(imatBackendController.getProducts(ProductCategory.POTATO_RICE));
         sort(sortList.getSelectionModel().getSelectedItem().toString());
-
+        mainGridScrollPane.setVvalue(0);
     }
 
     @FXML
@@ -1099,7 +1101,7 @@ public class Controller implements Initializable {
         displayAmount = 30;
         updateMainGrid(imatBackendController.getProducts(ProductCategory.VEGETABLE_FRUIT));
         sort(sortList.getSelectionModel().getSelectedItem().toString());
-
+        mainGridScrollPane.setVvalue(0);
     }
 
     @FXML
@@ -1107,7 +1109,7 @@ public class Controller implements Initializable {
         displayAmount = 30;
         updateMainGrid(imatBackendController.getProducts(ProductCategory.FRUIT));
         sort(sortList.getSelectionModel().getSelectedItem().toString());
-
+        mainGridScrollPane.setVvalue(0);
     }
 
     @FXML
@@ -1115,7 +1117,7 @@ public class Controller implements Initializable {
         displayAmount = 30;
         updateMainGrid(imatBackendController.getProducts(ProductCategory.SWEET));
         sort(sortList.getSelectionModel().getSelectedItem().toString());
-
+        mainGridScrollPane.setVvalue(0);
     }
 
     @FXML
@@ -1123,14 +1125,14 @@ public class Controller implements Initializable {
         displayAmount = 30;
         updateMainGrid(imatBackendController.getProducts(ProductCategory.HERB));
         sort(sortList.getSelectionModel().getSelectedItem().toString());
-
+        mainGridScrollPane.setVvalue(0);
     }
     @FXML
     public void showAll() {
         displayAmount = 30;
         updateMainGrid(imatBackendController.getProducts());
         sort(sortList.getSelectionModel().getSelectedItem().toString());
-
+        mainGridScrollPane.setVvalue(0);
     }
 
 
